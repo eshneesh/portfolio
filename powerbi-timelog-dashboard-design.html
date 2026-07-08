@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Power BI дашборд прохождения заявок</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --line: #dbe3ef;
+      --paper: #ffffff;
+      --soft: #f7fafc;
+      --blue: #1d4ed8;
+      --teal: #0f766e;
+      --rose: #be123c;
+      --amber: #b45309;
+      --violet: #6d28d9;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #edf2f7;
+      color: var(--ink);
+    }
+
+    .page {
+      width: min(1280px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 22px 0 36px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 24px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .badge {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      padding: 7px 11px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(320px, .85fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .kpis {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: 0 14px 36px rgba(15, 23, 42, .07);
+      overflow: hidden;
+    }
+
+    .kpi {
+      padding: 14px;
+      min-height: 86px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .value {
+      margin-top: 8px;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 850;
+    }
+
+    .content {
+      padding: 16px;
+    }
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      padding: 14px 16px 11px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    h2 {
+      font-size: 15px;
+      line-height: 1.2;
+      font-weight: 850;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .75fr);
+      gap: 14px;
+    }
+
+    .funnel-row {
+      display: grid;
+      grid-template-columns: 138px minmax(0, 1fr) 46px;
+      gap: 10px;
+      align-items: center;
+      margin: 9px 0;
+    }
+
+    .stage-name {
+      color: #334155;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bar-track {
+      height: 18px;
+      border-radius: 6px;
+      background: #e2e8f0;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      border-radius: inherit;
+      background: var(--blue);
+    }
+
+    .num {
+      text-align: right;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .timeline {
+      padding: 4px 0 0;
+    }
+
+    .time-row {
+      display: grid;
+      grid-template-columns: 18px minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    .dotbox {
+      position: relative;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      margin-top: 5px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .dot.late {
+      background: var(--rose);
+    }
+
+    .dotbox::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 17px;
+      bottom: -17px;
+      width: 2px;
+      background: #e2e8f0;
+    }
+
+    .time-body {
+      padding-bottom: 14px;
+    }
+
+    .time-title {
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .time-meta {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .heat {
+      display: grid;
+      gap: 8px;
+    }
+
+    .heat-item {
+      padding: 10px;
+      border: 1px solid rgba(15, 23, 42, .08);
+      border-radius: 8px;
+      background: #dcfce7;
+    }
+
+    .heat-item.warn {
+      background: #fef3c7;
+    }
+
+    .heat-item.hot {
+      background: #fee2e2;
+    }
+
+    .heat-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .thin-track {
+      height: 6px;
+      margin-top: 8px;
+      border-radius: 99px;
+      background: rgba(15, 23, 42, .13);
+      overflow: hidden;
+    }
+
+    .thin {
+      height: 100%;
+      border-radius: inherit;
+      background: rgba(15, 23, 42, .55);
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .table th,
+    .table td {
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+    }
+
+    .table th {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: #fee2e2;
+      color: var(--rose);
+      font-weight: 800;
+    }
+
+    .section {
+      margin-top: 16px;
+    }
+
+    .measure-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      padding: 16px;
+    }
+
+    .measure {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfdff;
+    }
+
+    h3 {
+      font-size: 13px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .measure p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    pre {
+      margin: 0;
+      padding: 14px;
+      overflow: auto;
+      border-top: 1px solid var(--line);
+      background: #0f172a;
+      color: #e2e8f0;
+      font-size: 12px;
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    @media (max-width: 980px) {
+      .dashboard,
+      .main-grid,
+      .measure-list {
+        grid-template-columns: 1fr;
+      }
+
+      .kpis {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar {
+        display: block;
+      }
+
+      .badge {
+        display: inline-block;
+        margin-top: 10px;
+      }
+
+      .kpis {
+        grid-template-columns: 1fr;
+      }
+
+      .funnel-row {
+        grid-template-columns: 104px minmax(0, 1fr) 38px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div>
+        <h1>Дашборд прохождения заявки по этапам</h1>
+        <p class="subtitle">Компоновка для Power BI: общий контроль процесса сверху, диагностика узких мест в центре, детализация выбранной заявки справа.</p>
+      </div>
+      <div class="badge">Fact: StatusLog · Dim: StatusSteps</div>
+    </header>
+
+    <section class="dashboard" aria-label="Макет дашборда">
+      <div class="kpis">
+        <article class="card kpi">
+          <div class="label">Всего заявок</div>
+          <div class="value">1 284</div>
+        </article>
+        <article class="card kpi">
+          <div class="label">В работе</div>
+          <div class="value" style="color:var(--blue)">327</div>
+        </article>
+        <article class="card kpi">
+          <div class="label">Средний цикл</div>
+          <div class="value" style="color:var(--teal)">42.6 ч</div>
+        </article>
+        <article class="card kpi">
+          <div class="label">SLA нарушен</div>
+          <div class="value" style="color:var(--rose)">58</div>
+        </article>
+      </div>
+
+      <section class="main-grid">
+        <article class="card">
+          <div class="head">
+            <h2>Где сейчас заявки</h2>
+            <div class="note">текущий статус</div>
+          </div>
+          <div class="content">
+            <div class="funnel-row">
+              <div class="stage-name">Новая</div>
+              <div class="bar-track"><div class="bar" style="width:82%"></div></div>
+              <div class="num">126</div>
+            </div>
+            <div class="funnel-row">
+              <div class="stage-name">Проверка данных</div>
+              <div class="bar-track"><div class="bar" style="width:100%;background:#0f766e"></div></div>
+              <div class="num">154</div>
+            </div>
+            <div class="funnel-row">
+              <div class="stage-name">Согласование</div>
+              <div class="bar-track"><div class="bar" style="width:63%;background:#b45309"></div></div>
+              <div class="num">97</div>
+            </div>
+            <div class="funnel-row">
+              <div class="stage-name">Исполнение</div>
+              <div class="bar-track"><div class="bar" style="width:38%;background:#6d28d9"></div></div>
+              <div class="num">59</div>
+            </div>
+            <div class="funnel-row">
+              <div class="stage-name">Закрыта</div>
+              <div class="bar-track"><div class="bar" style="width:26%;background:#64748b"></div></div>
+              <div class="num">40</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="head">
+            <h2>Узкие места</h2>
+            <div class="note">среднее время</div>
+          </div>
+          <div class="content heat">
+            <div class="heat-item">
+              <div class="heat-top"><span>Новая</span><span>3.1 ч</span></div>
+              <div class="thin-track"><div class="thin" style="width:18%"></div></div>
+            </div>
+            <div class="heat-item warn">
+              <div class="heat-top"><span>Проверка данных</span><span>12.4 ч</span></div>
+              <div class="thin-track"><div class="thin" style="width:52%"></div></div>
+            </div>
+            <div class="heat-item hot">
+              <div class="heat-top"><span>Согласование</span><span>24.7 ч</span></div>
+              <div class="thin-track"><div class="thin" style="width:100%"></div></div>
+            </div>
+            <div class="heat-item warn">
+              <div class="heat-top"><span>Исполнение</span><span>15.8 ч</span></div>
+              <div class="thin-track"><div class="thin" style="width:64%"></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" style="grid-column:1 / -1;">
+          <div class="head">
+            <h2>Проблемные заявки</h2>
+            <div class="note">для drill-through</div>
+          </div>
+          <div class="content" style="padding-top:4px;">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Текущий этап</th>
+                  <th>Возраст этапа</th>
+                  <th>Цикл</th>
+                  <th>Риск</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>REQ-10492</td>
+                  <td>Согласование</td>
+                  <td>39.5 ч</td>
+                  <td>62.1 ч</td>
+                  <td><span class="pill">SLA</span></td>
+                </tr>
+                <tr>
+                  <td>REQ-10518</td>
+                  <td>Проверка данных</td>
+                  <td>21.2 ч</td>
+                  <td>28.4 ч</td>
+                  <td><span class="pill">SLA</span></td>
+                </tr>
+                <tr>
+                  <td>REQ-10577</td>
+                  <td>Исполнение</td>
+                  <td>31.0 ч</td>
+                  <td>57.8 ч</td>
+                  <td><span class="pill">SLA</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <aside class="card">
+        <div class="head">
+          <h2>Путь выбранной заявки</h2>
+          <div class="note">timeline</div>
+        </div>
+        <div class="content timeline">
+          <div class="time-row">
+            <div class="dotbox"><div class="dot"></div></div>
+            <div class="time-body">
+              <div class="time-title">Новая</div>
+              <div class="time-meta">01.07.2026 09:14 · 2.8 ч</div>
+            </div>
+          </div>
+          <div class="time-row">
+            <div class="dotbox"><div class="dot"></div></div>
+            <div class="time-body">
+              <div class="time-title">Проверка данных</div>
+              <div class="time-meta">01.07.2026 12:02 · 8.5 ч</div>
+            </div>
+          </div>
+          <div class="time-row">
+            <div class="dotbox"><div class="dot late"></div></div>
+            <div class="time-body">
+              <div class="time-title">Согласование</div>
+              <div class="time-meta">01.07.2026 20:31 · 34.2 ч · SLA</div>
+            </div>
+          </div>
+          <div class="time-row">
+            <div class="dotbox"><div class="dot"></div></div>
+            <div class="time-body">
+              <div class="time-title">Исполнение</div>
+              <div class="time-meta">03.07.2026 06:42 · в работе</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card section">
+      <div class="head">
+        <h2>Что поставить на страницу Power BI</h2>
+        <div class="note">структура листа</div>
+      </div>
+      <div class="measure-list">
+        <div class="measure">
+          <h3>Срезы сверху</h3>
+          <p>Дата изменения, тип заявки, подразделение, исполнитель, текущий статус. Срез статуса лучше брать из StatusSteps.</p>
+        </div>
+        <div class="measure">
+          <h3>KPI HTML</h3>
+          <p>Один HTML Content visual с мерой KPI Strip HTML: всего, в работе, средний цикл, нарушения SLA.</p>
+        </div>
+        <div class="measure">
+          <h3>Воронка статусов</h3>
+          <p>HTML visual Current Status Funnel HTML или обычная bar chart: StatusSteps[Status] + Current Status Requests.</p>
+        </div>
+        <div class="measure">
+          <h3>Timeline заявки</h3>
+          <p>HTML visual Selected Request Timeline HTML. Работает после выбора одной заявки в таблице или через drill-through.</p>
+        </div>
+        <div class="measure">
+          <h3>Узкие места</h3>
+          <p>Bottleneck Heatmap HTML или матрица: StatusSteps[Status], Avg Stage Hours, Median Stage Hours, SlaHours.</p>
+        </div>
+        <div class="measure">
+          <h3>Проблемные заявки</h3>
+          <p>Таблица с RequestID, текущим статусом, возрастом текущего этапа, циклом, признаком SLA.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="head">
+        <h2>Минимальные меры</h2>
+        <div class="note">полная версия в .txt</div>
+      </div>
+      <pre><code>Requests = DISTINCTCOUNT ( 'StatusLog'[RequestID] )
+
+Active Requests = [Requests] - [Completed Requests]
+
+Avg Stage Hours = AVERAGE ( 'StatusLog'[StageDurationHours] )
+
+Avg Cycle Hours =
+AVERAGEX (
+    VALUES ( 'StatusLog'[RequestID] ),
+    VAR StartAt = CALCULATE ( MIN ( 'StatusLog'[ChangedAt] ) )
+    VAR LastAt = CALCULATE ( MAX ( 'StatusLog'[ChangedAt] ) )
+    RETURN DIVIDE ( DATEDIFF ( StartAt, LastAt, MINUTE ), 60 )
+)
+
+Current Status Requests =
+SUMX (
+    VALUES ( 'StatusLog'[RequestID] ),
+    VAR CurrentRequest = 'StatusLog'[RequestID]
+    VAR LastRow =
+        TOPN (
+            1,
+            FILTER ( ALL ( 'StatusLog' ), 'StatusLog'[RequestID] = CurrentRequest ),
+            'StatusLog'[ChangedAt], DESC
+        )
+    RETURN IF ( MAXX ( LastRow, 'StatusLog'[Status] ) = SELECTEDVALUE ( 'StatusSteps'[Status] ), 1, 0 )
+)</code></pre>
+    </section>
+
+    <section class="card section">
+      <div class="head">
+        <h2>HTML-визуалы в DAX</h2>
+        <div class="note">готовые меры в файле</div>
+      </div>
+      <div class="measure-list">
+        <div class="measure">
+          <h3>KPI Strip HTML</h3>
+          <p>Горизонтальная строка карточек. Вставляется в HTML Content visual во всю ширину страницы.</p>
+        </div>
+        <div class="measure">
+          <h3>Current Status Funnel HTML</h3>
+          <p>Показывает распределение заявок по последнему статусу, а не количество событий по статусам.</p>
+        </div>
+        <div class="measure">
+          <h3>Selected Request Timeline HTML</h3>
+          <p>Рисует хронологию выбранной заявки, длительность каждого этапа и подсветку превышения SLA.</p>
+        </div>
+        <div class="measure">
+          <h3>Bottleneck Heatmap HTML</h3>
+          <p>Подсвечивает этапы с максимальным средним временем прохождения.</p>
+        </div>
+        <div class="measure">
+          <h3>Обычные visuals</h3>
+          <p>Линейный график Events по ChangedAt, таблица проблемных заявок, drill-through страница заявки.</p>
+        </div>
+        <div class="measure">
+          <h3>Важно</h3>
+          <p>HTML visual должен поддерживать inline CSS. JavaScript не нужен: весь HTML генерируется DAX-мерой.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

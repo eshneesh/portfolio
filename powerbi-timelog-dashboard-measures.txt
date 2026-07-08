@@ -1,0 +1,362 @@
+Power BI timelog dashboard: DAX template
+=========================================
+
+Replace table and column names:
+- 'StatusLog'[RequestID]  -> ID заявки
+- 'StatusLog'[Status]     -> статус/этап
+- 'StatusLog'[ChangedAt]  -> дата-время изменения статуса
+- 'StatusLog'[ChangedBy]  -> автор изменения, optional
+- 'StatusSteps'[Status]   -> справочник этапов
+- 'StatusSteps'[StepOrder] -> порядок этапов
+- 'StatusSteps'[SlaHours] -> норматив часов на этапе
+
+Recommended model
+-----------------
+1. Fact table: StatusLog
+   RequestID | Status | ChangedAt | ChangedBy
+
+2. Dimension table: StatusSteps
+   Status | StepOrder | SlaHours
+
+3. Relationship:
+   StatusSteps[Status] 1:* StatusLog[Status]
+
+4. If one request can have several status changes at the same second, add EventIndex
+   in Power Query and use it as the second sort key.
+
+
+Calculated columns in StatusLog
+-------------------------------
+
+NextChangedAt =
+VAR CurrentRequest = 'StatusLog'[RequestID]
+VAR CurrentTime = 'StatusLog'[ChangedAt]
+RETURN
+    CALCULATE (
+        MIN ( 'StatusLog'[ChangedAt] ),
+        FILTER (
+            ALL ( 'StatusLog' ),
+            'StatusLog'[RequestID] = CurrentRequest
+                && 'StatusLog'[ChangedAt] > CurrentTime
+        )
+    )
+
+
+StageDurationHours =
+VAR EndTime = COALESCE ( 'StatusLog'[NextChangedAt], NOW () )
+RETURN
+    DIVIDE (
+        DATEDIFF ( 'StatusLog'[ChangedAt], EndTime, MINUTE ),
+        60
+    )
+
+
+IsLastEvent =
+VAR CurrentRequest = 'StatusLog'[RequestID]
+VAR CurrentTime = 'StatusLog'[ChangedAt]
+RETURN
+    CurrentTime
+        = CALCULATE (
+            MAX ( 'StatusLog'[ChangedAt] ),
+            FILTER (
+                ALL ( 'StatusLog' ),
+                'StatusLog'[RequestID] = CurrentRequest
+            )
+        )
+
+
+Base measures
+-------------
+
+Requests =
+DISTINCTCOUNT ( 'StatusLog'[RequestID] )
+
+
+Events =
+COUNTROWS ( 'StatusLog' )
+
+
+Completed Requests =
+CALCULATE (
+    DISTINCTCOUNT ( 'StatusLog'[RequestID] ),
+    'StatusLog'[IsLastEvent] = TRUE (),
+    'StatusLog'[Status] IN { "Закрыта", "Выполнена", "Отменена" }
+)
+
+
+Active Requests =
+[Requests] - [Completed Requests]
+
+
+Avg Stage Hours =
+AVERAGE ( 'StatusLog'[StageDurationHours] )
+
+
+Median Stage Hours =
+MEDIAN ( 'StatusLog'[StageDurationHours] )
+
+
+Avg Cycle Hours =
+AVERAGEX (
+    VALUES ( 'StatusLog'[RequestID] ),
+    VAR StartAt = CALCULATE ( MIN ( 'StatusLog'[ChangedAt] ) )
+    VAR FinishAt =
+        CALCULATE (
+            MAX ( 'StatusLog'[ChangedAt] ),
+            'StatusLog'[Status] IN { "Закрыта", "Выполнена", "Отменена" }
+        )
+    VAR LastAt = CALCULATE ( MAX ( 'StatusLog'[ChangedAt] ) )
+    RETURN
+        DIVIDE ( DATEDIFF ( StartAt, COALESCE ( FinishAt, LastAt ), MINUTE ), 60 )
+)
+
+
+Median Cycle Hours =
+MEDIANX (
+    VALUES ( 'StatusLog'[RequestID] ),
+    VAR StartAt = CALCULATE ( MIN ( 'StatusLog'[ChangedAt] ) )
+    VAR FinishAt =
+        CALCULATE (
+            MAX ( 'StatusLog'[ChangedAt] ),
+            'StatusLog'[Status] IN { "Закрыта", "Выполнена", "Отменена" }
+        )
+    VAR LastAt = CALCULATE ( MAX ( 'StatusLog'[ChangedAt] ) )
+    RETURN
+        DIVIDE ( DATEDIFF ( StartAt, COALESCE ( FinishAt, LastAt ), MINUTE ), 60 )
+)
+
+
+Current Status Requests =
+VAR CurrentStage =
+    SELECTEDVALUE ( 'StatusSteps'[Status], SELECTEDVALUE ( 'StatusLog'[Status] ) )
+RETURN
+    SUMX (
+        VALUES ( 'StatusLog'[RequestID] ),
+        VAR CurrentRequest = 'StatusLog'[RequestID]
+        VAR LastRow =
+            TOPN (
+                1,
+                FILTER ( ALL ( 'StatusLog' ), 'StatusLog'[RequestID] = CurrentRequest ),
+                'StatusLog'[ChangedAt], DESC
+            )
+        VAR LastStatus = MAXX ( LastRow, 'StatusLog'[Status] )
+        RETURN
+            IF ( LastStatus = CurrentStage, 1, 0 )
+    )
+
+
+Avg Current Status Age Hours =
+AVERAGEX (
+    VALUES ( 'StatusLog'[RequestID] ),
+    VAR CurrentRequest = 'StatusLog'[RequestID]
+    VAR LastRow =
+        TOPN (
+            1,
+            FILTER ( ALL ( 'StatusLog' ), 'StatusLog'[RequestID] = CurrentRequest ),
+            'StatusLog'[ChangedAt], DESC
+        )
+    VAR LastTime = MAXX ( LastRow, 'StatusLog'[ChangedAt] )
+    RETURN
+        DIVIDE ( DATEDIFF ( LastTime, NOW (), MINUTE ), 60 )
+)
+
+
+SLA Breached Requests =
+SUMX (
+    VALUES ( 'StatusLog'[RequestID] ),
+    VAR BreachedEvents =
+        CALCULATE (
+            COUNTROWS ( 'StatusLog' ),
+            FILTER (
+                'StatusLog',
+                VAR SlaHours =
+                    LOOKUPVALUE (
+                        'StatusSteps'[SlaHours],
+                        'StatusSteps'[Status], 'StatusLog'[Status]
+                    )
+                RETURN
+                    NOT ISBLANK ( SlaHours )
+                        && 'StatusLog'[StageDurationHours] > SlaHours
+            )
+        )
+    RETURN
+        IF ( BreachedEvents > 0, 1, 0 )
+)
+
+
+Longest Stage Name =
+VAR StageRows =
+    ADDCOLUMNS (
+        VALUES ( 'StatusSteps'[Status] ),
+        "Hours", [Avg Stage Hours]
+    )
+VAR TopStage =
+    TOPN ( 1, StageRows, [Hours], DESC, 'StatusSteps'[Status], ASC )
+RETURN
+    MAXX ( TopStage, 'StatusSteps'[Status] )
+
+
+Longest Stage Hours =
+VAR StageRows =
+    ADDCOLUMNS (
+        VALUES ( 'StatusSteps'[Status] ),
+        "Hours", [Avg Stage Hours]
+    )
+VAR TopStage =
+    TOPN ( 1, StageRows, [Hours], DESC, 'StatusSteps'[Status], ASC )
+RETURN
+    MAXX ( TopStage, [Hours] )
+
+
+HTML visual: KPI strip
+----------------------
+
+KPI Strip HTML =
+"<div style='box-sizing:border-box;width:100%;font-family:Segoe UI,Arial,sans-serif;color:#0F172A;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;'>"
+    & "<div style='padding:14px;border:1px solid #E2E8F0;border-radius:8px;background:#FFFFFF;'><div style='font-size:11px;color:#64748B;'>Всего заявок</div><div style='font-size:24px;font-weight:800;'>"
+    & FORMAT ( [Requests], "#,0" )
+    & "</div></div>"
+    & "<div style='padding:14px;border:1px solid #E2E8F0;border-radius:8px;background:#FFFFFF;'><div style='font-size:11px;color:#64748B;'>В работе</div><div style='font-size:24px;font-weight:800;color:#1D4ED8;'>"
+    & FORMAT ( [Active Requests], "#,0" )
+    & "</div></div>"
+    & "<div style='padding:14px;border:1px solid #E2E8F0;border-radius:8px;background:#FFFFFF;'><div style='font-size:11px;color:#64748B;'>Средний цикл</div><div style='font-size:24px;font-weight:800;color:#0F766E;'>"
+    & FORMAT ( [Avg Cycle Hours], "0.0" )
+    & " ч</div></div>"
+    & "<div style='padding:14px;border:1px solid #E2E8F0;border-radius:8px;background:#FFFFFF;'><div style='font-size:11px;color:#64748B;'>С нарушением SLA</div><div style='font-size:24px;font-weight:800;color:#BE123C;'>"
+    & FORMAT ( [SLA Breached Requests], "#,0" )
+    & "</div></div>"
+    & "</div>"
+
+
+HTML visual: current status funnel
+----------------------------------
+
+Current Status Funnel HTML =
+VAR StageRows =
+    ADDCOLUMNS (
+        ALLSELECTED ( 'StatusSteps'[Status], 'StatusSteps'[StepOrder] ),
+        "Cnt", [Current Status Requests]
+    )
+VAR MaxCnt = MAXX ( StageRows, [Cnt] )
+VAR Items =
+    CONCATENATEX (
+        FILTER ( StageRows, [Cnt] > 0 ),
+        VAR Cnt = [Cnt]
+        VAR WidthPct = FORMAT ( MAX ( 8, DIVIDE ( Cnt, MaxCnt, 0 ) * 100 ), "0" )
+        RETURN
+            "<div style='display:grid;grid-template-columns:130px 1fr 48px;align-items:center;gap:10px;margin:8px 0;'>"
+                & "<div style='font-size:12px;color:#334155;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'>"
+                & 'StatusSteps'[Status]
+                & "</div>"
+                & "<div style='height:18px;border-radius:6px;background:#E2E8F0;overflow:hidden;'><div style='height:100%;width:"
+                & WidthPct
+                & "%;background:#1D4ED8;'></div></div>"
+                & "<div style='font-size:12px;text-align:right;font-weight:700;'>"
+                & FORMAT ( Cnt, "#,0" )
+                & "</div></div>",
+        "",
+        'StatusSteps'[StepOrder], ASC
+    )
+RETURN
+    "<div style='box-sizing:border-box;width:100%;min-height:260px;padding:16px;border:1px solid #E2E8F0;border-radius:8px;background:#FFFFFF;font-family:Segoe UI,Arial,sans-serif;color:#0F172A;'>"
+        & "<div style='display:flex;justify-content:space-between;gap:12px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #E2E8F0;'><div style='font-size:14px;font-weight:800;'>Где сейчас заявки</div><div style='font-size:11px;color:#64748B;'>текущий статус</div></div>"
+        & Items
+        & "</div>"
+
+
+HTML visual: selected request timeline
+--------------------------------------
+
+Selected Request Timeline HTML =
+VAR SelectedRequest = SELECTEDVALUE ( 'StatusLog'[RequestID] )
+VAR RowsForRequest =
+    FILTER (
+        ALLSELECTED ( 'StatusLog' ),
+        'StatusLog'[RequestID] = SelectedRequest
+    )
+VAR Items =
+    CONCATENATEX (
+        RowsForRequest,
+        VAR Hours = 'StatusLog'[StageDurationHours]
+        VAR SlaHours =
+            LOOKUPVALUE (
+                'StatusSteps'[SlaHours],
+                'StatusSteps'[Status], 'StatusLog'[Status]
+            )
+        VAR IsLate = NOT ISBLANK ( SlaHours ) && Hours > SlaHours
+        VAR DotColor = IF ( IsLate, "#BE123C", "#0F766E" )
+        RETURN
+            "<div style='display:grid;grid-template-columns:18px 1fr;gap:10px;margin:0;'>"
+                & "<div style='position:relative;'><div style='width:10px;height:10px;border-radius:50%;background:"
+                & DotColor
+                & ";margin-top:5px;'></div><div style='position:absolute;left:4px;top:17px;bottom:-17px;width:2px;background:#E2E8F0;'></div></div>"
+                & "<div style='padding:0 0 14px;'><div style='font-size:13px;font-weight:800;color:#0F172A;'>"
+                & 'StatusLog'[Status]
+                & "</div><div style='font-size:11px;color:#64748B;'>"
+                & FORMAT ( 'StatusLog'[ChangedAt], "dd.mm.yyyy hh:mm" )
+                & " · "
+                & FORMAT ( Hours, "0.0" )
+                & " ч</div></div></div>",
+        "",
+        'StatusLog'[ChangedAt], ASC
+    )
+RETURN
+    IF (
+        ISBLANK ( SelectedRequest ),
+        "<div style='box-sizing:border-box;width:100%;min-height:260px;padding:18px;border:1px solid #E2E8F0;border-radius:8px;background:#FFFFFF;font-family:Segoe UI,Arial,sans-serif;color:#64748B;display:flex;align-items:center;justify-content:center;text-align:center;'>Выберите одну заявку, чтобы увидеть путь по этапам</div>",
+        "<div style='box-sizing:border-box;width:100%;min-height:260px;padding:16px;border:1px solid #E2E8F0;border-radius:8px;background:#FFFFFF;font-family:Segoe UI,Arial,sans-serif;color:#0F172A;'>"
+            & "<div style='margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #E2E8F0;'><div style='font-size:14px;font-weight:800;'>Путь заявки "
+            & SelectedRequest
+            & "</div><div style='font-size:11px;color:#64748B;'>красная точка - этап дольше SLA</div></div>"
+            & Items
+            & "</div>"
+    )
+
+
+HTML visual: bottleneck heatmap
+-------------------------------
+
+Bottleneck Heatmap HTML =
+VAR StageRows =
+    ADDCOLUMNS (
+        ALLSELECTED ( 'StatusSteps'[Status], 'StatusSteps'[StepOrder] ),
+        "Hours", [Avg Stage Hours],
+        "MedianHours", [Median Stage Hours]
+    )
+VAR MaxHours = MAXX ( StageRows, [Hours] )
+VAR Items =
+    CONCATENATEX (
+        FILTER ( StageRows, NOT ISBLANK ( [Hours] ) ),
+        VAR Hours = [Hours]
+        VAR Intensity = DIVIDE ( Hours, MaxHours, 0 )
+        VAR Background =
+            SWITCH (
+                TRUE (),
+                Intensity >= 0.75, "#FEE2E2",
+                Intensity >= 0.50, "#FEF3C7",
+                Intensity >= 0.25, "#DBEAFE",
+                "#DCFCE7"
+            )
+        VAR BarWidth = FORMAT ( MAX ( 6, Intensity * 100 ), "0" )
+        RETURN
+            "<div style='padding:10px;border-radius:8px;background:"
+                & Background
+                & ";border:1px solid rgba(15,23,42,.08);margin:8px 0;'>"
+                & "<div style='display:flex;justify-content:space-between;gap:10px;font-size:12px;font-weight:800;'><span>"
+                & 'StatusSteps'[Status]
+                & "</span><span>"
+                & FORMAT ( Hours, "0.0" )
+                & " ч</span></div>"
+                & "<div style='height:6px;background:rgba(15,23,42,.12);border-radius:99px;margin-top:8px;overflow:hidden;'><div style='height:100%;width:"
+                & BarWidth
+                & "%;background:#0F172A;opacity:.55;'></div></div>"
+                & "</div>",
+        "",
+        'StatusSteps'[StepOrder], ASC
+    )
+RETURN
+    "<div style='box-sizing:border-box;width:100%;min-height:260px;padding:16px;border:1px solid #E2E8F0;border-radius:8px;background:#FFFFFF;font-family:Segoe UI,Arial,sans-serif;color:#0F172A;'>"
+        & "<div style='display:flex;justify-content:space-between;gap:12px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #E2E8F0;'><div style='font-size:14px;font-weight:800;'>Узкие места</div><div style='font-size:11px;color:#64748B;'>среднее время</div></div>"
+        & Items
+        & "</div>"
+

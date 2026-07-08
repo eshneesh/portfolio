@@ -1,0 +1,1494 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Отчет отдела: операционная эффективность, июнь 2026</title>
+  <meta name="description" content="Самостоятельный HTML-отчет с KPI, выводами, CSS-графиками, таблицей, методологией и рекомендациями.">
+  <style>
+    :root {
+      --bg: #03040a;
+      --bg-elevated: #080b18;
+      --panel: rgba(13, 17, 36, 0.88);
+      --panel-strong: rgba(17, 22, 46, 0.96);
+      --line: rgba(160, 181, 255, 0.2);
+      --line-bright: rgba(66, 232, 255, 0.42);
+      --text: #f7f9ff;
+      --muted: #b9c4e8;
+      --soft: #7f8bb8;
+      --cyan: #42e8ff;
+      --blue: #5296ff;
+      --violet: #9c64ff;
+      --pink: #ff58ca;
+      --green: #65ffc0;
+      --amber: #ffd166;
+      --danger: #ff6b8a;
+      --radius: 8px;
+      --max-width: 1180px;
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.48);
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        linear-gradient(90deg, rgba(66, 232, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 88, 202, 0.045) 1px, transparent 1px),
+        linear-gradient(180deg, #03040a 0%, #070817 46%, #03040a 100%);
+      background-size: 58px 58px, 58px 58px, auto;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        linear-gradient(115deg, transparent 0%, rgba(66, 232, 255, 0.08) 34%, transparent 58%),
+        linear-gradient(245deg, transparent 0%, rgba(255, 88, 202, 0.08) 38%, transparent 64%);
+      opacity: 0.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    code,
+    kbd {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    .read-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      width: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+      box-shadow: 0 0 18px rgba(66, 232, 255, 0.75);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 4px;
+      z-index: 40;
+      border-bottom: 1px solid var(--line);
+      background: rgba(3, 4, 10, 0.78);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar-inner {
+      width: min(var(--max-width), calc(100% - 32px));
+      min-height: 66px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 260px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(66, 232, 255, 0.52);
+      border-radius: var(--radius);
+      color: var(--cyan);
+      background: linear-gradient(135deg, rgba(66, 232, 255, 0.14), rgba(255, 88, 202, 0.09));
+      box-shadow: 0 0 26px rgba(66, 232, 255, 0.22);
+    }
+
+    .report-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(66, 232, 255, 0.45) transparent;
+    }
+
+    .report-nav a {
+      flex: 0 0 auto;
+      padding: 10px 12px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 0.94rem;
+      transition: color 180ms ease, border-color 180ms ease, background 180ms ease, transform 180ms ease;
+    }
+
+    .report-nav a:hover,
+    .report-nav a.is-active {
+      color: var(--text);
+      border-color: rgba(66, 232, 255, 0.36);
+      background: rgba(66, 232, 255, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 82vh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(160, 181, 255, 0.16);
+    }
+
+    #heroCanvas {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      opacity: 0.72;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(3, 4, 10, 0.22) 0%, rgba(3, 4, 10, 0.78) 88%, #03040a 100%),
+        linear-gradient(90deg, rgba(3, 4, 10, 0.92), rgba(3, 4, 10, 0.32) 62%, rgba(3, 4, 10, 0.84));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 82px 0 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--cyan);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--pink));
+      box-shadow: 0 0 16px rgba(255, 88, 202, 0.72);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin-bottom: 20px;
+      font-size: 4.35rem;
+      line-height: 0.98;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .accent-text {
+      color: transparent;
+      background: linear-gradient(98deg, #ffffff 0%, var(--cyan) 26%, var(--violet) 60%, var(--pink) 92%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      filter: drop-shadow(0 0 18px rgba(156, 100, 255, 0.3));
+    }
+
+    .hero-lead {
+      max-width: 780px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 1.22rem;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 980px;
+    }
+
+    .meta-card {
+      min-height: 112px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(10, 13, 30, 0.7);
+      backdrop-filter: blur(12px);
+    }
+
+    .meta-card span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--soft);
+      font-size: 0.84rem;
+    }
+
+    .meta-card strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.1rem;
+      line-height: 1.25;
+    }
+
+    .wrap {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 82px 0;
+      border-bottom: 1px solid rgba(160, 181, 255, 0.13);
+      scroll-margin-top: 88px;
+    }
+
+    .section:nth-of-type(even) {
+      background: rgba(255, 255, 255, 0.014);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.55fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-label {
+      margin-bottom: 12px;
+      color: var(--pink);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: 2.55rem;
+      line-height: 1.08;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .section-head p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 1.03rem;
+      line-height: 1.62;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      position: relative;
+      min-height: 100%;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(14, 18, 40, 0.92), rgba(7, 9, 21, 0.92));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+      opacity: 0.82;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+      line-height: 1.22;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      margin-bottom: 14px;
+      padding: 5px 9px;
+      border: 1px solid rgba(66, 232, 255, 0.34);
+      border-radius: var(--radius);
+      color: var(--cyan);
+      background: rgba(66, 232, 255, 0.08);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .tag.pink {
+      border-color: rgba(255, 88, 202, 0.36);
+      color: var(--pink);
+      background: rgba(255, 88, 202, 0.08);
+    }
+
+    .tag.violet {
+      border-color: rgba(156, 100, 255, 0.42);
+      color: #cdb9ff;
+      background: rgba(156, 100, 255, 0.1);
+    }
+
+    .summary-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 1.06rem;
+    }
+
+    .kpi-card {
+      min-height: 180px;
+    }
+
+    .kpi-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .kpi-label {
+      color: var(--soft);
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .kpi-status {
+      flex: 0 0 auto;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border: 1px solid rgba(101, 255, 192, 0.32);
+      border-radius: var(--radius);
+      color: var(--green);
+      background: rgba(101, 255, 192, 0.07);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .kpi-status.warning {
+      border-color: rgba(255, 209, 102, 0.36);
+      color: var(--amber);
+      background: rgba(255, 209, 102, 0.08);
+    }
+
+    .kpi-value {
+      margin-bottom: 14px;
+      font-size: 2.25rem;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .kpi-note {
+      margin-bottom: 18px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .track {
+      height: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(160, 181, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .track span {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+      box-shadow: 0 0 20px rgba(66, 232, 255, 0.3);
+      transform-origin: left;
+      animation: growTrack 900ms ease both;
+    }
+
+    @keyframes growTrack {
+      from {
+        transform: scaleX(0.12);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.7fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .chart-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(14, 18, 40, 0.92), rgba(7, 9, 21, 0.92));
+      box-shadow: var(--shadow);
+    }
+
+    .chart-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .chart-title h3 {
+      margin-bottom: 5px;
+      font-size: 1.25rem;
+    }
+
+    .chart-title p {
+      margin-bottom: 0;
+      color: var(--soft);
+      line-height: 1.45;
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 126px minmax(0, 1fr) 64px;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+    }
+
+    .bar-name {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .bar-track {
+      height: 14px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(160, 181, 255, 0.14);
+    }
+
+    .bar-fill {
+      width: var(--bar);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+      animation: growTrack 950ms ease both;
+    }
+
+    .bar-number {
+      text-align: right;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .ring-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .ring-item {
+      min-height: 190px;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      border: 1px solid rgba(160, 181, 255, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .ring {
+      --size: 108px;
+      width: var(--size);
+      height: var(--size);
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, #070817 0 55%, transparent 56%),
+        conic-gradient(var(--ring-color) var(--percent), rgba(255, 255, 255, 0.08) 0);
+      box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.42), 0 0 26px rgba(66, 232, 255, 0.12);
+    }
+
+    .ring strong {
+      font-size: 1.22rem;
+    }
+
+    .ring-caption {
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .table-tools {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .search-field {
+      width: min(420px, 100%);
+      min-height: 44px;
+      padding: 10px 13px;
+      border: 1px solid rgba(66, 232, 255, 0.28);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .search-field:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(66, 232, 255, 0.12);
+    }
+
+    .table-count {
+      color: var(--soft);
+      font-size: 0.93rem;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(7, 9, 21, 0.86);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 840px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 15px 16px;
+      border-bottom: 1px solid rgba(160, 181, 255, 0.13);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--text);
+      background: rgba(66, 232, 255, 0.065);
+      font-size: 0.86rem;
+      text-transform: uppercase;
+    }
+
+    td {
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    tbody tr {
+      transition: background 160ms ease;
+    }
+
+    tbody tr:hover {
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    tbody tr.is-hidden {
+      display: none;
+    }
+
+    .status {
+      display: inline-flex;
+      min-height: 28px;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .status.good {
+      color: var(--green);
+      background: rgba(101, 255, 192, 0.08);
+      border: 1px solid rgba(101, 255, 192, 0.25);
+    }
+
+    .status.watch {
+      color: var(--amber);
+      background: rgba(255, 209, 102, 0.08);
+      border: 1px solid rgba(255, 209, 102, 0.26);
+    }
+
+    .status.risk {
+      color: var(--danger);
+      background: rgba(255, 107, 138, 0.08);
+      border: 1px solid rgba(255, 107, 138, 0.26);
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(10, 13, 30, 0.74);
+      overflow: hidden;
+      transition: border-color 180ms ease, background 180ms ease;
+    }
+
+    details + details {
+      margin-top: 12px;
+    }
+
+    details[open] {
+      border-color: rgba(66, 232, 255, 0.42);
+      background: rgba(16, 20, 43, 0.9);
+    }
+
+    summary {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      color: var(--text);
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      width: 28px;
+      height: 28px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(66, 232, 255, 0.34);
+      border-radius: var(--radius);
+      color: var(--cyan);
+    }
+
+    details[open] summary::after {
+      content: "-";
+      color: var(--pink);
+      border-color: rgba(255, 88, 202, 0.42);
+    }
+
+    .details-body {
+      padding: 0 18px 18px;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    .details-body p:last-child,
+    .details-body ul:last-child {
+      margin-bottom: 0;
+    }
+
+    .recommendation {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .recommendation-number {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      color: #04050b;
+      background: linear-gradient(135deg, var(--cyan), var(--pink));
+      font-weight: 900;
+    }
+
+    .recommendation h3 {
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      padding: 44px 0 58px;
+      color: var(--soft);
+    }
+
+    .footer-inner {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      line-height: 1.5;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 520ms ease, transform 520ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 1040px) {
+      .topbar {
+        position: static;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .report-nav {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 3.25rem;
+      }
+
+      .section-head,
+      .chart-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta,
+      .grid.four,
+      .grid.three,
+      .grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar-inner,
+      .hero-content,
+      .wrap,
+      .footer-inner {
+        width: min(100% - 24px, var(--max-width));
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 62px 0 42px;
+      }
+
+      h1 {
+        font-size: 2.42rem;
+        line-height: 1.04;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .hero-lead {
+        font-size: 1.06rem;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .hero-meta,
+      .grid.four,
+      .grid.three,
+      .grid.two,
+      .ring-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .bar-number {
+        text-align: left;
+      }
+
+      .table-tools {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media print {
+      .topbar,
+      .read-progress,
+      #heroCanvas,
+      .search-field {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      .hero,
+      .section,
+      .card,
+      .chart-card,
+      .table-wrap,
+      details {
+        background: #fff;
+        color: #111;
+        box-shadow: none;
+        border-color: #ddd;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .section {
+        page-break-inside: avoid;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="read-progress" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="К началу отчета">
+        <span class="brand-mark">KPI</span>
+        <span>Отчет отдела</span>
+      </a>
+      <nav class="report-nav" aria-label="Навигация по отчету">
+        <a href="#summary">Выводы</a>
+        <a href="#kpi">KPI</a>
+        <a href="#charts">Графики</a>
+        <a href="#details">Детали</a>
+        <a href="#methodology">Методология</a>
+        <a href="#recommendations">Рекомендации</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="report-title">
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <p class="eyebrow">Операционная эффективность отдела</p>
+        <h1 id="report-title">Июнь 2026: рост выполнения плана при контролируемой нагрузке</h1>
+        <p class="hero-lead">Отчет показывает, где отдел уже движется быстрее плана, где есть риск перегруза, и какие действия помогут удержать качество без увеличения ручной работы.</p>
+
+        <div class="hero-meta" aria-label="Параметры отчета">
+          <div class="meta-card">
+            <span>Период</span>
+            <strong>1-30 июня 2026</strong>
+          </div>
+          <div class="meta-card">
+            <span>Аудитория</span>
+            <strong>Аналитики и руководитель</strong>
+          </div>
+          <div class="meta-card">
+            <span>Источник</span>
+            <strong>CRM, заявки, финансы</strong>
+          </div>
+          <div class="meta-card">
+            <span>Версия</span>
+            <strong>v1.0 от 7 июля 2026</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="summary" class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label">Краткие выводы</p>
+            <h2>Что важно знать до погружения в цифры</h2>
+          </div>
+          <p>Этот блок рассчитан на быстрое чтение руководителем. Аналитики могут использовать его как основу для устного комментария к отчету.</p>
+        </div>
+
+        <div class="grid three reveal">
+          <article class="card summary-card">
+            <span class="tag">Рост</span>
+            <strong>План по выручке выполнен на 94%</strong>
+            <p>Темп выше майского на 8 п.п. Основной вклад дали повторные клиенты и ускорение обработки входящих заявок.</p>
+          </article>
+          <article class="card summary-card">
+            <span class="tag pink">Фокус</span>
+            <strong>Нагрузка на команду выросла на 17%</strong>
+            <p>Качество пока удерживается, но время первого ответа приближается к верхней границе нормы.</p>
+          </article>
+          <article class="card summary-card">
+            <span class="tag violet">Риск</span>
+            <strong>Две категории требуют внимания</strong>
+            <p>Корпоративные заявки и повторные обращения имеют высокий объем, но проседают по скорости закрытия.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kpi" class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label">KPI-карточки</p>
+            <h2>Показатели, которые удобно менять прямо в HTML</h2>
+          </div>
+          <p>Все значения находятся в видимом HTML. Для обновления отчета достаточно заменить числа и, при необходимости, ширину прогресс-бара в стиле <code>--value</code>.</p>
+        </div>
+
+        <div class="grid four reveal">
+          <article class="card kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-label">Выполнение плана</span>
+              <span class="kpi-status">норма</span>
+            </div>
+            <div class="kpi-value">94%</div>
+            <p class="kpi-note">+8 п.п. к маю, цель месяца: 100%</p>
+            <div class="track" aria-label="Выполнение плана 94%">
+              <span style="--value: 94%"></span>
+            </div>
+          </article>
+
+          <article class="card kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-label">Выручка</span>
+              <span class="kpi-status">рост</span>
+            </div>
+            <div class="kpi-value">12,4 млн ₽</div>
+            <p class="kpi-note">+14% к прошлому месяцу</p>
+            <div class="track" aria-label="Выручка к плану 88%">
+              <span style="--value: 88%"></span>
+            </div>
+          </article>
+
+          <article class="card kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-label">SLA ответа</span>
+              <span class="kpi-status warning">наблюдать</span>
+            </div>
+            <div class="kpi-value">91%</div>
+            <p class="kpi-note">Цель: 95%, зона риска при росте входящего потока</p>
+            <div class="track" aria-label="SLA ответа 91%">
+              <span style="--value: 91%"></span>
+            </div>
+          </article>
+
+          <article class="card kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-label">Конверсия</span>
+              <span class="kpi-status">выше цели</span>
+            </div>
+            <div class="kpi-value">18,7%</div>
+            <p class="kpi-note">+2,1 п.п. к цели квартала</p>
+            <div class="track" aria-label="Конверсия 106% от цели">
+              <span style="--value: 100%"></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="charts" class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label">CSS-графики</p>
+            <h2>Визуальные блоки без библиотек и CDN</h2>
+          </div>
+          <p>Графики ниже сделаны только CSS. Это удобно для статических отчетов, которые нужно отправлять одним файлом.</p>
+        </div>
+
+        <div class="chart-grid reveal">
+          <article class="chart-card">
+            <div class="chart-title">
+              <div>
+                <h3>Вклад каналов в результат</h3>
+                <p>Доля выручки по основным источникам.</p>
+              </div>
+              <span class="tag">июнь</span>
+            </div>
+            <div class="bar-list">
+              <div class="bar-row">
+                <span class="bar-name">Повторные</span>
+                <div class="bar-track"><div class="bar-fill" style="--bar: 82%"></div></div>
+                <span class="bar-number">4,9 млн</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-name">Входящие</span>
+                <div class="bar-track"><div class="bar-fill" style="--bar: 69%"></div></div>
+                <span class="bar-number">3,7 млн</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-name">Партнеры</span>
+                <div class="bar-track"><div class="bar-fill" style="--bar: 51%"></div></div>
+                <span class="bar-number">2,2 млн</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-name">Корп.</span>
+                <div class="bar-track"><div class="bar-fill" style="--bar: 44%"></div></div>
+                <span class="bar-number">1,6 млн</span>
+              </div>
+            </div>
+          </article>
+
+          <aside class="chart-card">
+            <div class="chart-title">
+              <div>
+                <h3>Качество процесса</h3>
+                <p>Два индикатора, которые стоит отслеживать еженедельно.</p>
+              </div>
+            </div>
+            <div class="ring-grid">
+              <div class="ring-item">
+                <div class="ring" style="--percent: 91%; --ring-color: var(--cyan)">
+                  <strong>91%</strong>
+                </div>
+                <div class="ring-caption">Ответ в SLA</div>
+              </div>
+              <div class="ring-item">
+                <div class="ring" style="--percent: 84%; --ring-color: var(--pink)">
+                  <strong>84%</strong>
+                </div>
+                <div class="ring-caption">Закрытие без эскалации</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="details" class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label">Таблица деталей</p>
+            <h2>Где именно формируется результат</h2>
+          </div>
+          <p>Для начинающих аналитиков таблица показывает связь между каналом, объемом, качеством и следующим действием. Поиск работает на стороне браузера.</p>
+        </div>
+
+        <div class="table-tools reveal">
+          <input class="search-field" type="search" placeholder="Фильтр по каналу, статусу или действию" aria-label="Фильтр таблицы">
+          <span class="table-count" aria-live="polite">Показано 6 строк</span>
+        </div>
+
+        <div class="table-wrap reveal">
+          <table>
+            <thead>
+              <tr>
+                <th>Направление</th>
+                <th>Объем</th>
+                <th>Конверсия</th>
+                <th>SLA</th>
+                <th>Статус</th>
+                <th>Следующее действие</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Повторные клиенты</td>
+                <td>1 240 обращений</td>
+                <td>24,8%</td>
+                <td>94%</td>
+                <td><span class="status good">сильная зона</span></td>
+                <td>Зафиксировать сценарии допродажи и перенести в базу знаний.</td>
+              </tr>
+              <tr>
+                <td>Входящие заявки</td>
+                <td>2 860 заявок</td>
+                <td>16,2%</td>
+                <td>91%</td>
+                <td><span class="status watch">наблюдать</span></td>
+                <td>Проверить распределение нагрузки по часам и усилить утренний слот.</td>
+              </tr>
+              <tr>
+                <td>Партнерский канал</td>
+                <td>410 лидов</td>
+                <td>19,1%</td>
+                <td>96%</td>
+                <td><span class="status good">стабильно</span></td>
+                <td>Оставить текущий процесс, обновить прогноз на июль.</td>
+              </tr>
+              <tr>
+                <td>Корпоративные заявки</td>
+                <td>96 сделок</td>
+                <td>11,4%</td>
+                <td>82%</td>
+                <td><span class="status risk">риск</span></td>
+                <td>Уточнить причины долгих согласований и подготовить отдельный SLA.</td>
+              </tr>
+              <tr>
+                <td>Повторные обращения</td>
+                <td>740 тикетов</td>
+                <td>не применимо</td>
+                <td>88%</td>
+                <td><span class="status watch">наблюдать</span></td>
+                <td>Разделить обращения на продуктовые и операционные причины.</td>
+              </tr>
+              <tr>
+                <td>Ручные операции</td>
+                <td>310 задач</td>
+                <td>не применимо</td>
+                <td>79%</td>
+                <td><span class="status risk">узкое место</span></td>
+                <td>Выбрать 2 операции для автоматизации в следующем спринте.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="methodology" class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label">Методология</p>
+            <h2>Как считать и как читать отчет</h2>
+          </div>
+          <p>Методологию лучше держать в <code>details</code>: руководитель видит ее при необходимости, а аналитики не теряют контекст расчетов.</p>
+        </div>
+
+        <div class="reveal">
+          <details open>
+            <summary>Источники данных и период</summary>
+            <div class="details-body">
+              <p>Период отчета: 1-30 июня 2026. Данные взяты из CRM, системы обработки заявок и финансовой выгрузки. При расхождении дат приоритет имеет дата создания сделки в CRM.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Как считается выполнение плана</summary>
+            <div class="details-body">
+              <p>Выполнение плана = фактическая выручка за период / плановая выручка за период. В карточке KPI показатель округлен до целого процента, чтобы его было проще читать на слайде.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Как считается SLA</summary>
+            <div class="details-body">
+              <p>SLA показывает долю обращений, где первый ответ был дан в целевое время. Для входящих заявок целевое время: 15 минут, для корпоративных заявок: 4 часа, для повторных обращений: 2 часа.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Ограничения интерпретации</summary>
+            <div class="details-body">
+              <ul>
+                <li>Часть корпоративных сделок имеет длинный цикл и может смещать конверсию между месяцами.</li>
+                <li>Повторные обращения не сравниваются с конверсией, потому что это сервисный поток.</li>
+                <li>Ручные операции учитываются по факту закрытия задачи, а не по времени ее создания.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="recommendations" class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label">Финальные рекомендации</p>
+            <h2>Что сделать в следующем периоде</h2>
+          </div>
+          <p>Рекомендации сформулированы как действия. Так отчет не просто фиксирует прошлое, а помогает команде договориться о следующих шагах.</p>
+        </div>
+
+        <div class="grid three reveal">
+          <article class="card recommendation">
+            <div class="recommendation-number">1</div>
+            <div>
+              <h3>Снять риск по SLA</h3>
+              <p>Перераспределить дежурства на утренний слот и отдельно разобрать корпоративные заявки, где ответ выходит за целевой интервал.</p>
+            </div>
+          </article>
+          <article class="card recommendation">
+            <div class="recommendation-number">2</div>
+            <div>
+              <h3>Масштабировать повторные продажи</h3>
+              <p>Описать три лучших сценария допродажи и добавить их в базу знаний, чтобы новые аналитики быстрее повторяли успешный паттерн.</p>
+            </div>
+          </article>
+          <article class="card recommendation">
+            <div class="recommendation-number">3</div>
+            <div>
+              <h3>Автоматизировать ручные операции</h3>
+              <p>Выбрать две операции с максимальным временем обработки и оценить эффект автоматизации на SLA и загрузку команды.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Отчет подготовлен для начинающих аналитиков и руководителя отдела.</span>
+      <span>HTML, CSS и JS находятся внутри одного файла.</span>
+    </div>
+  </footer>
+
+  <script>
+    const progress = document.querySelector(".read-progress");
+    const navLinks = Array.from(document.querySelectorAll(".report-nav a"));
+    const sections = navLinks
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+    const searchField = document.querySelector(".search-field");
+    const tableRows = Array.from(document.querySelectorAll("tbody tr"));
+    const tableCount = document.querySelector(".table-count");
+
+    function updateProgress() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+      progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+    }
+
+    function updateTableFilter() {
+      const query = searchField.value.trim().toLowerCase();
+      let visibleRows = 0;
+
+      tableRows.forEach((row) => {
+        const isVisible = row.innerText.toLowerCase().includes(query);
+        row.classList.toggle("is-hidden", !isVisible);
+        if (isVisible) visibleRows += 1;
+      });
+
+      tableCount.textContent = `Показано ${visibleRows} из ${tableRows.length} строк`;
+    }
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    searchField.addEventListener("input", updateTableFilter);
+    updateProgress();
+    updateTableFilter();
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: "-34% 0px -58% 0px", threshold: 0.01 });
+
+    sections.forEach((section) => navObserver.observe(section));
+
+    const canvas = document.getElementById("heroCanvas");
+    const context = canvas.getContext("2d");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let dots = [];
+    let frameId = null;
+
+    function resizeCanvas() {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = Math.floor(rect.width * ratio);
+      canvas.height = Math.floor(rect.height * ratio);
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+      const dotCount = Math.max(34, Math.floor(rect.width / 30));
+      dots = Array.from({ length: dotCount }, (_, index) => ({
+        x: Math.random() * rect.width,
+        y: Math.random() * rect.height,
+        vx: (Math.random() - 0.5) * 0.36,
+        vy: (Math.random() - 0.5) * 0.36,
+        tone: index % 3
+      }));
+    }
+
+    function drawCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      context.clearRect(0, 0, rect.width, rect.height);
+
+      const background = context.createLinearGradient(0, 0, rect.width, rect.height);
+      background.addColorStop(0, "rgba(66, 232, 255, 0.16)");
+      background.addColorStop(0.5, "rgba(156, 100, 255, 0.13)");
+      background.addColorStop(1, "rgba(255, 88, 202, 0.16)");
+      context.fillStyle = background;
+      context.fillRect(0, 0, rect.width, rect.height);
+
+      dots.forEach((dot, index) => {
+        if (!reducedMotion) {
+          dot.x += dot.vx;
+          dot.y += dot.vy;
+        }
+
+        if (dot.x < -20) dot.x = rect.width + 20;
+        if (dot.x > rect.width + 20) dot.x = -20;
+        if (dot.y < -20) dot.y = rect.height + 20;
+        if (dot.y > rect.height + 20) dot.y = -20;
+
+        for (let nextIndex = index + 1; nextIndex < dots.length; nextIndex += 1) {
+          const next = dots[nextIndex];
+          const dx = dot.x - next.x;
+          const dy = dot.y - next.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 145) {
+            context.beginPath();
+            context.moveTo(dot.x, dot.y);
+            context.lineTo(next.x, next.y);
+            context.strokeStyle = `rgba(160, 181, 255, ${0.17 * (1 - distance / 145)})`;
+            context.lineWidth = 1;
+            context.stroke();
+          }
+        }
+
+        context.beginPath();
+        context.arc(dot.x, dot.y, 2.2, 0, Math.PI * 2);
+        context.fillStyle = dot.tone === 0 ? "#42e8ff" : dot.tone === 1 ? "#9c64ff" : "#ff58ca";
+        context.shadowColor = context.fillStyle;
+        context.shadowBlur = 16;
+        context.fill();
+        context.shadowBlur = 0;
+      });
+
+      context.font = "700 13px SFMono-Regular, Consolas, monospace";
+      context.fillStyle = "rgba(247, 249, 255, 0.17)";
+      ["SLA 91%", "PLAN 94%", "12.4M", "CONV 18.7%", "RISK: 2", "ACTIONS: 3"].forEach((label, index) => {
+        const x = rect.width * (0.12 + (index % 3) * 0.26) + Math.sin(Date.now() / 1300 + index) * 10;
+        const y = rect.height * (0.2 + Math.floor(index / 3) * 0.34);
+        context.fillText(label, x, y);
+      });
+
+      if (!reducedMotion) {
+        frameId = requestAnimationFrame(drawCanvas);
+      }
+    }
+
+    resizeCanvas();
+    drawCanvas();
+
+    window.addEventListener("resize", () => {
+      if (frameId) cancelAnimationFrame(frameId);
+      resizeCanvas();
+      drawCanvas();
+    });
+  </script>
+</body>
+</html>
