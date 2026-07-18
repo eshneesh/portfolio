@@ -476,16 +476,17 @@
 
     .hero-card-main {
       display: grid;
-      grid-template-rows: auto auto auto;
+      grid-template-rows: minmax(0, 1fr);
       gap: 10px;
-      align-content: start;
+      align-content: stretch;
+      min-height: 0;
       padding: 14px;
     }
 
     .portrait-panel {
       position: relative;
-      min-height: 240px;
-      height: clamp(240px, 24vw, 310px);
+      min-height: 0;
+      height: 100%;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 24px;
@@ -566,27 +567,9 @@
       font-size: .84rem;
     }
 
-    .hero-card .feature-card {
-      padding: 16px;
-      border-radius: 22px;
-      background: rgba(8, 7, 6, .46);
-    }
-
-    .hero-card .feature-card h2 {
-      font-size: 1.08rem;
-    }
-
-    .hero-card .feature-card p {
-      font-size: .8rem;
-    }
-
     .case-index {
       display: grid;
       gap: 8px;
-    }
-
-    .hero-card .case-index {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .case-row {
@@ -624,19 +607,6 @@
       font-weight: 800;
       text-transform: uppercase;
       white-space: nowrap;
-    }
-
-    .hero-card .case-row {
-      grid-template-columns: 34px minmax(0, 1fr);
-      gap: 10px;
-      align-items: start;
-      min-height: 82px;
-      padding: 12px;
-    }
-
-    .hero-card .case-row small {
-      grid-column: 2;
-      justify-self: start;
     }
 
     .section-band {
@@ -1133,14 +1103,22 @@
         padding: 14px 0;
       }
 
+      .brand {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
       .nav-links {
         grid-column: 1 / -1;
+        grid-row: 2;
         justify-content: start;
         overflow-x: auto;
         padding-bottom: 2px;
       }
 
       .nav-actions {
+        grid-column: 2;
+        grid-row: 1;
         justify-content: end;
       }
 
@@ -1168,10 +1146,6 @@
 
       .feature-card h2 {
         font-size: 1.5rem;
-      }
-
-      .hero-card .feature-card h2 {
-        font-size: 1.08rem;
       }
 
       .section {
@@ -1259,9 +1233,7 @@
       }
 
       .hero-card-head,
-      .hero-card-foot,
-      .hero-card .feature-card,
-      .hero-card .case-index {
+      .hero-card-foot {
         display: none;
       }
 
@@ -1453,32 +1425,6 @@
               <span>MGTS · Data</span>
             </figcaption>
           </figure>
-          <div class="feature-card">
-            <h2 data-ru="Помогаю бизнесу видеть процессы и принимать решения на основе данных." data-en="I help businesses see their processes and make data-informed decisions.">Помогаю бизнесу видеть процессы и принимать решения на основе данных.</h2>
-            <p data-ru="Работаю с основными стратегическими направлениями, администрирую отчетность и провожу аналитику от сбора требований до готовой визуализации." data-en="I work with core strategic directions, administer reporting, and own analytics from requirements gathering to final visualization.">Работаю с основными стратегическими направлениями, администрирую отчетность и провожу аналитику от сбора требований до готовой визуализации.</p>
-          </div>
-          <div class="case-index">
-            <div class="case-row">
-              <span>01</span>
-              <strong data-ru="Продуктовая аналитика" data-en="Product analytics">Продуктовая аналитика</strong>
-              <small>product</small>
-            </div>
-            <div class="case-row">
-              <span>02</span>
-              <strong data-ru="Аналитика контрагентов" data-en="Contractor analytics">Аналитика контрагентов</strong>
-              <small>partners</small>
-            </div>
-            <div class="case-row">
-              <span>03</span>
-              <strong data-ru="Финансовая аналитика" data-en="Financial analytics">Финансовая аналитика</strong>
-              <small>finance</small>
-            </div>
-            <div class="case-row">
-              <span>04</span>
-              <strong data-ru="Инфраструктурные проекты" data-en="Infrastructure projects">Инфраструктурные проекты</strong>
-              <small>infra</small>
-            </div>
-          </div>
         </div>
         <div class="hero-card-foot">
           <span>Power BI / HTML</span>
