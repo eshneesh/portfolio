@@ -20,29 +20,32 @@
   <!-- /Yandex.Metrika counter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Manrope:wght@400;500;600;700;800&family=Share+Tech+Mono&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: dark;
-      --black: #080706;
-      --ink: #0f0d0c;
-      --panel: #171310;
-      --panel-soft: #201a16;
-      --panel-raised: #28211c;
-      --line: rgba(248, 247, 240, .12);
-      --line-strong: rgba(248, 247, 240, .2);
+      --black: #000000;
+      --ink: #030303;
+      --panel: #050505;
+      --panel-soft: #090909;
+      --panel-raised: #101010;
+      --line: rgba(255, 255, 255, .16);
+      --line-strong: rgba(255, 255, 255, .28);
       --paper: #f6f4ec;
       --white: #ffffff;
       --muted: #aaa29a;
       --muted-soft: #7b736d;
       --blue: #2378ff;
       --blue-soft: #8fbdff;
+      --cyan: #44d7ff;
       --brown: #342821;
       --radius-lg: 28px;
       --radius-md: 20px;
       --radius-sm: 14px;
       --display: "Unbounded", "Arial Black", system-ui, sans-serif;
       --text: "Manrope", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --terminal: "DotGothic16", "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --mono: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
       --shadow: 0 30px 90px rgba(0, 0, 0, .38);
     }
 
@@ -59,8 +62,7 @@
       min-width: 320px;
       margin: 0;
       overflow-x: hidden;
-      background:
-        linear-gradient(180deg, #080706 0%, #120f0d 46%, #0b0908 100%);
+      background: #000;
       color: var(--paper);
       font-family: var(--text);
       font-size: 16px;
@@ -72,11 +74,24 @@
       position: fixed;
       inset: 0;
       z-index: -1;
-      opacity: .18;
+      opacity: .16;
       pointer-events: none;
       content: "";
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
       mix-blend-mode: soft-light;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      content: "";
+      background:
+        repeating-linear-gradient(180deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 4px),
+        radial-gradient(circle at 18% 12%, rgba(35, 120, 255, .08), transparent 28%),
+        radial-gradient(circle at 82% 72%, rgba(68, 215, 255, .055), transparent 30%);
+      opacity: .32;
     }
 
     a {
@@ -170,7 +185,7 @@
     }
 
     .brand-text strong {
-      font-family: var(--display);
+      font-family: var(--terminal);
       font-size: .82rem;
       font-weight: 800;
       line-height: 1;
@@ -195,6 +210,7 @@
       padding: 10px 13px;
       border-radius: 999px;
       color: var(--muted);
+      font-family: var(--mono);
       font-size: .78rem;
       font-weight: 800;
       text-transform: uppercase;
@@ -289,6 +305,7 @@
       align-items: center;
       flex-wrap: wrap;
       color: var(--muted);
+      font-family: var(--mono);
       font-size: .76rem;
       font-weight: 800;
       text-transform: uppercase;
@@ -321,9 +338,9 @@
 
     .hero-title {
       max-width: 980px;
-      font-family: var(--display);
-      font-size: 3.75rem;
-      font-weight: 800;
+      font-family: var(--terminal);
+      font-size: 4.4rem;
+      font-weight: 400;
       line-height: .95;
       letter-spacing: 0;
       text-transform: uppercase;
@@ -653,7 +670,7 @@
 
     .section-kicker {
       color: var(--blue-soft);
-      font-family: var(--display);
+      font-family: var(--mono);
       font-size: .72rem;
       font-weight: 800;
       line-height: 1.4;
@@ -670,12 +687,40 @@
     .section-title {
       max-width: 920px;
       margin-bottom: 34px;
-      font-family: var(--display);
-      font-size: 3.05rem;
-      font-weight: 700;
+      font-family: var(--terminal);
+      font-size: 3.45rem;
+      font-weight: 400;
       line-height: 1.06;
       text-transform: uppercase;
       overflow-wrap: break-word;
+    }
+
+    .projects-terminal-visual {
+      position: relative;
+      overflow: hidden;
+      margin: -6px 0 22px;
+      background: #000;
+      aspect-ratio: 16 / 7;
+    }
+
+    .projects-terminal-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(.1) contrast(1.15) brightness(.88);
+    }
+
+    .projects-terminal-visual::after {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, .56), transparent 32%, transparent 68%, rgba(0, 0, 0, .58)),
+        repeating-linear-gradient(180deg, rgba(255, 255, 255, .04) 0 1px, transparent 1px 4px);
+      mix-blend-mode: screen;
+      opacity: .55;
     }
 
     .project-grid {
@@ -689,7 +734,7 @@
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
-      background: rgba(255, 255, 255, .035);
+      background: rgba(255, 255, 255, .018);
       transition: transform .24s ease, border-color .24s ease, background .24s ease;
     }
 
@@ -741,8 +786,8 @@
     .cover-title {
       display: grid;
       gap: 8px;
-      font-family: var(--display);
-      font-weight: 800;
+      font-family: var(--terminal);
+      font-weight: 400;
       line-height: .94;
       text-transform: uppercase;
     }
@@ -764,7 +809,7 @@
     }
 
     .project-body h3 {
-      font-family: var(--display);
+      font-family: var(--mono);
       font-size: 1.05rem;
       font-weight: 700;
       line-height: 1.22;
@@ -785,6 +830,7 @@
       padding-top: 14px;
       border-top: 1px solid var(--line);
       color: var(--paper);
+      font-family: var(--mono);
       font-size: .72rem;
       font-weight: 800;
       text-transform: uppercase;
@@ -842,6 +888,51 @@
       font-size: 1.72rem;
       font-weight: 700;
       line-height: 1.12;
+      text-transform: uppercase;
+    }
+
+    .terminal-video-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 430px;
+      background: #000;
+      isolation: isolate;
+    }
+
+    .terminal-video-card video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .96;
+      filter: grayscale(1) contrast(5.6) brightness(.5) sepia(1) saturate(10) hue-rotate(170deg);
+      mix-blend-mode: screen;
+    }
+
+    .terminal-video-card::before {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      content: "";
+      background:
+        radial-gradient(circle at 50% 50%, transparent 0 36%, rgba(0, 0, 0, .54) 70%),
+        repeating-linear-gradient(180deg, rgba(255, 255, 255, .07) 0 1px, transparent 1px 5px);
+      mix-blend-mode: multiply;
+    }
+
+    .terminal-video-card::after {
+      position: absolute;
+      right: 18px;
+      bottom: 16px;
+      z-index: 2;
+      color: var(--blue-soft);
+      content: "";
+      font-family: var(--mono);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .06em;
       text-transform: uppercase;
     }
 
@@ -1468,6 +1559,10 @@
         <div>
           <h2 class="section-title reveal" data-ru="Портфолио" data-en="Portfolio">От регулярной отчетности к шести работающим BI-продуктам.</h2>
 
+          <figure class="projects-terminal-visual reveal" aria-label="Projects terminal visual">
+            <img src="assets/it-variant/projects-hands.jpg" width="1200" height="675" alt="Черный terminal-style визуал с пиксельными руками и папкой projects" loading="lazy" decoding="async">
+          </figure>
+
           <div class="project-grid">
             <article class="project-card reveal">
               <a class="project-link is-disabled" aria-disabled="true">
@@ -1652,9 +1747,8 @@
           <h2 class="section-title reveal" data-ru="Экспертиза" data-en="Expertise">Работаю на стыке бизнес-задач, данных и отчетных систем.</h2>
 
           <div class="capability-grid">
-            <div class="statement reveal">
-              <span class="statement-mark"></span>
-              <p data-ru="Кратко про стек и направления деятельности" data-en="I turn a business question into a metric model and a clear decision interface.">Перевожу бизнес-вопрос в модель показателей и понятный интерфейс для решений.</p>
+            <div class="terminal-video-card reveal" aria-label="Animated data planet">
+              <video src="assets/it-variant/planet-loop.mp4" autoplay loop muted playsinline preload="auto"></video>
             </div>
 
             <div class="capability-list reveal">
@@ -1765,8 +1859,7 @@
   </main>
 
   <footer class="shell site-footer">
-    <span>ASKA / BI & Data Analyst</span>
-    <span data-ru="Данные для бизнес-решений" data-en="Data for business decisions">Данные для бизнес-решений</span>
+    
   </footer>
 
   <script>
@@ -1821,6 +1914,11 @@
     }, { threshold: 0.12 });
 
     revealItems.forEach((item) => revealObserver.observe(item));
+
+    document.querySelectorAll("video[autoplay]").forEach((video) => {
+      video.muted = true;
+      video.play().catch(() => {});
+    });
   </script>
 </body>
 </html>
