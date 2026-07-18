@@ -1009,6 +1009,10 @@
       color: var(--blue-soft);
     }
 
+    .contact-link span:first-child {
+      flex: 0 0 auto;
+    }
+
     .contact-link.is-static {
       cursor: default;
     }
@@ -1019,10 +1023,14 @@
       color: var(--paper);
     }
 
-    .contact-index {
+    .contact-value {
       color: var(--blue-soft);
       font-family: var(--display);
       font-size: .7rem;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      text-align: right;
+      text-transform: none;
     }
 
     .contact-link svg {
@@ -1302,6 +1310,15 @@
         font-size: 2.24rem;
       }
 
+      .contact-link {
+        gap: 10px;
+        padding-inline: 14px;
+      }
+
+      .contact-value {
+        font-size: .62rem;
+      }
+
       .site-footer {
         align-items: start;
         flex-direction: column;
@@ -1335,7 +1352,7 @@
       <a class="brand" href="#top" aria-label="ASKA Portfolio">
         <span class="brand-mark">A</span>
         <span class="brand-text">
-          <strong>ASKA</strong>
+          <strong>Anastasia</strong>
           <span>Portfolio / 2026</span>
         </span>
       </a>
@@ -1344,7 +1361,7 @@
         <a class="nav-link" href="#work" data-ru="Отчеты" data-en="Reports">Отчеты</a>
         <a class="nav-link" href="#systems" data-ru="Экспертиза" data-en="Expertise">Экспертиза</a>
         <a class="nav-link" href="#about" data-ru="Опыт" data-en="Experience">Опыт</a>
-        <a class="nav-link" href="#contact" data-ru="Фокус" data-en="Direction">Фокус</a>
+        <a class="nav-link" href="#contact" data-ru="Контакты" data-en="Contacts">Контакты</a>
       </nav>
 
       <div class="nav-actions">
@@ -1361,21 +1378,20 @@
       <div class="hero-copy">
         <div class="kicker-row reveal">
           <span class="kicker">BI Analyst / Data Analyst</span>
-          <span>MGTS</span>
-          <span>Business × Data</span>
+          
         </div>
 
         <div class="hero-title-wrap">
           <h1 class="hero-title reveal">
             <span>BI / Data</span>
             <span class="muted-line">Analyst</span>
-            <span data-ru="для бизнеса." data-en="for business.">для бизнеса.</span>
+            
           </h1>
 
           <div class="hero-lead reveal">
             <strong data-ru="От бизнес-вопроса и источников до метрик и визуализации" data-en="From business question and sources to metrics and visualization">От бизнес-вопроса и источников до метрик и визуализации</strong>
             <div>
-              <p data-ru="Около года работаю в МГТС: веду продуктовую, финансовую и инфраструктурную аналитику, исследую работу контрагентов и превращаю регулярную отчетность в автоматизированные BI-продукты." data-en="I have spent about a year at MGTS, working across product, financial, infrastructure, and contractor analytics while turning recurring reporting into automated BI products.">Около года работаю в МГТС: веду продуктовую, финансовую и инфраструктурную аналитику, исследую работу контрагентов и превращаю регулярную отчетность в автоматизированные BI-продукты.</p>
+              <p data-ru="Меня зовут Рябикова Анастасия, и уже около года работаю в МГТС: веду продуктовую, финансовую и инфраструктурную аналитику, исследую работу контрагентов и превращаю регулярную отчетность в автоматизированные BI-продукты." data-en="I have spent about a year at MGTS, working across product, financial, infrastructure, and contractor analytics while turning recurring reporting into automated BI products.">Около года работаю в МГТС: веду продуктовую, финансовую и инфраструктурную аналитику, исследую работу контрагентов и превращаю регулярную отчетность в автоматизированные BI-продукты.</p>
               <div class="hero-actions">
                 <a class="button button-primary" href="#work">
                   <span data-ru="Смотреть отчеты" data-en="View reports">Смотреть отчеты</span>
@@ -1385,7 +1401,7 @@
                   </svg>
                 </a>
                 <a class="button" href="#about">
-                  <span data-ru="О моем опыте" data-en="About my experience">О моем опыте</span>
+                  <span data-ru="Опыт" data-en="About my experience">О моем опыте</span>
                   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M5 12h14" stroke="currentColor" stroke-width="2"/>
                     <path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="2"/>
@@ -1397,32 +1413,18 @@
         </div>
 
         <div class="hero-meta reveal" aria-label="Key experience metrics">
-          <div class="meta-item">
-            <span data-ru="Автоматизировано" data-en="Automated">Автоматизировано</span>
-            <strong data-ru="6 отчетов Power BI" data-en="6 Power BI reports">6 отчетов Power BI</strong>
-          </div>
-          <div class="meta-item">
-            <span data-ru="Опыт" data-en="Experience">Опыт</span>
-            <strong data-ru="Около года в МГТС" data-en="About 1 year at MGTS">Около года в МГТС</strong>
-          </div>
-          <div class="meta-item">
-            <span data-ru="Подход" data-en="Approach">Подход</span>
-            <strong data-ru="Полный цикл аналитики" data-en="End-to-end analytics">Полный цикл аналитики</strong>
-          </div>
+          
         </div>
       </div>
 
       <aside class="hero-card reveal" aria-label="Analytics profile">
-        <div class="hero-card-head">
-          <span>ASKA / BI PROFILE</span>
-          <span class="status-dot" data-ru="Стажер → аналитик" data-en="Intern → analyst">Стажер → аналитик</span>
-        </div>
+        
         <div class="hero-card-main">
           <figure class="portrait-panel">
             <img src="assets/portrait-editorial-dark.jpg" width="1200" height="900" alt="Портрет Анастасии, BI и data analyst" loading="eager" decoding="async" fetchpriority="high">
             <figcaption class="portrait-caption">
               <strong data-ru="Anastasia / BI Analyst" data-en="Anastasia / BI Analyst">Anastasia / BI Analyst</strong>
-              <span>MGTS · Data</span>
+              
             </figcaption>
           </figure>
         </div>
@@ -1441,7 +1443,7 @@
         </aside>
 
         <div>
-          <h2 class="section-title reveal" data-ru="От регулярной отчетности к шести работающим BI-продуктам." data-en="From recurring reporting to six working BI products.">От регулярной отчетности к шести работающим BI-продуктам.</h2>
+          <h2 class="section-title reveal" data-ru="Портфолио" data-en="Portfolio">От регулярной отчетности к шести работающим BI-продуктам.</h2>
 
           <div class="project-grid">
             <article class="project-card reveal">
@@ -1624,7 +1626,7 @@
         </aside>
 
         <div>
-          <h2 class="section-title reveal" data-ru="Работаю на стыке бизнес-задач, данных и отчетных систем." data-en="I work at the intersection of business needs, data, and reporting systems.">Работаю на стыке бизнес-задач, данных и отчетных систем.</h2>
+          <h2 class="section-title reveal" data-ru="Экспертиза" data-en="Expertise">Работаю на стыке бизнес-задач, данных и отчетных систем.</h2>
 
           <div class="capability-grid">
             <div class="statement reveal">
@@ -1682,7 +1684,7 @@
         </aside>
 
         <div>
-          <h2 class="section-title reveal" data-ru="От стажера к аналитику, которому доверяют полный цикл." data-en="From intern to an analyst trusted with the full cycle.">От стажера к аналитику, которому доверяют полный цикл.</h2>
+          <h2 class="section-title reveal" data-ru="Опыт" data-en="Experience">От стажера к аналитику, которому доверяют полный цикл.</h2>
 
           <div class="about-grid">
             <div class="about-copy reveal">
@@ -1692,7 +1694,7 @@
             </div>
 
             <aside class="profile-card reveal">
-              <h3 data-ru="Мой рабочий контур." data-en="My professional scope.">Мой рабочий контур.</h3>
+              <h3 data-ru="Мой рабочий контур:" data-en="My professional scope:">Мой рабочий контур.</h3>
               <div class="profile-list">
                 <div>
                   <span data-ru="Компания" data-en="Company">Компания</span>
@@ -1718,22 +1720,22 @@
     </section>
 
     <section class="shell contact-section" id="contact">
-      <h2 class="contact-title reveal" data-ru="Развиваюсь там, где <span>бизнес встречается с IT.</span>" data-en="Growing where <span>business meets IT.</span>">Развиваюсь там, где <span>бизнес встречается с IT.</span></h2>
+      <h2 class="contact-title reveal" data-ru="Давайте общаться и <span>развиваться вместе!</span>" data-en="Growing where <span>business meets IT.</span>">Развиваюсь там, где <span>бизнес встречается с IT.</span></h2>
       <div class="contact-copy reveal">
         <p data-ru="Хочу углублять компетенции в работе с данными и аналитике, сохраняя сильную связь с бизнес-контекстом и реальными решениями." data-en="I want to deepen my data and analytics expertise while maintaining a strong connection to business context and real decisions.">Хочу углублять компетенции в работе с данными и аналитике, сохраняя сильную связь с бизнес-контекстом и реальными решениями.</p>
         <div class="contact-links">
-          <div class="contact-link is-static">
-            <span>Product analytics</span>
-            <span class="contact-index">01</span>
-          </div>
-          <div class="contact-link is-static">
-            <span>Power BI &amp; data</span>
-            <span class="contact-index">02</span>
-          </div>
-          <div class="contact-link is-static">
-            <span>Business × IT</span>
-            <span class="contact-index">03</span>
-          </div>
+          <a class="contact-link" href="https://t.me/eshneesh" target="_blank" rel="noopener noreferrer" aria-label="Telegram: @eshneesh">
+            <span>Telegram</span>
+            <span class="contact-value">@eshneesh</span>
+          </a>
+          <a class="contact-link" href="mailto:msfryabikova@gmail.com" aria-label="Email: msfryabikova@gmail.com">
+            <span>Email</span>
+            <span class="contact-value">msfryabikova@gmail.com</span>
+          </a>
+          <a class="contact-link" href="https://github.com/eshneesh" target="_blank" rel="noopener noreferrer" aria-label="GitHub: eshneesh">
+            <span>GitHub</span>
+            <span class="contact-value">github.com/eshneesh</span>
+          </a>
         </div>
       </div>
     </section>
