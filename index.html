@@ -693,6 +693,10 @@
       color: inherit;
     }
 
+    .project-link.is-disabled {
+      cursor: default;
+    }
+
     .project-cover {
       display: grid;
       min-height: 260px;
@@ -783,6 +787,12 @@
 
     .project-card:hover .project-foot svg {
       transform: translate(3px, -3px);
+    }
+
+    .project-link.is-disabled .project-foot svg,
+    .project-card:hover .project-link.is-disabled .project-foot svg {
+      opacity: .45;
+      transform: none;
     }
 
     .capability-grid {
@@ -1391,7 +1401,7 @@
           <div class="hero-lead reveal">
             <strong data-ru="От бизнес-вопроса и источников до метрик и визуализации" data-en="From business question and sources to metrics and visualization">От бизнес-вопроса и источников до метрик и визуализации</strong>
             <div>
-              <p data-ru="Меня зовут Рябикова Анастасия, и уже около года работаю в МГТС: веду продуктовую, финансовую и инфраструктурную аналитику, исследую работу контрагентов и превращаю регулярную отчетность в автоматизированные BI-продукты." data-en="I have spent about a year at MGTS, working across product, financial, infrastructure, and contractor analytics while turning recurring reporting into automated BI products.">Около года работаю в МГТС: веду продуктовую, финансовую и инфраструктурную аналитику, исследую работу контрагентов и превращаю регулярную отчетность в автоматизированные BI-продукты.</p>
+              <p data-ru="Меня зовут Рябикова Анастасия, и уже около года я веду продуктовую, финансовую и инфраструктурную аналитику, исследую работу контрагентов и превращаю регулярную отчетность в автоматизированные BI-продукты." data-en="I have spent about a year at MGTS, working across product, financial, infrastructure, and contractor analytics while turning recurring reporting into automated BI products.">Около года работаю в МГТС: веду продуктовую, финансовую и инфраструктурную аналитику, исследую работу контрагентов и превращаю регулярную отчетность в автоматизированные BI-продукты.</p>
               <div class="hero-actions">
                 <a class="button button-primary" href="#work">
                   <span data-ru="Смотреть отчеты" data-en="View reports">Смотреть отчеты</span>
@@ -1421,7 +1431,7 @@
         
         <div class="hero-card-main">
           <figure class="portrait-panel">
-            <img src="assets/portrait-editorial-dark.jpg" width="1200" height="900" alt="Портрет Анастасии, BI и data analyst" loading="eager" decoding="async" fetchpriority="high">
+            <img src="assets/portrait-hero-gray-studio.jpg" width="1200" height="900" alt="Портрет Анастасии, BI и data analyst" loading="eager" decoding="async" fetchpriority="high">
             <figcaption class="portrait-caption">
               <strong data-ru="Anastasia / BI Analyst" data-en="Anastasia / BI Analyst">Anastasia / BI Analyst</strong>
               
@@ -1447,7 +1457,7 @@
 
           <div class="project-grid">
             <article class="project-card reveal">
-              <a class="project-link" href="finance-report.html">
+              <a class="project-link is-disabled" aria-disabled="true">
                 <div class="project-cover">
                   <div class="cover-inner">
                     <div class="cover-top">
@@ -1464,7 +1474,7 @@
                   <h3 data-ru="Отчет по доходам" data-en="Revenue report">Отчет по доходам</h3>
                   <p data-ru="Ежемесячная аналитика финансовых показателей МГТС: динамика, метрики и детализация по услугам и направлениям." data-en="Monthly analytics of MGTS financial performance: trends, metrics, and breakdowns by service and business direction.">Ежемесячная аналитика финансовых показателей МГТС: динамика, метрики и детализация по услугам и направлениям.</p>
                   <div class="project-foot">
-                    <span data-ru="Открыть прототип" data-en="Open prototype">Открыть прототип</span>
+                    <span data-ru="Кейс скоро" data-en="Case soon">Кейс скоро</span>
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M7 17 17 7" stroke="currentColor" stroke-width="2"/>
                       <path d="M8 7h9v9" stroke="currentColor" stroke-width="2"/>
@@ -1475,7 +1485,7 @@
             </article>
 
             <article class="project-card reveal">
-              <a class="project-link" href="sla-stages-dashboard.html">
+              <a class="project-link is-disabled" aria-disabled="true">
                 <div class="project-cover">
                   <div class="cover-inner">
                     <div class="cover-top">
@@ -1492,7 +1502,7 @@
                   <h3 data-ru="Заявки в личном кабинете" data-en="Personal account requests">Заявки в личном кабинете</h3>
                   <p data-ru="Контроль объема заявок, этапов прохождения, SLA, TTR, просрочек и качества операционного процесса." data-en="Monitoring request volumes, workflow stages, SLA, TTR, delays, and operational process quality.">Контроль объема заявок, этапов прохождения, SLA, TTR, просрочек и качества операционного процесса.</p>
                   <div class="project-foot">
-                    <span data-ru="Открыть прототип" data-en="Open prototype">Открыть прототип</span>
+                    <span data-ru="Кейс скоро" data-en="Case soon">Кейс скоро</span>
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M7 17 17 7" stroke="currentColor" stroke-width="2"/>
                       <path d="M8 7h9v9" stroke="currentColor" stroke-width="2"/>
@@ -1503,7 +1513,7 @@
             </article>
 
             <article class="project-card reveal">
-              <a class="project-link" href="corporate-management-report.html">
+              <a class="project-link is-disabled" aria-disabled="true">
                 <div class="project-cover">
                   <div class="cover-inner">
                     <div class="cover-top">
@@ -1520,7 +1530,7 @@
                   <h3 data-ru="Операционная деятельность" data-en="Company operations">Операционная деятельность</h3>
                   <p data-ru="Единая картина ключевых процессов компании: динамика, эффективность, отклонения и зоны управленческого внимания." data-en="A unified view of key company processes: trends, efficiency, variance, and management focus areas.">Единая картина ключевых процессов компании: динамика, эффективность, отклонения и зоны управленческого внимания.</p>
                   <div class="project-foot">
-                    <span data-ru="Открыть прототип" data-en="Open prototype">Открыть прототип</span>
+                    <span data-ru="Кейс скоро" data-en="Case soon">Кейс скоро</span>
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M7 17 17 7" stroke="currentColor" stroke-width="2"/>
                       <path d="M8 7h9v9" stroke="currentColor" stroke-width="2"/>
@@ -1531,7 +1541,7 @@
             </article>
 
             <article class="project-card reveal">
-              <a class="project-link" href="review2026.html">
+              <a class="project-link is-disabled" aria-disabled="true">
                 <div class="project-cover">
                   <div class="cover-inner">
                     <div class="cover-top">
@@ -1548,7 +1558,7 @@
                   <h3 data-ru="Тендерная аналитика" data-en="Tender analytics">Тендерная аналитика</h3>
                   <p data-ru="Контроль тендерного процесса через статусы, SLA и метрики: от общей динамики до детализации по ответственным." data-en="Tender process monitoring through statuses, SLA, and metrics, from high-level trends to owner-level detail.">Контроль тендерного процесса через статусы, SLA и метрики: от общей динамики до детализации по ответственным.</p>
                   <div class="project-foot">
-                    <span data-ru="Открыть прототип" data-en="Open prototype">Открыть прототип</span>
+                    <span data-ru="Кейс скоро" data-en="Case soon">Кейс скоро</span>
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M7 17 17 7" stroke="currentColor" stroke-width="2"/>
                       <path d="M8 7h9v9" stroke="currentColor" stroke-width="2"/>
@@ -1559,7 +1569,7 @@
             </article>
 
             <article class="project-card reveal">
-              <a class="project-link" href="lks-works-dashboard.html">
+              <a class="project-link is-disabled" aria-disabled="true">
                 <div class="project-cover">
                   <div class="cover-inner">
                     <div class="cover-top">
@@ -1576,7 +1586,7 @@
                   <h3 data-ru="Инфраструктурные проекты" data-en="Infrastructure projects">Инфраструктурные проекты</h3>
                   <p data-ru="Аналитика портфеля проектов, этапов реализации, сроков, контрагентов и рисков инфраструктурных работ." data-en="Analytics for project portfolios, delivery stages, timelines, contractors, and infrastructure delivery risks.">Аналитика портфеля проектов, этапов реализации, сроков, контрагентов и рисков инфраструктурных работ.</p>
                   <div class="project-foot">
-                    <span data-ru="Открыть прототип" data-en="Open prototype">Открыть прототип</span>
+                    <span data-ru="Кейс скоро" data-en="Case soon">Кейс скоро</span>
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M7 17 17 7" stroke="currentColor" stroke-width="2"/>
                       <path d="M8 7h9v9" stroke="currentColor" stroke-width="2"/>
@@ -1587,7 +1597,7 @@
             </article>
 
             <article class="project-card reveal">
-              <a class="project-link" href="department-analytics-report.html">
+              <a class="project-link is-disabled" aria-disabled="true">
                 <div class="project-cover">
                   <div class="cover-inner">
                     <div class="cover-top">
@@ -1604,7 +1614,7 @@
                   <h3 data-ru="Задачи отделов и операционка" data-en="Department tasks and operations">Задачи отделов и операционка</h3>
                   <p data-ru="Мониторинг задач, загрузки, сроков и результатов отделов, дополненный аналитикой других регулярных процессов." data-en="Monitoring department tasks, workload, timelines, and outcomes, with analytics for additional recurring operations.">Мониторинг задач, загрузки, сроков и результатов отделов, дополненный аналитикой других регулярных процессов.</p>
                   <div class="project-foot">
-                    <span data-ru="Открыть прототип" data-en="Open prototype">Открыть прототип</span>
+                    <span data-ru="Кейс скоро" data-en="Case soon">Кейс скоро</span>
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M7 17 17 7" stroke="currentColor" stroke-width="2"/>
                       <path d="M8 7h9v9" stroke="currentColor" stroke-width="2"/>
@@ -1630,8 +1640,8 @@
 
           <div class="capability-grid">
             <div class="statement reveal">
-              <span class="statement-mark">E2E</span>
-              <p data-ru="Перевожу бизнес-вопрос в модель показателей и понятный интерфейс для решений." data-en="I turn a business question into a metric model and a clear decision interface.">Перевожу бизнес-вопрос в модель показателей и понятный интерфейс для решений.</p>
+              <span class="statement-mark"></span>
+              <p data-ru="Кратко про стек и направления деятельности" data-en="I turn a business question into a metric model and a clear decision interface.">Перевожу бизнес-вопрос в модель показателей и понятный интерфейс для решений.</p>
             </div>
 
             <div class="capability-list reveal">
