@@ -282,10 +282,10 @@
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(380px, .92fr);
-      gap: 28px;
-      align-items: stretch;
-      min-height: 600px;
+      grid-template-columns: minmax(0, .96fr) minmax(420px, 1.04fr);
+      gap: 42px;
+      align-items: center;
+      min-height: 640px;
       padding: 20px 0;
       border-bottom: 1px solid var(--line);
     }
@@ -295,7 +295,7 @@
       flex-direction: column;
       justify-content: center;
       min-width: 0;
-      gap: 18px;
+      gap: 22px;
       padding: 8px 0;
     }
 
@@ -333,13 +333,13 @@
 
     .hero-title-wrap {
       display: grid;
-      gap: 16px;
+      gap: 22px;
     }
 
     .hero-title {
       max-width: 980px;
       font-family: var(--terminal);
-      font-size: 4.4rem;
+      font-size: 4.85rem;
       font-weight: 400;
       line-height: .95;
       letter-spacing: 0;
@@ -382,7 +382,204 @@
       gap: 12px;
       align-items: center;
       flex-wrap: wrap;
-      margin-top: 16px;
+      margin-top: 2px;
+    }
+
+    .profile-glass-card {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 360px);
+      min-height: 400px;
+      margin-top: 2px;
+      padding: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 12px;
+      background: #1b1b1f;
+      box-shadow:
+        0 10px 10px rgba(42, 42, 46, .62),
+        0 26px 50px rgba(0, 0, 0, .36);
+      color: var(--white);
+      transition: transform .5s ease, box-shadow .5s ease, border-color .5s ease;
+    }
+
+    .profile-glass-card:hover {
+      border-color: rgba(35, 120, 255, .34);
+      box-shadow:
+        0 10px 10px rgba(0, 0, 0, .74),
+        0 34px 70px rgba(0, 0, 0, .42);
+      transform: translateY(-7px);
+    }
+
+    .profile-glass-card > * {
+      transform: none;
+    }
+
+    .profile-glass-card:hover > * {
+      transform: none;
+    }
+
+    .profile-glass-card.is-hero-profile {
+      display: flex;
+      width: 100%;
+      max-width: 640px;
+      min-height: 560px;
+      margin: 0;
+      flex-direction: column;
+      justify-self: end;
+    }
+
+    .profile-glass-align {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 4px 8px;
+    }
+
+    .profile-glass-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      box-shadow: none;
+    }
+
+    .profile-glass-dot.is-red {
+      background: #ff605c;
+    }
+
+    .profile-glass-dot.is-yellow {
+      background: #ffbd44;
+    }
+
+    .profile-glass-dot.is-green {
+      background: #00ca4e;
+    }
+
+    .profile-glass-body {
+      display: flex;
+      min-height: 344px;
+      flex-direction: column;
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 8px;
+      padding: 18px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .035), transparent 40%),
+        #2a2a2e;
+      color: var(--white);
+    }
+
+    .profile-glass-card.is-hero-profile .profile-glass-body {
+      min-height: 0;
+      flex: 1 1 auto;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .profile-window-photo {
+      position: relative;
+      flex: 1 1 360px;
+      min-height: 360px;
+      overflow: hidden;
+      border-radius: 8px 8px 0 0;
+      background: #101013;
+      isolation: isolate;
+    }
+
+    .profile-window-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 330px;
+      object-fit: cover;
+      object-position: center 35%;
+      filter: saturate(.96) contrast(1.04);
+    }
+
+    .profile-window-photo::after {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(8, 8, 10, .04), rgba(8, 8, 10, .28)),
+        linear-gradient(90deg, rgba(8, 8, 10, .28), transparent 58%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .profile-window-copy {
+      border-top: 1px solid rgba(255, 255, 255, .07);
+      padding: 18px;
+      background: #2a2a2e;
+    }
+
+    .profile-glass-kicker {
+      display: block;
+      margin-left: auto;
+      color: var(--blue-soft);
+      font-family: var(--mono);
+      font-size: .68rem;
+      font-weight: 800;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .profile-glass-card h2 {
+      margin: 0 0 18px;
+      color: rgb(218, 244, 237);
+      font-family: var(--terminal);
+      font-size: 1.42rem;
+      font-weight: 400;
+      line-height: 1.05;
+      text-shadow: 0 8px 14px rgba(0, 0, 0, .34);
+      text-transform: uppercase;
+    }
+
+    .profile-glass-card.is-hero-profile h2 {
+      margin-bottom: 9px;
+      font-size: 1.28rem;
+    }
+
+    .profile-glass-card p {
+      color: rgba(246, 244, 236, .76);
+      font-size: .9rem;
+      line-height: 1.62;
+    }
+
+    .profile-glass-more {
+      display: flex;
+      max-height: none;
+      margin-top: auto;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-top: 18px;
+      opacity: 1;
+      transform: none;
+    }
+
+    .profile-glass-card.is-hero-profile .profile-glass-more {
+      flex: 0 0 auto;
+      padding: 12px 2px 0;
+    }
+
+    .profile-glass-card:hover .profile-glass-more {
+      transform: none;
+    }
+
+    .profile-glass-more span {
+      display: inline-flex;
+      min-height: 26px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 999px;
+      padding: 5px 9px;
+      background: rgba(10, 10, 12, .54);
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: .66rem;
+      font-weight: 800;
+      text-transform: uppercase;
     }
 
     .button {
@@ -1179,10 +1376,16 @@
     @media (max-width: 1180px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
       }
 
       .hero-title {
         font-size: 3.7rem;
+      }
+
+      .profile-glass-card.is-hero-profile {
+        max-width: 680px;
+        justify-self: center;
       }
 
       .hero-card {
@@ -1338,6 +1541,30 @@
       .hero-actions {
         align-items: stretch;
         flex-direction: column;
+      }
+
+      .profile-glass-card,
+      .profile-glass-card:hover {
+        width: 100%;
+        min-height: auto;
+        transform: none;
+      }
+
+      .profile-glass-card > *,
+      .profile-glass-card:hover > *,
+      .profile-glass-more,
+      .profile-glass-card:hover .profile-glass-more {
+        transform: none;
+      }
+
+      .profile-glass-more {
+        max-height: none;
+        opacity: 1;
+      }
+
+      .profile-window-photo,
+      .profile-window-photo img {
+        min-height: 320px;
       }
 
       .button {
@@ -1502,27 +1729,21 @@
             
           </h1>
 
-          <div class="hero-lead reveal">
-            <strong data-ru="От бизнес-вопроса и источников до метрик и визуализации" data-en="From business question and sources to metrics and visualization">От бизнес-вопроса и источников до метрик и визуализации</strong>
-            <div>
-              <p data-ru="Меня зовут Рябикова Анастасия, и уже около года я веду продуктовую, финансовую и инфраструктурную аналитику, исследую работу контрагентов и превращаю регулярную отчетность в автоматизированные BI-продукты." data-en="I have spent about a year at MGTS, working across product, financial, infrastructure, and contractor analytics while turning recurring reporting into automated BI products.">Около года работаю в МГТС: веду продуктовую, финансовую и инфраструктурную аналитику, исследую работу контрагентов и превращаю регулярную отчетность в автоматизированные BI-продукты.</p>
-              <div class="hero-actions">
-                <a class="button button-primary" href="#work">
-                  <span data-ru="Смотреть отчеты" data-en="View reports">Смотреть отчеты</span>
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M7 17 17 7" stroke="currentColor" stroke-width="2"/>
-                    <path d="M8 7h9v9" stroke="currentColor" stroke-width="2"/>
-                  </svg>
-                </a>
-                <a class="button" href="#about">
-                  <span data-ru="Опыт" data-en="About my experience">О моем опыте</span>
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M5 12h14" stroke="currentColor" stroke-width="2"/>
-                    <path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="2"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
+          <div class="hero-actions reveal">
+            <a class="button button-primary" href="#work">
+              <span data-ru="Смотреть отчеты" data-en="View reports">Смотреть отчеты</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17 17 7" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 7h9v9" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </a>
+            <a class="button" href="#about">
+              <span data-ru="Опыт" data-en="About my experience">О моем опыте</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14" stroke="currentColor" stroke-width="2"/>
+                <path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </a>
           </div>
         </div>
 
@@ -1531,20 +1752,26 @@
         </div>
       </div>
 
-      <aside class="hero-card reveal" aria-label="Analytics profile">
-        
-        <div class="hero-card-main">
-          <figure class="portrait-panel">
-            <img src="assets/portrait-hero-gray-studio.jpg" width="1200" height="900" alt="Портрет Анастасии, BI и data analyst" loading="eager" decoding="async" fetchpriority="high">
-            <figcaption class="portrait-caption">
-              <strong data-ru="Anastasia / BI Analyst" data-en="Anastasia / BI Analyst">Anastasia / BI Analyst</strong>
-              
-            </figcaption>
-          </figure>
+      <aside class="profile-glass-card is-hero-profile reveal" aria-label="Analytics profile">
+        <div class="profile-glass-align" aria-hidden="true">
+          <span class="profile-glass-dot is-red"></span>
+          <span class="profile-glass-dot is-yellow"></span>
+          <span class="profile-glass-dot is-green"></span>
+          <span class="profile-glass-kicker">profile.exe</span>
         </div>
-        <div class="hero-card-foot">
-          <span>Power BI / HTML</span>
-          <span>Business × IT</span>
+        <div class="profile-glass-body">
+          <figure class="profile-window-photo">
+            <img src="assets/portrait-hero-gray-studio.jpg" width="1200" height="900" alt="Портрет Анастасии, BI и data analyst" loading="eager" decoding="async" fetchpriority="high">
+          </figure>
+          <div class="profile-window-copy">
+            <h2 data-ru="Анастасия Рябикова" data-en="Anastasia Ryabikova">Анастасия Рябикова</h2>
+            <p data-ru="BI / Data analyst: веду продуктовую, финансовую и инфраструктурную аналитику, исследую контрагентов и превращаю отчетность в автоматизированные BI-продукты." data-en="BI / Data analyst across product, financial, infrastructure, and contractor analytics, turning reporting into automated BI products.">BI / Data analyst: веду продуктовую, финансовую и инфраструктурную аналитику, исследую контрагентов и превращаю отчетность в автоматизированные BI-продукты.</p>
+          </div>
+        </div>
+        <div class="profile-glass-more" aria-label="Фокусы в аналитике">
+          <span>Power BI</span>
+          <span>Product analytics</span>
+          <span>Business x IT</span>
         </div>
       </aside>
     </section>
