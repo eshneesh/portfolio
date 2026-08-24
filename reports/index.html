@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Подборка обезличенных управленческих HTML-отчётов и дашбордов.">
+  <title>HTML-отчёты · портфолио</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b10;
+      --panel: #10151d;
+      --panel-hover: #151c26;
+      --text: #f4f7fb;
+      --muted: #9ca8b8;
+      --line: rgba(255, 255, 255, .1);
+      --accent: #c5f36a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 80% 0, rgba(197, 243, 106, .08), transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 36px 0 72px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 56px;
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 750;
+      letter-spacing: .12em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .back {
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .back:hover { color: var(--text); }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font: 700 12px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 720;
+      letter-spacing: -.065em;
+      line-height: .96;
+    }
+
+    .intro {
+      max-width: 690px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.55;
+    }
+
+    .notice {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      padding: 10px 14px;
+      border: 1px solid rgba(197, 243, 106, .22);
+      border-radius: 999px;
+      color: #dff9ac;
+      background: rgba(197, 243, 106, .06);
+      font-size: 13px;
+    }
+
+    .notice::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 64px;
+    }
+
+    .card {
+      display: flex;
+      min-height: 270px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(150deg, rgba(255, 255, 255, .025), transparent 68%), var(--panel);
+      text-decoration: none;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(197, 243, 106, .35);
+      background-color: var(--panel-hover);
+    }
+
+    .tag {
+      color: var(--muted);
+      font: 700 11px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .card h2 {
+      max-width: 460px;
+      margin: 24px 0 12px;
+      font-size: clamp(25px, 3.2vw, 40px);
+      letter-spacing: -.035em;
+      line-height: 1.05;
+    }
+
+    .card p {
+      max-width: 520px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .open {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 32px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .open span:last-child { font-size: 20px; }
+
+    footer {
+      margin-top: 54px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 24px, 1180px); padding-top: 22px; }
+      .topbar { padding-bottom: 42px; }
+      .grid { grid-template-columns: 1fr; margin-top: 44px; }
+      .card { min-height: 240px; padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <nav class="topbar" aria-label="Навигация">
+      <a class="brand" href="../index.html">Portfolio / Reports</a>
+      <a class="back" href="../index.html">← Вернуться в портфолио</a>
+    </nav>
+
+    <header>
+      <p class="eyebrow">HTML reports</p>
+      <h1>Управленческие отчёты в браузере.</h1>
+      <p class="intro">Подборка самостоятельных HTML-дашбордов: от финансового и корпоративного обзора до контроля SLA и инфраструктурных работ.</p>
+      <div class="notice">Демонстрационные данные: все числовые показатели приведены к 100</div>
+    </header>
+
+    <section class="grid" aria-label="Список отчётов">
+      <a class="card" href="executive-overview.html">
+        <div><span class="tag">Executive</span><h2>Корпоративный обзор</h2><p>KPI, финансовая динамика, портфель инициатив и управленческие акценты.</p></div>
+        <div class="open"><span>Открыть отчёт</span><span>↗</span></div>
+      </a>
+
+      <a class="card" href="financial-performance.html">
+        <div><span class="tag">Finance</span><h2>Финансовые показатели</h2><p>Выручка, маржинальность, план-факт, бюджет и структура услуг.</p></div>
+        <div class="open"><span>Открыть отчёт</span><span>↗</span></div>
+      </a>
+
+      <a class="card" href="department-performance.html">
+        <div><span class="tag">Operations</span><h2>Эффективность отдела</h2><p>Нагрузка, SLA, каналы результата, методология и рекомендации.</p></div>
+        <div class="open"><span>Открыть отчёт</span><span>↗</span></div>
+      </a>
+
+      <a class="card" href="service-level-dashboard.html">
+        <div><span class="tag">Service level</span><h2>Контроль SLA</h2><p>Очереди, этапы, риск просрочки, детализация заявок и шаблоны DAX.</p></div>
+        <div class="open"><span>Открыть отчёт</span><span>↗</span></div>
+      </a>
+
+      <a class="card" href="infrastructure-overview.html">
+        <div><span class="tag">Infrastructure</span><h2>Инфраструктурный обзор</h2><p>Сеть, ёмкость, загрузка, коммерческий контур и готовность источников.</p></div>
+        <div class="open"><span>Открыть отчёт</span><span>↗</span></div>
+      </a>
+
+      <a class="card" href="field-operations-dashboard.html">
+        <div><span class="tag">Field operations</span><h2>Полевые работы</h2><p>Разрешения, допуски, документы, нарушения и операционная очередь.</p></div>
+        <div class="open"><span>Открыть отчёт</span><span>↗</span></div>
+      </a>
+    </section>
+
+    <footer>Все материалы подготовлены как обезличенные демонстрационные версии для публичного портфолио.</footer>
+  </main>
+</body>
+</html>

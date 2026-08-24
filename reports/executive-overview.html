@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=100" name="viewport"/>
+<title>Краткий корпоративный управленческий отчет</title>
+<style>
+
+    :root {
+      --blue-950: #10233f;
+      --blue-900: #123764;
+      --blue-800: #15518f;
+      --blue-700: #176ab6;
+      --blue-600: #1d7fd4;
+      --blue-100: #d9ecff;
+      --blue-050: #f2f8ff;
+      --ink: #142235;
+      --muted: #64758a;
+      --line: #d9e4ef;
+      --surface: #ffffff;
+      --surface-soft: #f7fbff;
+      --teal: #18a999;
+      --green: #2f9f67;
+      --amber: #d08b18;
+      --red: #cf4c59;
+      --shadow: 0 18px 50px rgba(19, 59, 103, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #eef5fc;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #eaf4ff 0, #f7fbff 260px, #ffffff 760px);
+      letter-spacing: 0;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 28px auto 48px;
+      background: var(--surface);
+      border: 1px solid rgba(21, 81, 143, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .masthead {
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--blue-950), var(--blue-800));
+      padding: 28px 34px 32px;
+    }
+
+    .masthead-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      background: rgba(255, 255, 255, 0.12);
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .brand-name {
+      margin: 0;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .brand-caption,
+    .period {
+      margin: 3px 0 0;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .period {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.03;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .headline-row {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 28px;
+      align-items: end;
+    }
+
+    .executive-note {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-bottom: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .summary-item {
+      padding: 18px 24px;
+      border-right: 1px solid var(--line);
+    }
+
+    .summary-item:last-child {
+      border-right: 0;
+    }
+
+    .summary-label {
+      margin: 0 0 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .summary-value {
+      margin: 0;
+      color: var(--blue-950);
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .content {
+      padding: 26px 34px 34px;
+    }
+
+    .section {
+      margin-top: 28px;
+    }
+
+    .section:first-child {
+      margin-top: 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--blue-950);
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 30px;
+      padding: 7px 10px;
+      border: 1px solid rgba(24, 169, 153, 0.28);
+      color: #0e756c;
+      background: rgba(24, 169, 153, 0.09);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .kpi {
+      min-height: 150px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: var(--accent, var(--blue-600));
+    }
+
+    .kpi-label {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    .kpi-value {
+      margin: 0;
+      color: var(--blue-950);
+      font-size: clamp(24px, 2.6vw, 34px);
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .kpi-value small {
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .kpi-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .trend {
+      color: var(--green);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .trend.warn {
+      color: var(--amber);
+    }
+
+    .trend.bad {
+      color: var(--red);
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .chart-panel,
+    .table-panel,
+    .decision-panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 18px 10px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfdff;
+    }
+
+    .panel-title {
+      margin: 0;
+      color: var(--blue-950);
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .panel-caption {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .panel-body {
+      padding: 16px 18px 18px;
+    }
+
+    .chart {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .axis-label {
+      fill: #64758a;
+      font-size: 11px;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    .chart-label {
+      fill: #10233f;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .swatch {
+      width: 22px;
+      height: 7px;
+      background: var(--swatch);
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .progress-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .progress-item {
+      display: grid;
+      gap: 7px;
+    }
+
+    .progress-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--blue-950);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .progress-meta {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .track {
+      height: 9px;
+      border-radius: 999px;
+      background: #edf3f8;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      width: var(--value);
+      border-radius: inherit;
+      background: var(--accent);
+    }
+
+    .metrics-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .metrics-table th,
+    .metrics-table td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .metrics-table th {
+      color: var(--muted);
+      background: #fbfdff;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .metrics-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .num {
+      color: var(--blue-950);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .badge.good {
+      color: #116b48;
+      background: rgba(47, 159, 103, 0.1);
+    }
+
+    .badge.watch {
+      color: #8a5a07;
+      background: rgba(208, 139, 24, 0.12);
+    }
+
+    .badge.risk {
+      color: #a02c38;
+      background: rgba(207, 76, 89, 0.11);
+    }
+
+    .decisions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .decision-panel {
+      padding: 16px;
+    }
+
+    .decision-kicker {
+      margin: 0 0 8px;
+      color: var(--blue-700);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .decision-title {
+      margin: 0 0 10px;
+      color: var(--blue-950);
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .decision-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.48;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 34px 26px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      background: #fbfdff;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 1060px) {
+      .kpi-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .dashboard-grid,
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: 100%;
+        margin: 0;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .masthead,
+      .content,
+      .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .masthead-top,
+      .headline-row,
+      .section-title,
+      .footer {
+        display: grid;
+        align-items: start;
+      }
+
+      .period {
+        text-align: left;
+        white-space: normal;
+      }
+
+      .summary-strip,
+      .kpi-grid,
+      .decisions {
+        grid-template-columns: 1fr;
+      }
+
+      .summary-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .summary-item:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media print {
+      html,
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+      }
+
+      .masthead {
+        background: #123764;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+<main class="page">
+<header class="masthead">
+<div class="masthead-top">
+<div class="brand">
+<div class="brand-mark">КУ</div>
+<div>
+<p class="brand-name">Корпоративное управление</p>
+<p class="brand-caption">Краткий отчет для управляющего комитета</p>
+</div>
+</div>
+<p class="period">Период: II квартал 100<br/>Дата подготовки: 100</p>
+</div>
+<div class="headline-row">
+<h1>Операционный отчет: динамика, эффективность, риски</h1>
+<p class="executive-note">
+          Выручка и операционная эффективность выше плана, клиентские метрики стабильны.
+          Основное управленческое внимание требуется по срокам цифровых проектов и контролю закупочных расходов.
+        </p>
+</div>
+</header>
+<section aria-label="Краткое резюме" class="summary-strip">
+<article class="summary-item">
+<p class="summary-label">Фокус периода</p>
+<p class="summary-value">Рост маржинальности и удержание SLA</p>
+</article>
+<article class="summary-item">
+<p class="summary-label">Главное отклонение</p>
+<p class="summary-value">OPEX: +100% к плану из-за закупок</p>
+</article>
+<article class="summary-item">
+<p class="summary-label">Решение комитета</p>
+<p class="summary-value">Ускорить 100 критичных проекта до 100</p>
+</article>
+</section>
+<div class="content">
+<section aria-labelledby="kpi-title" class="section">
+<div class="section-title">
+<div>
+<h2 id="kpi-title">Ключевые метрики</h2>
+<p class="section-subtitle">План-факт и изменение к предыдущему кварталу</p>
+</div>
+<span class="status-pill"><span class="dot"></span> Общий статус: в норме</span>
+</div>
+<div class="kpi-grid">
+<article class="kpi" style="--accent: var(--blue-600);">
+<p class="kpi-label">Выручка</p>
+<p class="kpi-value">100 <small>млрд ₽</small></p>
+<div class="kpi-foot"><span>100% плана</span><span class="trend">+100%</span></div>
+</article>
+<article class="kpi" style="--accent: var(--teal);">
+<p class="kpi-label">EBITDA</p>
+<p class="kpi-value">100 <small>млрд ₽</small></p>
+<div class="kpi-foot"><span>Маржа 100%</span><span class="trend">+100 п.п.</span></div>
+</article>
+<article class="kpi" style="--accent: var(--amber);">
+<p class="kpi-label">OPEX</p>
+<p class="kpi-value">100 <small>млрд ₽</small></p>
+<div class="kpi-foot"><span>100% плана</span><span class="trend warn">контроль</span></div>
+</article>
+<article class="kpi" style="--accent: var(--red);">
+<p class="kpi-label">Эксперименты</p>
+<p class="kpi-value">100 <small>из 100</small></p>
+<div class="kpi-foot"><span>100% портфеля</span><span class="trend bad">+100</span></div>
+</article>
+<article class="kpi" style="--accent: var(--green);">
+<p class="kpi-label">SLA</p>
+<p class="kpi-value">100<small>%</small></p>
+<div class="kpi-foot"><span>Цель 100%</span><span class="trend">+100 п.п.</span></div>
+</article>
+<article class="kpi" style="--accent: var(--blue-800);">
+<p class="kpi-label">NPS</p>
+<p class="kpi-value">100</p>
+<div class="kpi-foot"><span>Стабильно</span><span class="trend">+100 п.</span></div>
+</article>
+<article class="kpi" style="--accent: var(--red);">
+<p class="kpi-label">Проекты в риске</p>
+<p class="kpi-value">100 <small>из 100</small></p>
+<div class="kpi-foot"><span>100% портфеля</span><span class="trend bad">+100</span></div>
+</article>
+</div>
+</section>
+<section aria-label="Финансовая динамика и структура затрат" class="section dashboard-grid">
+<article class="chart-panel">
+<div class="panel-head">
+<div>
+<p class="panel-title">Выручка и EBITDA, млрд ₽</p>
+<p class="panel-caption">Квартальная динамика за 100 периодов</p>
+</div>
+<span class="badge good">выше плана</span>
+</div>
+<div class="panel-body">
+<svg aria-label="Линейный график выручки и EBITDA" class="chart" role="img" viewbox="0 0 720 330">
+<defs>
+<lineargradient id="revenueFill" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#1d7fd4" stop-opacity="0.22"></stop>
+<stop offset="100%" stop-color="#1d7fd4" stop-opacity="0.02"></stop>
+</lineargradient>
+</defs>
+<rect fill="#ffffff" height="330" width="720" x="0" y="0"></rect>
+<g stroke="#d9e4ef" stroke-width="1">
+<line x1="58" x2="674" y1="42" y2="42"></line>
+<line x1="58" x2="674" y1="96" y2="96"></line>
+<line x1="58" x2="674" y1="150" y2="150"></line>
+<line x1="58" x2="674" y1="204" y2="204"></line>
+<line x1="58" x2="674" y1="258" y2="258"></line>
+</g>
+<g class="axis-label">
+<text x="20" y="46">100</text>
+<text x="20" y="100">100</text>
+<text x="20" y="154">100</text>
+<text x="26" y="208">100</text>
+<text x="26" y="262">100</text>
+<text x="58" y="296">Q100</text>
+<text x="174" y="296">Q100</text>
+<text x="292" y="296">Q100</text>
+<text x="410" y="296">Q100</text>
+<text x="528" y="296">Q100</text>
+<text x="642" y="296">Q100</text>
+</g>
+<path d="M58 202 L178 181 L298 172 L418 137 L538 116 L658 82 L658 258 L58 258 Z" fill="url(#revenueFill)"></path>
+<path d="M58 202 L178 181 L298 172 L418 137 L538 116 L658 82" fill="none" stroke="#1d7fd4" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<path d="M58 252 L178 242 L298 238 L418 221 L538 212 L658 192" fill="none" stroke="#18a999" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<g fill="#ffffff" stroke-width="3">
+<circle cx="58" cy="202" r="6" stroke="#1d7fd4"></circle>
+<circle cx="178" cy="181" r="6" stroke="#1d7fd4"></circle>
+<circle cx="298" cy="172" r="6" stroke="#1d7fd4"></circle>
+<circle cx="418" cy="137" r="6" stroke="#1d7fd4"></circle>
+<circle cx="538" cy="116" r="6" stroke="#1d7fd4"></circle>
+<circle cx="658" cy="82" r="6" stroke="#1d7fd4"></circle>
+<circle cx="58" cy="252" r="5" stroke="#18a999"></circle>
+<circle cx="178" cy="242" r="5" stroke="#18a999"></circle>
+<circle cx="298" cy="238" r="5" stroke="#18a999"></circle>
+<circle cx="418" cy="221" r="5" stroke="#18a999"></circle>
+<circle cx="538" cy="212" r="5" stroke="#18a999"></circle>
+<circle cx="658" cy="192" r="5" stroke="#18a999"></circle>
+</g>
+<text class="chart-label" x="610" y="68">100</text>
+<text class="chart-label" x="612" y="181">100</text>
+</svg>
+<div class="legend">
+<span class="legend-item"><span class="swatch" style="--swatch:#1d7fd4;"></span>Выручка</span>
+<span class="legend-item"><span class="swatch" style="--swatch:#18a999;"></span>EBITDA</span>
+</div>
+</div>
+</article>
+<article class="chart-panel">
+<div class="panel-head">
+<div>
+<p class="panel-title">Структура затрат</p>
+<p class="panel-caption">Доля OPEX за II квартал 100</p>
+</div>
+<span class="badge watch">пересмотр</span>
+</div>
+<div class="panel-body">
+<svg aria-label="Кольцевая диаграмма структуры затрат" class="chart" role="img" viewbox="0 0 420 330">
+<rect fill="#ffffff" height="330" width="420"></rect>
+<g transform="translate(145 155) rotate(-90)">
+<circle fill="none" r="92" stroke="#e8f0f7" stroke-width="34"></circle>
+<circle fill="none" r="92" stroke="#1d7fd4" stroke-dasharray="179 578" stroke-dashoffset="0" stroke-width="34"></circle>
+<circle fill="none" r="92" stroke="#18a999" stroke-dasharray="133 578" stroke-dashoffset="-179" stroke-width="34"></circle>
+<circle fill="none" r="92" stroke="#d08b18" stroke-dasharray="104 578" stroke-dashoffset="-312" stroke-width="34"></circle>
+<circle fill="none" r="92" stroke="#15518f" stroke-dasharray="87 578" stroke-dashoffset="-416" stroke-width="34"></circle>
+<circle fill="none" r="92" stroke="#cf4c59" stroke-dasharray="75 578" stroke-dashoffset="-503" stroke-width="34"></circle>
+</g>
+<text class="axis-label" text-anchor="middle" x="145" y="146">OPEX</text>
+<text class="chart-label" style="font-size: 26px;" text-anchor="middle" x="145" y="174">100</text>
+<text class="axis-label" text-anchor="middle" x="145" y="196">млрд ₽</text>
+<g class="axis-label" transform="translate(280 76)">
+<rect fill="#1d7fd4" height="12" width="12" x="0" y="-10"></rect><text x="20" y="0">ФОТ 100%</text>
+<rect fill="#18a999" height="12" width="12" x="0" y="30"></rect><text x="20" y="40">ИТ 100%</text>
+<rect fill="#d08b18" height="12" width="12" x="0" y="70"></rect><text x="20" y="80">Закупки 100%</text>
+<rect fill="#15518f" height="12" width="12" x="0" y="110"></rect><text x="20" y="120">Маркетинг 100%</text>
+<rect fill="#cf4c59" height="12" width="12" x="0" y="150"></rect><text x="20" y="160">Прочее 100%</text>
+</g>
+</svg>
+</div>
+</article>
+</section>
+<section aria-label="Операционный блок и портфель проектов" class="section two-column">
+<article class="chart-panel">
+<div class="panel-head">
+<div>
+<p class="panel-title">План-факт по направлениям</p>
+<p class="panel-caption">Индекс выполнения целей, %</p>
+</div>
+<span class="badge good">100 из 100 в норме</span>
+</div>
+<div class="panel-body">
+<div class="progress-list">
+<div class="progress-item">
+<div class="progress-top"><span>Продажи Сегмент B</span><span class="progress-meta">100%</span></div>
+<div class="track"><div class="fill" style="--value: 100%; --accent: var(--blue-600);"></div></div>
+</div>
+<div class="progress-item">
+<div class="progress-top"><span>Клиентский сервис</span><span class="progress-meta">100%</span></div>
+<div class="track"><div class="fill" style="--value: 100%; --accent: var(--teal);"></div></div>
+</div>
+<div class="progress-item">
+<div class="progress-top"><span>Операционная эффективность</span><span class="progress-meta">100%</span></div>
+<div class="track"><div class="fill" style="--value: 100%; --accent: var(--green);"></div></div>
+</div>
+<div class="progress-item">
+<div class="progress-top"><span>Цифровые проекты</span><span class="progress-meta">100%</span></div>
+<div class="track"><div class="fill" style="--value: 100%; --accent: var(--amber);"></div></div>
+</div>
+<div class="progress-item">
+<div class="progress-top"><span>Контроль затрат</span><span class="progress-meta">100%</span></div>
+<div class="track"><div class="fill" style="--value: 100%; --accent: var(--blue-800);"></div></div>
+</div>
+</div>
+</div>
+</article>
+<article class="table-panel">
+<div class="panel-head">
+<div>
+<p class="panel-title">Портфель инициатив</p>
+<p class="panel-caption">Краткий статус ключевых потоков</p>
+</div>
+<span class="badge watch">100 риска</span>
+</div>
+<div class="panel-body">
+<table class="metrics-table">
+<thead>
+<tr>
+<th>Поток</th>
+<th>Срок</th>
+<th>Статус</th>
+<th>Эффект</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CRM 100</td>
+<td>100</td>
+<td><span class="badge watch">задержка</span></td>
+<td class="num">+100 млн ₽</td>
+</tr>
+<tr>
+<td>Закупочная аналитика</td>
+<td>100</td>
+<td><span class="badge good">в графике</span></td>
+<td class="num">-100% OPEX</td>
+</tr>
+<tr>
+<td>Сервисный контур</td>
+<td>100</td>
+<td><span class="badge good">готово 100%</span></td>
+<td class="num">+100 п.п. SLA</td>
+</tr>
+<tr>
+<td>Data Quality</td>
+<td>100</td>
+<td><span class="badge risk">риск</span></td>
+<td class="num">-100% ручных сверок</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article>
+</section>
+<section aria-labelledby="decisions-title" class="section">
+<div class="section-title">
+<div>
+<h2 id="decisions-title">Управленческие акценты</h2>
+<p class="section-subtitle">Рекомендуемые действия на следующий период</p>
+</div>
+</div>
+<div class="decisions">
+<article class="decision-panel">
+<p class="decision-kicker">100. Маржинальность</p>
+<h3 class="decision-title">Закрепить экономию по ИТ и закупкам</h3>
+<p class="decision-text">Утвердить лимиты по новым договорам, вывести еженедельный контроль отклонений выше 100 млн ₽.</p>
+</article>
+<article class="decision-panel">
+<p class="decision-kicker">100. Проекты</p>
+<h3 class="decision-title">Разблокировать критический путь CRM 100</h3>
+<p class="decision-text">Назначить владельцев зависимостей, синхронизировать календарь релизов и принять решение по ресурсам.</p>
+</article>
+<article class="decision-panel">
+<p class="decision-kicker">100. Клиенты</p>
+<h3 class="decision-title">Сохранить SLA выше 100%</h3>
+<p class="decision-text">Усилить мониторинг инцидентов первой линии и перенести повторяющиеся обращения в базу самообслуживания.</p>
+</article>
+</div>
+</section>
+</div>
+<footer class="footer">
+<span>Демонстрационный шаблон: числовые значения можно заменить на фактические данные компании.</span>
+<span>Конфиденциально. Для внутреннего управленческого использования.</span>
+</footer>
+</main>
+<script>
+(() => {
+  const numberPattern = /\d+(?:(?:[\s\u00a0.,:/–—-]+)\d+)*/g;
+  const sanitize = (root) => {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach((node) => {
+      if (node.parentElement?.closest("script, style, noscript")) return;
+      const clean = node.nodeValue.replace(numberPattern, "100");
+      if (clean !== node.nodeValue) node.nodeValue = clean;
+    });
+  };
+  sanitize(document.body);
+  new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => mutation.addedNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        if (!node.parentElement?.closest("script, style, noscript")) {
+          node.nodeValue = node.nodeValue.replace(numberPattern, "100");
+        }
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        sanitize(node);
+      }
+    }));
+  }).observe(document.body, { childList: true, subtree: true });
+})();
+</script></body>
+</html>
