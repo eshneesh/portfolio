@@ -926,6 +926,71 @@
       gap: 16px;
     }
 
+    .portfolio-group {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 38px;
+    }
+
+    .project-group-head {
+      display: flex;
+      gap: 18px;
+      align-items: end;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-group-copy {
+      display: grid;
+      gap: 4px;
+    }
+
+    .project-group-label {
+      color: var(--blue-soft);
+      font-family: var(--mono);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .project-group-head h3 {
+      font-family: var(--terminal);
+      font-size: 1.18rem;
+      font-weight: 400;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .project-group-link {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      flex: 0 0 auto;
+      min-height: 40px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: .7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      transition: color .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .project-group-link:hover {
+      border-color: rgba(35, 120, 255, .7);
+      background: rgba(35, 120, 255, .1);
+      color: var(--paper);
+    }
+
+    .project-group-link svg {
+      width: 15px;
+      height: 15px;
+    }
+
     .project-card {
       min-width: 0;
       overflow: hidden;
@@ -947,6 +1012,10 @@
       color: inherit;
     }
 
+    .project-report-link {
+      display: block;
+    }
+
     .project-link.is-disabled {
       cursor: default;
     }
@@ -960,14 +1029,63 @@
     }
 
     .cover-inner {
+      position: relative;
       display: grid;
       align-content: space-between;
       min-height: 100%;
       padding: 18px;
+      overflow: hidden;
       border-radius: 22px;
       background:
         linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02)),
         var(--panel-soft);
+    }
+
+    .project-card.is-live {
+      border-color: rgba(35, 120, 255, .34);
+      background: rgba(35, 120, 255, .035);
+    }
+
+    .project-card.is-live .project-link {
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .project-card.is-live .project-body {
+      grid-template-rows: auto minmax(0, 1fr) auto;
+    }
+
+    .project-card.is-live .cover-inner::before {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+      background:
+        linear-gradient(135deg, rgba(35, 120, 255, .18), transparent 52%),
+        repeating-linear-gradient(90deg, transparent 0 38px, rgba(255, 255, 255, .035) 38px 39px),
+        repeating-linear-gradient(180deg, transparent 0 38px, rgba(255, 255, 255, .035) 38px 39px);
+      mask-image: linear-gradient(180deg, #000, transparent 86%);
+    }
+
+    .project-card.is-live .cover-top,
+    .project-card.is-live .cover-title {
+      position: relative;
+      z-index: 1;
+    }
+
+    .live-status {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      color: #b9ff93;
+    }
+
+    .live-status::before {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 14px currentColor;
+      content: "";
     }
 
     .cover-top {
@@ -1013,6 +1131,14 @@
       text-transform: uppercase;
     }
 
+    .project-body h3 a {
+      transition: color .2s ease;
+    }
+
+    .project-body h3 a:hover {
+      color: var(--blue-soft);
+    }
+
     .project-body p {
       color: var(--muted);
       font-size: .92rem;
@@ -1048,6 +1174,63 @@
     .project-card:hover .project-link.is-disabled .project-foot svg {
       opacity: .45;
       transform: none;
+    }
+
+    .project-actions {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .project-action {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-family: var(--mono);
+      font-size: .68rem;
+      font-weight: 800;
+      line-height: 1;
+      text-transform: uppercase;
+      transition: border-color .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .project-action.primary {
+      border-color: var(--paper);
+      background: var(--paper);
+      color: var(--black);
+    }
+
+    .project-action.primary:hover {
+      border-color: var(--blue-soft);
+      background: var(--blue-soft);
+    }
+
+    .project-action.repo {
+      color: var(--muted);
+    }
+
+    .project-action.repo:hover {
+      border-color: rgba(35, 120, 255, .7);
+      background: rgba(35, 120, 255, .1);
+      color: var(--paper);
+    }
+
+    .project-action svg {
+      width: 15px;
+      height: 15px;
+      flex: 0 0 auto;
+      transition: transform .2s ease;
+    }
+
+    .project-action:hover svg {
+      transform: translate(2px, -2px);
     }
 
     .capability-grid {
@@ -1402,6 +1585,10 @@
         grid-template-columns: minmax(0, 1fr);
       }
 
+      .live-report-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .statement,
       .profile-card {
         min-height: 320px;
@@ -1488,6 +1675,10 @@
 
       .section-title {
         font-size: 2.1rem;
+      }
+
+      .live-report-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .capability-row {
@@ -1611,6 +1802,16 @@
       .section-title {
         font-size: 1.82rem;
         line-height: 1.1;
+      }
+
+      .project-group-head {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .project-group-link {
+        justify-content: space-between;
+        width: 100%;
       }
 
       .project-cover {
@@ -1779,12 +1980,235 @@
     <section class="section-band" id="work">
       <div class="shell section">
         <aside class="section-label reveal">
-          <span class="section-kicker">01 / Power BI Reports</span>
-          <p data-ru="Шесть полностью автоматизированных отчетов для регулярной управленческой и операционной работы." data-en="Six fully automated reports for recurring management and operational work.">Шесть полностью автоматизированных отчетов для регулярной управленческой и операционной работы.</p>
+          <span class="section-kicker">01 / Selected Work</span>
+          <p data-ru="Опубликованные HTML-отчеты и автоматизированные BI-продукты для управленческой и операционной работы." data-en="Published HTML reports and automated BI products for management and operational workflows.">Опубликованные HTML-отчеты и автоматизированные BI-продукты для управленческой и операционной работы.</p>
         </aside>
 
         <div>
-          <h2 class="section-title reveal" data-ru="Портфолио" data-en="Portfolio">От регулярной отчетности к шести работающим BI-продуктам.</h2>
+          <h2 class="section-title reveal" data-ru="Портфолио" data-en="Portfolio">От аналитической задачи к готовому отчетному продукту.</h2>
+
+          <div class="portfolio-group">
+            <div class="project-group-head reveal">
+              <div class="project-group-copy">
+                <span class="project-group-label">Live / HTML reports</span>
+                <h3 data-ru="Опубликованные интерактивные отчеты" data-en="Published interactive reports">Опубликованные интерактивные отчеты</h3>
+              </div>
+              <a class="project-group-link" href="reports/">
+                <span data-ru="Все отчеты" data-en="All reports">Все отчеты</span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 17 17 7" stroke="currentColor" stroke-width="2"/>
+                  <path d="M8 7h9v9" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="project-grid live-report-grid">
+              <article class="project-card is-live reveal">
+                <div class="project-link">
+                  <a class="project-report-link" href="reports/executive-overview.html" target="_blank" rel="noopener" aria-label="Открыть корпоративный HTML-отчет">
+                    <div class="project-cover">
+                      <div class="cover-inner">
+                        <div class="cover-top">
+                          <span>HTML / Executive</span>
+                          <span class="live-status">Live</span>
+                        </div>
+                        <div class="cover-title">
+                          <span>Executive</span>
+                          <span>Overview</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="project-body">
+                    <h3><a href="reports/executive-overview.html" target="_blank" rel="noopener" data-ru="Корпоративный обзор" data-en="Executive overview">Корпоративный обзор</a></h3>
+                    <p data-ru="KPI, финансовая динамика, портфель инициатив и управленческие акценты в одном HTML-отчете." data-en="KPIs, financial trends, initiative portfolio, and management priorities in one HTML report.">KPI, финансовая динамика, портфель инициатив и управленческие акценты в одном HTML-отчете.</p>
+                    <div class="project-actions">
+                      <a class="project-action primary" href="reports/executive-overview.html" target="_blank" rel="noopener">
+                        <span data-ru="Открыть отчет" data-en="View report">Открыть отчет</span>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2"/></svg>
+                      </a>
+                      <a class="project-action repo" href="https://github.com/eshneesh/portfolio/blob/main/reports/executive-overview.html" target="_blank" rel="noopener" aria-label="Открыть исходник корпоративного отчета на GitHub">
+                        <span>GitHub</span>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7" cy="5" r="2" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="5" r="2" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="19" r="2" stroke="currentColor" stroke-width="2"/><path d="M7 7v5a4 4 0 0 0 4 4h4M17 7v10" stroke="currentColor" stroke-width="2"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card is-live reveal">
+                <div class="project-link">
+                  <a class="project-report-link" href="reports/financial-performance.html" target="_blank" rel="noopener" aria-label="Открыть финансовый HTML-отчет">
+                    <div class="project-cover">
+                      <div class="cover-inner">
+                        <div class="cover-top">
+                          <span>HTML / Finance</span>
+                          <span class="live-status">Live</span>
+                        </div>
+                        <div class="cover-title">
+                          <span>Financial</span>
+                          <span>Pulse</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="project-body">
+                    <h3><a href="reports/financial-performance.html" target="_blank" rel="noopener" data-ru="Финансовые показатели" data-en="Financial performance">Финансовые показатели</a></h3>
+                    <p data-ru="Выручка, маржинальность, план-факт, бюджет и структура услуг в компактной управленческой витрине." data-en="Revenue, margin, plan versus actuals, budget, and service mix in a compact management view.">Выручка, маржинальность, план-факт, бюджет и структура услуг в компактной управленческой витрине.</p>
+                    <div class="project-actions">
+                      <a class="project-action primary" href="reports/financial-performance.html" target="_blank" rel="noopener">
+                        <span data-ru="Открыть отчет" data-en="View report">Открыть отчет</span>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2"/></svg>
+                      </a>
+                      <a class="project-action repo" href="https://github.com/eshneesh/portfolio/blob/main/reports/financial-performance.html" target="_blank" rel="noopener" aria-label="Открыть исходник финансового отчета на GitHub">
+                        <span>GitHub</span>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7" cy="5" r="2" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="5" r="2" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="19" r="2" stroke="currentColor" stroke-width="2"/><path d="M7 7v5a4 4 0 0 0 4 4h4M17 7v10" stroke="currentColor" stroke-width="2"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card is-live reveal">
+                <div class="project-link">
+                  <a class="project-report-link" href="reports/department-performance.html" target="_blank" rel="noopener" aria-label="Открыть HTML-отчет эффективности отдела">
+                    <div class="project-cover">
+                      <div class="cover-inner">
+                        <div class="cover-top">
+                          <span>HTML / Operations</span>
+                          <span class="live-status">Live</span>
+                        </div>
+                        <div class="cover-title">
+                          <span>Team</span>
+                          <span>Performance</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="project-body">
+                    <h3><a href="reports/department-performance.html" target="_blank" rel="noopener" data-ru="Эффективность отдела" data-en="Department performance">Эффективность отдела</a></h3>
+                    <p data-ru="Нагрузка, SLA, каналы результата, методология и практические рекомендации для руководителя." data-en="Workload, SLA, performance channels, methodology, and actionable management recommendations.">Нагрузка, SLA, каналы результата, методология и практические рекомендации для руководителя.</p>
+                    <div class="project-actions">
+                      <a class="project-action primary" href="reports/department-performance.html" target="_blank" rel="noopener">
+                        <span data-ru="Открыть отчет" data-en="View report">Открыть отчет</span>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2"/></svg>
+                      </a>
+                      <a class="project-action repo" href="https://github.com/eshneesh/portfolio/blob/main/reports/department-performance.html" target="_blank" rel="noopener" aria-label="Открыть исходник отчета эффективности отдела на GitHub">
+                        <span>GitHub</span>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7" cy="5" r="2" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="5" r="2" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="19" r="2" stroke="currentColor" stroke-width="2"/><path d="M7 7v5a4 4 0 0 0 4 4h4M17 7v10" stroke="currentColor" stroke-width="2"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card is-live reveal">
+                <div class="project-link">
+                  <a class="project-report-link" href="reports/service-level-dashboard.html" target="_blank" rel="noopener" aria-label="Открыть HTML-дашборд контроля SLA">
+                    <div class="project-cover">
+                      <div class="cover-inner">
+                        <div class="cover-top">
+                          <span>HTML / Service Level</span>
+                          <span class="live-status">Live</span>
+                        </div>
+                        <div class="cover-title">
+                          <span>SLA</span>
+                          <span>Control</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="project-body">
+                    <h3><a href="reports/service-level-dashboard.html" target="_blank" rel="noopener" data-ru="Контроль SLA" data-en="SLA control">Контроль SLA</a></h3>
+                    <p data-ru="Очереди, этапы, риск просрочки, детализация заявок и готовые шаблоны DAX для Power BI." data-en="Queues, stages, breach risk, ticket detail, and ready-to-use DAX templates for Power BI.">Очереди, этапы, риск просрочки, детализация заявок и готовые шаблоны DAX для Power BI.</p>
+                    <div class="project-actions">
+                      <a class="project-action primary" href="reports/service-level-dashboard.html" target="_blank" rel="noopener">
+                        <span data-ru="Открыть отчет" data-en="View report">Открыть отчет</span>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2"/></svg>
+                      </a>
+                      <a class="project-action repo" href="https://github.com/eshneesh/portfolio/blob/main/reports/service-level-dashboard.html" target="_blank" rel="noopener" aria-label="Открыть исходник SLA-дашборда на GitHub">
+                        <span>GitHub</span>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7" cy="5" r="2" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="5" r="2" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="19" r="2" stroke="currentColor" stroke-width="2"/><path d="M7 7v5a4 4 0 0 0 4 4h4M17 7v10" stroke="currentColor" stroke-width="2"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card is-live reveal">
+                <div class="project-link">
+                  <a class="project-report-link" href="reports/infrastructure-overview.html" target="_blank" rel="noopener" aria-label="Открыть инфраструктурный HTML-отчет">
+                    <div class="project-cover">
+                      <div class="cover-inner">
+                        <div class="cover-top">
+                          <span>HTML / Infrastructure</span>
+                          <span class="live-status">Live</span>
+                        </div>
+                        <div class="cover-title">
+                          <span>Infra</span>
+                          <span>Overview</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="project-body">
+                    <h3><a href="reports/infrastructure-overview.html" target="_blank" rel="noopener" data-ru="Инфраструктурный обзор" data-en="Infrastructure overview">Инфраструктурный обзор</a></h3>
+                    <p data-ru="Сеть, емкость, загрузка, коммерческий контур и прозрачная индикация готовности источников." data-en="Network, capacity, utilization, commercial scope, and transparent source-readiness indicators.">Сеть, емкость, загрузка, коммерческий контур и прозрачная индикация готовности источников.</p>
+                    <div class="project-actions">
+                      <a class="project-action primary" href="reports/infrastructure-overview.html" target="_blank" rel="noopener">
+                        <span data-ru="Открыть отчет" data-en="View report">Открыть отчет</span>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2"/></svg>
+                      </a>
+                      <a class="project-action repo" href="https://github.com/eshneesh/portfolio/blob/main/reports/infrastructure-overview.html" target="_blank" rel="noopener" aria-label="Открыть исходник инфраструктурного отчета на GitHub">
+                        <span>GitHub</span>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7" cy="5" r="2" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="5" r="2" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="19" r="2" stroke="currentColor" stroke-width="2"/><path d="M7 7v5a4 4 0 0 0 4 4h4M17 7v10" stroke="currentColor" stroke-width="2"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card is-live reveal">
+                <div class="project-link">
+                  <a class="project-report-link" href="reports/field-operations-dashboard.html" target="_blank" rel="noopener" aria-label="Открыть HTML-дашборд полевых работ">
+                    <div class="project-cover">
+                      <div class="cover-inner">
+                        <div class="cover-top">
+                          <span>HTML / Field Operations</span>
+                          <span class="live-status">Live</span>
+                        </div>
+                        <div class="cover-title">
+                          <span>Field</span>
+                          <span>Operations</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="project-body">
+                    <h3><a href="reports/field-operations-dashboard.html" target="_blank" rel="noopener" data-ru="Полевые работы" data-en="Field operations">Полевые работы</a></h3>
+                    <p data-ru="Разрешения, допуски, документы, нарушения и операционная очередь в едином контрольном интерфейсе." data-en="Permits, access, documentation, violations, and the operational queue in one control interface.">Разрешения, допуски, документы, нарушения и операционная очередь в едином контрольном интерфейсе.</p>
+                    <div class="project-actions">
+                      <a class="project-action primary" href="reports/field-operations-dashboard.html" target="_blank" rel="noopener">
+                        <span data-ru="Открыть отчет" data-en="View report">Открыть отчет</span>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2"/></svg>
+                      </a>
+                      <a class="project-action repo" href="https://github.com/eshneesh/portfolio/blob/main/reports/field-operations-dashboard.html" target="_blank" rel="noopener" aria-label="Открыть исходник дашборда полевых работ на GitHub">
+                        <span>GitHub</span>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7" cy="5" r="2" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="5" r="2" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="19" r="2" stroke="currentColor" stroke-width="2"/><path d="M7 7v5a4 4 0 0 0 4 4h4M17 7v10" stroke="currentColor" stroke-width="2"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="project-group-head reveal">
+            <div class="project-group-copy">
+              <span class="project-group-label">Power BI / Workstreams</span>
+              <h3 data-ru="Закрытые BI-кейсы" data-en="Private BI cases">Закрытые BI-кейсы</h3>
+            </div>
+          </div>
 
           <figure class="projects-terminal-visual reveal" aria-label="Projects terminal visual">
             <img src="assets/it-variant/projects-hands.jpg" width="1200" height="675" alt="Черный terminal-style визуал с пиксельными руками и папкой projects" loading="lazy" decoding="async">
