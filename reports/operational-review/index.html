@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="light" name="color-scheme"/>
+<meta content="#edf4ff" name="theme-color"/>
+<meta content="no-cache" http-equiv="Cache-Control"/>
+<meta content="Обезличенный управленческий отчёт: направления, процессы, проекты и показатели." name="description"/>
+<title>Operational Review — публичная версия</title>
+<link crossorigin="" href="https://unpkg.com" rel="preconnect"/>
+<link crossorigin="anonymous" href="https://unpkg.com/open-props@1.7.23/normalize.min.css" integrity="sha256-TeaQejXF80Pae2xmg/cbjN2ZBhm7eP4RUtXkcoVrWwM=" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://unpkg.com/open-props@1.7.23/open-props.min.css" integrity="sha256-S8m+xmPrf+8st2gNKYPiHw95d4php3vudCJAMNyYH1w=" rel="stylesheet"/>
+<link href="./styles.css?v=20260825-commercial-mix-9" rel="stylesheet"/>
+</head>
+<body>
+<aside class="public-anonymized-note" role="note" style="margin:0;padding:10px 18px;background:#14213d;color:#fff;font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.02em;text-align:center">Публичная обезличенная версия: названия, ФИО, адреса, внутренние ссылки и точные значения заменены синтетическими. Структура и аналитическая логика сохранены.</aside>
+<div id="reportApp">
+<a class="skip-link" href="#main">К содержанию</a>
+<header class="topbar">
+<div class="shell topbar__inner">
+<a aria-label="К началу отчёта" class="brand" href="#overview">
+<span class="brand__mark">I</span><span>Отчёт 01</span>
+</a>
+<div class="author-credit author-credit--topbar"><strong>PUBLIC SAMPLE</strong><em> · данные изменены</em></div>
+<div class="topbar__actions">
+<span class="updated">Публичный срез · 2026</span>
+<button class="print-button" id="printReport" type="button">Печать / PDF</button>
+</div>
+</div>
+</header>
+<section class="hero" id="overview">
+<div class="shell hero__panel">
+<div class="hero__grid">
+<div>
+<h1>Отчёт 01</h1>
+<p>Анализ состояния и динамики направление 01 компании (1H25–1H26): ключевые натуральные и финансовые метрики.</p>
+<div class="period-marker"><i></i>1H‑2025 <span>→</span> 1H‑2026</div>
+</div>
+</div>
+</div>
+</section>
+<nav aria-label="Разделы отчёта" class="section-nav">
+<div class="shell section-nav__inner">
+<div class="section-nav__links">
+<button :aria-pressed="activeTab === 'commercial'" :class="{ active: activeTab === 'commercial' }" @click="selectTab('commercial')" data-report-tab="commercial" type="button">Направление 01</button>
+<button :aria-pressed="activeTab === 'operations'" :class="{ active: activeTab === 'operations' }" @click="selectTab('operations')" data-report-tab="operations" type="button">Направление 02</button>
+<button :aria-pressed="activeTab === 'buildings'" :class="{ active: activeTab === 'buildings' }" @click="selectTab('buildings')" data-report-tab="buildings" type="button">Направление 03</button>
+</div>
+<span class="section-nav__period">1H‑2025 / 1H‑2026</span>
+</div>
+</nav>
+<main class="shell" id="main">
+<section :class="{ 'is-active': activeTab === 'commercial' }" class="report-section report-panel" data-panel="commercial" data-reveal="" id="commercial">
+<header class="section-heading">
+<h2>Раздел 01</h2>
+<p>Доход, база идентификатор и Показатель 01 за два сопоставимых полугодия — с расшифрованными изменениями.</p>
+</header>
+<div aria-label="Сравнение коммерческих показателей за 1H 2025 и 1H 2026" class="commercial-period-overview" id="commercialOverview"></div>
+<article aria-label="Доход и бюджет за первое полугодие 2026" class="commercial-budget card" id="commercialBudget"></article>
+<article aria-label="Категория 01-доход по сегментам Направление 01 и Направление 04" class="commercial-revenue card" id="commercialRevenueSplit"></article>
+<article class="services-card card">
+<header class="card-heading service-card-heading"><div><h3 id="serviceScopeTitle">Блок 01</h3><span>Деньги · идентификатор · Показатель 01 · Метрика 03</span></div><div aria-label="Контур услуг" class="service-scope-switch" role="tablist"><button aria-selected="true" class="is-active" data-service-scope="dkri" role="tab" type="button">Направление 01</button><button aria-selected="false" data-service-scope="drsp" role="tab" type="button">Направление 04</button></div></header>
+<div aria-hidden="true" class="service-table__head"><span>Услуга</span><span>1H 2025</span><span>1H 2026</span><span title="Δ 1H25 → 1H26">Δ · 1H25 → 1H26</span></div>
+<div class="service-table" id="serviceTable"></div>
+</article>
+<article aria-label="Доли услуг и клиентов в портфеле" class="service-mix card" id="serviceMix"></article>
+<section aria-labelledby="commercialClientsTitle" class="commercial-client-section">
+<header class="commercial-subsection-heading"><div><span class="commercial-kicker">клиентский портфель</span><h3 id="commercialClientsTitle">Блок 02</h3></div><p>Доля Направление 01 и Направление 04 рассчитана от общей базы идентификатор за соответствующее полугодие.</p></header>
+<div aria-label="Общая клиентская база идентификатор по контурам" class="commercial-segments" id="commercialSegments"></div>
+<article aria-label="Крупнейшие заказчики Направление 01" class="customer-top card" id="customerTop"></article>
+</section>
+<article aria-label="Проекты направления 01 по периодам и видам услуг" class="project-portfolio card" id="directionProjects"></article>
+<article aria-label="Проекты направления 02 по периодам и видам услуг" class="project-portfolio card" id="directionProjectsSecondary"></article>
+</section>
+<section :class="{ 'is-active': activeTab === 'operations' }" class="report-section report-panel" data-panel="operations" data-reveal="" id="assets">
+<header class="section-heading">
+<h2>Раздел 02</h2>
+<p>Активы 01–03 представлены в едином сравнении двух периодов.</p>
+</header>
+<article aria-label="Сравнение показателей активов" class="comparison-board card" id="assetCompare"></article>
+<div class="asset-summary-grid">
+<article class="summary-card card">
+<header class="card-heading"><h3>Блок 03</h3><span>тыс. ед. · период 01 / период 02</span></header>
+<div class="asset-summary" id="assetSummary"></div>
+</article>
+<article class="summary-card card">
+<header class="card-heading"><h3>Блок 04</h3><span>структура · 1H26</span></header>
+<div class="allocation-list" id="allocationList"></div>
+</article>
+</div>
+<section :class="{ 'is-active': activeTab === 'operations' }" class="report-section report-panel" data-panel="operations" data-reveal="" id="capacity">
+<header class="section-heading">
+<h2>Раздел 03</h2>
+<p>Общее количество, категории и доли — с сопоставлением периода 01 и периода 02.</p>
+</header>
+<article class="comparison-board card" id="capacityGrid"></article>
+</section>
+<article class="df-rent card">
+<header class="card-heading"><h3>Блок 05</h3><span>1H25 / 1H26</span></header>
+<div class="df-rent__table" id="dfRentTable"></div>
+</article>
+</section>
+<section :class="{ 'is-active': activeTab === 'operations' }" class="report-section report-panel" data-panel="operations" data-reveal="" id="processFlow">
+<header class="section-heading">
+<h2>Раздел 04</h2>
+<p>По каждому этапу показаны объём, выдача, конверсия и Δ 1H25 → 1H26.</p>
+</header>
+<article class="technical-ledger card">
+<header class="technical-ledger__header"><div><span>сквозная операционная воронка</span><h3>Блок 06</h3></div><b>шт. · 1H25 / 1H26</b></header>
+<div aria-label="Сравнение показателей процесса" class="technical-ledger__grid" id="processFlowLedger"></div>
+</article>
+</section>
+<section :class="{ 'is-active': activeTab === 'operations' }" class="report-section report-panel" data-panel="operations" data-reveal="" id="work">
+<header class="section-heading">
+<h2>Раздел 05</h2>
+<p>Показатели процесса 04, команды и поставщиков в сравнении двух периодов.</p>
+</header>
+<div aria-label="процесс 04 Актив 01 и поставщик" class="work-grid" id="workGrid"></div>
+</section>
+<section :class="{ 'is-active': activeTab === 'buildings' }" class="report-section report-panel" data-panel="buildings" data-reveal="" id="buildings">
+<header class="section-heading">
+<h2>Раздел 06</h2>
+<p>Объекты, категории, заказчики и показатели — в едином сравнении периодов.</p>
+</header>
+<article aria-label="Портфель объектов и услуга" class="asset-overview comparison-board card" id="assetOverview"></article>
+<div class="asset-story-grid">
+<article aria-label="Доход и клиенты по объектам" class="asset-income card" id="assetIncome"></article>
+<article aria-label="Коммерческая услуга: услуга и крупнейшие площади" class="asset-rent-detail card" id="assetRentDetail"></article>
+<article aria-label="Использование объектов и площадей" class="asset-use card" id="assetUseSplit"></article>
+</div>
+<article aria-label="Состояние объектов по категориям" class="asset-condition card" id="assetCondition"></article>
+<div class="power-section-heading"><div><h3>Блок 07</h3><p>Объекты, по которым доступны показатели 01–03.</p></div><span>список объектов</span></div>
+<div aria-label="Итоговые показатели объектов" class="power-overview" id="powerOverview"></div>
+<details class="power-list card" id="powerList">
+<summary>
+<div><h3>Блок 08</h3><p>Идентификатор, категория и показатели по каждому объекту.</p></div>
+<div class="power-list__toggle"><span id="powerListCount">—</span><b>объектов</b><i aria-hidden="true">⌄</i></div>
+</summary>
+<div aria-hidden="true" class="power-list__head"><span>Объект</span><span>Показатель 01</span><span>Показатель 02</span><span>Показатель 03</span></div>
+<div class="power-list__rows" id="powerListRows"></div>
+</details>
+</section>
+</main>
+</div>
+<script src="./vendor/vue.global.prod.js?v=20260810-tech-admin-1"></script>
+<script src="./report.js?v=20260825-commercial-mix-9"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Review 2026 — обезличенная версия</title>
+<title>Review 2026 — публичная версия</title>
 <style>
     :root {
       color-scheme: light;
@@ -3173,7 +3173,7 @@
     }
 
 
-    #analytics .analytics-status.excel {
+    #analytics .analytics-status.source {
       background: var(--green-soft);
       color: var(--green);
     }
@@ -3880,23 +3880,23 @@
     }
 
 
-    .optics-switch {
+    .viewmode-switch {
       margin-bottom: 14px;
     }
 
 
-    .optics-view {
+    .viewmode-view {
       display: none;
     }
 
 
-    .optics-view.active {
+    .viewmode-view.active {
       display: block;
       animation: cardIn .42s cubic-bezier(.2, .8, .2, 1) both;
     }
 
 
-    .optics-roadmap {
+    .viewmode-roadmap {
       position: relative;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -3910,7 +3910,7 @@
     }
 
 
-    .optics-roadmap::before {
+    .viewmode-roadmap::before {
       content: "";
       position: absolute;
       left: 8%;
@@ -4053,12 +4053,12 @@
 
     @media (max-width: 920px) {
       .file-stage,
-      .optics-roadmap {
+      .viewmode-roadmap {
         grid-template-columns: 1fr;
       }
 
 
-      .optics-roadmap::before {
+      .viewmode-roadmap::before {
         top: 28px;
         bottom: 28px;
         left: 26px;
@@ -4073,9 +4073,9 @@
 <div class="app">
 <header class="topbar">
 <div class="brand">
-<div class="brand-mark">OPERATOR A</div>
+<div class="brand-mark">REPORT</div>
 <div>
-<h1>Ревью Инфраструктурный департамент 1П225</h1>
+<h1>Review 2026 · Направление 01</h1>
 </div>
 </div>
 <div aria-label="Действия" class="actions">
@@ -4085,13 +4085,13 @@
 <div class="layout">
 <nav aria-label="Навигация по странице" class="side">
 <div class="side-title">Блоки</div>
-<a class="nav-link active" href="#overview">review225</a>
-<a class="nav-link" href="#pfa">ПФА Инфраструктурный департамент</a>
-<a class="nav-link" href="#kpi">KPI</a>
-<a class="nav-link" href="#analytics">Аналитика</a>
-<a class="nav-link" href="#projects">ЦОД и темная оптика</a>
-<a class="nav-link" href="#lko">рабочий кабинет</a>
-<a class="nav-link" href="#workflow">система задач</a>
+<a class="nav-link active" href="#overview">Раздел 01</a>
+<a class="nav-link" href="#pfa">Раздел 02</a>
+<a class="nav-link" href="#kpi">Раздел 03</a>
+<a class="nav-link" href="#analytics">Раздел 04</a>
+<a class="nav-link" href="#projects">Раздел 05</a>
+<a class="nav-link" href="#lko">Раздел 06</a>
+<a class="nav-link" href="#workflow">Раздел 07</a>
 </nav>
 <main class="content">
 <section class="hero active-section" data-section="" id="overview">
@@ -4099,37 +4099,37 @@
 <div class="hero-copy">
 <div>
 <div class="eyebrow">Executive review</div>
-<h2 contenteditable="true">review225</h2>
+<h2 contenteditable="true">Обзор отчёта</h2>
 <p class="lead" contenteditable="true">Описание (доработаем)</p>
 <div class="hero-meta">
 <span class="tag">1H25 и 1H25</span>
 <span class="tag">2Q - прогноз</span>
 <span class="tag">Q3 цели</span>
 <span class="tag">Демо-отчеты</span>
-<span class="tag">Roadmap status</span>
+<span class="tag">Статус проекта 01</span>
 <span class="tag">Аналитика</span>
 </div>
 </div>
 <div class="hero-summary">
 <div class="summary-tile">
-<span>Среднее выполнение KPI 1H25</span>
+<span>Среднее выполнение Метрики 1H25</span>
 <strong data-summary-kpi="">0%</strong>
 <p>Расчет по таблице подразделений.</p>
 </div>
 <div class="summary-tile">
-<span>Направления система задач</span>
+<span>Направления Система 01</span>
 <strong>10</strong>
 <p>2 реализовано · 6 в работе · 2 планируется.</p>
 </div>
 <div class="summary-tile">
-<span>Автоматизация рабочий кабинет</span>
+<span>Автоматизация Система 02</span>
 <strong>38%</strong>
-<p>По ключевым потокам Инфраструктурный департамент и ТБ.</p>
+<p>По ключевым потокам Направление 01 и Группа 02.</p>
 </div>
 <div class="summary-tile">
 <span>Фокус демонстрации</span>
 <strong>4</strong>
-<p>Финрез, KPI, проекты, отчеты.</p>
+<p>Финрез, Метрики, проекты, отчеты.</p>
 </div>
 </div>
 </div>
@@ -4138,15 +4138,15 @@
 <section class="section" data-section="" id="pfa">
 <div class="section-head">
 <div class="section-title">
-<div class="eyebrow">ПФА Инфраструктурный департамент</div>
-<h2>Финансовый результат</h2>
+<div class="eyebrow">Показатели Направление 01</div>
+<h2>Показатели направления</h2>
 </div>
 </div>
 <div class="finance-grid">
 <article class="metric-card finance-block">
 <div class="finance-block-head">
 <span>Total</span>
-<strong contenteditable="true">Итого</strong>
+<strong contenteditable="true">Категория 01</strong>
 </div>
 <div class="finance-quarter">
 <span>1Q25 план / факт</span>
@@ -4164,12 +4164,12 @@
 <div class="finance-mini">
 <span>Выполнение 1Q</span>
 <strong contenteditable="true">88%</strong>
-<p contenteditable="true">Выполнение плана total.</p>
+<p contenteditable="true">Комментарий 01.</p>
 </div>
 <div class="finance-mini">
 <span>Риск-контур</span>
 <strong contenteditable="true">3 зоны</strong>
-<p contenteditable="true">КР, инфраструктурные проекты, ЦОД.</p>
+<p contenteditable="true">Комментарий 02.</p>
 </div>
 </div>
 </div>
@@ -4189,12 +4189,12 @@
 <div class="finance-mini">
 <span>Выполнение 2Q</span>
 <strong contenteditable="true">89%</strong>
-<p contenteditable="true">Выполнение к плану по core-направлениям.</p>
+<p contenteditable="true">Комментарий 03.</p>
 </div>
 <div class="finance-mini">
 <span>Риск-контур</span>
 <strong contenteditable="true">2 зоны</strong>
-<p contenteditable="true">КР и ЦОД</p>
+<p contenteditable="true">Комментарий 04.</p>
 </div>
 </div>
 </div>
@@ -4214,20 +4214,20 @@
 <div class="finance-mini">
 <span>Выполнение 1H</span>
 <strong contenteditable="true">88%</strong>
-<p contenteditable="true">Сумма 1Q факта и 2Q прогноза к плану 1H26.</p>
+<p contenteditable="true">Комментарий 05.</p>
 </div>
 <div class="finance-mini">
 <span>Состав</span>
 <strong contenteditable="true">1Q + 2Q</strong>
-<p contenteditable="true">Полугодие собрано из квартальных значений выше.</p>
+<p contenteditable="true">Комментарий 06.</p>
 </div>
 </div>
 </div>
 </article>
 <article class="metric-card finance-block">
 <div class="finance-block-head">
-<span>Core</span>
-<strong contenteditable="true">Core</strong>
+<span>Категория 01</span>
+<strong contenteditable="true">Категория 02</strong>
 </div>
 <div class="finance-quarter">
 <span>1Q25 план / факт</span>
@@ -4245,12 +4245,12 @@
 <div class="finance-mini">
 <span>Выполнение 1Q</span>
 <strong contenteditable="true">88%</strong>
-<p contenteditable="true">Выполнение к плану по core-направлениям.</p>
+<p contenteditable="true">Комментарий 07.</p>
 </div>
 <div class="finance-mini">
 <span>Риск-контур</span>
 <strong contenteditable="true">2 зоны</strong>
-<p contenteditable="true">КР и ЦОД</p>
+<p contenteditable="true">Комментарий 08.</p>
 </div>
 </div>
 </div>
@@ -4270,12 +4270,12 @@
 <div class="finance-mini">
 <span>Выполнение 2Q</span>
 <strong contenteditable="true">88%</strong>
-<p contenteditable="true">Выполнение к плану по core-направлениям.</p>
+<p contenteditable="true">Комментарий 09.</p>
 </div>
 <div class="finance-mini">
 <span>Риск-контур</span>
 <strong contenteditable="true">2 зоны</strong>
-<p contenteditable="true">КР и ЦОД</p>
+<p contenteditable="true">Комментарий 10.</p>
 </div>
 </div>
 </div>
@@ -4295,20 +4295,20 @@
 <div class="finance-mini">
 <span>Выполнение 1H</span>
 <strong contenteditable="true">88%</strong>
-<p contenteditable="true">Сумма 1Q факта и 2Q прогноза к плану 1H26.</p>
+<p contenteditable="true">Комментарий 11.</p>
 </div>
 <div class="finance-mini">
 <span>Состав</span>
 <strong contenteditable="true">1Q + 2Q</strong>
-<p contenteditable="true">Полугодие собрано из квартальных значений выше.</p>
+<p contenteditable="true">Комментарий 12.</p>
 </div>
 </div>
 </div>
 </article>
 <article class="metric-card finance-block">
 <div class="finance-block-head">
-<span>Non-core</span>
-<strong contenteditable="true">Non-core</strong>
+<span>Non-Категория 01</span>
+<strong contenteditable="true">Категория 03</strong>
 </div>
 <div class="finance-quarter">
 <span>1Q25 план / факт</span>
@@ -4326,12 +4326,12 @@
 <div class="finance-mini">
 <span>Выполнение 1Q</span>
 <strong contenteditable="true">86%</strong>
-<p contenteditable="true">Выполнение к плану по non-core-направлениям.</p>
+<p contenteditable="true">Комментарий 13.</p>
 </div>
 <div class="finance-mini">
 <span>Риск-контур</span>
 <strong contenteditable="true">1 зона</strong>
-<p contenteditable="true">Инфраструктурные проекты</p>
+<p contenteditable="true">Комментарий 14.</p>
 </div>
 </div>
 </div>
@@ -4351,12 +4351,12 @@
 <div class="finance-mini">
 <span>Выполнение 2Q</span>
 <strong contenteditable="true">95%</strong>
-<p contenteditable="true">Выполнение к плану по non-core-направлениям.</p>
+<p contenteditable="true">Комментарий 15.</p>
 </div>
 <div class="finance-mini">
 <span>Риск-контур</span>
 <strong contenteditable="true">0 зон</strong>
-<p contenteditable="true">Следует плану</p>
+<p contenteditable="true">Комментарий 16.</p>
 </div>
 </div>
 </div>
@@ -4376,12 +4376,12 @@
 <div class="finance-mini">
 <span>Выполнение 1H</span>
 <strong contenteditable="true">91%</strong>
-<p contenteditable="true">Сумма 1Q факта и 2Q прогноза к плану 1H26.</p>
+<p contenteditable="true">Комментарий 17.</p>
 </div>
 <div class="finance-mini">
 <span>Состав</span>
 <strong contenteditable="true">1Q + 2Q</strong>
-<p contenteditable="true">Полугодие собрано из квартальных значений выше.</p>
+<p contenteditable="true">Комментарий 18.</p>
 </div>
 </div>
 </div>
@@ -4389,28 +4389,28 @@
 <article class="metric-card finance-block pfa-summary-card">
 <div class="finance-block-head">
 <span>Краткий вывод</span>
-<strong contenteditable="true">Executive summary</strong>
+<strong contenteditable="true">Категория 04</strong>
 </div>
 <div class="pfa-summary-points" contenteditable="true" id="executiveSummary">
 <div class="pfa-summary-point">
 <span>Сроки</span>
-<strong>ЦОД смещает реализацию</strong>
-<p>Смещение сроков реализации продукта в ЦОД остается главным фактором давления на финальный результат.</p>
+<strong>Объект смещает реализацию</strong>
+<p>Смещение сроков реализации продукта в Объект остается главным фактором давления на финальный результат.</p>
 </div>
 <div class="pfa-summary-point">
 <span>Проекты</span>
-<strong>Инфраструктура закрывается неравномерно</strong>
-<p>Неравномерное закрытие инфраструктурных проектов требует отдельного контроля по рисковым зонам.</p>
+<strong>направление 01 закрывается неравномерно</strong>
+<p>Неравномерное закрытие Направление 01 требует отдельного контроля по рисковым зонам.</p>
 </div>
 <div class="pfa-summary-point">
-<span>KPI</span>
-<strong>ПДЗ от ОДЗ ниже цели</strong>
-<p>Недостижение KPI по доле ПДЗ от ОДЗ сохраняется при снижении ПДЗ только на 3,7034% при уровне 53 млн.</p>
+<span>Метрики</span>
+<strong>Метрика 03 от Метрика 04 ниже цели</strong>
+<p>Недостижение Метрики по доле Метрика 03 от Метрика 04 сохраняется при снижении Метрика 03 только на 3,7034% при уровне 53 млн.</p>
 </div>
 <div class="pfa-summary-point">
 <span>Прогноз</span>
 <strong>Годовой бюджет в зоне роста</strong>
-<p>Прогноз годового бюджета - до 88%, плюс 9% к 2025 году за счет инфраструктуры, ЦОДов и ПД, включая ТО.</p>
+<p>Прогноз годового бюджета - до 88%, плюс 9% к 2025 году за счет направление 01, Объект и Категория 08, включая Категория 09.</p>
 </div>
 </div>
 </article>
@@ -4434,16 +4434,16 @@
 <section class="section" data-section="" id="kpi">
 <div class="section-head">
 <div class="section-title">
-<div class="eyebrow">Выполнение KPI</div>
-<h2>Показатели отдела: план, факт, прогноз и сравнение</h2>
+<div class="eyebrow">Выполнение Метрики</div>
+<h2>Метрики</h2>
 </div>
-<p class="section-desc">2Q отражен как прогноз. Фактические данные подставляются после выгрузки Аналитическая система после 14.08.2026. Показатели, появившиеся только в 2026 году, не сравниваются с 2025.</p>
+<p class="section-desc">2Q отражен как прогноз. Фактические данные подставляются после выгрузки Система 07 после 14.08.2026. Показатели, появившиеся только в 2026 году, не сравниваются с 2025.</p>
 </div>
 <div class="panel">
 <div class="panel-head">
 <div>
-<h3>Сводная таблица KPI по подразделениям</h3>
-<p>Продажи · Техпресейл · Поддержка клиентов</p>
+<h3>Сводная таблица Метрики по подразделениям</h3>
+<p>направление 03 · направление 02 · Поддержка клиентов</p>
 </div>
 <span class="status-pill work">2Q прогноз</span>
 </div>
@@ -4451,8 +4451,8 @@
 <div class="table-tools">
 <div aria-label="Фильтр подразделения" class="segmented" role="group">
 <button class="active" data-kpi-filter="all" type="button">Все</button>
-<button data-kpi-filter="Продажи" type="button">Продажи</button>
-<button data-kpi-filter="Техпресейл" type="button">Техпресейл</button>
+<button data-kpi-filter="направление 03" type="button">направление 03</button>
+<button data-kpi-filter="направление 02" type="button">направление 02</button>
 <button data-kpi-filter="Поддержка" type="button">Поддержка</button>
 </div>
 </div>
@@ -4461,13 +4461,13 @@
 <thead>
 <tr>
 <th>Подразделение</th>
-<th>KPI</th>
+<th>Метрики</th>
 <th>Ед.</th>
 <th class="num">1Q П</th>
 <th class="num">1Q Ф</th>
 <th class="num">1Q %</th>
 <th class="num">2Q П</th>
-<th class="num">2Q ПР</th>
+<th class="num">2Q Прогноз</th>
 <th class="num">2Q %</th>
 <th class="num">1H25 П</th>
 <th class="num">1H25 Ф</th>
@@ -4479,8 +4479,8 @@
 </tr>
 </thead>
 <tbody>
-<tr data-dept="Продажи">
-<td contenteditable="true">Продажи</td>
+<tr data-dept="направление 03">
+<td contenteditable="true">направление 03</td>
 <td contenteditable="true">Доходы (портфельная выручка)</td>
 <td contenteditable="true">руб.</td>
 <td class="num q1-plan" contenteditable="true">1 634 377 683</td>
@@ -4497,9 +4497,9 @@
 <td class="calc h25-pct"></td>
 <td class="calc delta"></td>
 </tr>
-<tr data-dept="Продажи">
-<td contenteditable="true">Продажи</td>
-<td contenteditable="true">RN инфраструктурные проекты</td>
+<tr data-dept="направление 03">
+<td contenteditable="true">направление 03</td>
+<td contenteditable="true">Метрика 05 Направление 01</td>
 <td contenteditable="true">руб.</td>
 <td class="num q1-plan" contenteditable="true">58 100 003</td>
 <td class="num q1-fact" contenteditable="true">57 904 978</td>
@@ -4515,9 +4515,9 @@
 <td class="calc h25-pct"></td>
 <td class="calc delta"></td>
 </tr>
-<tr data-dept="Продажи">
-<td contenteditable="true">Продажи</td>
-<td contenteditable="true">Доля СМР 20% -> 28%</td>
+<tr data-dept="направление 03">
+<td contenteditable="true">направление 03</td>
+<td contenteditable="true">Доля Работы 01 20% -> 28%</td>
 <td contenteditable="true">руб.</td>
 <td class="num q1-plan" contenteditable="true">13 363 003</td>
 <td class="num q1-fact" contenteditable="true">17 045 822</td>
@@ -4533,9 +4533,9 @@
 <td class="calc h25-pct"></td>
 <td class="calc delta"></td>
 </tr>
-<tr data-dept="Продажи" data-since="2026">
-<td contenteditable="true">Продажи</td>
-<td contenteditable="true">Прирост клиентов DarkFiber</td>
+<tr data-dept="направление 03" data-since="2026">
+<td contenteditable="true">направление 03</td>
+<td contenteditable="true">Прирост клиентов Услуга 01</td>
 <td contenteditable="true">шт.</td>
 <td class="num q1-plan" contenteditable="true">-</td>
 <td class="num q1-fact" contenteditable="true">-</td>
@@ -4551,9 +4551,9 @@
 <td class="calc h25-pct"></td>
 <td class="calc delta"></td>
 </tr>
-<tr data-dept="Продажи" data-since="2026">
-<td contenteditable="true">Продажи</td>
-<td contenteditable="true">RN новые доходы (инсталлы + реккурент ТО, ЦОД)</td>
+<tr data-dept="направление 03" data-since="2026">
+<td contenteditable="true">направление 03</td>
+<td contenteditable="true">Метрика 05 новые доходы (параметр 01 + параметр 02 Категория 09, Объект)</td>
 <td contenteditable="true">руб.</td>
 <td class="num q1-plan" contenteditable="true">1 992 003</td>
 <td class="num q1-fact" contenteditable="true">3 633 469</td>
@@ -4569,9 +4569,9 @@
 <td class="calc h25-pct"></td>
 <td class="calc delta"></td>
 </tr>
-<tr data-dept="Техпресейл">
-<td contenteditable="true">Техпресейл</td>
-<td contenteditable="true">RN инфраструктурные проекты</td>
+<tr data-dept="направление 02">
+<td contenteditable="true">направление 02</td>
+<td contenteditable="true">Метрика 05 Направление 01</td>
 <td contenteditable="true">руб.</td>
 <td class="num q1-plan" contenteditable="true">58 100 003</td>
 <td class="num q1-fact" contenteditable="true">57 904 978</td>
@@ -4587,9 +4587,9 @@
 <td class="calc h25-pct"></td>
 <td class="calc delta"></td>
 </tr>
-<tr data-dept="Техпресейл" data-inverse="true">
-<td contenteditable="true">Техпресейл</td>
-<td contenteditable="true">Доля ДЗ в выручке по проектной деятельности</td>
+<tr data-dept="направление 02" data-inverse="true">
+<td contenteditable="true">направление 02</td>
+<td contenteditable="true">Доля Метрика 08 в выручке по проектной деятельности</td>
 <td contenteditable="true">%</td>
 <td class="num q1-plan" contenteditable="true">22.0</td>
 <td class="num q1-fact" contenteditable="true">20.8</td>
@@ -4605,9 +4605,9 @@
 <td class="calc h25-pct"></td>
 <td class="calc delta"></td>
 </tr>
-<tr data-dept="Техпресейл">
-<td contenteditable="true">Техпресейл</td>
-<td contenteditable="true">Доходы (портфельная выручка по сегменту В2Г)</td>
+<tr data-dept="направление 02">
+<td contenteditable="true">направление 02</td>
+<td contenteditable="true">Доходы (портфельная выручка по сегменту Категория 06)</td>
 <td contenteditable="true">руб.</td>
 <td class="num q1-plan" contenteditable="true">232 400 003</td>
 <td class="num q1-fact" contenteditable="true">260 886 808</td>
@@ -4623,9 +4623,9 @@
 <td class="calc h25-pct"></td>
 <td class="calc delta"></td>
 </tr>
-<tr data-dept="Техпресейл">
-<td contenteditable="true">Техпресейл</td>
-<td contenteditable="true">RN новые доходы (инсталлы + реккурент ТО, ЦОД)</td>
+<tr data-dept="направление 02">
+<td contenteditable="true">направление 02</td>
+<td contenteditable="true">Метрика 05 новые доходы (параметр 01 + параметр 02 Категория 09, Объект)</td>
 <td contenteditable="true">руб.</td>
 <td class="num q1-plan" contenteditable="true">1 992 003</td>
 <td class="num q1-fact" contenteditable="true">3 633 469</td>
@@ -4661,7 +4661,7 @@
 </tr>
 <tr data-dept="Поддержка" data-inverse="true">
 <td contenteditable="true">Поддержка</td>
-<td contenteditable="true">Удельное отношение ПДЗ к ДЗ</td>
+<td contenteditable="true">Удельное отношение Метрика 03 к Метрика 08</td>
 <td contenteditable="true">%</td>
 <td class="num q1-plan" contenteditable="true">6.1</td>
 <td class="num q1-fact" contenteditable="true">5.9</td>
@@ -4679,7 +4679,7 @@
 </tr>
 <tr data-dept="Поддержка">
 <td contenteditable="true">Поддержка</td>
-<td contenteditable="true">Доля заявок в рабочий кабинет по реализованным услугам</td>
+<td contenteditable="true">Доля заявок в Система 02 по реализованным услугам</td>
 <td contenteditable="true">%</td>
 <td class="num q1-plan" contenteditable="true">70.0</td>
 <td class="num q1-fact" contenteditable="true">68.0</td>
@@ -4712,13 +4712,13 @@
 <div class="panel-body">
 <div class="chart-grid">
 <div class="bars" id="deptBars">
-<div class="bar-row" data-bar="Продажи">
-<div class="bar-label">Продажи</div>
+<div class="bar-row" data-bar="направление 03">
+<div class="bar-label">направление 03</div>
 <div class="bar-track"><div class="bar-fill"></div></div>
 <div class="bar-value">0%</div>
 </div>
-<div class="bar-row" data-bar="Техпресейл">
-<div class="bar-label">Техпресейл</div>
+<div class="bar-row" data-bar="направление 02">
+<div class="bar-label">направление 02</div>
 <div class="bar-track"><div class="bar-fill"></div></div>
 <div class="bar-value">0%</div>
 </div>
@@ -4729,14 +4729,14 @@
 </div>
 </div>
 <div class="mini-chart">
-<svg aria-label="Сравнение выполнения KPI" class="spark" id="kpiSpark" role="img" viewbox="0 0 360 180">
+<svg aria-label="Сравнение выполнения Метрики" class="spark" id="kpiSpark" role="img" viewbox="0 0 360 180">
 <line stroke="#dbe3ef" x1="35" x2="340" y1="150" y2="150"></line>
 <line stroke="#eef2f7" x1="35" x2="340" y1="95" y2="95"></line>
 <line stroke="#eef2f7" x1="35" x2="340" y1="40" y2="40"></line>
 <polyline fill="none" id="sparkLine" points="" stroke="#159d91" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"></polyline>
 <g id="sparkPoints"></g>
-<text fill="#64748b" font-size="12" x="35" y="170">Продажи</text>
-<text fill="#64748b" font-size="12" x="142" y="170">Техпресейл</text>
+<text fill="#64748b" font-size="12" x="35" y="170">направление 03</text>
+<text fill="#64748b" font-size="12" x="142" y="170">направление 02</text>
 <text fill="#64748b" font-size="12" x="257" y="170">Поддержка</text>
 </svg>
 </div>
@@ -4746,7 +4746,7 @@
 <div class="panel">
 <div class="panel-head">
 <div>
-<h3>Выполнение основных KPI первого полугодия по сотрудникам</h3>
+<h3>Выполнение основных Метрики первого полугодия по сотрудникам</h3>
 <p>Разбивка по отделам без сравнения с прошлым годом</p>
 </div>
 </div>
@@ -4754,7 +4754,7 @@
 <div class="accordion-set">
 <details class="accordion" open="">
 <summary>
-<span class="summary-name"><strong>Продажи</strong><span>КАМ и развитие текущих клиентов</span></span>
+<span class="summary-name"><strong>Группа 01</strong><span>Роль 01 и развитие текущих клиентов</span></span>
 <span class="status-pill done">собрано</span>
 </summary>
 <div class="accordion-body">
@@ -4764,17 +4764,17 @@
 <tr>
 <th>ФИО</th>
 <th>Роль</th>
-<th class="num">Доходы (портфельная выручка)</th>
-<th class="num">RN инфраструктурные проекты</th>
-<th class="num">Доля СМР 20% -> 28%</th>
-<th class="num">Прирост клиентов DarkFiber</th>
-<th class="num">RN новые доходы (инсталлы + реккурент ТО, ЦОД)</th>
+<th class="num">Метрика 001</th>
+<th class="num">Метрика 002</th>
+<th class="num">Метрика 003</th>
+<th class="num">Метрика 004</th>
+<th class="num">Метрика 005</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td contenteditable="true">Сотрудник 13</td>
-<td><span class="role-chip" contenteditable="true">КАМ</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 01</span></td>
 <td class="num" contenteditable="true">94%<small>план 152 / факт 162</small></td>
 <td class="num" contenteditable="true">84%<small>план 5 / факт 5.7</small></td>
 <td class="num" contenteditable="true">40%<small>план 61 / факт 68</small></td>
@@ -4783,7 +4783,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 44</td>
-<td><span class="role-chip" contenteditable="true">КАМ</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 01</span></td>
 <td class="num" contenteditable="true">88%<small>план 152 / факт 162</small></td>
 <td class="num" contenteditable="true">142%<small>план 5 / факт 5.7</small></td>
 <td class="num" contenteditable="true">92%<small>план 61 / факт 68</small></td>
@@ -4792,7 +4792,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 44</td>
-<td><span class="role-chip" contenteditable="true">КАМ</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 01</span></td>
 <td class="num" contenteditable="true">105%<small>план 152 / факт 162</small></td>
 <td class="num" contenteditable="true">138%<small>план 5 / факт 5.7</small></td>
 <td class="num" contenteditable="true">14%<small>план 61 / факт 68</small></td>
@@ -4801,7 +4801,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 50</td>
-<td><span class="role-chip" contenteditable="true">КАМ</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 01</span></td>
 <td class="num" contenteditable="true">88%<small>план 152 / факт 162</small></td>
 <td class="num" contenteditable="true">97%<small>план 5 / факт 5.7</small></td>
 <td class="num" contenteditable="true">278%<small>план 61 / факт 68</small></td>
@@ -4810,7 +4810,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 26</td>
-<td><span class="role-chip" contenteditable="true">КАМ</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 01</span></td>
 <td class="num" contenteditable="true">90%<small>план 152 / факт 162</small></td>
 <td class="num" contenteditable="true">52%<small>план 5 / факт 5.7</small></td>
 <td class="num" contenteditable="true">148%<small>план 61 / факт 68</small></td>
@@ -4819,7 +4819,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 65</td>
-<td><span class="role-chip" contenteditable="true">КАМ</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 01</span></td>
 <td class="num" contenteditable="true">92%<small>план 152 / факт 162</small></td>
 <td class="num" contenteditable="true">40%<small>план 5 / факт 5.7</small></td>
 <td class="num" contenteditable="true">32%<small>план 61 / факт 68</small></td>
@@ -4833,12 +4833,12 @@
 </details>
 <details class="accordion">
 <summary>
-<span class="summary-name"><strong>Техпресейл</strong><span>Оценка, ТКП, пресейл-экспертиза</span></span>
+<span class="summary-name"><strong>Группа 02</strong><span>Процесс 02</span></span>
 <span class="status-pill done">собрано</span>
 </summary>
 <div class="accordion-body">
 <summary>
-<span class="summary-name"><strong>Техпресейл</strong><span>Проектное управление</span></span>
+<span class="summary-name"><strong>Группа 03</strong><span>Процесс 03</span></span>
 </summary>
 <div class="table-wrap">
 <table class="employee-table">
@@ -4846,15 +4846,15 @@
 <tr>
 <th>ФИО</th>
 <th>Роль</th>
-<th class="num">Подготовка и вынесение на проектный комитет Дубны</th>
-<th class="num">Подготовка и вынесение на проектный комитет сратегии по волокнам</th>
-<th class="num">Подготовка кейса для выноса на проектный комитет Объект 01 модернизацию площадки</th>
+<th class="num">Метрика 006</th>
+<th class="num">Метрика 007</th>
+<th class="num">Метрика 008</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td contenteditable="true">Сотрудник 14</td>
-<td><span class="role-chip" contenteditable="true">Руководитель направления</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 02</span></td>
 <td class="num" contenteditable="true">86%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">86%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">86%<small>план 61 / факт 63</small></td>
@@ -4863,7 +4863,7 @@
 </table>
 </div>
 <summary>
-<span class="summary-name"><strong>Техпресейл</strong><span>Реализация проектов</span></span>
+<span class="summary-name"><strong>Группа 04</strong><span>Реализация проектов</span></span>
 </summary>
 <div class="table-wrap">
 <table class="employee-table">
@@ -4871,16 +4871,16 @@
 <tr>
 <th>ФИО</th>
 <th>Роль</th>
-<th class="num">RN инфраструктурные проекты</th>
-<th class="num">Своевременность закрытия заявки в своей ЗО</th>
-<th class="num">Доля СМР 20% -> 28%</th>
-<th class="num">RN новые доходы (инсталлы + реккурент ТО, ЦОД)</th>
+<th class="num">Метрика 009</th>
+<th class="num">Метрика 010</th>
+<th class="num">Метрика 011</th>
+<th class="num">Метрика 012</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td contenteditable="true">Сотрудник 1</td>
-<td><span class="role-chip" contenteditable="true">Руководитель направления</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 02</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">88%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">115%<small>план 61 / факт 63</small></td>
@@ -4888,7 +4888,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 30</td>
-<td><span class="role-chip" contenteditable="true">Ведущий менеджер по развитию клиентских проектов</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 03</span></td>
 <td class="num" contenteditable="true">90%<small>план 21 / факт 20</small></td>
 <td class="num" contenteditable="true">89%<small>план 5д / факт 5д</small></td>
 <td class="num" contenteditable="true">115%<small>план 61 / факт 64</small></td>
@@ -4896,7 +4896,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 37</td>
-<td><span class="role-chip" contenteditable="true">Ведущий менеджер по развитию клиентских проектов</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 03</span></td>
 <td class="num" contenteditable="true">88%<small>план 15 / факт 16</small></td>
 <td class="num" contenteditable="true">93%<small>план 5д / факт 5.1д</small></td>
 <td class="num" contenteditable="true">115%<small>план 61 / факт 61</small></td>
@@ -4904,7 +4904,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 43</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию клиентов</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 04</span></td>
 <td class="num" contenteditable="true">87%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true"><small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">115%<small>план 61 / факт 63</small></td>
@@ -4912,7 +4912,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 61</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию клиентов</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 04</span></td>
 <td class="num" contenteditable="true">93%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true"><small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true"><small>план 61 / факт 63</small></td>
@@ -4920,7 +4920,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 64</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию клиентов</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 04</span></td>
 <td class="num" contenteditable="true"><small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true"><small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true"><small>план 61 / факт 63</small></td>
@@ -4930,7 +4930,7 @@
 </table>
 </div>
 <summary>
-<span class="summary-name"><strong>Техпресейл</strong><span>Поддержка клиентов</span></span>
+<span class="summary-name"><strong>Группа 05</strong><span>Процесс 05</span></span>
 </summary>
 <div class="table-wrap">
 <table class="employee-table">
@@ -4938,16 +4938,16 @@
 <tr>
 <th>ФИО</th>
 <th>Роль</th>
-<th class="num">RN инфраструктурные проекты</th>
-<th class="num">Доля ДЗ в выручке по проектной деятельности</th>
-<th class="num">Доля СМР 20% -> 28%</th>
-<th class="num">Сроки подготовки актов выверки</th>
+<th class="num">Метрика 013</th>
+<th class="num">Метрика 014</th>
+<th class="num">Метрика 015</th>
+<th class="num">Метрика 016</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td contenteditable="true">Сотрудник 23</td>
-<td><span class="role-chip" contenteditable="true">Менеджер поддержки клиентских проектов</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 05</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">88%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">115%<small>план 61 / факт 63</small></td>
@@ -4955,7 +4955,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 39</td>
-<td><span class="role-chip" contenteditable="true">Менеджер поддержки клиентских проектов</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 05</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">88%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">115%<small>план 61 / факт 63</small></td>
@@ -4963,7 +4963,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 49</td>
-<td><span class="role-chip" contenteditable="true">Менеджер поддержки клиентских проектов</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 05</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">88%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">115%<small>план 61 / факт 63</small></td>
@@ -4973,7 +4973,7 @@
 </table>
 </div>
 <summary>
-<span class="summary-name"><strong>Техпресейл</strong><span>Сегмент Контур C</span></span>
+<span class="summary-name"><strong>Группа 06</strong><span>Процесс 06</span></span>
 </summary>
 <div class="table-wrap">
 <table class="employee-table">
@@ -4981,16 +4981,16 @@
 <tr>
 <th>ФИО</th>
 <th>Роль</th>
-<th class="num">Доходы (портфельная выручка по сегменту В2Г)</th>
-<th class="num">Срок отработки заявок на реализацию в Siebel</th>
-<th class="num">Количество проработок включения для ДИТ</th>
-<th class="num">RN новые доходы</th>
+<th class="num">Метрика 017</th>
+<th class="num">Метрика 018</th>
+<th class="num">Метрика 019</th>
+<th class="num">Метрика 020</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td contenteditable="true">Сотрудник 57</td>
-<td><span class="role-chip" contenteditable="true">Руководитель направления</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 02</span></td>
 <td class="num" contenteditable="true">99%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">84%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">142%<small>план 61 / факт 63</small></td>
@@ -4998,7 +4998,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 10</td>
-<td><span class="role-chip" contenteditable="true">Ведущий специалист</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 06</span></td>
 <td class="num" contenteditable="true">99%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">84%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">142%<small>план 61 / факт 63</small></td>
@@ -5006,7 +5006,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 40</td>
-<td><span class="role-chip" contenteditable="true">Ведущий специалист</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 06</span></td>
 <td class="num" contenteditable="true">99%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">84%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">142%<small>план 61 / факт 63</small></td>
@@ -5014,7 +5014,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 63</td>
-<td><span class="role-chip" contenteditable="true">Руководитель проекта</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 07</span></td>
 <td class="num" contenteditable="true">99%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">84%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">142%<small>план 61 / факт 63</small></td>
@@ -5022,7 +5022,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 41</td>
-<td><span class="role-chip" contenteditable="true">Руководитель проекта</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 07</span></td>
 <td class="num" contenteditable="true">99%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">84%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">142%<small>план 61 / факт 63</small></td>
@@ -5030,7 +5030,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 34</td>
-<td><span class="role-chip" contenteditable="true">Руководитель проекта</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 07</span></td>
 <td class="num" contenteditable="true">99%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">84%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">142%<small>план 61 / факт 63</small></td>
@@ -5040,7 +5040,7 @@
 </table>
 </div>
 <summary>
-<span class="summary-name"><strong>Техпресейл</strong><span>Проектирование</span></span>
+<span class="summary-name"><strong>Группа 07</strong><span>Процесс 07</span></span>
 </summary>
 <div class="table-wrap">
 <table class="employee-table">
@@ -5048,16 +5048,16 @@
 <tr>
 <th>ФИО</th>
 <th>Роль</th>
-<th class="num">RN инфраструктурыные проекты</th>
-<th class="num">Выработка трасс в день, м</th>
-<th class="num">Согласование документов (РП, ИД)</th>
-<th class="num">Процент документации согласованной без замечаний</th>
+<th class="num">Метрика 021</th>
+<th class="num">Метрика 022</th>
+<th class="num">Метрика 023</th>
+<th class="num">Метрика 024</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td contenteditable="true">Сотрудник 33</td>
-<td><span class="role-chip" contenteditable="true">Ведущий инженер-проектировщик</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 08</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">81%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">78%<small>план 61 / факт 63</small></td>
@@ -5065,7 +5065,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 35</td>
-<td><span class="role-chip" contenteditable="true">Ведущий инженер-проектировщик</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 08</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">98%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">78%<small>план 61 / факт 63</small></td>
@@ -5073,7 +5073,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 53</td>
-<td><span class="role-chip" contenteditable="true">Ведущий инженер-проектировщик</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 08</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">84%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">78%<small>план 61 / факт 63</small></td>
@@ -5081,7 +5081,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 60</td>
-<td><span class="role-chip" contenteditable="true">Ведущий инженер-проектировщик</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 08</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">94%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">78%<small>план 61 / факт 63</small></td>
@@ -5089,7 +5089,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 7</td>
-<td><span class="role-chip" contenteditable="true">Старший инженер-проектировщик</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 09</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">88%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">78%<small>план 61 / факт 63</small></td>
@@ -5097,7 +5097,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 10</td>
-<td><span class="role-chip" contenteditable="true">Старший инженер-проектировщик</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 09</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">79%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">78%<small>план 61 / факт 63</small></td>
@@ -5105,7 +5105,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 28</td>
-<td><span class="role-chip" contenteditable="true">Старший инженер-проектировщик</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 09</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">79%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">78%<small>план 61 / факт 63</small></td>
@@ -5113,7 +5113,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 38</td>
-<td><span class="role-chip" contenteditable="true">Старший инженер-проектировщик</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 09</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">99%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">78%<small>план 61 / факт 63</small></td>
@@ -5121,7 +5121,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 47</td>
-<td><span class="role-chip" contenteditable="true">Старший инженер-проектировщик</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 09</span></td>
 <td class="num" contenteditable="true">91%<small>план 23 / факт 25</small></td>
 <td class="num" contenteditable="true">98%<small>план 5д / факт 4.8д</small></td>
 <td class="num" contenteditable="true">78%<small>план 61 / факт 63</small></td>
@@ -5134,12 +5134,12 @@
 </details>
 <details class="accordion">
 <summary>
-<span class="summary-name"><strong>Обслуживание</strong><span>SLA, FCR, качество закрытия обращений</span></span>
+<span class="summary-name"><strong>Группа 08</strong><span>Метрика 01, Метрика 06, качество закрытия обращений</span></span>
 <span class="status-pill done">собрано</span>
 </summary>
 <div class="accordion-body">
 <summary>
-<span class="summary-name"><strong>Обслуживание</strong><span>Обслуживание клиентов</span></span>
+<span class="summary-name"><strong>Группа 09</strong><span>Процесс 09</span></span>
 </summary>
 <div class="table-wrap">
 <table class="employee-table">
@@ -5147,19 +5147,19 @@
 <tr>
 <th>ФИО</th>
 <th>Роль</th>
-<th class="num">Доходы (портфельная выручка)</th>
-<th class="num">Удельное отношение ПДЗ к ДЗ</th>
-<th class="num">Своевременность принятия заявки рабочий кабинет в работу</th>
-<th class="num">Увеличение доли запроса ТУ на ЛКС через рабочий кабинет</th>
-<th class="num">Своевременность отработки заявки в рабочий кабинет на этапе</th>
-<th class="num">Верификация договоров</th>
-<th class="num">Доля заявок в рабочий кабинет по реализованным услугам</th>
+<th class="num">Метрика 025</th>
+<th class="num">Метрика 026</th>
+<th class="num">Метрика 027</th>
+<th class="num">Метрика 028</th>
+<th class="num">Метрика 029</th>
+<th class="num">Метрика 030</th>
+<th class="num">Метрика 031</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td contenteditable="true">Сотрудник 62</td>
-<td><span class="role-chip" contenteditable="true">Руководитель направления</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 02</span></td>
 <td class="num" contenteditable="true">90%</td>
 <td class="num" contenteditable="true">63%</td>
 <td class="num" contenteditable="true">-</td>
@@ -5170,7 +5170,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 24</td>
-<td><span class="role-chip" contenteditable="true">Руководитель направления</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 02</span></td>
 <td class="num" contenteditable="true">90%</td>
 <td class="num" contenteditable="true">63%</td>
 <td class="num" contenteditable="true">-</td>
@@ -5181,7 +5181,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 5</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">112%</td>
 <td class="num" contenteditable="true">103%</td>
 <td class="num" contenteditable="true">-</td>
@@ -5192,7 +5192,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 16</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">88%</td>
 <td class="num" contenteditable="true">26%</td>
 <td class="num" contenteditable="true">84%</td>
@@ -5203,7 +5203,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 22</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">88%</td>
 <td class="num" contenteditable="true">103%</td>
 <td class="num" contenteditable="true">99%</td>
@@ -5214,7 +5214,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 46</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">92%</td>
 <td class="num" contenteditable="true">40%</td>
 <td class="num" contenteditable="true">49%</td>
@@ -5225,7 +5225,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 51</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">88%</td>
 <td class="num" contenteditable="true">64%</td>
 <td class="num" contenteditable="true">107%</td>
@@ -5236,7 +5236,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 58</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">88%</td>
 <td class="num" contenteditable="true">52%</td>
 <td class="num" contenteditable="true">107%</td>
@@ -5247,7 +5247,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 59</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">109%</td>
 <td class="num" contenteditable="true">74%</td>
 <td class="num" contenteditable="true">-</td>
@@ -5258,7 +5258,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 59</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">88%</td>
 <td class="num" contenteditable="true">62%</td>
 <td class="num" contenteditable="true">103%</td>
@@ -5269,7 +5269,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 64</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">92%</td>
 <td class="num" contenteditable="true">47%</td>
 <td class="num" contenteditable="true">83%</td>
@@ -5280,7 +5280,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 9</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">95%</td>
 <td class="num" contenteditable="true">73%</td>
 <td class="num" contenteditable="true">20%</td>
@@ -5291,7 +5291,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 12</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">88%</td>
 <td class="num" contenteditable="true">76%</td>
 <td class="num" contenteditable="true">22%</td>
@@ -5302,7 +5302,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 15</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">88%</td>
 <td class="num" contenteditable="true">68%</td>
 <td class="num" contenteditable="true">26%</td>
@@ -5313,7 +5313,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 49</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">89%</td>
 <td class="num" contenteditable="true">79%</td>
 <td class="num" contenteditable="true">26%</td>
@@ -5324,7 +5324,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 52</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">90%</td>
 <td class="num" contenteditable="true">103%</td>
 <td class="num" contenteditable="true">107%</td>
@@ -5335,7 +5335,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 40</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">91%</td>
 <td class="num" contenteditable="true">35%</td>
 <td class="num" contenteditable="true">-</td>
@@ -5346,7 +5346,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 54</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">90%</td>
 <td class="num" contenteditable="true">63%</td>
 <td class="num" contenteditable="true">-</td>
@@ -5364,16 +5364,16 @@
 <tr>
 <th>ФИО</th>
 <th>Роль</th>
-<th class="num">Доходы (портф. выручка)</th>
-<th class="num">Доля заявок в рабочий кабинет</th>
-<th class="num">Своевр. принятия в работу</th>
-<th class="num">Доходы ВГР (портф. выручка)</th>
+<th class="num">Метрика 032</th>
+<th class="num">Метрика 033</th>
+<th class="num">Метрика 034</th>
+<th class="num">Метрика 035</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td contenteditable="true">Сотрудник 2</td>
-<td><span class="role-chip" contenteditable="true">Руководитель группы</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 11</span></td>
 <td class="num" contenteditable="true">87%</td>
 <td class="num" contenteditable="true">98%</td>
 <td class="num" contenteditable="true">97%</td>
@@ -5381,7 +5381,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 4</td>
-<td><span class="role-chip" contenteditable="true">Ведущий менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 12</span></td>
 <td class="num" contenteditable="true">-</td>
 <td class="num" contenteditable="true">-</td>
 <td class="num" contenteditable="true">-</td>
@@ -5389,7 +5389,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 42</td>
-<td><span class="role-chip" contenteditable="true">Ведущий менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 12</span></td>
 <td class="num" contenteditable="true">-</td>
 <td class="num" contenteditable="true">-</td>
 <td class="num" contenteditable="true">-</td>
@@ -5397,7 +5397,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 56</td>
-<td><span class="role-chip" contenteditable="true">Ведущий менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 12</span></td>
 <td class="num" contenteditable="true">87%</td>
 <td class="num" contenteditable="true">98%</td>
 <td class="num" contenteditable="true">88%</td>
@@ -5405,7 +5405,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 55</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">87%</td>
 <td class="num" contenteditable="true">98%</td>
 <td class="num" contenteditable="true">93%</td>
@@ -5413,7 +5413,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 11</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">87%</td>
 <td class="num" contenteditable="true">98%</td>
 <td class="num" contenteditable="true">99%</td>
@@ -5421,7 +5421,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 29</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">87%</td>
 <td class="num" contenteditable="true">98%</td>
 <td class="num" contenteditable="true">93%</td>
@@ -5429,7 +5429,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 30</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">87%</td>
 <td class="num" contenteditable="true">98%</td>
 <td class="num" contenteditable="true">90%</td>
@@ -5437,7 +5437,7 @@
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 27</td>
-<td><span class="role-chip" contenteditable="true">Старший менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 10</span></td>
 <td class="num" contenteditable="true">87%</td>
 <td class="num" contenteditable="true">98%</td>
 <td class="num" contenteditable="true">87%</td>
@@ -5446,7 +5446,6 @@
 </tbody>
 </table>
 </div>
-
 <div style="margin-top: 20px; font-weight: bold; margin-bottom: 10px;">Работа с партнерской группой</div>
 Партнерская группа
 <div class="table-wrap">
@@ -5455,22 +5454,22 @@
 <tr>
 <th>ФИО</th>
 <th>Роль</th>
-<th class="num">Доходы от Партнерская группа, АО</th>
-<th class="num">Своевр. формирования отчетов</th>
-<th class="num">Своевр. размещения в БД</th>
+<th class="num">Метрика 036</th>
+<th class="num">Метрика 037</th>
+<th class="num">Метрика 038</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td contenteditable="true">Сотрудник 31</td>
-<td><span class="role-chip" contenteditable="true">Ведущий менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 12</span></td>
 <td class="num" contenteditable="true">102%</td>
 <td class="num" contenteditable="true">86%</td>
 <td class="num" contenteditable="true">86%</td>
 </tr>
 <tr>
 <td contenteditable="true">Сотрудник 5</td>
-<td><span class="role-chip" contenteditable="true">Ведущий менеджер по обслуживанию</span></td>
+<td><span class="role-chip" contenteditable="true">Роль 12</span></td>
 <td class="num" contenteditable="true">102%</td>
 <td class="num" contenteditable="true">86%</td>
 <td class="num" contenteditable="true">86%</td>
@@ -5486,7 +5485,7 @@
 <div class="panel">
 <div class="panel-head">
 <div>
-<h3>KPI на 3Q</h3>
+<h3>Метрики на 3Q</h3>
 <p>Верхнеуровнево по отделам, без детализации по сотрудникам</p>
 </div>
 <span class="status-pill almost">3Q</span>
@@ -5494,34 +5493,34 @@
 <div class="panel-body">
 <div class="q3-grid">
 <div class="q3-card">
-<h3 contenteditable="true">Продажи</h3>
+<h3 contenteditable="true">направление 03</h3>
 <ul class="q3-list">
 <li><span contenteditable="true">Доходы (портфельная выручка)</span><strong contenteditable="true">1654,6834 млн руб.</strong></li>
-<li><span contenteditable="true">RN инфраструктурные проекты</span><strong contenteditable="true">128 млн руб.</strong></li>
-<li><span contenteditable="true">Доля СМР 20% -> 28%</span><strong contenteditable="true">36,615 млн руб.</strong></li>
-<li><span contenteditable="true">Кол-во законтрактованных проектов СОКП</span><strong contenteditable="true">10</strong></li>
-<li><span contenteditable="true">Качество заполнения проектов система задач (new)</span><strong contenteditable="true">86%</strong></li>
+<li><span contenteditable="true">Метрика 05 Направление 01</span><strong contenteditable="true">128 млн руб.</strong></li>
+<li><span contenteditable="true">Доля Работы 01 20% -> 28%</span><strong contenteditable="true">36,615 млн руб.</strong></li>
+<li><span contenteditable="true">Кол-во законтрактованных проектов Процесс 06</span><strong contenteditable="true">10</strong></li>
+<li><span contenteditable="true">Качество заполнения проектов Система 01 (new)</span><strong contenteditable="true">86%</strong></li>
 </ul>
 </div>
 <div class="q3-card">
-<h3 contenteditable="true">Техпресейл</h3>
+<h3 contenteditable="true">направление 02</h3>
 <ul class="q3-list">
-<li><span contenteditable="true">RN инфраструктурные проекты</span><strong contenteditable="true">128 млн руб.</strong></li>
-<li><span contenteditable="true">Доля СМР 20% -> 28%</span><strong contenteditable="true">36,615 млн руб.</strong></li>
-<li><span contenteditable="true">Доля ДЗ в выручке по проектной деятельности</span><strong contenteditable="true">21%</strong></li>
-<li><span contenteditable="true">Передача в Смежный департамент проектов по СОКП (new)</span><strong contenteditable="true">10 шт.</strong></li>
-<li><span contenteditable="true">Реализация проекта по строительству DarkFiber (new)</span><strong contenteditable="true">5 баллов</strong></li>
-<li><span contenteditable="true">Реализация проекта по строительству ЦОД (new)</span><strong contenteditable="true">5 баллов</strong></li>
+<li><span contenteditable="true">Метрика 05 Направление 01</span><strong contenteditable="true">128 млн руб.</strong></li>
+<li><span contenteditable="true">Доля Работы 01 20% -> 28%</span><strong contenteditable="true">36,615 млн руб.</strong></li>
+<li><span contenteditable="true">Доля Метрика 08 в выручке по проектной деятельности</span><strong contenteditable="true">21%</strong></li>
+<li><span contenteditable="true">Передача в Смежный департамент проектов по Процесс 06 (new)</span><strong contenteditable="true">10 шт.</strong></li>
+<li><span contenteditable="true">Реализация проекта 01</span><strong contenteditable="true">5 баллов</strong></li>
+<li><span contenteditable="true">Реализация проекта 02</span><strong contenteditable="true">5 баллов</strong></li>
 </ul>
 </div>
 <div class="q3-card">
 <h3 contenteditable="true">Поддержка клиентов</h3>
 <ul class="q3-list">
 <li><span contenteditable="true">Доходы (портфельная выручка)</span><strong contenteditable="true">1654,6834 млн руб.</strong></li>
-<li><span contenteditable="true">Удельное отношение ПДЗ к ДЗ</span><strong contenteditable="true">5%</strong></li>
-<li><span contenteditable="true">Доля заявок в рабочий кабинет по реализованным услугам</span><strong contenteditable="true">69%</strong></li>
-<li><span contenteditable="true">CSAT клиента (new)</span><strong contenteditable="true">61%</strong></li>
-<li><span contenteditable="true">Своевременность отработки запросов по инфраструктурным проектам (new)</span><strong contenteditable="true">78%</strong></li>
+<li><span contenteditable="true">Удельное отношение Метрика 03 к Метрика 08</span><strong contenteditable="true">5%</strong></li>
+<li><span contenteditable="true">Доля заявок в Система 02 по реализованным услугам</span><strong contenteditable="true">69%</strong></li>
+<li><span contenteditable="true">Метрика 07 клиента (new)</span><strong contenteditable="true">61%</strong></li>
+<li><span contenteditable="true">Своевременность отработки запросов по Направление 01 (new)</span><strong contenteditable="true">78%</strong></li>
 <li><span contenteditable="true">Работа с оттоком (new)</span><strong contenteditable="true">78%</strong></li>
 </ul>
 </div>
@@ -5533,15 +5532,15 @@
 <div class="section-head">
 <div class="section-title">
 <div class="eyebrow">Аналитика</div>
-<h2>Единая карта отчетности Инфраструктурный департамент</h2>
+<h2>Отчётность</h2>
 </div>
 </div>
 <div class="analytics-console">
 <div class="analytics-hero">
 <div>
 <div class="eyebrow">Единая витрина отчетов</div>
-<h3 contenteditable="true">Карта отчетности Инфраструктурный департамент</h3>
-<p class="analytics-lead" contenteditable="true">Быстрый доступ к регулярным Power BI дашбордам, Excel-отчетам и планируемым витринам. Отчеты сгруппированы по частоте обновления, формату ведения и статусу готовности.</p>
+<h3 contenteditable="true">Отчёт 01</h3>
+<p class="analytics-lead" contenteditable="true">Описание отчёта 01.</p>
 </div>
 <div aria-label="Сводка по отчетности" class="analytics-metrics">
 <div class="analytics-metric"><strong contenteditable="true">13</strong><span>карточек</span></div>
@@ -5560,7 +5559,7 @@
 <button class="analytics-filter" data-analytics-filter="weekly" type="button">Еженедельная</button>
 <button class="analytics-filter" data-analytics-filter="monthly" type="button">Ежемесячная</button>
 <button class="analytics-filter" data-analytics-filter="future" type="button">В разработке</button>
-<button class="analytics-filter" data-analytics-filter="excel" type="button">Excel</button>
+<button class="analytics-filter" data-analytics-filter="source" type="button">Источник данных</button>
 <button class="analytics-filter" data-analytics-filter="planned" type="button">Планируемая</button>
 </div>
 </div>
@@ -5569,8 +5568,8 @@
 <div class="analytics-module-head">
 <div class="analytics-module-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M4 19h16"></path><path d="M7 16V8M12 16V5M17 16v-4"></path></svg></div>
 <div class="analytics-module-title">
-<h3 contenteditable="true">Блок ежедневной отчетности</h3>
-<p contenteditable="true">Оперативный мониторинг TTR и заявок в личном кабинете оператора.</p>
+<h3 contenteditable="true">Отчёт 02</h3>
+<p contenteditable="true">Описание отчёта 02.</p>
 </div>
 <span class="analytics-module-count">2 отчета</span>
 </div>
@@ -5578,15 +5577,15 @@
 <article class="report-card analytics-card" data-analytics-card="" data-search="аналитика отчет показатели процессы публичная версия">
 <div class="analytics-card-head">
 <div class="analytics-card-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24"><path d="M5 12h4l2-7 4 14 2-7h2"></path></svg></div>
-<span class="analytics-status">CORE</span>
+<span class="analytics-status">Категория 01</span>
 </div>
 <div>
-<h3 contenteditable="true">TTR по заявкам</h3>
-<p class="analytics-description" contenteditable="true">Дашборд полностью автоматизирован и содержит информацию об актуальных обращениях по заявкам в Личном кабинете оператора.</p>
+<h3 contenteditable="true">Отчёт 03</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 03.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">база данных корпоративная БД</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">ежедневно</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 01</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 02</strong></li>
 </ul>
 <div class="analytics-actions">
 <a class="btn primary" data-public-placeholder="true" href="#" onclick="return false" rel="noopener noreferrer" target="_blank">Открыть отчет</a>
@@ -5596,15 +5595,15 @@
 <article class="report-card analytics-card" data-analytics-card="" data-search="аналитика отчет показатели процессы публичная версия">
 <div class="analytics-card-head">
 <div class="analytics-card-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24"><path d="M8 7h8M8 12h5"></path><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16l-3-2-3 2-3-2Z"></path></svg></div>
-<span class="analytics-status">CORE/NONCORE</span>
+<span class="analytics-status">Категория 01/Категория 02</span>
 </div>
 <div>
-<h3 contenteditable="true">Заявки Рабочий контур</h3>
-<p class="analytics-description" contenteditable="true">Дашборд содержит информацию о статусе заявок, которые поступают через Рабочий контур.</p>
+<h3 contenteditable="true">Отчёт 04</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 04.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">пространство Рабочий контур в система задач</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">ежедневно</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 03</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 04</strong></li>
 </ul>
 <div class="analytics-actions">
 <a class="btn primary" data-public-placeholder="true" href="#" onclick="return false" rel="noopener noreferrer" target="_blank">Открыть отчет</a>
@@ -5617,8 +5616,8 @@
 <div class="analytics-module-head">
 <div class="analytics-module-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><rect height="15" rx="2" width="16" x="4" y="5"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg></div>
 <div class="analytics-module-title">
-<h3 contenteditable="true">Блок еженедельной отчетности</h3>
-<p contenteditable="true">Тендерная активность и инфраструктурные проекты.</p>
+<h3 contenteditable="true">Отчёт 05</h3>
+<p contenteditable="true">Описание отчёта 05.</p>
 </div>
 <span class="analytics-module-count">2 отчета</span>
 </div>
@@ -5626,15 +5625,15 @@
 <article class="report-card analytics-card" data-analytics-card="" data-search="аналитика отчет показатели процессы публичная версия">
 <div class="analytics-card-head">
 <div class="analytics-card-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24"><path d="M6 20h12M8 4h8M9 4v4a3 3 0 0 0 6 0V4"></path><path d="M7 8h10l-1 5a4 4 0 0 1-8 0Z"></path></svg></div>
-<span class="analytics-status">NONCORE</span>
+<span class="analytics-status">Категория 02</span>
 </div>
 <div>
-<h3 contenteditable="true">Тендеры</h3>
-<p class="analytics-description" contenteditable="true">Дашборд позволяет отследить тендерную деятельность Инфраструктурный департамент и просматривать детализацию до менеджера и КА.</p>
+<h3 contenteditable="true">Отчёт 06</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 06.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">пространство «Тендеры» в система задач</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">каждый понедельник</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 05</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 06</strong></li>
 </ul>
 <div class="analytics-actions">
 <a class="btn primary" data-public-placeholder="true" href="#" onclick="return false" rel="noopener noreferrer" target="_blank">Открыть отчет</a>
@@ -5644,15 +5643,15 @@
 <article class="report-card analytics-card" data-analytics-card="" data-search="аналитика отчет показатели процессы публичная версия">
 <div class="analytics-card-head">
 <div class="analytics-card-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24"><path d="M4 20h16M6 20V9l6-5 6 5v11M9 20v-6h6v6"></path></svg></div>
-<span class="analytics-status">NONCORE</span>
+<span class="analytics-status">Категория 02</span>
 </div>
 <div>
-<h3 contenteditable="true">Инфраструктурные проекты</h3>
-<p class="analytics-description" contenteditable="true">Дашборд содержит информацию по планируемым, законтрактованным и реализованным проектам.</p>
+<h3 contenteditable="true">Отчёт 07</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 07.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">система задач + Excel</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">по запросу еженедельно</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 07</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 08</strong></li>
 </ul>
 <div class="analytics-actions">
 <a class="btn primary" data-public-placeholder="true" href="#" onclick="return false" rel="noopener noreferrer" target="_blank">Открыть отчет</a>
@@ -5665,8 +5664,8 @@
 <div class="analytics-module-head">
 <div class="analytics-module-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14"></path><path d="M8 9h8M8 13h8M8 17h5"></path></svg></div>
 <div class="analytics-module-title">
-<h3 contenteditable="true">Блок ежемесячной отчетности</h3>
-<p contenteditable="true">Факт доходов, выручка и натуральные показатели Аналитическая витрина.</p>
+<h3 contenteditable="true">Отчёт 08</h3>
+<p contenteditable="true">Описание отчёта 08.</p>
 </div>
 <span class="analytics-module-count">2 отчета</span>
 </div>
@@ -5674,14 +5673,14 @@
 <article class="report-card analytics-card" data-analytics-card="" data-search="аналитика отчет показатели процессы публичная версия">
 <div class="analytics-card-head">
 <div class="analytics-card-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24"><path d="M4 19h16"></path><path d="M7 15l4-4 3 3 4-7"></path></svg></div>
-<span class="analytics-status">CORE/NONCORE</span>
+<span class="analytics-status">Категория 01/Категория 02</span>
 </div>
 <div>
-<h3 contenteditable="true">Отчет по доходам</h3>
-<p class="analytics-description" contenteditable="true">Дашборд содержит информацию по факту доходов CORE-Инфраструктурный департамент с детализацией.</p>
+<h3 contenteditable="true">Отчёт 09</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 09.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">базы данных КБ, бюджет департамента</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 09</strong></li>
 <li><span>Частота обновления</span><strong contenteditable="true">каждый месяц до 21 числа</strong></li>
 </ul>
 <div class="analytics-actions">
@@ -5692,14 +5691,14 @@
 <article class="report-card analytics-card" data-analytics-card="" data-search="аналитика отчет показатели процессы публичная версия">
 <div class="analytics-card-head">
 <div class="analytics-card-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24"><path d="M4 20h16M7 16V8M12 16V4M17 16v-6"></path></svg></div>
-<span class="analytics-status">CORE</span>
+<span class="analytics-status">Категория 01</span>
 </div>
 <div>
-<h3 contenteditable="true">Натуральные показатели Аналитическая витрина</h3>
-<p class="analytics-description" contenteditable="true">Дашборд содержит информацию о выручке и натуральных показателях из биллинга Аналитическая витрина.</p>
+<h3 contenteditable="true">Отчёт 10</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 10.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">базы данных КБ</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 10</strong></li>
 <li><span>Частота обновления</span><strong contenteditable="true">каждый месяц до 21 числа</strong></li>
 </ul>
 <div class="analytics-actions">
@@ -5710,15 +5709,15 @@
 <article class="report-card analytics-card is-muted" data-analytics-card="" data-search="аналитика отчет показатели процессы публичная версия">
 <div class="analytics-card-head">
 <div class="analytics-card-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24"><path d="M4 7h16M7 11h10M7 15h6"></path><rect height="16" rx="2" width="16" x="4" y="4"></rect></svg></div>
-<span class="analytics-status">CORE/NONCORE</span>
+<span class="analytics-status">Категория 01/Категория 02</span>
 </div>
 <div>
-<h3 contenteditable="true">Дебиторская задолженность</h3>
-<p class="analytics-description" contenteditable="true">Дашборд содержит информацию о задолженности клиентов в разрезе СМ на отчетный период.</p>
+<h3 contenteditable="true">Отчёт 11</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 11.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">Аналитическая система, DWH</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">каждый месяц</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 11</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 12</strong></li>
 </ul>
 <div class="analytics-actions">
 <a class="btn primary" data-public-placeholder="true" href="#" onclick="return false" rel="noopener noreferrer" target="_blank">Открыть отчет</a>
@@ -5731,8 +5730,8 @@
 <div class="analytics-module-head">
 <div class="analytics-module-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M12 3v5M12 16v5M4.2 7.5l4.3 2.5M15.5 14l4.3 2.5M19.8 7.5 15.5 10M8.5 14l-4.3 2.5"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
 <div class="analytics-module-title">
-<h3 contenteditable="true">Блок в разработке</h3>
-<p contenteditable="true">Легализация и поток ОСОК готовятся к запуску.</p>
+<h3 contenteditable="true">Отчёт 12</h3>
+<p contenteditable="true">Описание отчёта 12.</p>
 </div>
 <span class="analytics-module-count">2 карточки</span>
 </div>
@@ -5743,12 +5742,12 @@
 <span class="analytics-status pending">в разработке</span>
 </div>
 <div>
-<h3 contenteditable="true">Легализация</h3>
-<p class="analytics-description" contenteditable="true">Дашборд содержит информацию о результатах мероприятий по легализации кабелей и полученных доходах на отчетный месяц.</p>
+<h3 contenteditable="true">Отчёт 13</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 13.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">Remedy, DWH</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">каждый месяц</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 13</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 14</strong></li>
 </ul>
 <div class="analytics-actions">
 <button class="btn analytics-disabled" disabled="" type="button">В разработке</button>
@@ -5761,12 +5760,12 @@
 <span class="analytics-status pending">в разработке</span>
 </div>
 <div>
-<h3 contenteditable="true">Поток ОСОК</h3>
-<p class="analytics-description" contenteditable="true">Дашборд будет отображать выполнение сроков по задачам СМ внутри система задач</p>
+<h3 contenteditable="true">Отчёт 14</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 14.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">система задач</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">ежедневно</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 15</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 16</strong></li>
 </ul>
 <div class="analytics-actions">
 <button class="btn analytics-disabled" disabled="" type="button">В разработке</button>
@@ -5775,12 +5774,12 @@
 </article>
 </div>
 </section>
-<section class="analytics-module" data-analytics-module="excel">
+<section class="analytics-module" data-analytics-module="source">
 <div class="analytics-module-head">
 <div class="analytics-module-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M4 19h16M7 16V8M12 16V5M17 16v-4"></path></svg></div>
 <div class="analytics-module-title">
-<h3 contenteditable="true">Отчетность на Excel</h3>
-<p contenteditable="true">Файловые отчеты и источники, которые регулярно обновляются или готовятся к дашбордизации.</p>
+<h3 contenteditable="true">Отчёт 15</h3>
+<p contenteditable="true">Описание отчёта 15.</p>
 </div>
 <span class="analytics-module-count">4 отчета</span>
 </div>
@@ -5788,22 +5787,22 @@
 <article class="report-card analytics-card" data-analytics-card="" data-search="аналитика отчет показатели процессы публичная версия">
 <div class="analytics-card-head">
 <div class="analytics-card-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-8 0v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-<span class="analytics-status excel">Excel-отчет</span>
+<span class="analytics-status source">Источник данных</span>
 </div>
 <div>
-<h3 contenteditable="true">Анализ АБ</h3>
-<p class="analytics-description" contenteditable="true">Большой отчет со всеми ключевыми показателями контрагентов Оператор А.</p>
+<h3 contenteditable="true">Отчёт 16</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 16.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">все основные ИС Оператор А</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">каждый месяц</strong></li>
-<li><span>Автоматизация</span><strong contenteditable="true">формирование дашборда</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 17</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 18</strong></li>
+<li><span>Автоматизация</span><strong contenteditable="true">Параметр 19</strong></li>
 <li><span>Ответственные</span><strong contenteditable="true">Сотрудник 48 и Сотрудник 25</strong></li>
 </ul>
 <div class="analytics-actions">
-<a class="btn" data-excel-download="" data-public-placeholder="true" href="#" onclick="return false">Скачать Excel</a>
-<button class="btn ghost" data-open-excel-shot="" data-shot-key="karta-kontragentov" data-shot-src="" data-shot-title="Карта контрагентов" type="button">Скриншот</button>
-<input accept="image/*" class="file-input" data-excel-shot-input="karta-kontragentov" data-shot-title="Карта контрагентов" type="file"/>
+<a class="btn" data-excel-download="" data-public-placeholder="true" href="#" onclick="return false">Скачать источник данных</a>
+<button class="btn ghost" data-open-excel-shot="" data-shot-key="report-16" data-shot-src="" data-shot-title="Отчёт 16" type="button">Скриншот</button>
+<input accept="image/*" class="file-input" data-excel-shot-input="report-16" data-shot-title="Отчёт 16" type="file"/>
 <button class="btn analytics-disabled" disabled="" type="button">Исходник не предоставляется</button>
 <span class="analytics-deadline">дашборд: 2026</span>
 </div>
@@ -5811,22 +5810,22 @@
 <article class="report-card analytics-card" data-analytics-card="" data-search="аналитика отчет показатели процессы публичная версия">
 <div class="analytics-card-head">
 <div class="analytics-card-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24"><path d="M4 19h16"></path><path d="M7 15l4-4 3 3 4-7"></path></svg></div>
-<span class="analytics-status excel">Excel-отчет</span>
+<span class="analytics-status source">Источник данных</span>
 </div>
 <div>
-<h3 contenteditable="true">ПФА + прогноз</h3>
-<p class="analytics-description" contenteditable="true">Ежемесячный план-факторный анализ выручки департамента.</p>
+<h3 contenteditable="true">Отчёт 17</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 17.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">Аналитическая система</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">каждый месяц</strong></li>
-<li><span>Автоматизация</span><strong contenteditable="true">формирование дашборда</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 20</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 21</strong></li>
+<li><span>Автоматизация</span><strong contenteditable="true">Параметр 22</strong></li>
 <li><span>Ответственные</span><strong contenteditable="true">Сотрудник 25 и Сотрудник 54</strong></li>
 </ul>
 <div class="analytics-actions">
-<a class="btn" data-excel-download="" data-public-placeholder="true" href="#" onclick="return false">Скачать Excel</a>
-<button class="btn ghost" data-open-excel-shot="" data-shot-key="pfa-prognoz" data-shot-src="" data-shot-title="ПФА + прогноз" type="button">Скриншот</button>
-<input accept="image/*" class="file-input" data-excel-shot-input="pfa-prognoz" data-shot-title="ПФА + прогноз" type="file"/>
+<a class="btn" data-excel-download="" data-public-placeholder="true" href="#" onclick="return false">Скачать источник данных</a>
+<button class="btn ghost" data-open-excel-shot="" data-shot-key="report-17" data-shot-src="" data-shot-title="Отчёт 17" type="button">Скриншот</button>
+<input accept="image/*" class="file-input" data-excel-shot-input="report-17" data-shot-title="Отчёт 17" type="file"/>
 <button class="btn analytics-disabled" disabled="" type="button">Исходник не предоставляется</button>
 <span class="analytics-deadline">дашборд: обсуждается</span>
 </div>
@@ -5834,45 +5833,45 @@
 <article class="report-card analytics-card" data-analytics-card="" data-search="аналитика отчет показатели процессы публичная версия">
 <div class="analytics-card-head">
 <div class="analytics-card-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24"><path d="M9 12 11 14 15 9"></path><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7Z"></path></svg></div>
-<span class="analytics-status excel">Excel-отчет</span>
+<span class="analytics-status source">Источник данных</span>
 </div>
 <div>
-<h3 contenteditable="true">Лицензии операторов</h3>
-<p class="analytics-description" contenteditable="true">Отчет отражает изменения статуса наличия лицензии оператора связи у ключевых КА Оператор А.</p>
+<h3 contenteditable="true">Отчёт 18</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 18.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">РКН</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">каждый месяц</strong></li>
-<li><span>Автоматизация</span><strong contenteditable="true">выгрузка реестра в внутренний реестр и регулярное обновление; далее автоматизированный дашборд</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 23</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 24</strong></li>
+<li><span>Автоматизация</span><strong contenteditable="true">Параметр 25</strong></li>
 <li><span>Ответственный</span><strong contenteditable="true">Сотрудник 48</strong></li>
 </ul>
 <div class="analytics-actions">
-<a class="btn" data-excel-download="" data-public-placeholder="true" href="#" onclick="return false">Скачать Excel</a>
-<button class="btn ghost" data-open-excel-shot="" data-shot-key="licenzii-operatorov" data-shot-src="" data-shot-title="Лицензии операторов" type="button">Скриншот</button>
-<input accept="image/*" class="file-input" data-excel-shot-input="oplic" data-shot-title="Лицензии операторов" type="file"/>
-<a class="btn primary" data-public-placeholder="true" href="#" onclick="return false" rel="noopener noreferrer" target="_blank">Исходник РКН</a>
+<a class="btn" data-excel-download="" data-public-placeholder="true" href="#" onclick="return false">Скачать источник данных</a>
+<button class="btn ghost" data-open-excel-shot="" data-shot-key="report-18" data-shot-src="" data-shot-title="Отчёт 18" type="button">Скриншот</button>
+<input accept="image/*" class="file-input" data-excel-shot-input="report-18" data-shot-title="Отчёт 18" type="file"/>
+<a class="btn primary" data-public-placeholder="true" href="#" onclick="return false" rel="noopener noreferrer" target="_blank">Исходник Источник 09</a>
 <span class="analytics-deadline">дашборд: 3Q 2026</span>
 </div>
 </article>
 <article class="report-card analytics-card" data-analytics-card="" data-search="аналитика отчет показатели процессы публичная версия">
 <div class="analytics-card-head">
 <div class="analytics-card-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" viewbox="0 0 24 24"><path d="M9 12 11 14 15 9"></path><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7Z"></path></svg></div>
-<span class="analytics-status excel">Excel-отчет</span>
+<span class="analytics-status source">Источник данных</span>
 </div>
 <div>
-<h3 contenteditable="true">Комплексный анализ ПО в ЛКС</h3>
-<p class="analytics-description" contenteditable="true">Отчет анализирует деячтельность подрядных организаций в рамках инфраструктуры Оператор А.</p>
+<h3 contenteditable="true">Отчёт 19</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 19.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">учетная система</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">каждый месяц</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 26</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 27</strong></li>
 <li><span>Автоматизация</span><strong contenteditable="true">планируется автоматизированный дашборд</strong></li>
 <li><span>Ответственный</span><strong contenteditable="true">Сотрудник 20</strong></li>
 </ul>
 <div class="analytics-actions">
-<a class="btn" data-excel-download="" data-public-placeholder="true" href="#" onclick="return false">Скачать Excel</a>
-<button class="btn ghost" data-open-excel-shot="" data-shot-key="poanalysis" data-shot-src="" data-shot-title="Анализ ПО" type="button">Скриншот</button>
-<input accept="image/*" class="file-input" data-excel-shot-input="licenzii-operatorov" data-shot-title="Лицензии операторов" type="file"/>
+<a class="btn" data-excel-download="" data-public-placeholder="true" href="#" onclick="return false">Скачать источник данных</a>
+<button class="btn ghost" data-open-excel-shot="" data-shot-key="report-19" data-shot-src="" data-shot-title="Отчёт 19" type="button">Скриншот</button>
+<input accept="image/*" class="file-input" data-excel-shot-input="report-19" data-shot-title="Отчёт 19" type="file"/>
 <span class="analytics-deadline">дашборд: 3Q 2026</span>
 </div>
 </article>
@@ -5882,8 +5881,8 @@
 <div class="analytics-module-head">
 <div class="analytics-module-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><rect height="15" rx="2" width="16" x="4" y="5"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg></div>
 <div class="analytics-module-title">
-<h3 contenteditable="true">Планируемая отчетность</h3>
-<p contenteditable="true">Отчеты в разработке: ожидаемые источники, автоматизация, ответственные и ориентир по срокам.</p>
+<h3 contenteditable="true">Отчёт 20</h3>
+<p contenteditable="true">Описание отчёта 20.</p>
 </div>
 <span class="analytics-module-count">3 отчета</span>
 </div>
@@ -5894,13 +5893,13 @@
 <span class="analytics-status pending">в разработке</span>
 </div>
 <div>
-<h3 contenteditable="true">Отчет со сроками по ФЗ</h3>
-<p class="analytics-description" contenteditable="true">Отчет будет представлять собой календарь окончания сроков договоров ФЗ.</p>
+<h3 contenteditable="true">Отчёт 21</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 21.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">корпоративная БД Аналитическая витрина</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">ежедневно</strong></li>
-<li><span>Автоматизация</span><strong contenteditable="true">формируется запрос по добавлению данных в БД; реализован драфт дашборда</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 28</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 29</strong></li>
+<li><span>Автоматизация</span><strong contenteditable="true">Параметр 30</strong></li>
 <li><span>Ответственный</span><strong contenteditable="true">Сотрудник 25</strong></li>
 </ul>
 <div class="analytics-actions">
@@ -5914,13 +5913,13 @@
 <span class="analytics-status pending">в разработке</span>
 </div>
 <div>
-<h3 contenteditable="true">Расчет нагрузки проектировщиков</h3>
-<p class="analytics-description" contenteditable="true">Отчет будет отображать количество отрисованных трасс в день и количество возвратов на доработку для контроля нагрузки сотрудников.</p>
+<h3 contenteditable="true">Отчёт 22</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 22.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">обсуждается</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">обсуждается</strong></li>
-<li><span>Автоматизация</span><strong contenteditable="true">обсуждается</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">Параметр 31</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 32</strong></li>
+<li><span>Автоматизация</span><strong contenteditable="true">Параметр 33</strong></li>
 <li><span>Ответственные</span><strong contenteditable="true">Сотрудник 6 и Сотрудник 54</strong></li>
 </ul>
 <div class="analytics-actions">
@@ -5934,13 +5933,13 @@
 <span class="analytics-status pending">в разработке</span>
 </div>
 <div>
-<h3 contenteditable="true">Регламентные сроки заявок на этапах</h3>
-<p class="analytics-description" contenteditable="true">Отчет предназначен для маркирования превышения сроков на этапах и отслеживания SLA выполнения сроков.</p>
+<h3 contenteditable="true">Отчёт 23</h3>
+<p class="analytics-description" contenteditable="true">Описание отчёта 23.</p>
 </div>
 <ul class="analytics-facts">
-<li><span>Источник данных</span><strong contenteditable="true">планируется подключение к БД Рабочая система через API; сейчас Рабочая система</strong></li>
-<li><span>Частота обновления</span><strong contenteditable="true">обсуждается</strong></li>
-<li><span>Автоматизация</span><strong contenteditable="true">формирование дашборда и его автоматизация</strong></li>
+<li><span>Источник данных</span><strong contenteditable="true">планируется подключение к Источник 01 Система 04 через Интерфейс 01; сейчас Система 04</strong></li>
+<li><span>Частота обновления</span><strong contenteditable="true">Параметр 34</strong></li>
+<li><span>Автоматизация</span><strong contenteditable="true">Параметр 35</strong></li>
 <li><span>Ответственные</span><strong contenteditable="true">Сотрудник 6 и Сотрудник 54</strong></li>
 </ul>
 <div class="analytics-actions">
@@ -5958,47 +5957,47 @@
 <div class="section-head">
 <div class="section-title">
 <div class="eyebrow">Статусы проектов</div>
-<h2>ЦОД и темная оптика в формате дорожной карты</h2>
+<h2>Проекты</h2>
 </div>
 <p class="section-desc"></p>
 </div>
 <div class="panel">
 <div class="panel-head">
 <div>
-<h3>ЦОД: объекты, стойки, доход и срок решения статуса</h3>
-<p>Формат: объект / количество стоек / доход / статус / срок</p>
+<h3>Проект 01</h3>
+<p>Формат: объект / показатель 01 / показатель 02 / статус / срок</p>
 </div>
 <span class="status-pill work">актуализация</span>
 </div>
 <div class="panel-body">
 <div class="roadmap">
 <div class="roadmap-row">
-<div class="roadmap-cell"><span>Объект</span><strong contenteditable="true">Живописная - 1 этап</strong></div>
-<div class="roadmap-cell"><span>Стойки</span><p contenteditable="true">23</p></div>
-<div class="roadmap-cell"><span>Доход</span><p contenteditable="true">83 млн/год</p></div>
-<div class="roadmap-cell"><span>Статус</span><p contenteditable="true">Клиенты размещены, идет контроль фактической загрузки и доходности.</p></div>
-<div class="roadmap-cell"><span>Срок</span><p contenteditable="true">до 15.07</p></div>
+<div class="roadmap-cell"><span>Объект</span><strong contenteditable="true">Объект 01</strong></div>
+<div class="roadmap-cell"><span>Показатель 01</span><p contenteditable="true">Описание проекта 01.</p></div>
+<div class="roadmap-cell"><span>Показатель 02</span><p contenteditable="true">Описание проекта 02.</p></div>
+<div class="roadmap-cell"><span>Статус</span><p contenteditable="true">Описание проекта 03.</p></div>
+<div class="roadmap-cell"><span>Срок</span><p contenteditable="true">Описание проекта 04.</p></div>
 </div>
 <div class="roadmap-row">
-<div class="roadmap-cell"><span>Объект</span><strong contenteditable="true">Живописная - 2 этап</strong></div>
-<div class="roadmap-cell"><span>Стойки</span><p contenteditable="true">30</p></div>
-<div class="roadmap-cell"><span>Потенциал</span><p contenteditable="true">109 млн/год</p></div>
-<div class="roadmap-cell"><span>Статус</span><p contenteditable="true">Подготовка к запуску следующего этапа, уточняется готовность инфраструктуры.</p></div>
-<div class="roadmap-cell"><span>Срок</span><p contenteditable="true">до 01.08</p></div>
+<div class="roadmap-cell"><span>Объект</span><strong contenteditable="true">Объект 02</strong></div>
+<div class="roadmap-cell"><span>Показатель 01</span><p contenteditable="true">Описание проекта 05.</p></div>
+<div class="roadmap-cell"><span>Показатель 03</span><p contenteditable="true">Описание проекта 06.</p></div>
+<div class="roadmap-cell"><span>Статус</span><p contenteditable="true">Описание проекта 07.</p></div>
+<div class="roadmap-cell"><span>Срок</span><p contenteditable="true">Описание проекта 08.</p></div>
 </div>
 <div class="roadmap-row">
 <div class="roadmap-cell"><span>Объект</span><strong contenteditable="true">Объект 01</strong></div>
-<div class="roadmap-cell"><span>Стойки</span><p contenteditable="true">15</p></div>
-<div class="roadmap-cell"><span>Потенциал</span><p contenteditable="true">63 млн/год</p></div>
-<div class="roadmap-cell"><span>Статус</span><p contenteditable="true">Сверка технической готовности, нужна фиксация верхнеуровневого решения.</p></div>
-<div class="roadmap-cell"><span>Срок</span><p contenteditable="true">до 22.07</p></div>
+<div class="roadmap-cell"><span>Показатель 01</span><p contenteditable="true">Описание проекта 09.</p></div>
+<div class="roadmap-cell"><span>Показатель 03</span><p contenteditable="true">Описание проекта 10.</p></div>
+<div class="roadmap-cell"><span>Статус</span><p contenteditable="true">Описание проекта 11.</p></div>
+<div class="roadmap-cell"><span>Срок</span><p contenteditable="true">Описание проекта 12.</p></div>
 </div>
 <div class="roadmap-row">
-<div class="roadmap-cell"><span>Объект</span><strong contenteditable="true">Другие площадки - 3 шт.</strong></div>
-<div class="roadmap-cell"><span>Стойки</span><p contenteditable="true">33</p></div>
-<div class="roadmap-cell"><span>Потенциал</span><p contenteditable="true">123 млн/год</p></div>
-<div class="roadmap-cell"><span>Статус</span><p contenteditable="true">Формируется short-list, оцениваются коммерческие условия и технологические ограничения.</p></div>
-<div class="roadmap-cell"><span>Срок</span><p contenteditable="true">август</p></div>
+<div class="roadmap-cell"><span>Объект</span><strong contenteditable="true">Объект 04</strong></div>
+<div class="roadmap-cell"><span>Показатель 01</span><p contenteditable="true">Описание проекта 13.</p></div>
+<div class="roadmap-cell"><span>Показатель 03</span><p contenteditable="true">Описание проекта 14.</p></div>
+<div class="roadmap-cell"><span>Статус</span><p contenteditable="true">Описание проекта 15.</p></div>
+<div class="roadmap-cell"><span>Срок</span><p contenteditable="true">Описание проекта 16.</p></div>
 </div>
 </div>
 </div>
@@ -6006,7 +6005,7 @@
 <div class="panel">
 <div class="panel-head">
 <div>
-<h3>Темная оптика: верхнеуровневые эпики</h3>
+<h3>Проект 02</h3>
 <p>Статус, проблематика и следующий шаг</p>
 </div>
 <span class="status-pill work">в работе</span>
@@ -6018,17 +6017,17 @@
 <span class="status-pill almost">почти готово</span>
 <span class="percent">74%</span>
 </div>
-<h3 contenteditable="true">Трассы и ресурсная модель</h3>
+<h3 contenteditable="true">Проект 03</h3>
 <div class="task-block">
 <strong>Сделано</strong>
 <ul>
-<li contenteditable="true">Собраны основные трассы и точки включения.</li>
-<li contenteditable="true">Выделены проблемные зависимости по ресурсу.</li>
+<li contenteditable="true">Задача проекта 01</li>
+<li contenteditable="true">Задача проекта 02</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>Далее</strong>
-<ul><li contenteditable="true">Закрыть уточнения по маршрутам до 12.07.</li></ul>
+<ul><li contenteditable="true">Задача проекта 03</li></ul>
 </div>
 </article>
 <article class="status-card workline">
@@ -6036,17 +6035,17 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">53%</span>
 </div>
-<h3 contenteditable="true">Коммерческая модель</h3>
+<h3 contenteditable="true">Проект 04</h3>
 <div class="task-block">
 <strong>Сделано</strong>
 <ul>
-<li contenteditable="true">Посчитан базовый потенциал по ключевым объектам.</li>
-<li contenteditable="true">Определены сценарии доходности.</li>
+<li contenteditable="true">Задача проекта 04</li>
+<li contenteditable="true">Задача проекта 05</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>Далее</strong>
-<ul><li contenteditable="true">Уточнить тарифные вводные и сроки окупаемости.</li></ul>
+<ul><li contenteditable="true">Задача проекта 06</li></ul>
 </div>
 </article>
 <article class="status-card riskline">
@@ -6054,17 +6053,17 @@
 <span class="status-pill risk">риск</span>
 <span class="percent">36%</span>
 </div>
-<h3 contenteditable="true">Договорной контур</h3>
+<h3 contenteditable="true">Проект 05</h3>
 <div class="task-block">
 <strong>Сделано</strong>
 <ul>
-<li contenteditable="true">Выявлены точки, где требуется договорное решение.</li>
-<li contenteditable="true">Сформирован список вопросов к владельцам.</li>
+<li contenteditable="true">Задача проекта 07</li>
+<li contenteditable="true">Задача проекта 08</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>Далее</strong>
-<ul><li contenteditable="true">Получить согласование по критичным условиям.</li></ul>
+<ul><li contenteditable="true">Задача проекта 09</li></ul>
 </div>
 </article>
 </div>
@@ -6073,44 +6072,44 @@
 <div class="panel">
 <div class="panel-head">
 <div>
-<h3>Темная оптика: roadmap / подробный Гантт</h3>
+<h3>Проект 06</h3>
 <p>Переключение между executive-картой и детальным планом работ</p>
 </div>
-<div aria-label="Режим просмотра темной оптики" class="segmented optics-switch" role="group">
-<button class="active" data-optics-view="roadmap" type="button">Roadmap</button>
-<button data-optics-view="gantt" type="button">Гантт</button>
+<div aria-label="Режим просмотра проекта" class="segmented viewmode-switch" role="group">
+<button class="active" data-viewmode-view="roadmap" type="button">Режим 01</button>
+<button data-viewmode-view="gantt" type="button">Режим 02</button>
 </div>
 </div>
 <div class="panel-body">
-<div class="optics-view active" data-optics-panel="roadmap">
-<div class="optics-roadmap">
+<div class="viewmode-view active" data-viewmode-panel="roadmap">
+<div class="viewmode-roadmap">
 <article class="optic-step">
-<h3 contenteditable="true">1. Инвентаризация трасс</h3>
-<p contenteditable="true">Собрать трассы, точки включения, ресурсные ограничения и владельцев зависимостей.</p>
+<h3 contenteditable="true">Проект 07</h3>
+<p contenteditable="true">Описание проекта 17.</p>
 <footer><span>готовность 74%</span><span>до 12.07</span></footer>
 </article>
 <article class="optic-step">
-<h3 contenteditable="true">2. Коммерческая модель</h3>
-<p contenteditable="true">Зафиксировать потенциал, сценарии доходности, тарифные вводные и экономику проекта.</p>
+<h3 contenteditable="true">Проект 08</h3>
+<p contenteditable="true">Описание проекта 18.</p>
 <footer><span>готовность 53%</span><span>до 19.07</span></footer>
 </article>
 <article class="optic-step">
-<h3 contenteditable="true">3. Договорной контур</h3>
-<p contenteditable="true">Закрыть критичные условия, зоны ответственности и согласования с владельцами.</p>
+<h3 contenteditable="true">Проект 09</h3>
+<p contenteditable="true">Описание проекта 19.</p>
 <footer><span>готовность 36%</span><span>до 26.07</span></footer>
 </article>
 <article class="optic-step">
-<h3 contenteditable="true">4. Запуск следующего этапа</h3>
-<p contenteditable="true">Передать согласованную модель в реализацию и обновить статус по каждому объекту.</p>
+<h3 contenteditable="true">Проект 10</h3>
+<p contenteditable="true">Описание проекта 20.</p>
 <footer><span>старт</span><span>август</span></footer>
 </article>
 </div>
 </div>
-<div class="optics-view" data-optics-panel="gantt">
+<div class="viewmode-view" data-viewmode-panel="gantt">
 <div class="gantt-wrap">
-<div aria-label="Подробный Гантт по темной оптике" class="gantt">
+<div aria-label="Подробный календарь по Услуга 01" class="gantt">
 <div class="gantt-head">
-<span>Эпик</span>
+<span>этап</span>
 <span>01.07</span>
 <span>08.07</span>
 <span>15.07</span>
@@ -6121,7 +6120,7 @@
 <span>19.08</span>
 </div>
 <div class="gantt-row">
-<div class="gantt-label" contenteditable="true">Трассы и ресурсная модель</div>
+<div class="gantt-label" contenteditable="true">план задач и ресурсов</div>
 <div class="gantt-track"><div class="gantt-bar" style="--start:1;--span:3"></div></div>
 </div>
 <div class="gantt-row">
@@ -6149,15 +6148,15 @@
 <section class="section" data-section="" id="lko">
 <div class="section-head">
 <div class="section-title">
-<div class="eyebrow">рабочий кабинет</div>
-<h2>Автоматизация и дорожные карты в формате референса</h2>
+<div class="eyebrow">Система 02</div>
+<h2>Процессы</h2>
 </div>
 <p class="section-desc">Карточки показывают готовность, сделанное и следующий шаг. Добавлена отметка про оценку бэклога для расчета процента автоматизации в конце 2026.</p>
 </div>
 <div class="panel">
 <div class="panel-head">
 <div>
-<h3>Уровень автоматизации - разбивка по подразделениям</h3>
+<h3>Процесс 01</h3>
 <p>% автоматизации может корректироваться в меньшую сторону, пока полная схема процесса уточняется</p>
 </div>
 <span class="status-pill work">оценка бэклога</span>
@@ -6165,49 +6164,49 @@
 <div class="panel-body">
 <div class="automation-grid">
 <article class="automation-card">
-<h3 contenteditable="true">Геоподоснова (ГП)</h3>
+<h3 contenteditable="true">Процесс 02</h3>
 <div class="auto-value"><strong contenteditable="true">33%</strong><span>автоматизировано</span></div>
 <div class="thin-progress" style="--value:36%"><i></i></div>
-<p contenteditable="true">Инфраструктурный департамент: 8 этапов, авт. 5 · ТБ: 5 этапов, авт. 0 · Всего: 5/12 шагов.</p>
+<p contenteditable="true">Описание процесса 01.</p>
 </article>
 <article class="automation-card">
-<h3 contenteditable="true">ИТП</h3>
+<h3 contenteditable="true">Процесс 03</h3>
 <div class="auto-value"><strong contenteditable="true">38%</strong><span>автоматизировано</span></div>
 <div class="thin-progress" style="--value:42%"><i></i></div>
-<p contenteditable="true">Инфраструктурный департамент: 8 этапов, авт. 5 · ТБ: 3 этапа, авт. 0 · Всего: 5/10 шагов.</p>
+<p contenteditable="true">Описание процесса 02.</p>
 </article>
 <article class="automation-card">
-<h3 contenteditable="true">ТУ (кроме ПНД)</h3>
+<h3 contenteditable="true">Процесс 04</h3>
 <div class="auto-value"><strong contenteditable="true">38%</strong><span>автоматизировано</span></div>
 <div class="thin-progress" style="--value:42%"><i></i></div>
-<p contenteditable="true">Инфраструктурный департамент: 8 этапов, авт. 5 · ТБ: 3 этапа, авт. 0 · Всего: 5/10 шагов.</p>
+<p contenteditable="true">Описание процесса 03.</p>
 </article>
 <article class="automation-card">
-<h3 contenteditable="true">РП (рабочий проект)</h3>
+<h3 contenteditable="true">Процесс 05</h3>
 <div class="auto-value"><strong contenteditable="true">27%</strong><span>автоматизировано</span></div>
 <div class="thin-progress" style="--value:29%"><i></i></div>
-<p contenteditable="true">Инфраструктурный департамент: 9 этапов, авт. 5 · ТБ: 6 этапов, авт. 0 · Всего: 5/15 шагов.</p>
+<p contenteditable="true">Описание процесса 04.</p>
 </article>
 <article class="automation-card">
-<h3 contenteditable="true">Светофорные объекты</h3>
+<h3 contenteditable="true">Процесс 06</h3>
 <div class="auto-value"><strong contenteditable="true">46%</strong><span>автоматизировано</span></div>
 <div class="thin-progress" style="--value:52%"><i></i></div>
-<p contenteditable="true">Инфраструктурный департамент: 21 этапа, авт. 11 · ТБ: 3 этапа, авт. 0 · Всего: 11/24 шагов.</p>
+<p contenteditable="true">Описание процесса 05.</p>
 </article>
 <article class="automation-card">
-<h3 contenteditable="true">ПНД</h3>
+<h3 contenteditable="true">Процесс 07</h3>
 <div class="auto-value"><strong contenteditable="true">в подсчете</strong></div>
 <div class="thin-progress" style="--value:0%"><i></i></div>
-<p contenteditable="true">Уровень автоматизации - в подсчете.</p>
+<p contenteditable="true">Описание процесса 06.</p>
 </article>
 </div>
-<div class="callout" contenteditable="true">На текущий момент, идет оценка It-ландшафта БП, с целью оптимизации ИС, в том числе исключения учетная система из процесса. Срок до 10.07.</div>
+<div class="callout" contenteditable="true">Выполняется оценка процесса 05 и систем 01–05. Следующее контрольное действие — задача 01.</div>
 </div>
 </div>
 <div class="panel">
 <div class="panel-head">
 <div>
-<h3>рабочий кабинет: карточки реализации</h3>
+<h3>Процесс 08</h3>
 <p></p>
 </div>
 </div>
@@ -6217,19 +6216,19 @@
 <div class="status-card-head">
 <span class="status-pill done">готово</span>
 </div>
-<h3 contenteditable="true">Оценка ИИ-бота</h3>
+<h3 contenteditable="true">Процесс 09</h3>
 <div class="task-block">
 <strong>Сделано</strong>
 <ul>
-<li contenteditable="true">Инструмент обратной связи для пользователей ИИ-бота.</li>
-<li contenteditable="true">Поле «Что улучшить».</li>
+<li contenteditable="true">Действие процесса 01</li>
+<li contenteditable="true">Действие процесса 02</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>Далее</strong>
 <ul>
-<li contenteditable="true">Динамическая подгрузка промпта и документов из вики-ресурса.</li>
-<li contenteditable="true">Обновление для любой функциональной роли до 02.07.</li>
+<li contenteditable="true">Действие процесса 03</li>
+<li contenteditable="true">Действие процесса 04</li>
 </ul>
 </div>
 </article>
@@ -6237,12 +6236,12 @@
 <div class="status-card-head">
 <span class="status-pill done">готово</span>
 </div>
-<h3 contenteditable="true">Подгрузка договоров из Аналитическая витрина-б для холдингов</h3>
+<h3 contenteditable="true">Процесс 10</h3>
 <div class="task-block">
 <strong>Сделано</strong>
 <ul>
-<li contenteditable="true">Проверили целостность данных о компаниях в система задач.</li>
-<li contenteditable="true">24.06 выпустили в прод подгрузку по паре ИНН+КПП.</li>
+<li contenteditable="true">Действие процесса 05</li>
+<li contenteditable="true">Действие процесса 06</li>
 </ul>
 </div>
 </article>
@@ -6250,17 +6249,17 @@
 <div class="status-card-head">
 <span class="status-pill almost">почти готово</span>
 </div>
-<h3 contenteditable="true">Переход на новое API Рабочая система</h3>
+<h3 contenteditable="true">Процесс 11</h3>
 <div class="task-block">
 <strong>Сделано</strong>
 <ul>
-<li contenteditable="true">Перешли на новое API Рабочая система на тестовом стенде.</li>
-<li contenteditable="true">Добавили поля для идентификации заявок по РП разными подразделениями ТБ.</li>
+<li contenteditable="true">Действие процесса 07</li>
+<li contenteditable="true">Действие процесса 08</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>Далее</strong>
-<ul><li contenteditable="true">Релиз запланирован на 01.07.</li></ul>
+<ul><li contenteditable="true">Действие процесса 09</li></ul>
 </div>
 </article>
 <article class="status-card workline">
@@ -6268,17 +6267,17 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">78%</span>
 </div>
-<h3 contenteditable="true">Self-service по настройке услуг</h3>
+<h3 contenteditable="true">Процесс 12</h3>
 <div class="task-block">
 <strong>Сделано</strong>
 <ul>
-<li contenteditable="true">Динамическое отображение каталога и форм в ЛК.</li>
-<li contenteditable="true">Настроена отправка заявок в система задач.</li>
+<li contenteditable="true">Действие процесса 10</li>
+<li contenteditable="true">Действие процесса 11</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>Далее</strong>
-<ul><li contenteditable="true">Развертывание тестового окружения для проверки бизнесом.</li></ul>
+<ul><li contenteditable="true">Действие процесса 12</li></ul>
 </div>
 </article>
 <article class="status-card workline">
@@ -6286,17 +6285,17 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">78%</span>
 </div>
-<h3 contenteditable="true">ТУ по светофорным объектам</h3>
+<h3 contenteditable="true">Процесс 13</h3>
 <div class="task-block">
 <strong>Сделано</strong>
 <ul>
-<li contenteditable="true">Согласована схема процесса: автосчет, заявки ПНД в Аналитическая витрина-б, передача в Рабочая система, автозабор статусов и файлов.</li>
-<li contenteditable="true">Автоматизация БП готова.</li>
+<li contenteditable="true">Действие процесса 13</li>
+<li contenteditable="true">Действие процесса 14</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>Далее</strong>
-<ul><li contenteditable="true">Тестирование.</li></ul>
+<ul><li contenteditable="true">Действие процесса 15</li></ul>
 </div>
 </article>
 <article class="status-card workline">
@@ -6304,14 +6303,14 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">78%</span>
 </div>
-<h3 contenteditable="true">Корректировка трассы ТУ</h3>
+<h3 contenteditable="true">Процесс 14</h3>
 <div class="task-block">
 <strong>Сделано</strong>
-<ul><li contenteditable="true">Автосценарий по корректировке ТУ.</li></ul>
+<ul><li contenteditable="true">Действие процесса 16</li></ul>
 </div>
 <div class="task-block muted">
 <strong>Далее</strong>
-<ul><li contenteditable="true">Тестирование.</li></ul>
+<ul><li contenteditable="true">Действие процесса 17</li></ul>
 </div>
 </article>
 </div>
@@ -6321,15 +6320,15 @@
 <section class="section" data-section="" id="workflow">
 <div class="section-head">
 <div class="section-title">
-<div class="eyebrow">система задач</div>
-<h2>Портфель направлений Битрикс24</h2>
+<div class="eyebrow">Система 01</div>
+<h2>Портфель задач</h2>
 </div>
-<p class="section-desc">Актуализированный список направлений: юридические пространства, тендерный контур, биллинги, продажи, лидопередача, калькулятор и управление клиентской базой.</p>
+<p class="section-desc">Актуализированный список направлений: юридические пространства, процесс 01 контур, процесс 02, направление 03, лидопередача, калькулятор и управление клиентской базой.</p>
 </div>
 <div class="highlight">
 <div>
 <strong>Сводка по портфелю</strong>
-<p contenteditable="true">Всего 11 карточек портфеля: 10 направлений из ТЗ и 2 плановых контура. Реализованы на 86% тендерное пространство и тендерный календарь; пространство для рабочий процесс находится на финальной стадии 82%.</p>
+<p contenteditable="true">Описание задачи 001.</p>
 </div>
 <div class="score-ring" style="--pct: 58">51%</div>
 </div>
@@ -6337,9 +6336,9 @@
 <div class="workflow-toolbar">
 <div>
 <h3>Направления по статусам</h3>
-<p>Фильтр работает как в KPI: открыл нужный статус, рассказал, закрыл и перешел дальше.</p>
+<p>Фильтр работает как в Метрики: открыл нужный статус, рассказал, закрыл и перешел дальше.</p>
 </div>
-<div aria-label="Фильтр направлений система задач" class="segmented" role="group">
+<div aria-label="Фильтр направлений Система 01" class="segmented" role="group">
 <button class="active" data-workflow-filter="all" type="button">Все</button>
 <button data-workflow-filter="done" type="button">Реализовано</button>
 <button data-workflow-filter="almost" type="button">Почти готово</button>
@@ -6352,7 +6351,7 @@
 <div class="workflow-module-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></div>
 <div class="workflow-module-title">
 <h3 contenteditable="true">Реализовано</h3>
-<p contenteditable="true">Готовые пространства, которые можно открыть во время демонстрации.</p>
+<p contenteditable="true">Описание задачи 002.</p>
 </div>
 <span class="workflow-count">4 направления</span>
 </div>
@@ -6362,15 +6361,15 @@
 <span class="status-pill done">реализовано</span>
 <span class="percent">86%</span>
 </div>
-<h3 contenteditable="true">Тендерное пространство</h3>
-<p contenteditable="true">Пространство для отработки полного цикла тендера.</p>
+<h3 contenteditable="true">Задача 001</h3>
+<p contenteditable="true">Описание задачи 003.</p>
 <div class="thin-progress" style="--value:100%"><i></i></div>
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Разработка пространства с учетом бизнес-требований.</li>
-<li contenteditable="true">Распределение тендерной функции КБ между департаментами.</li>
-<li contenteditable="true">Процесс согласования при невозможности выхода на тендер.</li>
+<li contenteditable="true">Действие 001</li>
+<li contenteditable="true">Действие 002</li>
+<li contenteditable="true">Действие 003</li>
 </ul>
 </div>
 <div class="workflow-actions">
@@ -6382,15 +6381,15 @@
 <span class="status-pill done">реализовано</span>
 <span class="percent">86%</span>
 </div>
-<h3 contenteditable="true">Тендерный календарь</h3>
-<p contenteditable="true">Инструмент для проработки предстоящих тендеров.</p>
+<h3 contenteditable="true">Задача 002</h3>
+<p contenteditable="true">Описание задачи 004.</p>
 <div class="thin-progress" style="--value:100%"><i></i></div>
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Пространство тендерного календаря.</li>
-<li contenteditable="true">Постановка задач по срокам для проработки.</li>
-<li contenteditable="true">Процесс согласования при невозможности выхода на тендер.</li>
+<li contenteditable="true">Действие 004</li>
+<li contenteditable="true">Действие 005</li>
+<li contenteditable="true">Действие 006</li>
 </ul>
 </div>
 <div class="workflow-actions">
@@ -6402,14 +6401,14 @@
 <span class="status-pill done">реализовано</span>
 <span class="percent">86%</span>
 </div>
-<h3 contenteditable="true">Адаптация и закрытие бэклога «Комплекс ресурсов»</h3>
-<p contenteditable="true">Финальное усовершенствование цифрового MVP-контура «Комплекс ресурсов» под требования пользователей</p>
+<h3 contenteditable="true">Задача 003</h3>
+<p contenteditable="true">Описание задачи 005.</p>
 <div class="thin-progress" style="--value:100%"><i></i></div>
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Настройки пространства (карточка, бизнес-процессы, потоки задач) под запросы пользователей.</li>
-<li contenteditable="true">На текущий момент осуществляется поддержка пользователей до передачи задачи в команду рабочий кабинет.</li>
+<li contenteditable="true">Действие 007</li>
+<li contenteditable="true">Действие 008</li>
 </ul>
 </div>
 <div class="workflow-actions">
@@ -6420,14 +6419,14 @@
 <span class="status-pill done">реализовано</span>
 <span class="percent">86%</span>
 </div>
-<h3 contenteditable="true">Автоматизация проектной инфраструктуры и ролевых моделей</h3>
-<p contenteditable="true">Автоматизация инфраструктуры ведения проектов, сквозная настройка прав доступа при замещении сотрудников и внедрение инструментов для ускоренной работы с проектной документацией.</p>
+<h3 contenteditable="true">Задача 004</h3>
+<p contenteditable="true">Описание задачи 006.</p>
 <div class="thin-progress" style="--value:100%"><i></i></div>
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Модуль делегирования прав ответственного на время отсутствия.</li>
-<li contenteditable="true">Реализована возможность сквозного отображения карточек в разных воронках, инструмент для полного переноса действующих карточек в другие пространства (миграция) со всей накопленной информацией.</li>
+<li contenteditable="true">Действие 009</li>
+<li contenteditable="true">Действие 010</li>
 </ul>
 </div>
 <div class="workflow-actions">
@@ -6440,7 +6439,7 @@
 <div class="workflow-module-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M12 3v18M3 12h18"></path></svg></div>
 <div class="workflow-module-title">
 <h3 contenteditable="true">Почти готово</h3>
-<p contenteditable="true">Финальная доводка перед переносом в продуктовую среду.</p>
+<p contenteditable="true">Описание задачи 007.</p>
 </div>
 <span class="workflow-count">1 направление</span>
 </div>
@@ -6450,8 +6449,8 @@
 <span class="status-pill almost">почти готово</span>
 <span class="percent">82%</span>
 </div>
-<h3 contenteditable="true">Пространство для рабочий процесс</h3>
-<p contenteditable="true">Рабочее пространство для юристов: коммуникация, обработка заявок от КБ и согласование документации в единой контролируемой среде.</p>
+<h3 contenteditable="true">Задача 005</h3>
+<p contenteditable="true">Описание задачи 008.</p>
 <div class="thin-progress" style="--value:95%"><i></i></div>
 <ul class="workflow-facts">
 <li><span>Срок</span><strong contenteditable="true">17.08.2026</strong></li>
@@ -6460,17 +6459,17 @@
 <div class="task-block">
 <strong>Сделано</strong>
 <ul>
-<li contenteditable="true">Проведена аналитика.</li>
-<li contenteditable="true">Настройка и тестирование заказчиками и рабочий процесс.</li>
-<li contenteditable="true">Синхронизация с тендерными и проектными пространствами КБ.</li>
-<li contenteditable="true">Проведение демо.</li>
+<li contenteditable="true">Действие 011</li>
+<li contenteditable="true">Действие 012</li>
+<li contenteditable="true">Действие 013</li>
+<li contenteditable="true">Действие 014</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>В работе</strong>
 <ul>
-<li contenteditable="true">Доработка по результатам демо.</li>
-<li contenteditable="true">Перенос в продуктовую среду.</li>
+<li contenteditable="true">Действие 015</li>
+<li contenteditable="true">Действие 016</li>
 </ul>
 </div>
 </article>
@@ -6481,7 +6480,7 @@
 <div class="workflow-module-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M4 19h16M7 16V8M12 16V5M17 16v-4"></path></svg></div>
 <div class="workflow-module-title">
 <h3 contenteditable="true">В работе</h3>
-<p contenteditable="true">Направления с активной разработкой, тестированием или сбором требований.</p>
+<p contenteditable="true">Описание задачи 009.</p>
 </div>
 <span class="workflow-count">10 направлений</span>
 </div>
@@ -6491,10 +6490,10 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">актуально</span>
 </div>
-<h3 contenteditable="true">Сопровождение договоров аренды</h3>
-<p contenteditable="true">Отдельный рабочий контур сопровождения договоров аренды в рамках портфеля оптимизации Битрикс24.</p>
+<h3 contenteditable="true">Задача 006</h3>
+<p contenteditable="true">Описание задачи 010.</p>
 <ul class="workflow-facts">
-<li><span>Срок</span><strong contenteditable="true">договоры аренды</strong></li>
+<li><span>Срок</span><strong contenteditable="true">договоры услуга</strong></li>
 <li><span>Сейчас</span><strong contenteditable="true">актуальный</strong></li>
 </ul>
 </article>
@@ -6503,21 +6502,21 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">актуально</span>
 </div>
-<h3 contenteditable="true">Выверка кабелей</h3>
-<p contenteditable="true">Реализация процесса верификации кабелей, возникающих в процессе легализации и СОКП, с предварительной выверкой данных по техническая система на стороне ИС ответственных подразделений.</p>
+<h3 contenteditable="true">Задача 007</h3>
+<p contenteditable="true">Описание задачи 011.</p>
 <div class="thin-progress" style="--value:16%"><i></i></div>
 <ul class="workflow-facts">
-<li><span>Срок</span><strong contenteditable="true">кабельная база</strong></li>
+<li><span>Срок</span><strong contenteditable="true">компонент база</strong></li>
 <li><span>Сейчас</span><strong contenteditable="true">актуальный</strong></li>
 </ul>
 <div class="task-block">
 <strong>Сделано</strong>
-<ul><li contenteditable="true">Проведена аналитика</li></ul>
+<ul><li contenteditable="true">Действие 017</li></ul>
 </div>
 <div class="task-block muted">
 <strong>В работе</strong>
-<ul><li contenteditable="true">Описание методов для обмена данными.</li></ul>
-<ul><li contenteditable="true">Настройка процесса автоматизации в система задач.</li></ul>
+<ul><li contenteditable="true">Действие 018</li></ul>
+<ul><li contenteditable="true">Действие 019</li></ul>
 </div>
 </article>
 <article class="workflow-card" data-workflow-card="" data-workflow-status="work">
@@ -6525,8 +6524,8 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">44%</span>
 </div>
-<h3 contenteditable="true">Интеграционный контур тендеров Seldon</h3>
-<p contenteditable="true">Автоматический поиск и заведение в системе тендеров по заданным бизнес-критериям.</p>
+<h3 contenteditable="true">Задача 008</h3>
+<p contenteditable="true">Описание задачи 012.</p>
 <div class="thin-progress" style="--value:50%"><i></i></div>
 <ul class="workflow-facts">
 <li><span>Срок</span><strong contenteditable="true">Q4</strong></li>
@@ -6534,11 +6533,11 @@
 </ul>
 <div class="task-block">
 <strong>Сделано</strong>
-<ul><li contenteditable="true">Проработка API Seldon - система задач.</li></ul>
+<ul><li contenteditable="true">Действие 020</li></ul>
 </div>
 <div class="task-block muted">
 <strong>В работе</strong>
-<ul><li contenteditable="true">Интеграционное тестирование качества обмена данными между системами.</li></ul>
+<ul><li contenteditable="true">Действие 021</li></ul>
 </div>
 </article>
 <article class="workflow-card" data-workflow-card="" data-workflow-status="work">
@@ -6546,8 +6545,8 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">53%</span>
 </div>
-<h3 contenteditable="true">Пространство для отдела продаж - КАМB2О</h3>
-<p contenteditable="true">Пространство для отработки услуг по инфраструктурным проектам и рамочным договорам.</p>
+<h3 contenteditable="true">Задача 009</h3>
+<p contenteditable="true">Описание задачи 013.</p>
 <div class="thin-progress" style="--value:60%"><i></i></div>
 <ul class="workflow-facts">
 <li><span>Срок</span><strong contenteditable="true">Q4</strong></li>
@@ -6556,16 +6555,16 @@
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Пространство для отработки услуг по инфраструктурным проектам.</li>
-<li contenteditable="true">Процесс по отработке рамочных договоров.</li>
+<li contenteditable="true">Действие 022</li>
+<li contenteditable="true">Действие 023</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>В работе</strong>
 <ul>
-<li contenteditable="true">Ввод новой услуги: Темная оптика.</li>
-<li contenteditable="true">Интеграция с Рабочая система.</li>
-<li contenteditable="true">Передача информации в Сервисная группа для постановки на биллинг в Аналитическая витрина.</li>
+<li contenteditable="true">Действие 024</li>
+<li contenteditable="true">Действие 025</li>
+<li contenteditable="true">Действие 026</li>
 </ul>
 </div>
 <div class="workflow-actions">
@@ -6577,8 +6576,8 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">28%</span>
 </div>
-<h3 contenteditable="true">Лидопередача</h3>
-<p contenteditable="true">Механизм передачи квалифицированных контактов между подразделениями для обработки, распределения и конвертации в продажи.</p>
+<h3 contenteditable="true">Задача 010</h3>
+<p contenteditable="true">Описание задачи 014.</p>
 <div class="thin-progress" style="--value:30%"><i></i></div>
 <ul class="workflow-facts">
 <li><span>Срок</span><strong contenteditable="true">август 2026</strong></li>
@@ -6586,7 +6585,7 @@
 </ul>
 <div class="task-block">
 <strong>Реализовано</strong>
-<ul><li contenteditable="true">Консолидация требований между подразделениями.</li></ul>
+<ul><li contenteditable="true">Действие 027</li></ul>
 </div>
 </article>
 <article class="workflow-card" data-workflow-card="" data-workflow-status="work">
@@ -6594,8 +6593,8 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">20%</span>
 </div>
-<h3 contenteditable="true">Тарифный калькулятор</h3>
-<p contenteditable="true">Инструмент автоматического расчета стоимости услуг на основе параметров, тарифных ставок и актуальных данных.</p>
+<h3 contenteditable="true">Задача 011</h3>
+<p contenteditable="true">Описание задачи 015.</p>
 <div class="thin-progress" style="--value:20%"><i></i></div>
 <ul class="workflow-facts">
 <li><span>Срок</span><strong contenteditable="true">Q3-Q4</strong></li>
@@ -6604,8 +6603,8 @@
 <div class="task-block muted">
 <strong>Планируется</strong>
 <ul>
-<li contenteditable="true">Автоматизация процесса согласно этапам - Q3.</li>
-<li contenteditable="true">Интеграция с учетная система и техническая система - Q4.</li>
+<li contenteditable="true">Действие 028</li>
+<li contenteditable="true">Действие 029</li>
 </ul>
 </div>
 </article>
@@ -6614,8 +6613,8 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">28%</span>
 </div>
-<h3 contenteditable="true">Управление клиентской базой</h3>
-<p contenteditable="true">Развитие единой клиентской базы, карточек компаний и холдинговой структуры.</p>
+<h3 contenteditable="true">Задача 012</h3>
+<p contenteditable="true">Описание задачи 016.</p>
 <div class="thin-progress" style="--value:30%"><i></i></div>
 <ul class="workflow-facts">
 <li><span>Срок</span><strong contenteditable="true">Q3-Q4</strong></li>
@@ -6624,8 +6623,8 @@
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Бесшовное добавление контактов к компаниям.</li>
-<li contenteditable="true">Техническое решение по холдинговой структуре.</li>
+<li contenteditable="true">Действие 030</li>
+<li contenteditable="true">Действие 031</li>
 </ul>
 </div>
 </article>
@@ -6634,8 +6633,8 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">61%</span>
 </div>
-<h3 contenteditable="true">Развитие и адаптация рабочих пространств</h3>
-<p contenteditable="true">Формирование единого конутра рабочих пространств Инфраструктурный департамент.</p>
+<h3 contenteditable="true">Задача 013</h3>
+<p contenteditable="true">Описание задачи 017.</p>
 <div class="thin-progress" style="--value:70%"><i></i></div>
 <ul class="workflow-facts">
 <li><span>Срок</span><strong contenteditable="true">Q3-Q4</strong></li>
@@ -6644,15 +6643,15 @@
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Блок задач по развитию тендерного пространства — наполнение карточек тендеров, бизнес-процессы, права доступа, автоматическое закрепление ТАМов.</li>
-<li contenteditable="true">Блок задач по развитию воронки продаж и проектов  — структура карточек проектов, стадии прохождения, рабочие воронки, бизнес-процессы, синхронизация с воронкой проработки проектов ТАМов, миграция данных в единое пространство в связи с консолидацией КАМов в едином отделе.</li>
-<li contenteditable="true">Динамический интерфейс карточек проектов, сквозная маркировка обязательных полей — используется во всех рабочих пространствах.</li>
+<li contenteditable="true">Действие 032</li>
+<li contenteditable="true">Действие 033</li>
+<li contenteditable="true">Действие 034</li>
 </ul>
 <div class="task-block muted">
 <strong>Планируется</strong>
 <ul>
-<li contenteditable="true">Автоматическое закреплением КАМ, СМ.</li>
-<li contenteditable="true">Загрузка данных из excel.</li>
+<li contenteditable="true">Действие 035</li>
+<li contenteditable="true">Действие 036</li>
 </ul>
 </div>
 </div>
@@ -6662,8 +6661,8 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">61%</span>
 </div>
-<h3 contenteditable="true">Внедрение непрерывного обучения</h3>
-<p contenteditable="true">Внедрение .</p>
+<h3 contenteditable="true">Задача 014</h3>
+<p contenteditable="true">Описание задачи 018.</p>
 <div class="thin-progress" style="--value:70%"><i></i></div>
 <ul class="workflow-facts">
 <li><span>Срок</span><strong contenteditable="true">Q3-Q4</strong></li>
@@ -6672,15 +6671,15 @@
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Приступили к составлению плана базового обучения.</li>
-<li contenteditable="true">Проработка учебных материалов.</li>
+<li contenteditable="true">Действие 037</li>
+<li contenteditable="true">Действие 038</li>
 </ul>
 <div class="task-block muted">
 <strong>Планируется</strong>
 <ul>
-<li contenteditable="true">Размещение обучающего материала на платформе.</li>
-<li contenteditable="true">Видео-запись обучающего материала.</li>
-<li contenteditable="true">Организация регулярных обучающих встреч.</li>
+<li contenteditable="true">Действие 039</li>
+<li contenteditable="true">Действие 040</li>
+<li contenteditable="true">Действие 041</li>
 </ul>
 </div>
 </div>
@@ -6690,8 +6689,8 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">28%</span>
 </div>
-<h3 contenteditable="true">Миграция процессов из Siebel</h3>
-<p contenteditable="true">Развитие единой клиентской базы, карточек компаний и холдинговой структуры.</p>
+<h3 contenteditable="true">Задача 015</h3>
+<p contenteditable="true">Описание задачи 019.</p>
 <div class="thin-progress" style="--value:30%"><i></i></div>
 <ul class="workflow-facts">
 <li><span>Срок</span><strong contenteditable="true">Q3</strong></li>
@@ -6700,12 +6699,12 @@
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Проведена первичная аналитика.</li>
+<li contenteditable="true">Действие 042</li>
 </ul>
 <div class="task-block muted">
 <strong>В работе</strong>
 <ul>
-<li contenteditable="true">Тестирование интеграции  совместно с командой Siebel Оператор Б – срок до 19.08.2026.</li>
+<li contenteditable="true">Действие 043</li>
 </ul>
 </div>
 </div>
@@ -6715,8 +6714,8 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">53%</span>
 </div>
-<h3 contenteditable="true">Карточка клиента</h3>
-<p contenteditable="true">Дописать.</p>
+<h3 contenteditable="true">Задача 016</h3>
+<p contenteditable="true">Описание задачи 020.</p>
 <div class="thin-progress" style="--value:60%"><i></i></div>
 <ul class="workflow-facts">
 <li><span>Срок</span><strong contenteditable="true">?</strong></li>
@@ -6725,16 +6724,16 @@
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Создание единой карточки клиента.</li>
-<li contenteditable="true">Консолидация информации по проектам.</li>
+<li contenteditable="true">Действие 044</li>
+<li contenteditable="true">Действие 045</li>
 </ul>
 <div class="task-block muted">
 <strong>В работе</strong>
 <ul>
-<li contenteditable="true">Интеграция Аналитическая витрина.</li>
-<li contenteditable="true">Интеграция учетная система.</li>
-<li contenteditable="true">Формирование потребности для покупки API с рыночная система.</li>
-<li contenteditable="true">Наполнение информацией по рабочий процесс.</li>
+<li contenteditable="true">Действие 046</li>
+<li contenteditable="true">Действие 047</li>
+<li contenteditable="true">Действие 048</li>
+<li contenteditable="true">Действие 049</li>
 </ul>
 </div>
 </div>
@@ -6744,8 +6743,8 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">28%</span>
 </div>
-<h3 contenteditable="true">Финансовый календарь</h3>
-<p contenteditable="true">дописать.</p>
+<h3 contenteditable="true">Задача 017</h3>
+<p contenteditable="true">Описание задачи 021.</p>
 <div class="thin-progress" style="--value:30%"><i></i></div>
 <ul class="workflow-facts">
 <li><span>Срок</span><strong contenteditable="true">?</strong></li>
@@ -6754,15 +6753,15 @@
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Составление ТЗ.</li>
-<li contenteditable="true">Проведена аналитика.</li>
-<li contenteditable="true">Составление финансового календаря.</li>
+<li contenteditable="true">Действие 050</li>
+<li contenteditable="true">Действие 051</li>
+<li contenteditable="true">Действие 052</li>
 </ul>
 <div class="task-block muted">
 <strong>Планируется</strong>
 <ul>
-<li contenteditable="true">После интеграции с Аналитическая витрина автоматическая постановка задач на сервис менеджеров согласно финансовому календарю.</li>
-<li contenteditable="true">Автоматизация процессов по управлению финансовыми задачами.</li>
+<li contenteditable="true">Действие 053</li>
+<li contenteditable="true">Действие 054</li>
 </ul>
 </div>
 </div>
@@ -6774,7 +6773,7 @@
 <div aria-hidden="true" class="panel" style="display:none">
 <div class="panel-head">
 <div>
-<h3>Направления система задач</h3>
+<h3>Направления Система 01</h3>
 <p>Статус, процент реализации, срок и состав работ</p>
 </div>
 <span class="status-pill work">10 направлений</span>
@@ -6786,35 +6785,35 @@
 <span class="status-pill almost">актуально</span>
 <span class="percent">статус</span>
 </div>
-<h3 contenteditable="true" style="margin-top:10px">Сопровождение договоров аренды</h3>
-<p contenteditable="true">Направление актуально, используется как отдельный рабочий контур сопровождения договоров аренды.</p>
+<h3 contenteditable="true" style="margin-top:10px">Задача 006</h3>
+<p contenteditable="true">Описание задачи 022.</p>
 </article>
 <article class="direction-card">
 <div class="status-card-head">
 <span class="status-pill almost">почти готово</span>
 <span class="percent">82%</span>
 </div>
-<h3 contenteditable="true" style="margin-top:10px">Пространство для рабочий процесс</h3>
-<p contenteditable="true">Специализированное рабочее пространство для юристов в Битрикс24: коммуникация, обработка заявок от КБ и согласование документации в единой контролируемой среде.</p>
+<h3 contenteditable="true" style="margin-top:10px">Задача 005</h3>
+<p contenteditable="true">Описание задачи 023.</p>
 <div class="thin-progress" style="--value:95%"><i></i></div>
 <div class="task-block">
 <strong>Срок реализации</strong>
-<ul><li contenteditable="true">17.08.2026</li></ul>
+<ul><li contenteditable="true">Действие 055</li></ul>
 </div>
 <div class="task-block">
 <strong>Сделано</strong>
 <ul>
-<li contenteditable="true">Проведена аналитика.</li>
-<li contenteditable="true">Настройка и тестирование заказчиками и рабочий процесс.</li>
-<li contenteditable="true">Синхронизация с тендерными и проектными пространствами КБ.</li>
-<li contenteditable="true">Проведение демо.</li>
+<li contenteditable="true">Действие 056</li>
+<li contenteditable="true">Действие 057</li>
+<li contenteditable="true">Действие 058</li>
+<li contenteditable="true">Действие 059</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>В работе</strong>
 <ul>
-<li contenteditable="true">Доработка по результатам демо.</li>
-<li contenteditable="true">Перенос в продуктовую среду.</li>
+<li contenteditable="true">Действие 060</li>
+<li contenteditable="true">Действие 061</li>
 </ul>
 </div>
 </article>
@@ -6823,20 +6822,20 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">44%</span>
 </div>
-<h3 contenteditable="true" style="margin-top:10px">Интеграционный контур тендеров Seldon</h3>
-<p contenteditable="true">Автоматический поиск и заведение в системе тендеров по заданным бизнес-критериям: компания не пропускает профильные закупки, а тендерные специалисты освобождают время для более важных задач.</p>
+<h3 contenteditable="true" style="margin-top:10px">Задача 008</h3>
+<p contenteditable="true">Описание задачи 024.</p>
 <div class="thin-progress" style="--value:50%"><i></i></div>
 <div class="task-block">
 <strong>Срок реализации</strong>
-<ul><li contenteditable="true">Q4, промышленный запуск после закупки лицензий - сентябрь 2026.</li></ul>
+<ul><li contenteditable="true">Действие 062</li></ul>
 </div>
 <div class="task-block">
 <strong>Сделано</strong>
-<ul><li contenteditable="true">Проработка API Seldon - система задач.</li></ul>
+<ul><li contenteditable="true">Действие 063</li></ul>
 </div>
 <div class="task-block muted">
 <strong>В работе</strong>
-<ul><li contenteditable="true">Интеграционное тестирование качества обмена данными между системами.</li></ul>
+<ul><li contenteditable="true">Действие 064</li></ul>
 </div>
 </article>
 <article class="direction-card">
@@ -6844,31 +6843,31 @@
 <span class="status-pill almost">актуально</span>
 <span class="percent">статус</span>
 </div>
-<h3 contenteditable="true" style="margin-top:10px">Выверка кабелей</h3>
-<p contenteditable="true">Направление актуально, сохраняется в портфеле оптимизации Битрикс24.</p>
+<h3 contenteditable="true" style="margin-top:10px">Задача 007</h3>
+<p contenteditable="true">Описание задачи 025.</p>
 </article>
 <article class="direction-card">
 <div class="status-card-head">
 <span class="status-pill work">в работе</span>
 <span class="percent">36%</span>
 </div>
-<h3 contenteditable="true" style="margin-top:10px">Интеграционный контур Биллинги</h3>
-<p contenteditable="true">Интеграционный контур для биллинговых процессов и автоматизации задач по сокращению дебиторской задолженности.</p>
+<h3 contenteditable="true" style="margin-top:10px">Интеграционный контур процесс 02</h3>
+<p contenteditable="true">Описание задачи 026.</p>
 <div class="thin-progress" style="--value:40%"><i></i></div>
 <div class="task-block">
 <strong>Срок реализации</strong>
-<ul><li contenteditable="true">Q3</li></ul>
+<ul><li contenteditable="true">Действие 065</li></ul>
 </div>
 <div class="task-block">
 <strong>Сделано</strong>
-<ul><li contenteditable="true">Проведена аналитика, подготовлено ТЗ.</li></ul>
+<ul><li contenteditable="true">Действие 066</li></ul>
 </div>
 <div class="task-block muted">
 <strong>В работе / планируется</strong>
 <ul>
-<li contenteditable="true">Интеграция Аналитическая витрина.</li>
-<li contenteditable="true">Интеграция с Рупором.</li>
-<li contenteditable="true">Автоматическая постановка задач на менеджеров по сокращению дебиторской задолженности.</li>
+<li contenteditable="true">Действие 067</li>
+<li contenteditable="true">Действие 068</li>
+<li contenteditable="true">Действие 069</li>
 </ul>
 </div>
 </article>
@@ -6877,15 +6876,15 @@
 <span class="status-pill done">реализовано</span>
 <span class="percent">86%</span>
 </div>
-<h3 contenteditable="true" style="margin-top:10px">Тендерное пространство</h3>
-<p contenteditable="true">Пространство для отработки полного цикла тендера.</p>
+<h3 contenteditable="true" style="margin-top:10px">Задача 001</h3>
+<p contenteditable="true">Описание задачи 027.</p>
 <div class="thin-progress" style="--value:100%"><i></i></div>
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Разработка пространства с учетом бизнес-требований.</li>
-<li contenteditable="true">Распределение тендерной функции КБ между департаментами - Проектная группа, Инфраструктурный департамент и Сервисный контур.</li>
-<li contenteditable="true">Процесс согласования при невозможности выхода на тендер.</li>
+<li contenteditable="true">Действие 070</li>
+<li contenteditable="true">Действие 071</li>
+<li contenteditable="true">Действие 072</li>
 </ul>
 </div>
 </article>
@@ -6894,15 +6893,15 @@
 <span class="status-pill done">реализовано</span>
 <span class="percent">86%</span>
 </div>
-<h3 contenteditable="true" style="margin-top:10px">Тендерный календарь</h3>
-<p contenteditable="true">Инструмент для проработки предстоящих тендеров.</p>
+<h3 contenteditable="true" style="margin-top:10px">Задача 002</h3>
+<p contenteditable="true">Описание задачи 028.</p>
 <div class="thin-progress" style="--value:100%"><i></i></div>
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Пространство тендерного календаря.</li>
-<li contenteditable="true">Постановка задач по срокам для проработки.</li>
-<li contenteditable="true">Процесс согласования при невозможности выхода на тендер.</li>
+<li contenteditable="true">Действие 073</li>
+<li contenteditable="true">Действие 074</li>
+<li contenteditable="true">Действие 075</li>
 </ul>
 </div>
 </article>
@@ -6911,23 +6910,23 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">53%</span>
 </div>
-<h3 contenteditable="true" style="margin-top:10px">Пространство для отдела продаж - КАМB2О</h3>
-<p contenteditable="true">Пространство для отработки услуг по инфраструктурным проектам и рамочным договорам.</p>
+<h3 contenteditable="true" style="margin-top:10px">Задача 009</h3>
+<p contenteditable="true">Описание задачи 029.</p>
 <div class="thin-progress" style="--value:60%"><i></i></div>
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Пространство для отработки услуг по инфраструктурным проектам.</li>
-<li contenteditable="true">Внедрен процесс по отработке рамочных договоров.</li>
+<li contenteditable="true">Действие 076</li>
+<li contenteditable="true">Действие 077</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>В работе</strong>
 <ul>
-<li contenteditable="true">Ввод новой услуги: Темная оптика.</li>
-<li contenteditable="true">Интеграция с Рабочая система: заведение заявки через бизнес-процесс.</li>
-<li contenteditable="true">Автоматическая передача информации в Сервисная группа для постановки на биллинг в Аналитическая витрина.</li>
-<li contenteditable="true">Маркировка проектов, попадающих под требования СРО.</li>
+<li contenteditable="true">Действие 078</li>
+<li contenteditable="true">Действие 079</li>
+<li contenteditable="true">Действие 080</li>
+<li contenteditable="true">Действие 081</li>
 </ul>
 </div>
 </article>
@@ -6936,22 +6935,22 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">28%</span>
 </div>
-<h3 contenteditable="true" style="margin-top:10px">Лидопередача</h3>
-<p contenteditable="true">Механизм передачи квалифицированных контактов между подразделениями или внутри подразделения для дальнейшей обработки, распределения и конвертации в продажи.</p>
+<h3 contenteditable="true" style="margin-top:10px">Задача 010</h3>
+<p contenteditable="true">Описание задачи 030.</p>
 <div class="thin-progress" style="--value:30%"><i></i></div>
 <div class="task-block">
 <strong>Срок реализации</strong>
-<ul><li contenteditable="true">Август 2026</li></ul>
+<ul><li contenteditable="true">Действие 082</li></ul>
 </div>
 <div class="task-block">
 <strong>Реализовано</strong>
-<ul><li contenteditable="true">Консолидация требований между подразделениями.</li></ul>
+<ul><li contenteditable="true">Действие 083</li></ul>
 </div>
 <div class="task-block muted">
 <strong>В работе</strong>
 <ul>
-<li contenteditable="true">Разработка пространства для консолидации лидов с распределением в ответственное подразделение.</li>
-<li contenteditable="true">Обмен информацией по текущему статусу.</li>
+<li contenteditable="true">Действие 084</li>
+<li contenteditable="true">Действие 085</li>
 </ul>
 </div>
 </article>
@@ -6960,26 +6959,26 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">20%</span>
 </div>
-<h3 contenteditable="true" style="margin-top:10px">Тарифный калькулятор</h3>
-<p contenteditable="true">Инструмент для автоматического расчета стоимости услуг на основе заданных параметров, тарифных ставок и актуальных данных.</p>
+<h3 contenteditable="true" style="margin-top:10px">Задача 011</h3>
+<p contenteditable="true">Описание задачи 031.</p>
 <div class="thin-progress" style="--value:20%"><i></i></div>
 <div class="task-block">
 <strong>Срок реализации</strong>
-<ul><li contenteditable="true">Q3-Q4</li></ul>
+<ul><li contenteditable="true">Действие 086</li></ul>
 </div>
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Консолидация требований по калькулятору.</li>
-<li contenteditable="true">Сбор фактуры для просчета.</li>
+<li contenteditable="true">Действие 087</li>
+<li contenteditable="true">Действие 088</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>В работе / планируется</strong>
 <ul>
-<li contenteditable="true">Визуализация калькулятора - 13 июля 2026.</li>
-<li contenteditable="true">Автоматизация процесса согласно этапам - Q3.</li>
-<li contenteditable="true">Интеграция с учетная система и техническая система для сбора актуальных данных - Q4.</li>
+<li contenteditable="true">Действие 089</li>
+<li contenteditable="true">Действие 090</li>
+<li contenteditable="true">Действие 091</li>
 </ul>
 </div>
 </article>
@@ -6988,23 +6987,23 @@
 <span class="status-pill work">в работе</span>
 <span class="percent">28%</span>
 </div>
-<h3 contenteditable="true" style="margin-top:10px">Управление клиентской базой</h3>
-<p contenteditable="true">Развитие единой клиентской базы, карточек компаний и холдинговой структуры.</p>
+<h3 contenteditable="true" style="margin-top:10px">Задача 012</h3>
+<p contenteditable="true">Описание задачи 032.</p>
 <div class="thin-progress" style="--value:30%"><i></i></div>
 <div class="task-block">
 <strong>Срок реализации</strong>
-<ul><li contenteditable="true">Q3-Q4</li></ul>
+<ul><li contenteditable="true">Действие 092</li></ul>
 </div>
 <div class="task-block">
 <strong>Реализовано</strong>
 <ul>
-<li contenteditable="true">Расширение возможностей «Единой формы клиента»: бесшовное добавление контактов к компаниям.</li>
-<li contenteditable="true">Проработано техническое решение по отражению холдинговой структуры в карточках компаний.</li>
+<li contenteditable="true">Действие 093</li>
+<li contenteditable="true">Действие 094</li>
 </ul>
 </div>
 <div class="task-block muted">
 <strong>В работе</strong>
-<ul><li contenteditable="true">Сбор требований по необходимой информации.</li></ul>
+<ul><li contenteditable="true">Действие 095</li></ul>
 </div>
 </article>
 </div>
@@ -7121,7 +7120,7 @@
         return /(?:млн\s*)?руб|₽/.test(unit);
       };
 
-      // Добавлено: инверсивные KPI можно пометить data-inverse="true" или распознать по названию.
+      // Добавлено: инверсивные Метрики можно пометить data-inverse="true" или распознать по названию.
       const isInverseRow = (row) => {
         if (row.dataset.inverse === "true") return true;
         const kpiName = row.cells[1]?.textContent.toLowerCase() || "";
@@ -7202,7 +7201,7 @@
       }
 
       function updateSpark(averages) {
-        const depts = ["Продажи", "Техпресейл", "Поддержка"];
+        const depts = ["направление 03", "направление 02", "Поддержка"];
         const points = depts.map((dept, index) => {
           const x = [52, 177, 302][index];
           const value = averages[dept] || 0;
@@ -7237,11 +7236,11 @@
       function addKpiRow() {
         const tbody = $("#departmentKpi tbody");
         const row = tbody.rows[tbody.rows.length - 1].cloneNode(true);
-        row.dataset.dept = "Продажи";
+        row.dataset.dept = "направление 03";
         row.removeAttribute("data-since");
         row.removeAttribute("data-inverse");
         const values = [
-          "Продажи", "Новый показатель", "шт.", "0", "0", "",
+          "направление 03", "Новый показатель", "шт.", "0", "0", "",
           "0", "0", "", "0", "0", "", "", "", "", ""
         ];
         Array.from(row.cells).forEach((cell, index) => {
@@ -7250,7 +7249,7 @@
         });
         tbody.appendChild(row);
         recalcKPIs();
-        showToast("Добавлена строка KPI");
+        showToast("Добавлена строка Метрики");
       }
 
       const reportTemplates = {
@@ -7262,57 +7261,57 @@
                 <h3>Витрина отчетов</h3>
                 <div class="preview-kpis">
                   <div><span>Отчетов</span><strong>10</strong></div>
-                  <div><span>SLA обновления</span><strong>83%</strong></div>
+                  <div><span>Метрика 01 обновления</span><strong>83%</strong></div>
                   <div><span>Владельцы</span><strong>7</strong></div>
                 </div>
                 <div class="preview-list">
-                  <div><span>KPI отдела</span><b>готово</b></div>
+                  <div><span>Метрики отдела</span><b>готово</b></div>
                   <div><span>Финансовый результат</span><b>готово</b></div>
-                  <div><span>ПО и лицензии</span><b>почти</b></div>
+                  <div><span>Поставщики и параметры</span><b>почти</b></div>
                   <div><span>Проектные статусы</span><b>готово</b></div>
                 </div>
               </div>
               <aside class="modal-aside">
-                <div><span>Источник</span><strong>Excel / Аналитическая система / система задач</strong></div>
-                <div><span>Частота</span><strong>Еженедельно, финальные KPI после выгрузки</strong></div>
+                <div><span>Источник</span><strong>источник данных / Система 07 / Система 01</strong></div>
+                <div><span>Частота</span><strong>Еженедельно, финальные Метрики после выгрузки</strong></div>
                 <div><span>Статус</span><strong>Можно показывать на демо</strong></div>
               </aside>
             </div>`
         },
         software: {
-          title: "Отчет Алексея по ПО",
+          title: "Отчет Сотрудник 01 по поставщикам",
           body: `
             <div class="report-preview">
               <div class="preview-screen">
-                <h3>ПО: статус, владельцы, риски</h3>
+                <h3>Поставщики: статус, владельцы, риски</h3>
                 <div class="preview-kpis">
                   <div><span>Систем</span><strong>42</strong></div>
                   <div><span>В риске</span><strong>5</strong></div>
                   <div><span>Дубли</span><strong>8</strong></div>
                 </div>
                 <div class="preview-list">
-                  <div><span>Критичные лицензии</span><b>контроль</b></div>
-                  <div><span>Оптимизация ИС</span><b>в работе</b></div>
-                  <div><span>Исключение учетная система из процесса</span><b>оценка</b></div>
+                  <div><span>Документ 01</span><b>контроль</b></div>
+                  <div><span>Оптимизация Система</span><b>в работе</b></div>
+                  <div><span>Исключение Система 05 из процесса</span><b>оценка</b></div>
                   <div><span>Владельцы систем</span><b>сверка</b></div>
                 </div>
               </div>
               <aside class="modal-aside">
-                <div><span>Ответственный</span><strong>Сотрудник 20 Игоревич</strong></div>
+                <div><span>Ответственный</span><strong>Сотрудник 20</strong></div>
                 <div><span>Следующий шаг</span><strong>Передать актуальный отчет в материалы ревью</strong></div>
                 <div><span>Срок</span><strong>до демонстрации</strong></div>
               </aside>
             </div>`
         },
-        kpi: {
-          title: "KPI витрина",
+        Метрики: {
+          title: "Метрики витрина",
           body: `
             <div class="report-preview">
               <div class="preview-screen">
                 <h3>План / факт / выполнение</h3>
                 <div class="preview-kpis">
-                  <div><span>Продажи</span><strong>${$('[data-bar="Продажи"] .bar-value')?.textContent || "0%"}</strong></div>
-                  <div><span>Техпресейл</span><strong>${$('[data-bar="Техпресейл"] .bar-value')?.textContent || "0%"}</strong></div>
+                  <div><span>направление 03</span><strong>${$('[data-bar="направление 03"] .bar-value')?.textContent || "0%"}</strong></div>
+                  <div><span>направление 02</span><strong>${$('[data-bar="направление 02"] .bar-value')?.textContent || "0%"}</strong></div>
                   <div><span>Поддержка</span><strong>${$('[data-bar="Поддержка"] .bar-value')?.textContent || "0%"}</strong></div>
                 </div>
                 <div class="preview-list">
@@ -7323,9 +7322,9 @@
                 </div>
               </div>
               <aside class="modal-aside">
-                <div><span>Принцип</span><strong>Все показатели из KPI-файла добавляются строками</strong></div>
-                <div><span>Исключение</span><strong>Новые KPI 2026 без сравнения с 2025</strong></div>
-                <div><span>2Q</span><strong>Факт после выгрузки Аналитическая система после 14.08.2026</strong></div>
+                <div><span>Принцип</span><strong>Все показатели из Метрики-файла добавляются строками</strong></div>
+                <div><span>Исключение</span><strong>Новые Метрики 2026 без сравнения с 2025</strong></div>
+                <div><span>2Q</span><strong>Факт после выгрузки Система 07 после 14.08.2026</strong></div>
               </aside>
             </div>`
         },
@@ -7334,80 +7333,80 @@
           body: `
             <div class="report-preview">
               <div class="preview-screen">
-                <h3>ЦОД и темная оптика</h3>
+                <h3>Объект и Услуга 01</h3>
                 <div class="preview-kpis">
-                  <div><span>Объектов ЦОД</span><strong>5</strong></div>
-                  <div><span>Стоек</span><strong>94</strong></div>
-                  <div><span>Потенциал</span><strong>368</strong></div>
+                  <div><span>Объекты</span><strong>5</strong></div>
+                  <div><span>Показатель 01</span><strong>94</strong></div>
+                  <div><span>Показатель 03</span><strong>368</strong></div>
                 </div>
                 <div class="preview-list">
-                  <div><span>Живописная 1 этап</span><b>контроль</b></div>
-                  <div><span>Живописная 2 этап</span><b>старт</b></div>
+                  <div><span>Объект 01</span><b>контроль</b></div>
+                  <div><span>Объект 02</span><b>старт</b></div>
                   <div><span>Объект 1</span><b>сверка</b></div>
-                  <div><span>Темная оптика</span><b>эпики</b></div>
+                  <div><span>Услуга 01</span><b>этап</b></div>
                 </div>
               </div>
               <aside class="modal-aside">
                 <div><span>Решение</span><strong>Нужны сроки и статусы от владельцев дорожных карт</strong></div>
-                <div><span>Формат</span><strong>Объект / стойки / доход / статус / срок</strong></div>
+                <div><span>Формат</span><strong>Объект / показатель 01 / показатель 02 / статус / срок</strong></div>
               </aside>
             </div>`
         },
         lko: {
-          title: "рабочий кабинет HTML",
+          title: "Система 02 HTML",
           body: `
             <div class="report-preview">
               <div class="preview-screen">
-                <h3>рабочий кабинет: автоматизация</h3>
+                <h3>Система 02: автоматизация</h3>
                 <div class="preview-kpis">
                   <div><span>Средний уровень</span><strong>38%</strong></div>
                   <div><span>Карточек</span><strong>5</strong></div>
-                  <div><span>ПНД</span><strong>10.07</strong></div>
+                  <div><span>Тип 01</span><strong>10.07</strong></div>
                 </div>
                 <div class="preview-list">
-                  <div><span>Оценка ИИ-бота</span><b>готово</b></div>
-                  <div><span>API Рабочая система</span><b>почти</b></div>
+                  <div><span>Оценка Система 09</span><b>готово</b></div>
+                  <div><span>Интерфейс 01 Система 04</span><b>почти</b></div>
                   <div><span>Self-service</span><b>78%</b></div>
-                  <div><span>ТУ светофорные объекты</span><b>78%</b></div>
+                  <div><span>Документ 01 объекты типа 01</span><b>78%</b></div>
                 </div>
               </div>
               <aside class="modal-aside">
                 <div><span>Добавлено</span><strong>Оценка бэклога для расчета автоматизации в конце 2026</strong></div>
-                <div><span>ПНД</span><strong>Оценка IT-ландшафта БП до 10.07</strong></div>
+                <div><span>Тип 01</span><strong>Оценка IT-ландшафта Процесс 05 до 10.07</strong></div>
               </aside>
             </div>`
         },
         clientcard: {
-          title: "система задач: карточка клиента",
+          title: "Система 01: карточка клиента",
           body: workflowModal("Карточка клиента", "Единый профиль клиента с договорами, активными продуктами, ответственными, pipeline, финсобытиями и рисками.", "в работе", "3Q")
         },
         financecalendar: {
-          title: "система задач: финансовый календарь",
+          title: "Система 01: финансовый календарь",
           body: workflowModal("Финансовый календарь", "Календарь оплат, актов, продлений и договорных событий с ответственными и напоминаниями.", "в работе", "3Q")
         },
         tenders: {
-          title: "система задач: тендеры",
-          body: workflowModal("Тендерное пространство", "Единый статус, контроль сроков, документы и ответственные по тендерному процессу.", "готово", "сделано")
+          title: "Система 01: процесс 01",
+          body: workflowModal("процесс 01 пространство", "Единый статус, контроль сроков, документы и ответственные по процесс 01 процессу.", "готово", "сделано")
         },
         bpo: {
-          title: "система задач: рабочий процесс",
+          title: "Система 01: рабочий процесс",
           body: workflowModal("Пространство рабочий процесс", "Заявки, статусы, передача в смежные системы и отчетность по этапам.", "готово", "сделано")
         },
         kam: {
-          title: "система задач: КАМ по инфре",
-          body: workflowModal("Пространство КАМ", "Портфель клиентов, инфраструктурные активности, задачи и контроль выполнения.", "готово", "сделано")
+          title: "Система 01: направление 01",
+          body: workflowModal("Пространство Роль 01", "Портфель клиентов, направление 01 активности, задачи и контроль выполнения.", "готово", "сделано")
         },
         calculator: {
-          title: "система задач: калькулятор БП",
-          body: workflowModal("Калькулятор БП", "Сценарии, расчет бизнес-параметров и предварительная оценка в связке с КП.", "в работе", "3Q")
+          title: "Система 01: калькулятор Процесс 05",
+          body: workflowModal("Калькулятор Процесс 05", "Сценарии, расчет бизнес-параметров и предварительная оценка в связке с Процесс 07.", "в работе", "3Q")
         },
         statuses: {
-          title: "система задач: единые статусы",
-          body: workflowModal("Единые статусы заявок", "Сквозные статусы для ТУ, ТКП и рабочий процесс, чтобы бизнес видел движение без ручных уточнений.", "почти готово", "июль")
+          title: "Система 01: единые статусы",
+          body: workflowModal("Единые статусы заявок", "Сквозные статусы для Документ 01, Документ 02 и рабочий процесс, чтобы бизнес видел движение без ручных уточнений.", "почти готово", "июль")
         },
         control: {
-          title: "система задач: отчетность и контроль",
-          body: workflowModal("Отчетность и контроль", "Дашборды по задачам, просрочкам, SLA, загрузке команды и эффекту автоматизации.", "бэклог", "после 3Q")
+          title: "Система 01: отчетность и контроль",
+          body: workflowModal("Отчетность и контроль", "Дашборды по задачам, просрочкам, Метрика 01, загрузке команды и эффекту автоматизации.", "бэклог", "после 3Q")
         }
       };
 
@@ -7536,7 +7535,7 @@
       }
 
       function openExcelShotPreview(title, url) {
-        const safeTitle = title || "Скриншот Excel-отчета";
+        const safeTitle = title || "Скриншот отчёта";
         $("#modalTitle").textContent = safeTitle;
         const modalBody = $("#modalBody");
         modalBody.replaceChildren();
@@ -7615,15 +7614,15 @@
         document.body.append(downloadLink);
         downloadLink.click();
         downloadLink.remove();
-        showToast("Скачивание Excel");
+        showToast("Скачивание источника данных");
       }
 
-      function switchOpticsView(view) {
-        $$("#projects [data-optics-view]").forEach((button) => {
-          button.classList.toggle("active", button.dataset.opticsView === view);
+      function switchProjectView(view) {
+        $$("#projects [data-viewmode-view]").forEach((button) => {
+          button.classList.toggle("active", button.dataset.viewmodeView === view);
         });
-        $$("#projects [data-optics-panel]").forEach((panel) => {
-          panel.classList.toggle("active", panel.dataset.opticsPanel === view);
+        $$("#projects [data-viewmode-panel]").forEach((panel) => {
+          panel.classList.toggle("active", panel.dataset.viewmodePanel === view);
         });
       }
 
@@ -7749,14 +7748,14 @@
       }
 
       document.addEventListener("input", (event) => {
-        // Добавлено: пересчитываем KPI на лету, но не превращаем введенное число в "млн руб." прямо во время набора.
+        // Добавлено: пересчитываем Метрики на лету, но не превращаем введенное число в "млн руб." прямо во время набора.
         if (event.target.closest("#departmentKpi")) recalcKPIs({ formatValues: false });
         if (event.target.closest("#kpi .employee-table")) applyEmployeeKpiColors();
         if (event.target.matches("[data-analytics-search]")) filterAnalytics();
       });
 
       document.addEventListener("focusout", (event) => {
-        // Добавлено: после выхода из KPI-ячейки применяем красивый формат денежных значений.
+        // Добавлено: после выхода из Метрики-ячейки применяем красивый формат денежных значений.
         if (event.target.closest("#departmentKpi")) recalcKPIs();
         if (event.target.closest("#kpi .employee-table")) applyEmployeeKpiColors();
         if (event.target.closest("#kpi .q3-list")) initQ3NewBadges();
@@ -7821,7 +7820,7 @@
           const href = target.getAttribute("href") || "";
           if (href === "#") {
             event.preventDefault();
-            showToast(`Добавьте ссылку на пространство: ${target.dataset.spaceName || "система задач"}`);
+            showToast(`Добавьте ссылку на пространство: ${target.dataset.spaceName || "Система 01"}`);
           }
         }
 
@@ -7836,8 +7835,8 @@
           await openExcelShot(target);
         }
 
-        if (target.matches("[data-optics-view]")) {
-          switchOpticsView(target.dataset.opticsView);
+        if (target.matches("[data-viewmode-view]")) {
+          switchProjectView(target.dataset.viewmodeView);
         }
 
         if (target.matches("[data-open-file-full]")) {
