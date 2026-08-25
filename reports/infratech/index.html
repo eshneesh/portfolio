@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#edf4ff">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="description" content="Управленческий отчёт Infratech: коммерческий, технический и административный блоки.">
+  <title>Infratech — обезличенная версия</title>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/open-props@1.7.23/normalize.min.css" integrity="sha256-TeaQejXF80Pae2xmg/cbjN2ZBhm7eP4RUtXkcoVrWwM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/open-props@1.7.23/open-props.min.css" integrity="sha256-S8m+xmPrf+8st2gNKYPiHw95d4php3vudCJAMNyYH1w=" crossorigin="anonymous">
+  <link rel="stylesheet" href="./styles.css?v=20260825-commercial-mix-9">
+</head>
+<body>
+  <aside class="public-anonymized-note" role="note" style="margin:0;padding:10px 18px;background:#14213d;color:#fff;font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.02em;text-align:center">Публичная обезличенная версия: названия, ФИО, адреса, внутренние ссылки и точные значения заменены синтетическими. Структура и аналитическая логика сохранены.</aside>
+  <div id="reportApp">
+  <a class="skip-link" href="#main">К содержанию</a>
+
+  <header class="topbar">
+    <div class="shell topbar__inner">
+      <a class="brand" href="#overview" aria-label="К началу отчёта">
+        <span class="brand__mark">I</span><span>Infratech</span>
+      </a>
+      <div class="author-credit author-credit--topbar"><strong>PUBLIC SAMPLE</strong><em> · данные изменены</em></div>
+      <div class="topbar__actions">
+        <span class="updated">Публичный срез · 2026</span>
+        <button class="print-button" id="printReport" type="button">Печать / PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="overview">
+    <div class="shell hero__panel">
+      <div class="hero__grid">
+        <div>
+          <h1>Infratech</h1>
+          <p>Анализ состояния и динамики инфраструктуры компании (1H25–1H26): ключевые натуральные и финансовые метрики.</p>
+          <div class="period-marker"><i></i>1H‑2025 <span>→</span> 1H‑2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="section-nav" aria-label="Разделы отчёта">
+    <div class="shell section-nav__inner">
+      <div class="section-nav__links">
+        <button type="button" data-report-tab="commercial" :class="{ active: activeTab === 'commercial' }" :aria-pressed="activeTab === 'commercial'" @click="selectTab('commercial')">Коммерческий блок</button>
+        <button type="button" data-report-tab="lks" :class="{ active: activeTab === 'lks' }" :aria-pressed="activeTab === 'lks'" @click="selectTab('lks')">Технический блок</button>
+        <button type="button" data-report-tab="buildings" :class="{ active: activeTab === 'buildings' }" :aria-pressed="activeTab === 'buildings'" @click="selectTab('buildings')">Административный блок</button>
+      </div>
+      <span class="section-nav__period">1H‑2025 / 1H‑2026</span>
+    </div>
+  </nav>
+
+  <main class="shell" id="main">
+    <section class="report-section report-panel" id="commercial" data-panel="commercial" data-reveal :class="{ 'is-active': activeTab === 'commercial' }">
+      <header class="section-heading">
+        <h2>Коммерческий блок</h2>
+        <p>Доход, база ИНН и натуральные показатели за два сопоставимых полугодия — с расшифрованными изменениями.</p>
+      </header>
+
+      <div class="commercial-period-overview" id="commercialOverview" aria-label="Сравнение коммерческих показателей за 1H 2025 и 1H 2026"></div>
+      <article class="commercial-budget card" id="commercialBudget" aria-label="Доход и бюджет за первое полугодие 2026"></article>
+      <article class="commercial-revenue card" id="commercialRevenueSplit" aria-label="Core-доход по сегментам Инфраструктурный департамент и Сервисный контур"></article>
+      <article class="services-card card">
+        <header class="card-heading service-card-heading"><div><h3 id="serviceScopeTitle">Услуги и доходы Инфраструктурный департамент</h3><span>Деньги · ИНН · натуральный показатель · ARPU</span></div><div class="service-scope-switch" role="tablist" aria-label="Контур услуг"><button type="button" class="is-active" data-service-scope="dkri" role="tab" aria-selected="true">Инфраструктурный департамент</button><button type="button" data-service-scope="drsp" role="tab" aria-selected="false">Сервисный контур</button></div></header>
+        <div class="service-table__head" aria-hidden="true"><span>Услуга</span><span>1H 2025</span><span>1H 2026</span><span title="Δ 1H25 → 1H26">Δ · 1H25 → 1H26</span></div>
+        <div class="service-table" id="serviceTable"></div>
+      </article>
+      <article class="service-mix card" id="serviceMix" aria-label="Доли услуг и клиентов в портфеле"></article>
+      <section class="commercial-client-section" aria-labelledby="commercialClientsTitle">
+        <header class="commercial-subsection-heading"><div><span class="commercial-kicker">клиентский портфель</span><h3 id="commercialClientsTitle">Клиенты и доли портфеля</h3></div><p>Доля Инфраструктурный департамент и Сервисный контур рассчитана от общей базы ИНН за соответствующее полугодие.</p></header>
+        <div class="commercial-segments" id="commercialSegments" aria-label="Общая абонентская база ИНН по контурам"></div>
+        <article class="customer-top card" id="customerTop" aria-label="Крупнейшие заказчики Инфраструктурный департамент"></article>
+      </section>
+      <article class="project-portfolio card" id="infrastructureProjects" aria-label="Инфраструктурные проекты по полугодиям и видам услуг"></article>
+      <article class="project-portfolio card" id="infrastructureProjectsDrsp" aria-label="Инфраструктурные проекты Сервисный контур по полугодиям и видам услуг"></article>
+    </section>
+
+    <section class="report-section report-panel" id="network" data-panel="lks" data-reveal :class="{ 'is-active': activeTab === 'lks' }">
+      <header class="section-heading">
+        <h2>Технический блок</h2>
+        <p>ЛКС, телефонная канализация и вся проложенная ВОЛС — в едином сравнении двух полугодий.</p>
+      </header>
+
+      <article class="comparison-board card" id="networkCompare" aria-label="Сравнение показателей ЛКС Оператор А и ВОЛС"></article>
+
+      <div class="network-summary-grid">
+        <article class="summary-card card">
+          <header class="card-heading"><h3>Состав проложенной ВОЛС</h3><span>тыс. км · 1H25 / 1H26</span></header>
+          <div class="fiber-summary" id="fiberSummary"></div>
+        </article>
+
+        <article class="summary-card card">
+          <header class="card-heading"><h3>Размещение ВОЛС в ЛКС Оператор А</h3><span>структура · 1H26</span></header>
+          <div class="booking-list" id="bookingList"></div>
+        </article>
+      </div>
+
+      <section class="report-section report-panel" id="capacity" data-panel="lks" data-reveal :class="{ 'is-active': activeTab === 'lks' }">
+      <header class="section-heading">
+        <h2>Телефонные колодцы</h2>
+        <p>Общее количество, принадлежность и доля непроходных участков — с сопоставлением 1H25 и 1H26.</p>
+      </header>
+      <article class="comparison-board card" id="capacityGrid"></article>
+    </section>
+
+      <article class="df-rent card">
+        <header class="card-heading"><h3>Объём аренды ЛКС Оператор А операторами Dark Fiber, тыс. км</h3><span>1H25 / 1H26</span></header>
+        <div class="df-rent__table" id="dfRentTable"></div>
+      </article>
+    </section>
+
+    <section class="report-section report-panel" id="duti" data-panel="lks" data-reveal :class="{ 'is-active': activeTab === 'lks' }">
+      <header class="section-heading">
+        <h2>Технический учёт</h2>
+        <p>По каждому этапу показаны объём, выдача, конверсия и Δ 1H25 → 1H26.</p>
+      </header>
+
+      <article class="technical-ledger card">
+        <header class="technical-ledger__header"><div><span>сквозная операционная воронка</span><h3>Запрошено → выдано</h3></div><b>шт. · 1H25 / 1H26</b></header>
+        <div class="technical-ledger__grid" id="dutiLedger" aria-label="Сравнение показателей технического учёта"></div>
+      </article>
+    </section>
+
+    <section class="report-section report-panel" id="work" data-panel="lks" data-reveal :class="{ 'is-active': activeTab === 'lks' }">
+      <header class="section-heading">
+        <h2>Эксплуатация ЛКС и подрядчики</h2>
+        <p>Стоимость эксплуатации, доля расходов в доходе, команда и разрешения для сторонних организаций.</p>
+      </header>
+      <div class="work-grid" id="workGrid" aria-label="Эксплуатация ЛКС и подрядчики"></div>
+    </section>
+
+    <section class="report-section report-panel" id="buildings" data-panel="buildings" data-reveal :class="{ 'is-active': activeTab === 'buildings' }">
+      <header class="section-heading">
+        <h2>Административный блок</h2>
+        <p>Портфель объектов, назначение площадей, клиенты и мощность — с единым сравнением полугодий.</p>
+      </header>
+      <article class="asset-overview comparison-board card" id="assetOverview" aria-label="Портфель объектов и аренда"></article>
+      <div class="asset-story-grid">
+        <article class="asset-income card" id="assetIncome" aria-label="Доход и клиенты по объектам"></article>
+        <article class="asset-rent-detail card" id="assetRentDetail" aria-label="Коммерческая аренда: арендаторы и крупнейшие площади"></article>
+        <article class="asset-use card" id="assetUseSplit" aria-label="Использование объектов и площадей"></article>
+      </div>
+      <article class="asset-condition card" id="assetCondition" aria-label="Техническое состояние объектов"></article>
+      <div class="power-section-heading"><div><h3>База мощности 2026</h3><p>Объекты, по которым доступен адресный баланс потребления и резерва.</p></div><span>адресный список</span></div>
+      <div class="power-overview" id="powerOverview" aria-label="Итоговые показатели мощности объектов"></div>
+      <details class="power-list card" id="powerList">
+        <summary>
+          <div><h3>Перечень объектов</h3><p>Адрес, техническое назначение и баланс мощности по каждому объекту.</p></div>
+          <div class="power-list__toggle"><span id="powerListCount">—</span><b>объектов</b><i aria-hidden="true">⌄</i></div>
+        </summary>
+        <div class="power-list__head" aria-hidden="true"><span>Объект</span><span>Потребление</span><span>Разрешённая</span><span>Резерв</span></div>
+        <div class="power-list__rows" id="powerListRows"></div>
+      </details>
+    </section>
+
+  </main>
+  </div>
+
+  <script src="./vendor/vue.global.prod.js?v=20260810-tech-admin-1"></script>
+  <script src="./report.js?v=20260825-commercial-mix-9"></script>
+</body>
+</html>
