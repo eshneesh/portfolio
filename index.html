@@ -1,2469 +1,349 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="dark" name="color-scheme"/>
-<title>Anastasia | BI & Data Analyst</title>
-<meta content="Portfolio of a BI and data analyst: automated Power BI reporting, product, financial, contractor, and infrastructure analytics." name="description"/>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();
-      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110848324', 'ym');
-
-    ym(110848324, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-  </script>
-<!-- /Yandex.Metrika counter -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Manrope:wght@400;500;600;700;800&family=Share+Tech+Mono&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Анастасия Рябикова — аналитик данных и BI-аналитик. SQL, Python, Power BI, автоматизация отчётности и управленческие дашборды.">
+  <title>Анастасия Рябикова — аналитик данных</title>
+  <style>
     :root {
-      color-scheme: dark;
-      --black: #000000;
-      --ink: #030303;
-      --panel: #050505;
-      --panel-soft: #090909;
-      --panel-raised: #101010;
-      --line: rgba(255, 255, 255, .16);
-      --line-strong: rgba(255, 255, 255, .28);
-      --paper: #f6f4ec;
-      --white: #ffffff;
-      --muted: #aaa29a;
-      --muted-soft: #7b736d;
-      --blue: #2378ff;
-      --blue-soft: #8fbdff;
-      --cyan: #44d7ff;
-      --brown: #342821;
-      --radius-lg: 28px;
-      --radius-md: 20px;
-      --radius-sm: 14px;
-      --display: "Unbounded", "Arial Black", system-ui, sans-serif;
-      --text: "Manrope", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --terminal: "DotGothic16", "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-      --mono: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-      --shadow: 0 30px 90px rgba(0, 0, 0, .38);
+      color-scheme: light;
+      --page: #f7f6f2;
+      --surface: #ffffff;
+      --ink: #1d2b34;
+      --muted: #52616b;
+      --accent: #24536c;
+      --line: #d9dedf;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+      --max: 1120px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      background: var(--black);
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       min-width: 320px;
       margin: 0;
-      overflow-x: hidden;
-      background: #000;
-      color: var(--paper);
-      font-family: var(--text);
-      font-size: 16px;
-      line-height: 1.6;
-      letter-spacing: 0;
+      color: var(--ink);
+      background: var(--page);
+      font: 16px/1.58 var(--sans);
+      -webkit-font-smoothing: antialiased;
     }
-
-    body::after {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      opacity: .16;
-      pointer-events: none;
-      content: "";
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
-      mix-blend-mode: soft-light;
-    }
-
-    body::before {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      content: "";
-      background:
-        repeating-linear-gradient(180deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 4px),
-        radial-gradient(circle at 18% 12%, rgba(35, 120, 255, .08), transparent 28%),
-        radial-gradient(circle at 82% 72%, rgba(68, 215, 255, .055), transparent 30%);
-      opacity: .32;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: 2px solid var(--blue);
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
       outline-offset: 4px;
     }
-
-    button {
-      border: 0;
-      color: inherit;
-      font: inherit;
-    }
-
-    p,
-    h1,
-    h2,
-    h3,
-    figure {
-      margin: 0;
-    }
-
     .skip-link {
-      position: fixed;
-      top: 14px;
-      left: 14px;
-      z-index: 20;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: var(--paper);
-      color: var(--black);
-      transform: translateY(-140%);
-      transition: transform .2s ease;
-    }
-
-    .skip-link:focus {
-      transform: translateY(0);
-    }
-
-    .shell {
-      width: min(1340px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
+      position: absolute;
+      left: 16px;
+      top: -80px;
       z-index: 10;
-      border-bottom: 1px solid var(--line);
-      background: rgba(8, 7, 6, .82);
-      backdrop-filter: blur(22px);
+      padding: 8px 12px;
+      background: var(--surface);
     }
-
-    .nav {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 18px;
+    .skip-link:focus { top: 12px; }
+    .shell { width: min(calc(100% - 64px), var(--max)); margin-inline: auto; }
+    .site-header { border-bottom: 1px solid var(--line); background: var(--page); }
+    .header-inner {
+      min-height: 82px;
+      display: flex;
       align-items: center;
-      min-height: 78px;
+      justify-content: space-between;
+      gap: 28px;
     }
-
     .brand {
-      display: inline-flex;
-      gap: 12px;
-      align-items: center;
-      width: fit-content;
-    }
-
-    .brand-mark {
-      display: grid;
-      width: 38px;
-      height: 38px;
-      place-items: center;
-      border: 1px solid var(--line-strong);
-      border-radius: 14px;
-      background: var(--panel-soft);
-      color: var(--white);
-      font-family: var(--display);
-      font-size: .74rem;
-      font-weight: 800;
-    }
-
-    .brand-text {
-      display: grid;
-      gap: 1px;
-    }
-
-    .brand-text strong {
-      font-family: var(--terminal);
-      font-size: .82rem;
-      font-weight: 800;
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-    .brand-text span {
-      color: var(--muted-soft);
-      font-size: .72rem;
+      text-decoration: none;
+      font-size: 16px;
       font-weight: 700;
-      text-transform: uppercase;
+      letter-spacing: -.025em;
+      white-space: nowrap;
     }
-
-    .nav-links {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-link {
-      padding: 10px 13px;
-      border-radius: 999px;
+    .header-right { display: flex; align-items: center; gap: 36px; }
+    .nav { display: flex; align-items: center; gap: 27px; }
+    .nav a, .language button {
       color: var(--muted);
-      font-family: var(--mono);
-      font-size: .78rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      transition: color .2s ease, background .2s ease;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color .18s ease;
     }
-
-    .nav-link:hover {
-      background: rgba(255, 255, 255, .06);
-      color: var(--paper);
-    }
-
-    .nav-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .lang-toggle {
-      display: inline-grid;
-      grid-template-columns: 1fr 1fr;
-      min-width: 108px;
-      padding: 4px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .04);
-    }
-
-    .lang-button {
-      min-width: 46px;
-      min-height: 32px;
-      border-radius: 999px;
+    .nav a:hover, .language button:hover { color: var(--accent); }
+    .language { display: flex; align-items: center; gap: 6px; }
+    .language button {
+      padding: 5px 3px;
+      border: 0;
       background: transparent;
-      color: var(--muted);
       cursor: pointer;
-      font-size: .76rem;
-      font-weight: 800;
-      line-height: 1;
-      transition: color .2s ease, background .2s ease;
     }
-
-    .lang-button[aria-pressed="true"] {
-      background: var(--paper);
-      color: var(--black);
-    }
-
-    .icon-link {
-      display: grid;
-      width: 42px;
-      height: 42px;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .04);
-      color: var(--paper);
-      transition: transform .2s ease, border-color .2s ease, background .2s ease;
-    }
-
-    .icon-link:hover {
-      border-color: rgba(35, 120, 255, .6);
-      background: rgba(35, 120, 255, .14);
-      transform: translateY(-2px);
-    }
-
-    .icon-link svg {
-      width: 18px;
-      height: 18px;
-    }
+    .language button[aria-pressed="true"] { color: var(--ink); }
+    .language span { color: #9aa6a9; font-size: 12px; }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, .96fr) minmax(420px, 1.04fr);
-      gap: 42px;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
       align-items: center;
-      min-height: 640px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--line);
+      gap: clamp(44px, 7vw, 110px);
+      padding-block: clamp(70px, 9vw, 122px);
     }
-
-    .hero-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-width: 0;
-      gap: 22px;
-      padding: 8px 0;
-    }
-
-    .kicker-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: .76rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .kicker {
-      display: inline-flex;
-      gap: 9px;
-      align-items: center;
-      min-height: 34px;
-      padding: 7px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .035);
-    }
-
-    .kicker::before {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--blue);
-      box-shadow: 0 0 18px rgba(35, 120, 255, .7);
-      content: "";
-    }
-
-    .hero-title-wrap {
-      display: grid;
-      gap: 22px;
-    }
-
-    .hero-title {
-      max-width: 980px;
-      font-family: var(--terminal);
-      font-size: 4.85rem;
-      font-weight: 400;
-      line-height: .95;
-      letter-spacing: 0;
-      text-transform: uppercase;
-      overflow-wrap: break-word;
-    }
-
-    .hero-title span {
-      display: block;
-    }
-
-    .hero-title .muted-line {
-      color: rgba(246, 244, 236, .46);
-    }
-
-    .hero-lead {
-      display: grid;
-      grid-template-columns: minmax(150px, 230px) minmax(0, 640px);
-      gap: 26px;
-      align-items: start;
-      color: var(--muted);
-    }
-
-    .hero-lead strong {
-      display: block;
-      color: var(--paper);
-      font-size: .82rem;
-      font-weight: 800;
-      line-height: 1.25;
-      text-transform: uppercase;
-    }
-
-    .hero-lead p {
-      font-size: 1.02rem;
-      line-height: 1.68;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 2px;
-    }
-
-    .profile-glass-card {
-      position: relative;
-      z-index: 1;
-      width: min(100%, 360px);
-      min-height: 400px;
-      margin-top: 2px;
-      padding: 10px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .08);
-      border-radius: 12px;
-      background: #1b1b1f;
-      box-shadow:
-        0 10px 10px rgba(42, 42, 46, .62),
-        0 26px 50px rgba(0, 0, 0, .36);
-      color: var(--white);
-      transition: transform .5s ease, box-shadow .5s ease, border-color .5s ease;
-    }
-
-    .profile-glass-card:hover {
-      border-color: rgba(35, 120, 255, .34);
-      box-shadow:
-        0 10px 10px rgba(0, 0, 0, .74),
-        0 34px 70px rgba(0, 0, 0, .42);
-      transform: translateY(-7px);
-    }
-
-    .profile-glass-card > * {
-      transform: none;
-    }
-
-    .profile-glass-card:hover > * {
-      transform: none;
-    }
-
-    .profile-glass-card.is-hero-profile {
-      display: flex;
-      width: 100%;
-      max-width: 640px;
-      min-height: 560px;
-      margin: 0;
-      flex-direction: column;
-      justify-self: end;
-    }
-
-    .profile-glass-align {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      min-height: 30px;
-      padding: 0 4px 8px;
-    }
-
-    .profile-glass-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      box-shadow: none;
-    }
-
-    .profile-glass-dot.is-red {
-      background: #ff605c;
-    }
-
-    .profile-glass-dot.is-yellow {
-      background: #ffbd44;
-    }
-
-    .profile-glass-dot.is-green {
-      background: #00ca4e;
-    }
-
-    .profile-glass-body {
-      display: flex;
-      min-height: 344px;
-      flex-direction: column;
-      border: 1px solid rgba(255, 255, 255, .05);
-      border-radius: 8px;
-      padding: 18px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, .035), transparent 40%),
-        #2a2a2e;
-      color: var(--white);
-    }
-
-    .profile-glass-card.is-hero-profile .profile-glass-body {
-      min-height: 0;
-      flex: 1 1 auto;
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .profile-window-photo {
-      position: relative;
-      flex: 1 1 360px;
-      min-height: 360px;
-      overflow: hidden;
-      border-radius: 8px 8px 0 0;
-      background: #101013;
-      isolation: isolate;
-    }
-
-    .profile-window-photo img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      min-height: 330px;
-      object-fit: cover;
-      object-position: center 35%;
-      filter: saturate(.96) contrast(1.04);
-    }
-
-    .profile-window-photo::after {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        linear-gradient(180deg, rgba(8, 8, 10, .04), rgba(8, 8, 10, .28)),
-        linear-gradient(90deg, rgba(8, 8, 10, .28), transparent 58%);
-      content: "";
-      pointer-events: none;
-    }
-
-    .profile-window-copy {
-      border-top: 1px solid rgba(255, 255, 255, .07);
-      padding: 18px;
-      background: #2a2a2e;
-    }
-
-    .profile-glass-kicker {
-      display: block;
-      margin-left: auto;
-      color: var(--blue-soft);
-      font-family: var(--mono);
-      font-size: .68rem;
-      font-weight: 800;
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-    .profile-glass-card h2 {
-      margin: 0 0 18px;
-      color: rgb(218, 244, 237);
-      font-family: var(--terminal);
-      font-size: 1.42rem;
-      font-weight: 400;
-      line-height: 1.05;
-      text-shadow: 0 8px 14px rgba(0, 0, 0, .34);
-      text-transform: uppercase;
-    }
-
-    .profile-glass-card.is-hero-profile h2 {
-      margin-bottom: 9px;
-      font-size: 1.28rem;
-    }
-
-    .profile-glass-card p {
-      color: rgba(246, 244, 236, .76);
-      font-size: .9rem;
-      line-height: 1.62;
-    }
-
-    .profile-glass-more {
-      display: flex;
-      max-height: none;
-      margin-top: auto;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-      padding-top: 18px;
-      opacity: 1;
-      transform: none;
-    }
-
-    .profile-glass-card.is-hero-profile .profile-glass-more {
-      flex: 0 0 auto;
-      padding: 12px 2px 0;
-    }
-
-    .profile-glass-card:hover .profile-glass-more {
-      transform: none;
-    }
-
-    .profile-glass-more span {
-      display: inline-flex;
-      min-height: 26px;
-      align-items: center;
-      border: 1px solid rgba(255, 255, 255, .14);
-      border-radius: 999px;
-      padding: 5px 9px;
-      background: rgba(10, 10, 12, .54);
-      color: var(--paper);
-      font-family: var(--mono);
-      font-size: .66rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .button {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 12px 16px;
-      border: 1px solid var(--line-strong);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .045);
-      color: var(--paper);
-      font-size: .8rem;
-      font-weight: 800;
-      line-height: 1.1;
-      text-transform: uppercase;
-      transition: transform .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
-    }
-
-    .button svg {
-      width: 18px;
-      height: 18px;
-      flex: 0 0 auto;
-    }
-
-    .button:hover {
-      border-color: rgba(35, 120, 255, .72);
-      background: rgba(35, 120, 255, .14);
-      transform: translateY(-2px);
-    }
-
-    .button-primary {
-      border-color: var(--blue);
-      background: var(--blue);
-      color: var(--white);
-    }
-
-    .button-primary:hover {
-      background: #3a86ff;
-    }
-
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .meta-item {
-      min-height: 82px;
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, .035);
-    }
-
-    .meta-item span {
-      display: block;
-      color: var(--muted-soft);
-      font-size: .68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .meta-item strong {
-      display: block;
-      margin-top: 12px;
-      color: var(--paper);
-      font-size: .92rem;
-      line-height: 1.28;
-    }
-
-    .hero-card {
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      min-width: 0;
-      min-height: 500px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, .065), rgba(255, 255, 255, .02)),
-        var(--panel);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card-head,
-    .hero-card-foot {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 48px;
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-      font-size: .72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .hero-card-foot {
-      border-top: 1px solid var(--line);
-      border-bottom: 0;
-    }
-
-    .status-dot {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .status-dot::before {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--blue);
-      content: "";
-    }
-
-    .hero-card-main {
-      display: grid;
-      grid-template-rows: minmax(0, 1fr);
-      gap: 10px;
-      align-content: stretch;
-      min-height: 0;
-      padding: 14px;
-    }
-
-    .portrait-panel {
-      position: relative;
-      min-height: 0;
-      height: 100%;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--panel-soft);
-      isolation: isolate;
-    }
-
-    .portrait-panel img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 36%;
-      filter: saturate(.96) contrast(1.04);
-    }
-
-    .portrait-panel::after {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        linear-gradient(180deg, rgba(8, 7, 6, .06), rgba(8, 7, 6, .64)),
-        linear-gradient(90deg, rgba(8, 7, 6, .38), transparent 56%);
-      content: "";
-      pointer-events: none;
-    }
-
-    .portrait-caption {
-      position: absolute;
-      right: 16px;
-      bottom: 14px;
-      left: 16px;
-      z-index: 2;
-      display: flex;
-      gap: 14px;
-      align-items: end;
-      justify-content: space-between;
-      color: var(--paper);
-      text-transform: uppercase;
-    }
-
-    .portrait-caption strong {
-      max-width: 250px;
-      font-family: var(--display);
-      font-size: .9rem;
-      font-weight: 800;
-      line-height: 1.12;
-    }
-
-    .portrait-caption span {
-      color: var(--blue-soft);
-      font-size: .68rem;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .feature-card {
-      display: grid;
-      gap: 12px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: rgba(8, 7, 6, .52);
-    }
-
-    .feature-card h2 {
-      max-width: 480px;
-      font-family: var(--display);
-      font-size: 1.34rem;
+    .hero-copy { max-width: 650px; }
+    .role {
+      margin: 0 0 22px;
+      color: var(--accent);
+      font-size: 14px;
       font-weight: 700;
-      line-height: 1.08;
-      text-transform: uppercase;
+      letter-spacing: .025em;
     }
-
-    .feature-card p {
-      max-width: 460px;
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 700px;
+      margin-bottom: 28px;
+      font: normal clamp(58px, 6.7vw, 96px)/.98 var(--serif);
+      letter-spacing: -.055em;
+    }
+    .hero-summary {
+      max-width: 620px;
+      margin-bottom: 32px;
       color: var(--muted);
-      font-size: .84rem;
-    }
-
-    .case-index {
-      display: grid;
-      gap: 8px;
-    }
-
-    .case-row {
-      display: grid;
-      grid-template-columns: 52px minmax(0, 1fr) auto;
-      gap: 14px;
-      align-items: center;
-      min-height: 48px;
-      padding: 10px 12px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, .035);
-    }
-
-    .case-row span {
-      color: var(--blue-soft);
-      font-family: var(--display);
-      font-size: .7rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .case-row strong {
-      min-width: 0;
-      font-family: var(--display);
-      font-size: .9rem;
-      font-weight: 700;
-      line-height: 1.25;
-      text-transform: uppercase;
-    }
-
-    .case-row small {
-      color: var(--muted-soft);
-      font-size: .68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .section-band {
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section {
-      display: grid;
-      grid-template-columns: 260px minmax(0, 1fr);
-      gap: 48px;
-      padding: 96px 0;
-    }
-
-    #work .section {
-      padding-top: 12px;
-    }
-
-    .section > *,
-    .project-grid,
-    .capability-grid,
-    .about-grid {
-      min-width: 0;
-    }
-
-    .section-label {
-      position: sticky;
-      top: 106px;
-      align-self: start;
-      display: grid;
-      gap: 14px;
-    }
-
-    .section-kicker {
-      color: var(--blue-soft);
-      font-family: var(--mono);
-      font-size: .72rem;
-      font-weight: 800;
-      line-height: 1.4;
-      text-transform: uppercase;
-    }
-
-    .section-label p {
-      max-width: 220px;
-      color: var(--muted);
-      font-size: .9rem;
-      line-height: 1.58;
-    }
-
-    .section-title {
-      max-width: 920px;
-      margin-bottom: 34px;
-      font-family: var(--terminal);
-      font-size: 3.45rem;
-      font-weight: 400;
-      line-height: 1.06;
-      text-transform: uppercase;
-      overflow-wrap: break-word;
-    }
-
-    .projects-terminal-visual {
-      position: relative;
-      overflow: hidden;
-      margin: -6px 0 22px;
-      background: #000;
-      aspect-ratio: 16 / 7;
-    }
-
-    .projects-terminal-visual img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(.1) contrast(1.15) brightness(.88);
-    }
-
-    .projects-terminal-visual::after {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      content: "";
-      background:
-        linear-gradient(90deg, rgba(0, 0, 0, .56), transparent 32%, transparent 68%, rgba(0, 0, 0, .58)),
-        repeating-linear-gradient(180deg, rgba(255, 255, 255, .04) 0 1px, transparent 1px 4px);
-      mix-blend-mode: screen;
-      opacity: .55;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .portfolio-group {
-      display: grid;
-      gap: 18px;
-      margin-bottom: 38px;
-    }
-
-    .project-group-head {
-      display: flex;
-      gap: 18px;
-      align-items: end;
-      justify-content: space-between;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .project-group-copy {
-      display: grid;
-      gap: 4px;
-    }
-
-    .project-group-label {
-      color: var(--blue-soft);
-      font-family: var(--mono);
-      font-size: .68rem;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .project-group-head h3 {
-      font-family: var(--terminal);
-      font-size: 1.18rem;
-      font-weight: 400;
-      line-height: 1.15;
-      text-transform: uppercase;
-    }
-
-    .project-group-link {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      flex: 0 0 auto;
-      min-height: 40px;
-      padding: 8px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: .7rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      transition: color .2s ease, border-color .2s ease, background .2s ease;
-    }
-
-    .project-group-link:hover {
-      border-color: rgba(35, 120, 255, .7);
-      background: rgba(35, 120, 255, .1);
-      color: var(--paper);
-    }
-
-    .project-group-link svg {
-      width: 15px;
-      height: 15px;
-    }
-
-    .project-card {
-      min-width: 0;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: rgba(255, 255, 255, .018);
-      transition: transform .24s ease, border-color .24s ease, background .24s ease;
-    }
-
-    .project-card:hover {
-      border-color: rgba(35, 120, 255, .54);
-      background: rgba(255, 255, 255, .055);
-      transform: translateY(-5px);
-    }
-
-    .project-link {
-      display: grid;
-      min-height: 100%;
-      color: inherit;
-    }
-
-    .project-report-link {
-      display: block;
-    }
-
-    .project-link.is-disabled {
-      cursor: default;
-    }
-
-    .project-cover {
-      display: grid;
-      min-height: 260px;
-      padding: 20px;
-      border-bottom: 1px solid var(--line);
-      background: var(--panel);
-    }
-
-    .cover-inner {
-      position: relative;
-      display: grid;
-      align-content: space-between;
-      min-height: 100%;
-      padding: 18px;
-      overflow: hidden;
-      border-radius: 22px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02)),
-        var(--panel-soft);
-    }
-
-    .project-card.is-live {
-      border-color: rgba(35, 120, 255, .34);
-      background: rgba(35, 120, 255, .035);
-    }
-
-    .project-card.is-live .project-link {
-      grid-template-rows: auto minmax(0, 1fr);
-    }
-
-    .project-card.is-live .project-body {
-      grid-template-rows: auto minmax(0, 1fr) auto;
-    }
-
-    .project-card.is-live .cover-inner::before {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      content: "";
-      background:
-        linear-gradient(135deg, rgba(35, 120, 255, .18), transparent 52%),
-        repeating-linear-gradient(90deg, transparent 0 38px, rgba(255, 255, 255, .035) 38px 39px),
-        repeating-linear-gradient(180deg, transparent 0 38px, rgba(255, 255, 255, .035) 38px 39px);
-      mask-image: linear-gradient(180deg, #000, transparent 86%);
-    }
-
-    .project-card.is-live .cover-top,
-    .project-card.is-live .cover-title {
-      position: relative;
-      z-index: 1;
-    }
-
-    .live-status {
-      display: inline-flex;
-      gap: 6px;
-      align-items: center;
-      color: #b9ff93;
-    }
-
-    .live-status::before {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: currentColor;
-      box-shadow: 0 0 14px currentColor;
-      content: "";
-    }
-
-    .cover-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      color: var(--muted);
-      font-size: .68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .cover-title {
-      display: grid;
-      gap: 8px;
-      font-family: var(--terminal);
-      font-weight: 400;
-      line-height: .94;
-      text-transform: uppercase;
-    }
-
-    .cover-title span:first-child {
-      color: var(--paper);
-      font-size: 2.1rem;
-    }
-
-    .cover-title span:last-child {
-      color: var(--blue);
-      font-size: 2.6rem;
-    }
-
-    .project-body {
-      display: grid;
-      gap: 18px;
-      padding: 22px;
-    }
-
-    .project-body h3 {
-      font-family: var(--mono);
-      font-size: 1.05rem;
-      font-weight: 700;
-      line-height: 1.22;
-      text-transform: uppercase;
-    }
-
-    .project-body h3 a {
-      transition: color .2s ease;
-    }
-
-    .project-body h3 a:hover {
-      color: var(--blue-soft);
-    }
-
-    .project-body p {
-      color: var(--muted);
-      font-size: .92rem;
-      line-height: 1.58;
-    }
-
-    .project-foot {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-      color: var(--paper);
-      font-family: var(--mono);
-      font-size: .72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .project-foot svg {
-      width: 17px;
-      height: 17px;
-      color: var(--blue-soft);
-      transition: transform .2s ease;
-    }
-
-    .project-card:hover .project-foot svg {
-      transform: translate(3px, -3px);
-    }
-
-    .project-link.is-disabled .project-foot svg,
-    .project-card:hover .project-link.is-disabled .project-foot svg {
-      opacity: .45;
-      transform: none;
-    }
-
-    .project-actions {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 8px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-    }
-
-    .project-action {
-      display: inline-flex;
-      gap: 9px;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 44px;
-      padding: 10px 12px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      font-family: var(--mono);
-      font-size: .68rem;
-      font-weight: 800;
-      line-height: 1;
-      text-transform: uppercase;
-      transition: border-color .2s ease, background .2s ease, color .2s ease;
-    }
-
-    .project-action.primary {
-      border-color: var(--paper);
-      background: var(--paper);
-      color: var(--black);
-    }
-
-    .project-action.primary:hover {
-      border-color: var(--blue-soft);
-      background: var(--blue-soft);
-    }
-
-    .project-action.repo {
-      color: var(--muted);
-    }
-
-    .project-action.repo:hover {
-      border-color: rgba(35, 120, 255, .7);
-      background: rgba(35, 120, 255, .1);
-      color: var(--paper);
-    }
-
-    .project-action svg {
-      width: 15px;
-      height: 15px;
-      flex: 0 0 auto;
-      transition: transform .2s ease;
-    }
-
-    .project-action:hover svg {
-      transform: translate(2px, -2px);
-    }
-
-    .capability-grid {
-      display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 16px;
-    }
-
-    .statement {
-      display: grid;
-      gap: 24px;
-      align-content: space-between;
-      min-height: 430px;
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background:
-        linear-gradient(180deg, rgba(35, 120, 255, .12), rgba(255, 255, 255, .025)),
-        var(--panel);
-    }
-
-    .statement-mark {
-      color: var(--blue);
-      font-family: var(--display);
-      font-size: 4.8rem;
-      font-weight: 800;
-      line-height: .9;
-      text-transform: uppercase;
-    }
-
-    .statement p {
-      max-width: 520px;
-      color: var(--paper);
-      font-family: var(--display);
-      font-size: 1.72rem;
-      font-weight: 700;
-      line-height: 1.12;
-      text-transform: uppercase;
-    }
-
-    .terminal-video-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 430px;
-      background: #000;
-      isolation: isolate;
-    }
-
-    .terminal-video-card video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: .96;
-      filter: grayscale(1) contrast(5.6) brightness(.5) sepia(1) saturate(10) hue-rotate(170deg);
-      mix-blend-mode: screen;
-    }
-
-    .terminal-video-card::before {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      content: "";
-      background:
-        radial-gradient(circle at 50% 50%, transparent 0 36%, rgba(0, 0, 0, .54) 70%),
-        repeating-linear-gradient(180deg, rgba(255, 255, 255, .07) 0 1px, transparent 1px 5px);
-      mix-blend-mode: multiply;
-    }
-
-    .terminal-video-card::after {
-      position: absolute;
-      right: 18px;
-      bottom: 16px;
-      z-index: 2;
-      color: var(--blue-soft);
-      content: "";
-      font-family: var(--mono);
-      font-size: .68rem;
-      font-weight: 800;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    .capability-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .capability-row {
-      display: grid;
-      grid-template-columns: 70px minmax(0, 1fr) auto;
-      gap: 18px;
-      align-items: start;
-      min-height: 116px;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, .035);
-    }
-
-    .capability-row .num {
-      color: var(--blue-soft);
-      font-family: var(--display);
-      font-size: .74rem;
-      font-weight: 800;
-    }
-
-    .capability-row h3 {
-      font-family: var(--display);
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.22;
-      text-transform: uppercase;
-    }
-
-    .capability-row p {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: .9rem;
-      line-height: 1.5;
-    }
-
-    .tag {
-      justify-self: end;
-      width: fit-content;
-      padding: 7px 10px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: .66rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, .82fr);
-      gap: 16px;
-    }
-
-    .about-copy {
-      display: grid;
-      gap: 24px;
-      align-content: start;
-      padding-right: 18px;
-    }
-
-    .about-copy p {
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 1.08rem;
-      line-height: 1.72;
-    }
-
-    .about-copy p:first-child {
-      color: var(--paper);
-      font-size: 1.28rem;
+      font-size: clamp(17px, 1.7vw, 20px);
       line-height: 1.55;
     }
-
-    .profile-card {
-      display: grid;
-      gap: 16px;
-      align-content: space-between;
-      min-height: 430px;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: rgba(255, 255, 255, .035);
-    }
-
-    .profile-card h3 {
-      max-width: 420px;
-      font-family: var(--display);
-      font-size: 1.52rem;
+    .hero-links { display: flex; flex-wrap: wrap; gap: 20px 28px; }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--accent);
+      font-size: 14px;
       font-weight: 700;
-      line-height: 1.1;
-      text-transform: uppercase;
+      text-decoration: none;
     }
+    .text-link::after { content: "↗"; font-size: 17px; font-weight: 400; line-height: 1; }
+    .text-link:hover { color: var(--ink); }
+    .portrait {
+      overflow: hidden;
+      margin: 0;
+      aspect-ratio: 4 / 5;
+      background: #d7d8d6;
+    }
+    .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 51% center; }
 
-    .profile-list {
+    .section { border-top: 1px solid var(--line); padding-block: 76px 84px; scroll-margin-top: 20px; }
+    .section-heading {
       display: grid;
-      gap: 10px;
+      grid-template-columns: minmax(190px, 270px) 1fr;
+      gap: 38px;
+      margin-bottom: 36px;
     }
+    h2 {
+      margin: 0;
+      font: normal clamp(32px, 3.7vw, 48px)/1.1 var(--serif);
+      letter-spacing: -.035em;
+    }
+    .experience-layout, .education-layout {
+      display: grid;
+      grid-template-columns: minmax(190px, 270px) 1fr;
+      gap: 38px;
+    }
+    .period { color: var(--muted); font-size: 14px; }
+    h3 { margin-bottom: 10px; font-size: 22px; line-height: 1.3; letter-spacing: -.02em; }
+    .company { margin-bottom: 22px; color: var(--accent); font-size: 15px; font-weight: 600; }
+    .experience-list { max-width: 750px; margin: 0; padding-left: 20px; }
+    .experience-list li { padding-left: 4px; margin-bottom: 14px; }
+    .experience-list li::marker { color: var(--accent); }
+    .experience-list li:last-child { margin-bottom: 0; }
+    strong { font-weight: 700; }
 
-    .profile-list div {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 56px;
-      padding: 13px 0;
+    .project-list { border-top: 1px solid var(--line); }
+    .project {
+      display: grid;
+      grid-template-columns: minmax(230px, 360px) 1fr;
+      gap: 42px;
+      padding: 29px 0 31px;
       border-bottom: 1px solid var(--line);
-      color: var(--muted);
-      font-size: .82rem;
-      font-weight: 800;
-      text-transform: uppercase;
     }
+    .project h3 { margin: 0; font-size: 20px; }
+    .project p { max-width: 660px; margin: 0; color: var(--muted); }
+    .project p + p { margin-top: 8px; }
 
-    .profile-list div:last-child {
-      border-bottom: 0;
-    }
-
-    .profile-list strong {
-      color: var(--paper);
-      text-align: right;
-    }
-
-    .contact-section {
+    .skills-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 360px;
-      gap: 44px;
-      align-items: end;
-      padding: 104px 0 48px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 38px;
     }
+    .skill-group { padding-top: 20px; border-top: 1px solid var(--line); }
+    .skill-group h3 { margin-bottom: 16px; color: var(--accent); font-size: 16px; }
+    .skill-group p { margin: 0; color: var(--muted); }
+    .education-layout h3 { margin-bottom: 8px; }
+    .education-layout p { margin-bottom: 3px; }
+    .education-note { margin-top: 20px; color: var(--muted); }
 
-    .contact-title {
-      max-width: 940px;
-      font-family: var(--display);
-      font-size: 4rem;
-      font-weight: 800;
-      line-height: 1;
-      text-transform: uppercase;
-      overflow-wrap: break-word;
+    .contact-section { padding-bottom: 92px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 18px 32px; align-items: center; }
+    .contact-links a { color: var(--accent); font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .contact-links a:hover { color: var(--ink); }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr 280px; gap: 36px; }
+      h1 { font-size: clamp(56px, 7vw, 72px); }
+      .header-right { gap: 20px; }
+      .nav { gap: 16px; }
     }
-
-    .contact-title span {
-      color: var(--blue);
+    @media (max-width: 700px) {
+      .shell { width: min(calc(100% - 36px), var(--max)); }
+      .header-inner { align-items: flex-start; flex-wrap: wrap; gap: 8px 18px; padding-block: 18px; }
+      .header-right { width: 100%; justify-content: space-between; gap: 14px; }
+      .nav { flex-wrap: wrap; gap: 10px 18px; }
+      .nav a { font-size: 12px; }
+      .hero { grid-template-columns: 1fr; gap: 34px; padding-block: 58px 64px; }
+      h1 { max-width: 580px; font-size: clamp(54px, 11vw, 78px); }
+      .portrait { width: min(100%, 410px); aspect-ratio: 5 / 4; }
+      .section { padding-block: 58px 64px; }
+      .section-heading, .experience-layout, .education-layout, .project { grid-template-columns: 1fr; gap: 14px; }
+      .section-heading { margin-bottom: 26px; }
+      .period { margin-bottom: 3px; }
+      .project { gap: 9px; padding-block: 23px; }
+      .skills-grid { grid-template-columns: 1fr; gap: 26px; }
+      .skill-group { padding-top: 16px; }
+      .contact-section { padding-bottom: 65px; }
     }
-
-    .contact-copy {
-      display: grid;
-      gap: 24px;
-    }
-
-    .contact-copy p {
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .contact-links {
-      display: grid;
-      gap: 10px;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      min-height: 56px;
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .035);
-      color: var(--paper);
-      font-size: .86rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      transition: border-color .2s ease, background .2s ease, color .2s ease;
-    }
-
-    .contact-link:hover {
-      border-color: rgba(35, 120, 255, .55);
-      background: rgba(35, 120, 255, .12);
-      color: var(--blue-soft);
-    }
-
-    .contact-link span:first-child {
-      flex: 0 0 auto;
-    }
-
-    .contact-link.is-static {
-      cursor: default;
-    }
-
-    .contact-link.is-static:hover {
-      border-color: var(--line);
-      background: rgba(255, 255, 255, .035);
-      color: var(--paper);
-    }
-
-    .contact-value {
-      color: var(--blue-soft);
-      font-family: var(--display);
-      font-size: .7rem;
-      min-width: 0;
-      overflow-wrap: anywhere;
-      text-align: right;
-      text-transform: none;
-    }
-
-    .contact-link svg {
-      width: 18px;
-      height: 18px;
-      flex: 0 0 auto;
-    }
-
-    .site-footer {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 78px;
-      border-top: 1px solid var(--line);
-      color: var(--muted-soft);
-      font-size: .74rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .68s ease, transform .68s ease;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 1180px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 34px;
-      }
-
-      .hero-title {
-        font-size: 3.7rem;
-      }
-
-      .profile-glass-card.is-hero-profile {
-        max-width: 680px;
-        justify-self: center;
-      }
-
-      .hero-card {
-        min-height: 500px;
-      }
-
-      .section {
-        grid-template-columns: 220px minmax(0, 1fr);
-      }
-
-      .project-grid,
-      .capability-grid,
-      .about-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .live-report-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .statement,
-      .profile-card {
-        min-height: 320px;
-      }
-
-      .contact-section {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 860px) {
-      .shell {
-        width: min(100% - 24px, 720px);
-      }
-
-      .site-header {
-        position: static;
-      }
-
-      .nav {
-        grid-template-columns: 1fr auto;
-        min-height: auto;
-        padding: 14px 0;
-      }
-
-      .brand {
-        grid-column: 1;
-        grid-row: 1;
-      }
-
-      .nav-links {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        justify-content: start;
-        overflow-x: auto;
-        padding-bottom: 2px;
-      }
-
-      .nav-actions {
-        grid-column: 2;
-        grid-row: 1;
-        justify-content: end;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 32px 0;
-      }
-
-      .hero-title {
-        font-size: 3.08rem;
-      }
-
-      .hero-lead {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 12px;
-      }
-
-      .hero-meta {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero-card {
-        min-height: auto;
-      }
-
-      .feature-card h2 {
-        font-size: 1.5rem;
-      }
-
-      .section {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 28px;
-        padding: 68px 0;
-      }
-
-      .section-label {
-        position: static;
-      }
-
-      .section-label p {
-        max-width: 620px;
-      }
-
-      .section-title {
-        font-size: 2.1rem;
-      }
-
-      .live-report-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .capability-row {
-        grid-template-columns: 54px minmax(0, 1fr);
-      }
-
-      .tag {
-        grid-column: 2;
-        justify-self: start;
-      }
-
-      .contact-title {
-        font-size: 3rem;
-      }
-    }
-
-    @media (max-width: 560px) {
-      body {
-        font-size: 15px;
-      }
-
-      .nav {
-        gap: 12px;
-      }
-
-      .brand-text span {
-        display: none;
-      }
-
-      .icon-link {
-        display: none;
-      }
-
-      .nav-link {
-        padding-inline: 9px;
-        font-size: .72rem;
-      }
-
-      .hero-title {
-        font-size: 2.42rem;
-      }
-
-      .hero-meta {
-        display: none;
-      }
-
-      .hero {
-        padding-bottom: 20px;
-      }
-
-      .hero-actions {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .profile-glass-card,
-      .profile-glass-card:hover {
-        width: 100%;
-        min-height: auto;
-        transform: none;
-      }
-
-      .profile-glass-card > *,
-      .profile-glass-card:hover > *,
-      .profile-glass-more,
-      .profile-glass-card:hover .profile-glass-more {
-        transform: none;
-      }
-
-      .profile-glass-more {
-        max-height: none;
-        opacity: 1;
-      }
-
-      .profile-window-photo,
-      .profile-window-photo img {
-        min-height: 320px;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .hero-card-main,
-      .feature-card {
-        padding: 18px;
-      }
-
-      .hero-card {
-        display: grid;
-      }
-
-      .hero-card-head,
-      .hero-card-foot {
-        display: none;
-      }
-
-      .hero-card-main {
-        padding: 8px;
-      }
-
-      .portrait-panel {
-        min-height: 300px;
-        height: min(84vw, 420px);
-        border-radius: 22px;
-      }
-
-      .portrait-caption {
-        align-items: start;
-        flex-direction: column;
-      }
-
-      .case-row {
-        grid-template-columns: 42px minmax(0, 1fr);
-      }
-
-      .case-row small {
-        grid-column: 2;
-      }
-
-      .section-title {
-        font-size: 1.82rem;
-        line-height: 1.1;
-      }
-
-      .project-group-head {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .project-group-link {
-        justify-content: space-between;
-        width: 100%;
-      }
-
-      .project-cover {
-        min-height: 230px;
-        padding: 16px;
-      }
-
-      .cover-title span:first-child {
-        font-size: 1.68rem;
-      }
-
-      .cover-title span:last-child {
-        font-size: 2.06rem;
-      }
-
-      .statement {
-        padding: 20px;
-      }
-
-      .statement-mark {
-        font-size: 3.8rem;
-      }
-
-      .statement p {
-        font-size: 1.22rem;
-      }
-
-      .about-copy {
-        padding-right: 0;
-      }
-
-      .about-copy p:first-child {
-        font-size: 1.1rem;
-      }
-
-      .contact-title {
-        font-size: 2.24rem;
-      }
-
-      .contact-link {
-        gap: 10px;
-        padding-inline: 14px;
-      }
-
-      .contact-value {
-        font-size: .62rem;
-      }
-
-      .site-footer {
-        align-items: start;
-        flex-direction: column;
-        justify-content: center;
-        padding: 20px 0;
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
-<noscript><div><img alt="" src="https://mc.yandex.ru/watch/110848324" style="position:absolute; left:-9999px;"/></div></noscript>
-<a class="skip-link" data-en="Skip to content" data-ru="К основному содержанию" href="#content">К основному содержанию</a>
-<header class="site-header">
-<div class="shell nav">
-<a aria-label="ASKA Portfolio" class="brand" href="#top">
-<span class="brand-mark">A</span>
-<span class="brand-text">
-<strong>Anastasia</strong>
-<span>Portfolio / 2026</span>
-</span>
-</a>
-<nav aria-label="Main navigation" class="nav-links">
-<a class="nav-link" data-en="Reports" data-ru="Отчеты" href="#work">Отчеты</a>
-<a class="nav-link" data-en="Expertise" data-ru="Экспертиза" href="#systems">Экспертиза</a>
-<a class="nav-link" data-en="Experience" data-ru="Опыт" href="#about">Опыт</a>
-<a class="nav-link" data-en="Contacts" data-ru="Контакты" href="#contact">Контакты</a>
-</nav>
-<div class="nav-actions">
-<div aria-label="Language" class="lang-toggle">
-<button aria-pressed="true" class="lang-button" data-set-lang="ru" type="button">RU</button>
-<button aria-pressed="false" class="lang-button" data-set-lang="en" type="button">EN</button>
-</div>
-</div>
-</div>
-</header>
-<main id="content">
-<section aria-label="Portfolio hero" class="hero shell" id="top">
-<div class="hero-copy">
-<div class="kicker-row reveal">
-<span class="kicker">BI Analyst / Data Analyst</span>
-</div>
-<div class="hero-title-wrap">
-<h1 class="hero-title reveal">
-<span>BI / Data</span>
-<span class="muted-line">Analyst</span>
-</h1>
-<div class="hero-actions reveal">
-<a class="button button-primary" href="#work">
-<span data-en="View reports" data-ru="Смотреть отчеты">Смотреть отчеты</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<path d="M7 17 17 7" stroke="currentColor" stroke-width="2"></path>
-<path d="M8 7h9v9" stroke="currentColor" stroke-width="2"></path>
-</svg>
-</a>
-<a class="button" href="#about">
-<span data-en="About my experience" data-ru="Опыт">О моем опыте</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<path d="M5 12h14" stroke="currentColor" stroke-width="2"></path>
-<path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="2"></path>
-</svg>
-</a>
-</div>
-</div>
-<div aria-label="Key experience metrics" class="hero-meta reveal">
-</div>
-</div>
-<aside aria-label="Analytics profile" class="profile-glass-card is-hero-profile reveal">
-<div aria-hidden="true" class="profile-glass-align">
-<span class="profile-glass-dot is-red"></span>
-<span class="profile-glass-dot is-yellow"></span>
-<span class="profile-glass-dot is-green"></span>
-<span class="profile-glass-kicker">profile.exe</span>
-</div>
-<div class="profile-glass-body">
-<figure class="profile-window-photo">
-<img alt="Портрет Анастасии, BI и data analyst" decoding="async" fetchpriority="high" height="900" loading="eager" src="assets/portrait-hero-gray-studio.jpg" width="1200"/>
-</figure>
-<div class="profile-window-copy">
-<h2 data-en="Anastasia Ryabikova" data-ru="Анастасия Рябикова">Анастасия Рябикова</h2>
-<p data-en="BI / Data analyst across product, financial, infrastructure, and contractor analytics, turning reporting into automated BI products." data-ru="BI / Data analyst: веду продуктовую, финансовую и инфраструктурную аналитику, исследую контрагентов и превращаю отчетность в автоматизированные BI-продукты.">BI / Data analyst: веду продуктовую, финансовую и инфраструктурную аналитику, исследую контрагентов и превращаю отчетность в автоматизированные BI-продукты.</p>
-</div>
-</div>
-<div aria-label="Фокусы в аналитике" class="profile-glass-more">
-<span>Power BI</span>
-<span>Product analytics</span>
-<span>Business x IT</span>
-</div>
-</aside>
-</section>
-<section class="section-band" id="work">
-<div class="shell section">
-<aside class="section-label reveal">
-<span class="section-kicker">01 / Selected Work</span>
-<p data-en="Published HTML reports and automated BI products for management and operational workflows." data-ru="Опубликованные HTML-отчеты и автоматизированные BI-продукты для управленческой и операционной работы.">Опубликованные HTML-отчеты и автоматизированные BI-продукты для управленческой и операционной работы.</p>
-</aside>
-<div>
-<h2 class="section-title reveal" data-en="Portfolio" data-ru="Портфолио">От аналитической задачи к готовому отчетному продукту.</h2>
-<div class="portfolio-group">
-<div class="project-group-head reveal">
-<div class="project-group-copy">
-<span class="project-group-label">Live / HTML reports</span>
-<h3 data-en="Published interactive reports" data-ru="Опубликованные интерактивные отчеты">Опубликованные интерактивные отчеты</h3>
-</div>
-<a class="project-group-link" href="reports/">
-<span data-en="All reports" data-ru="Все отчеты">Все отчеты</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<path d="M7 17 17 7" stroke="currentColor" stroke-width="2"></path>
-<path d="M8 7h9v9" stroke="currentColor" stroke-width="2"></path>
-</svg>
-</a>
-</div>
-<div class="project-grid live-report-grid">
-<article class="project-card is-live reveal">
-<div class="project-link">
-<a aria-label="Открыть обезличенный отчёт Project Roadmap" class="project-report-link" href="reports/project-roadmap.html" rel="noopener" target="_blank">
-<div class="project-cover">
-<div class="cover-inner">
-<div class="cover-top">
-<span>HTML / Project Roadmap</span>
-<span class="live-status">Live</span>
-</div>
-<div class="cover-title">
-<span>Project</span>
-<span>Roadmap</span>
-</div>
-</div>
-</div>
-</a>
-<div class="project-body">
-<h3><a data-en="Project Roadmap" data-ru="Project Roadmap" href="reports/project-roadmap.html" rel="noopener" target="_blank">Project Roadmap</a></h3>
-<p data-en="Management roadmap with stages, timelines, risks, and control actions." data-ru="Управленческая дорожная карта с этапами, сроками, рисками и контрольными действиями.">Управленческая дорожная карта с этапами, сроками, рисками и контрольными действиями.</p>
-<div class="project-actions">
-<a class="project-action primary" href="reports/project-roadmap.html" rel="noopener" target="_blank">
-<span data-en="View report" data-ru="Открыть отчет">Открыть отчет</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2"></path></svg>
-</a>
-<a aria-label="Открыть исходник Project Roadmap на GitHub" class="project-action repo" href="https://github.com/eshneesh/portfolio/blob/main/reports/project-roadmap.html" rel="noopener" target="_blank">
-<span>GitHub</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><circle cx="7" cy="5" r="2" stroke="currentColor" stroke-width="2"></circle><circle cx="17" cy="5" r="2" stroke="currentColor" stroke-width="2"></circle><circle cx="17" cy="19" r="2" stroke="currentColor" stroke-width="2"></circle><path d="M7 7v5a4 4 0 0 0 4 4h4M17 7v10" stroke="currentColor" stroke-width="2"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</article>
-<article class="project-card is-live reveal">
-<div class="project-link">
-<a aria-label="Открыть обезличенный отчёт Operational Review" class="project-report-link" href="reports/operational-review/" rel="noopener" target="_blank">
-<div class="project-cover">
-<div class="cover-inner">
-<div class="cover-top">
-<span>HTML / Operations</span>
-<span class="live-status">Live</span>
-</div>
-<div class="cover-title">
-<span>Operational</span>
-<span>Review</span>
-</div>
-</div>
-</div>
-</a>
-<div class="project-body">
-<h3><a data-en="Operational Review" data-ru="Operational Review" href="reports/operational-review/" rel="noopener" target="_blank">Operational Review</a></h3>
-<p data-en="Comparative operational report across directions, metrics, and objects." data-ru="Сравнительный операционный отчёт по направлениям, показателям и объектам.">Сравнительный операционный отчёт по направлениям, показателям и объектам.</p>
-<div class="project-actions">
-<a class="project-action primary" href="reports/operational-review/" rel="noopener" target="_blank">
-<span data-en="View report" data-ru="Открыть отчет">Открыть отчет</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2"></path></svg>
-</a>
-<a aria-label="Открыть исходник Operational Review на GitHub" class="project-action repo" href="https://github.com/eshneesh/portfolio/tree/main/reports/operational-review" rel="noopener" target="_blank">
-<span>GitHub</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><circle cx="7" cy="5" r="2" stroke="currentColor" stroke-width="2"></circle><circle cx="17" cy="5" r="2" stroke="currentColor" stroke-width="2"></circle><circle cx="17" cy="19" r="2" stroke="currentColor" stroke-width="2"></circle><path d="M7 7v5a4 4 0 0 0 4 4h4M17 7v10" stroke="currentColor" stroke-width="2"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</article>
-<article class="project-card is-live reveal">
-<div class="project-link">
-<a aria-label="Открыть HTML-гайд для начинающих" class="project-report-link" href="reports/html-guide-for-beginners.html" rel="noopener" target="_blank">
-<div class="project-cover">
-<div class="cover-inner">
-<div class="cover-top">
-<span>HTML / Learning</span>
-<span class="live-status">Live</span>
-</div>
-<div class="cover-title">
-<span>HTML</span>
-<span>Guide</span>
-</div>
-</div>
-</div>
-</a>
-<div class="project-body">
-<h3><a data-en="HTML Guide for Beginners" data-ru="HTML-гайд для начинающих" href="reports/html-guide-for-beginners.html" rel="noopener" target="_blank">HTML-гайд для начинающих</a></h3>
-<p data-en="A practical guide to structure, styling, interaction, reading, and editing HTML reports." data-ru="Практический гайд по структуре, стилям, интерактиву, чтению и редактированию HTML-отчетов.">Практический гайд по структуре, стилям, интерактиву, чтению и редактированию HTML-отчетов.</p>
-<div class="project-actions">
-<a class="project-action primary" href="reports/html-guide-for-beginners.html" rel="noopener" target="_blank">
-<span data-en="View report" data-ru="Открыть отчет">Открыть отчет</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2"></path></svg>
-</a>
-<a aria-label="Открыть исходник HTML-гайд для начинающих на GitHub" class="project-action repo" href="https://github.com/eshneesh/portfolio/blob/main/reports/html-guide-for-beginners.html" rel="noopener" target="_blank">
-<span>GitHub</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><circle cx="7" cy="5" r="2" stroke="currentColor" stroke-width="2"></circle><circle cx="17" cy="5" r="2" stroke="currentColor" stroke-width="2"></circle><circle cx="17" cy="19" r="2" stroke="currentColor" stroke-width="2"></circle><path d="M7 7v5a4 4 0 0 0 4 4h4M17 7v10" stroke="currentColor" stroke-width="2"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</article>
-<article class="project-card is-live reveal">
-<div class="project-link">
-<a aria-label="Открыть обезличенный отчет Review 2026" class="project-report-link" href="reports/review-2026.html" rel="noopener" target="_blank">
-<div class="project-cover">
-<div class="cover-inner">
-<div class="cover-top">
-<span>HTML / Executive Review</span>
-<span class="live-status">Live</span>
-</div>
-<div class="cover-title">
-<span>Review</span>
-<span>2026</span>
-</div>
-</div>
-</div>
-</a>
-<div class="project-body">
-<h3><a data-en="Review 2026" data-ru="Review 2026" href="reports/review-2026.html" rel="noopener" target="_blank">Review 2026</a></h3>
-<p data-en="A comprehensive management review of KPIs, projects, teams, reporting, and development plans." data-ru="Комплексный управленческий обзор KPI, проектов, команд, отчетности и планов развития.">Комплексный управленческий обзор KPI, проектов, команд, отчетности и планов развития.</p>
-<div class="project-actions">
-<a class="project-action primary" href="reports/review-2026.html" rel="noopener" target="_blank">
-<span data-en="View report" data-ru="Открыть отчет">Открыть отчет</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2"></path></svg>
-</a>
-<a aria-label="Открыть исходник Review 2026 на GitHub" class="project-action repo" href="https://github.com/eshneesh/portfolio/blob/main/reports/review-2026.html" rel="noopener" target="_blank">
-<span>GitHub</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><circle cx="7" cy="5" r="2" stroke="currentColor" stroke-width="2"></circle><circle cx="17" cy="5" r="2" stroke="currentColor" stroke-width="2"></circle><circle cx="17" cy="19" r="2" stroke="currentColor" stroke-width="2"></circle><path d="M7 7v5a4 4 0 0 0 4 4h4M17 7v10" stroke="currentColor" stroke-width="2"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</article>
-</div>
-</div>
-<div class="project-group-head reveal">
-<div class="project-group-copy">
-<span class="project-group-label">Power BI / Workstreams</span>
-<h3 data-en="Private BI cases" data-ru="Закрытые BI-кейсы">Закрытые BI-кейсы</h3>
-</div>
-</div>
-<figure aria-label="Projects terminal visual" class="projects-terminal-visual reveal">
-<img alt="Черный terminal-style визуал с пиксельными руками и папкой projects" decoding="async" height="675" loading="lazy" src="assets/it-variant/projects-hands.jpg" width="1200"/>
-</figure>
-<div class="project-grid">
-<article class="project-card reveal">
-<a aria-disabled="true" class="project-link is-disabled">
-<div class="project-cover">
-<div class="cover-inner">
-<div class="cover-top">
-<span>Company 01 / Finance</span>
-<span>Monthly</span>
-</div>
-<div class="cover-title">
-<span>Revenue</span>
-<span>BI</span>
-</div>
-</div>
-</div>
-<div class="project-body">
-<h3 data-en="Revenue report" data-ru="Отчет по доходам">Отчет по доходам</h3>
-<p data-en="Monthly analytics of Company 01 financial performance: trends, metrics, and breakdowns by service and business direction." data-ru="Ежемесячная аналитика финансовых показателей Компании 01: динамика, метрики и детализация по услугам и направлениям.">Ежемесячная аналитика финансовых показателей Компании 01: динамика, метрики и детализация по услугам и направлениям.</p>
-<div class="project-foot">
-<span data-en="Case soon" data-ru="Кейс скоро">Кейс скоро</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<path d="M7 17 17 7" stroke="currentColor" stroke-width="2"></path>
-<path d="M8 7h9v9" stroke="currentColor" stroke-width="2"></path>
-</svg>
-</div>
-</div>
-</a>
-</article>
-<article class="project-card reveal">
-<a aria-disabled="true" class="project-link is-disabled">
-<div class="project-cover">
-<div class="cover-inner">
-<div class="cover-top">
-<span>Requests / LKS</span>
-<span>Metrics 01 · 02</span>
-</div>
-<div class="cover-title">
-<span>Service</span>
-<span>Flow</span>
-</div>
-</div>
-</div>
-<div class="project-body">
-<h3 data-en="Personal account requests" data-ru="Заявки в личном кабинете">Заявки в личном кабинете</h3>
-<p data-en="Monitoring request volumes, workflow stages, delays, and operational process quality." data-ru="Контроль объема заявок, этапов прохождения, просрочек и качества операционного процесса.">Контроль объема заявок, этапов прохождения, просрочек и качества операционного процесса.</p>
-<div class="project-foot">
-<span data-en="Case soon" data-ru="Кейс скоро">Кейс скоро</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<path d="M7 17 17 7" stroke="currentColor" stroke-width="2"></path>
-<path d="M8 7h9v9" stroke="currentColor" stroke-width="2"></path>
-</svg>
-</div>
-</div>
-</a>
-</article>
-<article class="project-card reveal">
-<a aria-disabled="true" class="project-link is-disabled">
-<div class="project-cover">
-<div class="cover-inner">
-<div class="cover-top">
-<span>Company / OPS</span>
-<span>Management</span>
-</div>
-<div class="cover-title">
-<span>Ops</span>
-<span>BI</span>
-</div>
-</div>
-</div>
-<div class="project-body">
-<h3 data-en="Company operations" data-ru="Операционная деятельность">Операционная деятельность</h3>
-<p data-en="A unified view of key company processes: trends, efficiency, variance, and management focus areas." data-ru="Единая картина ключевых процессов компании: динамика, эффективность, отклонения и зоны управленческого внимания.">Единая картина ключевых процессов компании: динамика, эффективность, отклонения и зоны управленческого внимания.</p>
-<div class="project-foot">
-<span data-en="Case soon" data-ru="Кейс скоро">Кейс скоро</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<path d="M7 17 17 7" stroke="currentColor" stroke-width="2"></path>
-<path d="M8 7h9v9" stroke="currentColor" stroke-width="2"></path>
-</svg>
-</div>
-</div>
-</a>
-</article>
-<article class="project-card reveal">
-<a aria-disabled="true" class="project-link is-disabled">
-<div class="project-cover">
-<div class="cover-inner">
-<div class="cover-top">
-<span>Tenders / OPS</span>
-<span>Process · Metrics</span>
-</div>
-<div class="cover-title">
-<span>Tender</span>
-<span>Pulse</span>
-</div>
-</div>
-</div>
-<div class="project-body">
-<h3 data-en="Process analytics" data-ru="Аналитика процесса">Аналитика процесса</h3>
-<p data-en="Process monitoring through statuses and metrics, from high-level trends to owner-level detail." data-ru="Контроль процесса через статусы и метрики: от общей динамики до детализации по ответственным.">Контроль процесса через статусы и метрики: от общей динамики до детализации по ответственным.</p>
-<div class="project-foot">
-<span data-en="Case soon" data-ru="Кейс скоро">Кейс скоро</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<path d="M7 17 17 7" stroke="currentColor" stroke-width="2"></path>
-<path d="M8 7h9v9" stroke="currentColor" stroke-width="2"></path>
-</svg>
-</div>
-</div>
-</a>
-</article>
-<article class="project-card reveal">
-<a aria-disabled="true" class="project-link is-disabled">
-<div class="project-cover">
-<div class="cover-inner">
-<div class="cover-top">
-<span>Infrastructure</span>
-<span>Projects</span>
-</div>
-<div class="cover-title">
-<span>Infra</span>
-<span>Works</span>
-</div>
-</div>
-</div>
-<div class="project-body">
-<h3 data-en="Infrastructure projects" data-ru="Инфраструктурные проекты">Инфраструктурные проекты</h3>
-<p data-en="Analytics for project portfolios, delivery stages, timelines, contractors, and infrastructure delivery risks." data-ru="Аналитика портфеля проектов, этапов реализации, сроков, контрагентов и рисков инфраструктурных работ.">Аналитика портфеля проектов, этапов реализации, сроков, контрагентов и рисков инфраструктурных работ.</p>
-<div class="project-foot">
-<span data-en="Case soon" data-ru="Кейс скоро">Кейс скоро</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<path d="M7 17 17 7" stroke="currentColor" stroke-width="2"></path>
-<path d="M8 7h9v9" stroke="currentColor" stroke-width="2"></path>
-</svg>
-</div>
-</div>
-</a>
-</article>
-<article class="project-card reveal">
-<a aria-disabled="true" class="project-link is-disabled">
-<div class="project-cover">
-<div class="cover-inner">
-<div class="cover-top">
-<span>Departments</span>
-<span>Workflow</span>
-</div>
-<div class="cover-title">
-<span>Team</span>
-<span>Ops</span>
-</div>
-</div>
-</div>
-<div class="project-body">
-<h3 data-en="Department tasks and operations" data-ru="Задачи отделов и операционка">Задачи отделов и операционка</h3>
-<p data-en="Tracking department tasks, workload, timelines, and outcomes, with analytics for additional recurring operations." data-ru="Контроль задач, загрузки, сроков и результатов отделов, дополненный аналитикой других регулярных процессов.">Контроль задач, загрузки, сроков и результатов отделов, дополненный аналитикой других регулярных процессов.</p>
-<div class="project-foot">
-<span data-en="Case soon" data-ru="Кейс скоро">Кейс скоро</span>
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<path d="M7 17 17 7" stroke="currentColor" stroke-width="2"></path>
-<path d="M8 7h9v9" stroke="currentColor" stroke-width="2"></path>
-</svg>
-</div>
-</div>
-</a>
-</article>
-</div>
-</div>
-</div>
-</section>
-<section class="section-band" id="systems">
-<div class="shell section">
-<aside class="section-label reveal">
-<span class="section-kicker">02 / Expertise</span>
-<p data-en="Recurring BI products, rapid research, and executive HTML reports within one analytical practice." data-ru="Регулярные BI-продукты, быстрые исследования и управленческие HTML-отчеты в одном рабочем контуре.">Регулярные BI-продукты, быстрые исследования и управленческие HTML-отчеты в одном рабочем контуре.</p>
-</aside>
-<div>
-<h2 class="section-title reveal" data-en="Expertise" data-ru="Экспертиза">Работаю на стыке бизнес-задач, данных и отчетных систем.</h2>
-<div class="capability-grid">
-<div aria-label="Animated data planet" class="terminal-video-card reveal">
-<video autoplay="" loop="" muted="" playsinline="" preload="auto" src="assets/it-variant/planet-loop.mp4"></video>
-</div>
-<div class="capability-list reveal">
-<article class="capability-row">
-<span class="num">01</span>
-<div>
-<h3 data-en="End-to-end analytics" data-ru="Полный цикл аналитики">Полный цикл аналитики</h3>
-<p data-en="I gather requirements, investigate sources, define metric logic, and carry the solution through to visualization." data-ru="Собираю требования, разбираюсь в источниках, определяю логику метрик и довожу решение до визуализации.">Собираю требования, разбираюсь в источниках, определяю логику метрик и довожу решение до визуализации.</p>
-</div>
-<span class="tag">End-to-end</span>
-</article>
-<article class="capability-row">
-<span class="num">02</span>
-<div>
-<h3 data-en="Reporting automation" data-ru="Автоматизация отчетности">Автоматизация отчетности</h3>
-<p data-en="I build and administer Power BI reports that refresh regularly and support teams in their day-to-day work." data-ru="Создаю и администрирую Power BI-отчеты, которые регулярно обновляются и поддерживают ежедневную работу команд.">Создаю и администрирую Power BI-отчеты, которые регулярно обновляются и поддерживают ежедневную работу команд.</p>
-</div>
-<span class="tag">Power BI</span>
-</article>
-<article class="capability-row">
-<span class="num">03</span>
-<div>
-<h3 data-en="Ad hoc research" data-ru="Ad hoc исследования">Ad hoc исследования</h3>
-<p data-en="I take on one-off questions in new domains, learn the context quickly, and deliver an evidence-based analytical answer." data-ru="Беру разовые запросы по новым направлениям, быстро погружаюсь в контекст и собираю аргументированный аналитический ответ.">Беру разовые запросы по новым направлениям, быстро погружаюсь в контекст и собираю аргументированный аналитический ответ.</p>
-</div>
-<span class="tag">Ad hoc</span>
-</article>
-<article class="capability-row">
-<span class="num">04</span>
-<div>
-<h3 data-en="Executive HTML reports" data-ru="Управленческие HTML-отчеты">Управленческие HTML-отчеты</h3>
-<p data-en="I build interactive materials for department reviews with the CEO, bringing together metrics, conclusions, and management focus." data-ru="Собираю интерактивные материалы для ревью департамента перед генеральным директором: показатели, выводы и управленческий фокус.">Собираю интерактивные материалы для ревью департамента перед генеральным директором: показатели, выводы и управленческий фокус.</p>
-</div>
-<span class="tag">HTML</span>
-</article>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section-band" id="about">
-<div class="shell section">
-<aside class="section-label reveal">
-<span class="section-kicker">03 / Experience</span>
-<p data-en="During my first year at the company, I grew from intern to an independent analyst supporting strategic directions." data-ru="За первый год в компании: рост от стажера до самостоятельного аналитика стратегических направлений.">За первый год в компании: рост от стажера до самостоятельного аналитика стратегических направлений.</p>
-</aside>
-<div>
-<h2 class="section-title reveal" data-en="Experience" data-ru="Опыт">От стажера к аналитику, которому доверяют полный цикл.</h2>
-<div class="about-grid">
-<div class="about-copy reveal">
-<p data-en="I joined Company 01 as an intern and, in about a year, grew into a full team member working closely with key strategic directions, administering reporting, and independently owning analytical tasks." data-ru="Я пришла в Компанию 01 стажером и примерно за год выросла до полноценного сотрудника, который тесно взаимодействует с ключевыми стратегическими направлениями, администрирует отчетность и самостоятельно ведет аналитические задачи.">Я пришла в Компанию 01 стажером и примерно за год выросла до полноценного сотрудника, который тесно взаимодействует с ключевыми стратегическими направлениями, администрирует отчетность и самостоятельно ведет аналитические задачи.</p>
-<p data-en="I am especially interested in roles at the intersection of business and IT, where the work is to uncover the real need, assemble reliable data, align on metrics, and make the result clear to decision-makers." data-ru="Мне особенно интересны роли на стыке бизнеса и IT: там, где нужно понять реальную потребность, аккуратно собрать данные, договориться о метриках и сделать результат понятным для тех, кто принимает решения.">Мне особенно интересны роли на стыке бизнеса и IT: там, где нужно понять реальную потребность, аккуратно собрать данные, договориться о метриках и сделать результат понятным для тех, кто принимает решения.</p>
-<p data-en="My next professional focus is to deepen my skills in data, BI, and analytics while maintaining a strong connection to business context." data-ru="Следующий профессиональный фокус: углублять компетенции в работе с данными, BI и аналитике, сохраняя сильную связь с бизнес-контекстом.">Следующий профессиональный фокус: углублять компетенции в работе с данными, BI и аналитике, сохраняя сильную связь с бизнес-контекстом.</p>
-</div>
-<aside class="profile-card reveal">
-<h3 data-en="My professional scope:" data-ru="Мой рабочий контур:">Мой рабочий контур.</h3>
-<div class="profile-list">
-<div>
-<span data-en="Company" data-ru="Компания">Компания</span>
-<strong>Компания 01 / Company 01</strong>
-</div>
-<div>
-<span data-en="Experience" data-ru="Опыт">Опыт</span>
-<strong data-en="about one year" data-ru="около года">около года</strong>
-</div>
-<div>
-<span data-en="Growth" data-ru="Рост">Рост</span>
-<strong data-en="intern → analyst" data-ru="стажер → аналитик">стажер → аналитик</strong>
-</div>
-<div>
-<span data-en="Focus" data-ru="Фокус">Фокус</span>
-<strong data-en="business × IT" data-ru="бизнес × IT">бизнес × IT</strong>
-</div>
-</div>
-</aside>
-</div>
-</div>
-</div>
-</section>
-<section class="shell contact-section" id="contact">
-<h2 class="contact-title reveal" data-en="Growing where <span>business meets IT.</span>" data-ru="Давайте общаться и <span>развиваться вместе!</span>">Развиваюсь там, где <span>бизнес встречается с IT.</span></h2>
-<div class="contact-copy reveal">
-<p data-en="I want to deepen my data and analytics expertise while maintaining a strong connection to business context and real decisions." data-ru="Хочу углублять компетенции в работе с данными и аналитике, сохраняя сильную связь с бизнес-контекстом и реальными решениями.">Хочу углублять компетенции в работе с данными и аналитике, сохраняя сильную связь с бизнес-контекстом и реальными решениями.</p>
-<div class="contact-links">
-<a aria-label="Telegram: @eshneesh" class="contact-link" href="https://t.me/eshneesh" rel="noopener noreferrer" target="_blank">
-<span>Telegram</span>
-<span class="contact-value">@eshneesh</span>
-</a>
-<a aria-label="Email: msfryabikova@gmail.com" class="contact-link" href="mailto:msfryabikova@gmail.com">
-<span>Email</span>
-<span class="contact-value">msfryabikova@gmail.com</span>
-</a>
-<a aria-label="GitHub: eshneesh" class="contact-link" href="https://github.com/eshneesh" rel="noopener noreferrer" target="_blank">
-<span>GitHub</span>
-<span class="contact-value">github.com/eshneesh</span>
-</a>
-</div>
-</div>
-</section>
-</main>
-<footer class="shell site-footer">
-</footer>
-<script>
-    const languageButtons = document.querySelectorAll("[data-set-lang]");
-    const translatable = document.querySelectorAll("[data-ru][data-en]");
+  <a class="skip-link" href="#main" data-ru="К содержанию" data-en="Skip to content">К содержанию</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" data-ru="Анастасия Рябикова" data-en="Anastasia Ryabikova">Анастасия Рябикова</a>
+      <div class="header-right">
+        <nav class="nav" aria-label="Основная навигация">
+          <a href="#experience" data-ru="Опыт" data-en="Experience">Опыт</a>
+          <a href="#projects" data-ru="Проекты" data-en="Projects">Проекты</a>
+          <a href="#skills" data-ru="Навыки" data-en="Skills">Навыки</a>
+          <a href="#contact" data-ru="Контакты" data-en="Contact">Контакты</a>
+        </nav>
+        <div class="language" aria-label="Language">
+          <button type="button" data-lang="ru" aria-pressed="true">RU</button><span aria-hidden="true">/</span><button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
 
+  <main id="main">
+    <section class="shell hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="role" data-ru="Аналитик данных / BI-аналитик" data-en="Data Analyst / BI Analyst">Аналитик данных / BI-аналитик</p>
+        <h1 id="hero-title" data-ru="Анастасия Рябикова" data-en="Anastasia Ryabikova">Анастасия Рябикова</h1>
+        <p class="hero-summary" data-ru="Разрабатываю управленческую и операционную отчётность, готовлю данные с помощью SQL и автоматизирую расчёты на Python. Согласовываю бизнес-требования и довожу решения до внедрения." data-en="I build management and operational reporting, prepare data with SQL, and automate calculations with Python. I define business requirements and deliver working tools.">Разрабатываю управленческую и операционную отчётность, готовлю данные с помощью SQL и автоматизирую расчёты на Python. Согласовываю бизнес-требования и довожу решения до внедрения.</p>
+        <div class="hero-links">
+          <a class="text-link" href="#projects" data-ru="Смотреть проекты" data-en="View projects">Смотреть проекты</a>
+          <a class="text-link" href="mailto:msfryabikova@gmail.com" data-ru="Написать мне" data-en="Contact me">Написать мне</a>
+        </div>
+      </div>
+      <figure class="portrait"><img src="assets/portrait-hero-gray-studio.jpg" width="1200" height="900" alt="Портрет Анастасии Рябиковой" loading="eager" decoding="async"></figure>
+    </section>
+
+    <section class="section shell" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading"><h2 id="experience-title" data-ru="Опыт" data-en="Experience">Опыт</h2></div>
+      <div class="experience-layout">
+        <div class="period" data-ru="Октябрь 2025 — настоящее время" data-en="October 2025 — present">Октябрь 2025 — настоящее время</div>
+        <div>
+          <h3 data-ru="Аналитик данных" data-en="Data Analyst">Аналитик данных</h3>
+          <p class="company" data-ru="МГТС" data-en="MGTS">МГТС</p>
+          <ul class="experience-list">
+            <li data-ru="Разработала и сопровождала 8 управленческих и операционных дашбордов. Для их построения готовила агрегированные таблицы с помощью SQL." data-en="Built and maintained eight management and operational dashboards, preparing aggregated SQL tables for the underlying data.">Разработала и сопровождала 8 управленческих и операционных дашбордов. Для их построения готовила агрегированные таблицы с помощью SQL.</li>
+            <li data-ru="Писала Python-скрипты для трансформации данных и автоматизации отчётности; выполняла разовые аналитические запросы на SQL." data-en="Wrote Python scripts to transform data and automate reporting, and handled ad hoc analytical requests in SQL.">Писала Python-скрипты для трансформации данных и автоматизации отчётности; выполняла разовые аналитические запросы на SQL.</li>
+            <li data-ru="В III квартале 2026 года автоматизировала расчёт KPI сотрудников: разработала скрипты, методологию и документацию для расчёта плановых показателей." data-en="In Q3 2026, automated employee KPI calculations, writing scripts, calculation methodology, and documentation for target metrics.">В III квартале 2026 года автоматизировала расчёт KPI сотрудников: разработала скрипты, методологию и документацию для расчёта плановых показателей.</li>
+            <li data-ru="Доля автоматизированной отчётности департамента выросла с 30% до 60%. Участвовала в финансовой отчётности и прогнозировании доходов." data-en="The department's share of automated reporting grew from 30% to 60%. I also contributed to financial reporting and revenue forecasting.">Доля автоматизированной отчётности департамента выросла с 30% до 60%. Участвовала в финансовой отчётности и прогнозировании доходов.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading"><h2 id="projects-title" data-ru="Проекты" data-en="Projects">Проекты</h2></div>
+      <div class="project-list">
+        <article class="project">
+          <h3 data-ru="Конструктор HTML-отчётности" data-en="HTML reporting builder">Конструктор HTML-отчётности</h3>
+          <p data-ru="Вместе с командой AI, применяя агентный подход к разработке, создала внутренний ресурс для подготовки HTML-отчётов и запустила его в продакшен. У инструмента 20 постоянных пользователей в департаменте." data-en="Working with the AI team and using an agent-assisted development approach, I built and launched an internal HTML reporting tool. It has 20 regular users in the department.">Вместе с командой AI, применяя агентный подход к разработке, создала внутренний ресурс для подготовки HTML-отчётов и запустила его в продакшен. У инструмента 20 постоянных пользователей в департаменте.</p>
+        </article>
+        <article class="project">
+          <h3 data-ru="Автоматизация расчёта KPI" data-en="KPI calculation automation">Автоматизация расчёта KPI</h3>
+          <p data-ru="Написала скрипты и подготовила методологию и документацию по расчёту плановых показателей сотрудников. Проект реализован в III квартале 2026 года." data-en="Wrote scripts and prepared the methodology and documentation for calculating employee targets. Delivered in Q3 2026.">Написала скрипты и подготовила методологию и документацию по расчёту плановых показателей сотрудников. Проект реализован в III квартале 2026 года.</p>
+        </article>
+        <article class="project">
+          <h3 data-ru="Прогноз доходности портфеля" data-en="Portfolio return forecasting">Прогноз доходности портфеля</h3>
+          <p data-ru="Личный проект: аналитические модели и скрипты для прогнозирования доходности инвестиционного портфеля." data-en="Personal project: analytical models and scripts for forecasting investment portfolio returns.">Личный проект: аналитические модели и скрипты для прогнозирования доходности инвестиционного портфеля.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading"><h2 id="skills-title" data-ru="Навыки" data-en="Skills">Навыки</h2></div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3 data-ru="Данные" data-en="Data">Данные</h3>
+          <p data-ru="SQL (MS SQL), Python, Excel; выгрузка, агрегация и трансформация данных." data-en="SQL (MS SQL), Python, Excel; data extraction, aggregation, and transformation.">SQL (MS SQL), Python, Excel; выгрузка, агрегация и трансформация данных.</p>
+        </div>
+        <div class="skill-group">
+          <h3 data-ru="Отчётность" data-en="Reporting">Отчётность</h3>
+          <p data-ru="Power BI, HTML, CSS; дашборды, бизнес-метрики, KPI и автоматизация отчётности." data-en="Power BI, HTML, CSS; dashboards, business metrics, KPIs, and reporting automation.">Power BI, HTML, CSS; дашборды, бизнес-метрики, KPI и автоматизация отчётности.</p>
+        </div>
+        <div class="skill-group">
+          <h3 data-ru="Разработка решений" data-en="Delivery">Разработка решений</h3>
+          <p data-ru="Бизнес-требования, методология расчётов, документация и применение ИИ-агентов в работе." data-en="Business requirements, calculation methodology, documentation, and AI agents in development workflows.">Бизнес-требования, методология расчётов, документация и применение ИИ-агентов в работе.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="education" aria-labelledby="education-title">
+      <div class="section-heading"><h2 id="education-title" data-ru="Образование" data-en="Education">Образование</h2></div>
+      <div class="education-layout">
+        <div class="period" data-ru="2022–2026 · Москва" data-en="2022–2026 · Moscow">2022–2026 · Москва</div>
+        <div>
+          <h3 data-ru="Экономика, бакалавриат" data-en="BA in Economics">Экономика, бакалавриат</h3>
+          <p data-ru="РАНХиГС" data-en="RANEPA">РАНХиГС</p>
+          <p data-ru="Финансовые рынки и цифровые технологии" data-en="Financial Markets and Digital Technologies">Финансовые рынки и цифровые технологии</p>
+          <p class="education-note" data-ru="Учебные проекты: разработка BI-дашбордов." data-en="University projects: BI dashboard development.">Учебные проекты: разработка BI-дашбордов.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="section-heading"><h2 id="contact-title" data-ru="Контакты" data-en="Contact">Контакты</h2></div>
+      <div class="contact-links">
+        <a href="mailto:msfryabikova@gmail.com">msfryabikova@gmail.com</a>
+        <a href="https://t.me/eshneesh" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="https://github.com/eshneesh" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const languageButtons = document.querySelectorAll('[data-lang]');
+    const translatedElements = document.querySelectorAll('[data-ru][data-en]');
     function setLanguage(lang) {
       document.documentElement.lang = lang;
-      translatable.forEach((element) => {
-        const value = element.dataset[lang];
-        if (!value) return;
-        if (value.includes("<span>")) {
-          element.innerHTML = value;
-        } else {
-          element.textContent = value;
-        }
-      });
-
-      languageButtons.forEach((button) => {
-        button.setAttribute("aria-pressed", String(button.dataset.setLang === lang));
-      });
-
-      try {
-        localStorage.setItem("portfolio-language", lang);
-      } catch (error) {
-        return;
-      }
+      translatedElements.forEach((element) => { element.textContent = element.dataset[lang]; });
+      languageButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.lang === lang)));
+      document.title = lang === 'ru' ? 'Анастасия Рябикова — аналитик данных' : 'Anastasia Ryabikova — Data Analyst';
+      document.querySelector('meta[name="description"]').content = lang === 'ru'
+        ? 'Анастасия Рябикова — аналитик данных и BI-аналитик. SQL, Python, Power BI, автоматизация отчётности и управленческие дашборды.'
+        : 'Anastasia Ryabikova — Data Analyst and BI Analyst. SQL, Python, Power BI, reporting automation and management dashboards.';
+      document.querySelector('.nav').setAttribute('aria-label', lang === 'ru' ? 'Основная навигация' : 'Main navigation');
+      document.querySelector('.portrait img').alt = lang === 'ru' ? 'Портрет Анастасии Рябиковой' : 'Portrait of Anastasia Ryabikova';
+      try { localStorage.setItem('portfolio-language', lang); } catch (_) {}
     }
-
-    languageButtons.forEach((button) => {
-      button.addEventListener("click", () => setLanguage(button.dataset.setLang));
-    });
-
-    const savedLanguage = (() => {
-      try {
-        return localStorage.getItem("portfolio-language");
-      } catch (error) {
-        return null;
-      }
-    })();
-
-    setLanguage(savedLanguage === "en" ? "en" : "ru");
-
-    const revealItems = document.querySelectorAll(".reveal");
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    revealItems.forEach((item) => revealObserver.observe(item));
-
-    document.querySelectorAll("video[autoplay]").forEach((video) => {
-      video.muted = true;
-      video.play().catch(() => {});
-    });
+    languageButtons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
+    let savedLanguage = 'ru';
+    try { savedLanguage = localStorage.getItem('portfolio-language') === 'en' ? 'en' : 'ru'; } catch (_) {}
+    setLanguage(savedLanguage);
   </script>
 </body>
 </html>
