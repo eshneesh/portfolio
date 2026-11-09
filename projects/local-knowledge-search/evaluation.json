@@ -1,0 +1,10 @@
+[
+  {"query":"SLA compliance closed events", "source":"service-metrics.md"},
+  {"query":"duplicate identifiers reject", "source":"data-quality.md"},
+  {"query":"missing amounts unknown", "source":"data-quality.md"},
+  {"query":"manifest SHA-256 digest", "source":"reproducibility.md"},
+  {"query":"HTML escaping scripts", "source":"report-format.md"},
+  {"query":"calendar hours resolution duration", "source":"service-metrics.md"},
+  {"query":"quantum entanglement", "source":null},
+  {"query":"     ", "source":null}
+]

@@ -1,0 +1,4 @@
+category,total_events,closed_events,open_events,mean_closed_hours,sla_rate
+Access,39,32,7,51.94,0.5
+Delivery,41,32,9,43.5,0.5938
+Support,40,32,8,41.25,0.6875

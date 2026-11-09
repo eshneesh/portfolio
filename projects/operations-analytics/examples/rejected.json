@@ -1,0 +1,17 @@
+[
+  {
+    "line": 8,
+    "id": "EV-DUP",
+    "reason": "empty_or_duplicate_id"
+  },
+  {
+    "line": 9,
+    "id": "EV-DUP",
+    "reason": "empty_or_duplicate_id"
+  },
+  {
+    "line": 10,
+    "id": "EV-BAD",
+    "reason": "negative_duration"
+  }
+]

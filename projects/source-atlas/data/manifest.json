@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "sources": [
+    {"name":"accounts","path":"accounts.csv"},
+    {"name":"events","path":"events.csv"}
+  ],
+  "relationships": [
+    {"child":"events","child_key":"account_id","parent":"accounts","parent_key":"account_id"}
+  ]
+}

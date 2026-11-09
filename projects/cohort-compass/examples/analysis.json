@@ -1,0 +1,227 @@
+{
+  "as_of_month": "2025-06",
+  "abcxyz_window_months": 3,
+  "cohorts": {
+    "accounts": [
+      {
+        "account": "DEMO-A",
+        "observed_cohort": "2025-01",
+        "left_censored": true
+      },
+      {
+        "account": "DEMO-B",
+        "observed_cohort": "2025-02",
+        "left_censored": false
+      },
+      {
+        "account": "DEMO-C",
+        "observed_cohort": "2025-01",
+        "left_censored": true
+      },
+      {
+        "account": "DEMO-D",
+        "observed_cohort": "2025-03",
+        "left_censored": true
+      },
+      {
+        "account": "DEMO-E",
+        "observed_cohort": "2025-03",
+        "left_censored": false
+      }
+    ],
+    "cells": [
+      {
+        "cohort": "2025-01",
+        "month": "2025-01",
+        "age_months": 0,
+        "cohort_size": 2,
+        "observed_accounts": 2,
+        "positive_accounts": 2,
+        "missing_accounts": 0,
+        "activity_rate_observed": 1.0
+      },
+      {
+        "cohort": "2025-01",
+        "month": "2025-02",
+        "age_months": 1,
+        "cohort_size": 2,
+        "observed_accounts": 2,
+        "positive_accounts": 2,
+        "missing_accounts": 0,
+        "activity_rate_observed": 1.0
+      },
+      {
+        "cohort": "2025-01",
+        "month": "2025-03",
+        "age_months": 2,
+        "cohort_size": 2,
+        "observed_accounts": 2,
+        "positive_accounts": 1,
+        "missing_accounts": 0,
+        "activity_rate_observed": 0.5
+      },
+      {
+        "cohort": "2025-01",
+        "month": "2025-04",
+        "age_months": 3,
+        "cohort_size": 2,
+        "observed_accounts": 2,
+        "positive_accounts": 1,
+        "missing_accounts": 0,
+        "activity_rate_observed": 0.5
+      },
+      {
+        "cohort": "2025-01",
+        "month": "2025-05",
+        "age_months": 4,
+        "cohort_size": 2,
+        "observed_accounts": 2,
+        "positive_accounts": 1,
+        "missing_accounts": 0,
+        "activity_rate_observed": 0.5
+      },
+      {
+        "cohort": "2025-01",
+        "month": "2025-06",
+        "age_months": 5,
+        "cohort_size": 2,
+        "observed_accounts": 2,
+        "positive_accounts": 1,
+        "missing_accounts": 0,
+        "activity_rate_observed": 0.5
+      },
+      {
+        "cohort": "2025-02",
+        "month": "2025-02",
+        "age_months": 0,
+        "cohort_size": 1,
+        "observed_accounts": 1,
+        "positive_accounts": 1,
+        "missing_accounts": 0,
+        "activity_rate_observed": 1.0
+      },
+      {
+        "cohort": "2025-02",
+        "month": "2025-03",
+        "age_months": 1,
+        "cohort_size": 1,
+        "observed_accounts": 1,
+        "positive_accounts": 1,
+        "missing_accounts": 0,
+        "activity_rate_observed": 1.0
+      },
+      {
+        "cohort": "2025-02",
+        "month": "2025-04",
+        "age_months": 2,
+        "cohort_size": 1,
+        "observed_accounts": 1,
+        "positive_accounts": 0,
+        "missing_accounts": 0,
+        "activity_rate_observed": 0.0
+      },
+      {
+        "cohort": "2025-02",
+        "month": "2025-05",
+        "age_months": 3,
+        "cohort_size": 1,
+        "observed_accounts": 1,
+        "positive_accounts": 1,
+        "missing_accounts": 0,
+        "activity_rate_observed": 1.0
+      },
+      {
+        "cohort": "2025-02",
+        "month": "2025-06",
+        "age_months": 4,
+        "cohort_size": 1,
+        "observed_accounts": 1,
+        "positive_accounts": 0,
+        "missing_accounts": 0,
+        "activity_rate_observed": 0.0
+      },
+      {
+        "cohort": "2025-03",
+        "month": "2025-03",
+        "age_months": 0,
+        "cohort_size": 2,
+        "observed_accounts": 2,
+        "positive_accounts": 2,
+        "missing_accounts": 0,
+        "activity_rate_observed": 1.0
+      },
+      {
+        "cohort": "2025-03",
+        "month": "2025-04",
+        "age_months": 1,
+        "cohort_size": 2,
+        "observed_accounts": 2,
+        "positive_accounts": 2,
+        "missing_accounts": 0,
+        "activity_rate_observed": 1.0
+      },
+      {
+        "cohort": "2025-03",
+        "month": "2025-05",
+        "age_months": 2,
+        "cohort_size": 2,
+        "observed_accounts": 1,
+        "positive_accounts": 1,
+        "missing_accounts": 1,
+        "activity_rate_observed": 1.0
+      },
+      {
+        "cohort": "2025-03",
+        "month": "2025-06",
+        "age_months": 3,
+        "cohort_size": 2,
+        "observed_accounts": 2,
+        "positive_accounts": 2,
+        "missing_accounts": 0,
+        "activity_rate_observed": 1.0
+      }
+    ]
+  },
+  "segments": [
+    {
+      "account": "DEMO-A",
+      "status": "classified",
+      "abc": "A",
+      "xyz": "X",
+      "amount": "300.00",
+      "cv": 0.0
+    },
+    {
+      "account": "DEMO-B",
+      "status": "classified",
+      "abc": "B",
+      "xyz": "Z",
+      "amount": "80.00",
+      "cv": 1.414214
+    },
+    {
+      "account": "DEMO-C",
+      "status": "no_activity",
+      "abc": "N",
+      "xyz": null,
+      "amount": "0.00",
+      "cv": null
+    },
+    {
+      "account": "DEMO-D",
+      "status": "insufficient_history",
+      "abc": null,
+      "xyz": null,
+      "amount": null,
+      "cv": null
+    },
+    {
+      "account": "DEMO-E",
+      "status": "classified",
+      "abc": "A",
+      "xyz": "Y",
+      "amount": "90.00",
+      "cv": 0.136083
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "as_of": "2025-02-01T00:00:00+00:00",
+  "input_rows": 9,
+  "accepted_rows": 6,
+  "rejected_rows": 3,
+  "open_count": 2,
+  "closed_count": 4,
+  "average_closed_hours": 39.0,
+  "sla_target_hours": 48,
+  "sla_on_time_count": 3,
+  "sla_closed_denominator": 4,
+  "sla_on_time_rate": 0.75,
+  "known_amount_sum": "480.50",
+  "missing_amount_count": 1,
+  "category_counts": {
+    "Delivery": 3,
+    "Support": 3
+  }
+}

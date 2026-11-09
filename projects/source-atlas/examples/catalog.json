@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "sources": {
+    "accounts": {
+      "row_count": 4,
+      "column_count": 2,
+      "columns": [
+        {
+          "column": "account_id",
+          "missing": 0,
+          "distinct_populated": 3,
+          "candidate_key": false
+        },
+        {
+          "column": "segment",
+          "missing": 0,
+          "distinct_populated": 3,
+          "candidate_key": false
+        }
+      ],
+      "duplicate_rows": 0,
+      "sha256": "d7a7a4a8b32c6ae65ddc7b173b7d5af3db6e189f9d771bbd1e9e61337b4d6ead"
+    },
+    "events": {
+      "row_count": 6,
+      "column_count": 3,
+      "columns": [
+        {
+          "column": "event_id",
+          "missing": 0,
+          "distinct_populated": 6,
+          "candidate_key": true
+        },
+        {
+          "column": "account_id",
+          "missing": 1,
+          "distinct_populated": 4,
+          "candidate_key": false
+        },
+        {
+          "column": "category",
+          "missing": 0,
+          "distinct_populated": 2,
+          "candidate_key": false
+        }
+      ],
+      "duplicate_rows": 0,
+      "sha256": "38dc7536fcc358cc9b512517c8b54419410c2e1d8759b8ca43e4e771901c1709"
+    }
+  },
+  "relationships": [
+    {
+      "child": "events",
+      "child_key": "account_id",
+      "parent": "accounts",
+      "parent_key": "account_id",
+      "child_rows": 6,
+      "missing_child_keys": 1,
+      "orphan_rows": 1,
+      "duplicate_parent_keys": 1,
+      "left_join_rows": 8,
+      "fanout_extra_rows": 2,
+      "safe_many_to_one": false
+    }
+  ]
+}

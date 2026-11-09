@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "title": "A clear view of service operations",
+  "subtitle": "A small, reproducible report built from fictional events. Four block types, one portable document.",
+  "period": "January 2025 · Calendar hours · Synthetic data",
+  "blocks": [
+    {"type":"kpis","title":"At a glance","items":[
+      {"label":"VALID EVENTS","value":"6","note":"9 input rows · 3 rejected"},
+      {"label":"CLOSED WITHIN SLA","value":"75%","note":"3 of 4 closed events · target ≤ 48 h"},
+      {"label":"MEAN RESOLUTION","value":"39 h","note":"Valid closed events only"},
+      {"label":"OPEN AT SNAPSHOT","value":"2","note":"As of 1 February 2025"}
+    ]},
+    {"type":"bars","title":"Workload by category","items":[{"label":"Support","value":3},{"label":"Delivery","value":3}]},
+    {"type":"table","title":"Metric definitions","columns":["Metric","Rule","Missing data"],"rows":[
+      ["SLA compliance","Closed in 48 calendar hours or less / all valid closed events","No closed events → unknown"],
+      ["Known amount sum","Sum of populated, valid amounts","Missing amounts remain unknown"],
+      ["Rejected records","Both copies of duplicate keys + invalid dates","Preserved in a rejection log"]
+    ]},
+    {"type":"text","title":"Interpretation and limits","body":"This is a presentation fixture aligned with the Operations Analytics example, not a live integration. Two events remain open and are excluded from closed-event SLA. One accepted event has no amount. No staffing, revenue growth or causal conclusions can be inferred from this small fictional sample."}
+  ]
+}

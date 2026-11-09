@@ -1,0 +1,24 @@
+// Add as separate measures to Events. Active relationship: Calendar[Date] -> Events[OpenedDate].
+// Closed cohort measures remain filtered by opening date.
+
+Events Count = COUNTROWS(Events)
+
+Closed Events = CALCULATE(COUNTROWS(Events), Events[status] = "closed")
+
+Open Events = CALCULATE(COUNTROWS(Events), Events[status] = "open")
+
+On Time Events =
+    CALCULATE(COUNTROWS(Events), Events[status] = "closed", Events[duration_hours] <= 48)
+
+SLA Rate = DIVIDE([On Time Events], [Closed Events])
+
+Mean Closed Hours =
+    CALCULATE(AVERAGE(Events[duration_hours]), Events[status] = "closed")
+
+// Add an INACTIVE relationship Calendar[Date] -> Events[ClosedDate] for this flow measure.
+Completions By Date =
+    CALCULATE(
+        [Closed Events],
+        CROSSFILTER('Calendar'[Date], Events[OpenedDate], NONE),
+        USERELATIONSHIP('Calendar'[Date], Events[ClosedDate])
+    )

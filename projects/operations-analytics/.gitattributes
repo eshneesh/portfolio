@@ -1,0 +1,11 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.sql text eol=lf
+*.yml text eol=lf
+*.csv text eol=lf
+
+# Preserve exact bytes of hashed output snapshots.
+examples/clean.csv -text whitespace=cr-at-eol
+examples/metrics.json -text whitespace=cr-at-eol
+examples/rejected.json -text whitespace=cr-at-eol

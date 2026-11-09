@@ -1,0 +1,55 @@
+{
+  "case_count": 8,
+  "passed": 8,
+  "top1_or_abstention_rate": 1.0,
+  "cases": [
+    {
+      "query": "SLA compliance closed events",
+      "expected": "service-metrics.md",
+      "actual": "service-metrics.md",
+      "passed": true
+    },
+    {
+      "query": "duplicate identifiers reject",
+      "expected": "data-quality.md",
+      "actual": "data-quality.md",
+      "passed": true
+    },
+    {
+      "query": "missing amounts unknown",
+      "expected": "data-quality.md",
+      "actual": "data-quality.md",
+      "passed": true
+    },
+    {
+      "query": "manifest SHA-256 digest",
+      "expected": "reproducibility.md",
+      "actual": "reproducibility.md",
+      "passed": true
+    },
+    {
+      "query": "HTML escaping scripts",
+      "expected": "report-format.md",
+      "actual": "report-format.md",
+      "passed": true
+    },
+    {
+      "query": "calendar hours resolution duration",
+      "expected": "service-metrics.md",
+      "actual": "service-metrics.md",
+      "passed": true
+    },
+    {
+      "query": "quantum entanglement",
+      "expected": null,
+      "actual": null,
+      "passed": true
+    },
+    {
+      "query": "     ",
+      "expected": null,
+      "actual": null,
+      "passed": true
+    }
+  ]
+}

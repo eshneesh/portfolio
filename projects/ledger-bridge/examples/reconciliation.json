@@ -1,0 +1,98 @@
+{
+  "input_rows": {
+    "left": 7,
+    "right": 5
+  },
+  "accepted_rows": {
+    "left": 6,
+    "right": 5
+  },
+  "status_counts": {
+    "ambiguous_duplicate": 1,
+    "amount_mismatch": 1,
+    "left_only": 1,
+    "matched": 2,
+    "right_only": 1
+  },
+  "currency_controls": {
+    "EUR": {
+      "left_valid_total": "60.00",
+      "right_valid_total": "60.00",
+      "left_minus_right": "0.00"
+    },
+    "USD": {
+      "left_valid_total": "265.00",
+      "right_valid_total": "250.00",
+      "left_minus_right": "15.00"
+    }
+  },
+  "records": [
+    {
+      "reference": "INV-001",
+      "currency": "USD",
+      "status": "matched",
+      "left_rows": 1,
+      "right_rows": 1,
+      "left_amount": "120.00",
+      "right_amount": "120.00",
+      "difference": "0.00"
+    },
+    {
+      "reference": "INV-002",
+      "currency": "USD",
+      "status": "amount_mismatch",
+      "left_rows": 1,
+      "right_rows": 1,
+      "left_amount": "80.00",
+      "right_amount": "75.00",
+      "difference": "5.00"
+    },
+    {
+      "reference": "INV-003",
+      "currency": "USD",
+      "status": "left_only",
+      "left_rows": 1,
+      "right_rows": 0,
+      "left_amount": "40.00",
+      "right_amount": null,
+      "difference": null
+    },
+    {
+      "reference": "INV-004",
+      "currency": "USD",
+      "status": "ambiguous_duplicate",
+      "left_rows": 2,
+      "right_rows": 1,
+      "left_amount": null,
+      "right_amount": "25.00",
+      "difference": null
+    },
+    {
+      "reference": "INV-005",
+      "currency": "EUR",
+      "status": "matched",
+      "left_rows": 1,
+      "right_rows": 1,
+      "left_amount": "60.00",
+      "right_amount": "60.00",
+      "difference": "0.00"
+    },
+    {
+      "reference": "INV-006",
+      "currency": "USD",
+      "status": "right_only",
+      "left_rows": 0,
+      "right_rows": 1,
+      "left_amount": null,
+      "right_amount": "30.00",
+      "difference": null
+    }
+  ],
+  "rejected": [
+    {
+      "side": "left",
+      "line": 8,
+      "reason": "invalid_reference"
+    }
+  ]
+}

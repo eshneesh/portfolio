@@ -1,0 +1,29 @@
+{
+  "status": "evidence_found",
+  "evidence": [
+    {
+      "id": "ffed8586525bdd43",
+      "source": "service-metrics.md",
+      "line": 3,
+      "text": "SLA compliance is the number of closed events resolved within 48 calendar hours divided by all valid closed events. The boundary is inclusive. Open events are excluded. If no closed events exist, compliance is unknown rather than zero.",
+      "document_sha256": "866867f6ab0d3e0b52034310d0f701a53999b31664036fa445a8b18c77e0a6f3",
+      "score": 8.948133
+    },
+    {
+      "id": "34e2f1004bb36fa0",
+      "source": "service-metrics.md",
+      "line": 7,
+      "text": "The average resolution duration uses valid closed events only. It does not describe waiting time for events that remain open.",
+      "document_sha256": "866867f6ab0d3e0b52034310d0f701a53999b31664036fa445a8b18c77e0a6f3",
+      "score": 3.964215
+    },
+    {
+      "id": "507d645cd5e78779",
+      "source": "service-metrics.md",
+      "line": 5,
+      "text": "Resolution duration is measured from opened_at to closed_at using timezone-aware timestamps. This example uses elapsed calendar hours, not business hours. Negative durations are invalid.",
+      "document_sha256": "866867f6ab0d3e0b52034310d0f701a53999b31664036fa445a8b18c77e0a6f3",
+      "score": 1.205315
+    }
+  ]
+}

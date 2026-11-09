@@ -1,0 +1,5 @@
+reference,currency,status,left_rows,right_rows,left_amount,right_amount,difference
+INV-002,USD,amount_mismatch,1,1,80.00,75.00,5.00
+INV-003,USD,left_only,1,0,40.00,,
+INV-004,USD,ambiguous_duplicate,2,1,,25.00,
+INV-006,USD,right_only,0,1,,30.00,

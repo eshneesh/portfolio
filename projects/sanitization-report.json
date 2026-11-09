@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-09",
+  "checked_files": 80,
+  "check_categories": [
+    "known_internal_identifiers",
+    "email",
+    "personal_machine_path",
+    "ipv4",
+    "credential_url",
+    "private_key",
+    "known_token_formats",
+    "forbidden_artifact"
+  ],
+  "finding_count": 0,
+  "findings": [],
+  "scope": "New standalone demo sources and synthetic fixtures only; no original repositories or Git history included."
+}

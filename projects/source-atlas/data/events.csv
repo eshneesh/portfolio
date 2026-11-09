@@ -1,0 +1,7 @@
+event_id,account_id,category
+E-01,A-01,Support
+E-02,A-02,Support
+E-03,A-02,Delivery
+E-04,A-03,Delivery
+E-05,A-99,Support
+E-06,,Support

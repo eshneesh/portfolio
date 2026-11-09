@@ -1,0 +1,10 @@
+{
+  "input_sha256": "38aba4f86954cab7c03f0142b196b28c24e4a7d3528834cdb65923a982203284",
+  "as_of": "2025-02-01T00:00:00+00:00",
+  "engine_sha256": "372d5decd4c140628398e794f141f37d87bf061c1763b1d0f8364c551b7fff67",
+  "artifacts": {
+    "clean.csv": "71f8053db2fc08e9df4be22e4ad4cc66b7734653fdc8487d2bcd4c26274afe47",
+    "metrics.json": "8f767076a361841a11fe5ab3a0a614e7504b3ae9738f73ed38f210f42b6a7b6e",
+    "rejected.json": "22d903b2846cb71f6e46c2e8ab638204111b3a5247da609fea0c4a5129b6ed1c"
+  }
+}
